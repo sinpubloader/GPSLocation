@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <com.fom.rapid.views.RapidRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:measureMargin="true"
+        app:measureWith="-1"
+        app:resizeChildren="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/header">
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:layout_width="30px"
+                android:layout_height="61px"
+                android:layout_centerInParent="true"
+                android:src="@drawable/map_location" />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginHorizontal="100px"
+                android:layout_marginLeft="100px"
+                android:layout_marginTop="50px"
+                android:layout_marginRight="100px"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center_vertical"
+                android:lines="2"
+                android:text="@string/gps65"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
+        </RelativeLayout>
+    </com.fom.rapid.views.RapidRelativeLayout>
+</layout>

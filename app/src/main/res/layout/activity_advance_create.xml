@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <com.fom.rapid.views.RapidRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/mainAcRl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/b_bg"
+        android:backgroundTint="@color/white"
+        app:measureMargin="true"
+        app:measurePadding="true"
+        app:measureWith="-1"
+        app:resizeChildren="true">
+
+        <RelativeLayout
+            android:id="@+id/HeaderRl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <RelativeLayout
+                android:id="@+id/header"
+                android:layout_width="1080px"
+                android:layout_height="180px"
+                android:layout_alignParentTop="true">
+
+                <RelativeLayout
+                    android:id="@+id/back"
+                    android:layout_width="105px"
+                    android:layout_height="105px"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="50px"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginRight="50px">
+
+                    <ImageView
+                        android:layout_width="63px"
+                        android:layout_height="47px"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/effect_back" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/ac_6"
+                    android:layout_width="180px"
+                    android:layout_height="80px"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="50px"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginRight="50px"
+                    android:background="@drawable/rectangle_bg3"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:gravity="center"
+                    android:text="@string/gps32"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toLeftOf="@+id/ac_6"
+                    android:layout_toRightOf="@+id/back"
+                    android:fontFamily="@font/gilroy_semi_bold"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:text="@string/gpl24"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+            </RelativeLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/headerTwo"
+                android:layout_width="match_parent"
+                android:layout_height="180px"
+                android:layout_below="@+id/header">
+
+                <ImageView
+                    android:id="@+id/ac_1"
+                    android:layout_width="120px"
+                    android:layout_height="120px"
+                    android:src="@drawable/grey_1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ac_2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ac_2"
+                    android:layout_width="120px"
+                    android:layout_height="120px"
+                    android:src="@drawable/grey_2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ac_3"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/ac_1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ac_3"
+                    android:layout_width="120px"
+                    android:layout_height="120px"
+                    android:src="@drawable/blue_3"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ac_4"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/ac_2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ac_4"
+                    android:layout_width="120px"
+                    android:layout_height="120px"
+                    android:src="@drawable/grey_4"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ac_5"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/ac_3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/ac_5"
+                    android:layout_width="120px"
+                    android:layout_height="120px"
+                    android:src="@drawable/grey_5"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/ac_4"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+        <FrameLayout
+            android:id="@+id/Ad_Native"
+            android:layout_below="@+id/HeaderRl"
+            style="@style/medium_attr"/>
+        <RelativeLayout
+            android:id="@+id/mainImageRl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/Ad_Native">
+
+            <ImageView
+                android:id="@+id/gcPreview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:id="@+id/cityCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="120px"
+                android:layout_centerInParent="true"
+                android:layout_margin="20px"
+                android:background="@drawable/border"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:lines="1"
+                android:paddingHorizontal="50px"
+                android:paddingLeft="50px"
+                android:paddingRight="50px"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                android:visibility="gone" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/mapViewRl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="5dp"
+                android:layout_margin="7dp"
+                android:layout_centerInParent="true"
+                app:cardCornerRadius="@dimen/_15sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.gms.maps.MapView
+                        android:id="@+id/mapView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <ImageView
+                        android:id="@+id/mapPreview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:id="@+id/layoutRl"
+                android:layout_width="1080px"
+                android:layout_height="580px"
+                android:layout_alignParentBottom="true">
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </com.fom.rapid.views.RapidRelativeLayout>
+</layout>

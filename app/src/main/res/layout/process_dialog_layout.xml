@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <com.fom.rapid.views.RapidRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:measureMargin="true"
+        app:measureWith="-1"
+        app:resizeChildren="true">
+
+        <LinearLayout
+            android:id="@+id/mainCl"
+            android:layout_width="965px"
+            android:layout_height="455px"
+            android:background="@drawable/please_wait_popup"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/gif"
+                android:layout_width="546px"
+                android:layout_height="269px"
+
+                android:src="@drawable/loading" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:text="@string/gps38"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_16sdp" />
+        </LinearLayout>
+    </com.fom.rapid.views.RapidRelativeLayout>
+</layout>

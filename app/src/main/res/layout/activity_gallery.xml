@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg">
+
+        <com.fom.rapid.views.RapidRelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            app:measureMargin="true"
+            app:measureWith="-1"
+            app:resizeChildren="true">
+
+            <RelativeLayout
+                android:id="@+id/rlOne"
+                android:layout_width="1080px"
+                android:layout_height="180px">
+
+                <RelativeLayout
+                    android:id="@+id/back"
+                    android:layout_width="105px"
+                    android:layout_height="105px"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="50px"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginRight="50px">
+
+                    <ImageView
+                        android:layout_width="63px"
+                        android:layout_height="47px"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/effect_back" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/back"
+                    android:fontFamily="@font/gilroy_semi_bold"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:text="@string/gpl28"
+                    android:textColor="@color/txt_one"
+                    android:textSize="@dimen/_15sdp" />
+            </RelativeLayout>
+        </com.fom.rapid.views.RapidRelativeLayout>
+        <FrameLayout
+            android:id="@+id/Ad_Native"
+            android:layout_below="@+id/header"
+            style="@style/medium_attr"/>
+
+        <RelativeLayout
+            android:id="@+id/mapRl"
+            android:layout_width="300px"
+            android:layout_height="400px"
+            android:layout_below="@+id/Ad_Native"
+            android:layout_alignParentLeft="true">
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg"
+                android:scaleType="centerCrop" />
+        </RelativeLayout>
+
+        <com.fom.rapid.views.RapidRecyclerView
+            android:id="@+id/folder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Ad_Native"
+            android:layout_centerHorizontal="true"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2" />
+
+        <com.fom.rapid.views.RapidRecyclerView
+            android:id="@+id/item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Ad_Native"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3" />
+
+        <ImageView
+            android:id="@+id/noData"
+            android:layout_width="500px"
+            android:layout_height="339px"
+            android:layout_centerInParent="true"
+            android:src="@drawable/no_data"
+            android:visibility="gone" />
+    </RelativeLayout>
+</layout>

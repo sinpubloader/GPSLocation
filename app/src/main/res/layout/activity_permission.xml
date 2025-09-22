@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <com.fom.rapid.views.RapidRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:measureMargin="true"
+        app:measureWith="-1"
+        app:resizeChildren="true">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="549px"
+            android:layout_height="359px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="50px"
+            android:layout_marginTop="50px"
+            android:layout_marginBottom="50px"
+            android:src="@drawable/permission" />
+
+        <LinearLayout
+            android:id="@+id/detailsLl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_semi_bold"
+                android:text="@string/gps68"
+                android:textColor="@color/txt_one"
+                android:textSize="@dimen/_20sdp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50px"
+                android:layout_marginLeft="50px"
+                android:layout_marginRight="50px"
+                android:fontFamily="@font/gilroy_regular"
+                android:gravity="center"
+                android:text="@string/gps69"
+                android:textColor="@color/txt_three"
+                android:textSize="@dimen/_15sdp" />
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/Ad_Native"
+            android:layout_below="@+id/detailsLl">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/cameraRl"
+                        android:layout_width="920px"
+                        android:layout_height="169px"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_round_main_white">
+
+                        <ImageView
+                            android:id="@+id/p1"
+                            android:layout_width="79px"
+                            android:layout_height="79px"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="50px"
+                            android:layout_marginLeft="30px"
+                            android:layout_marginRight="30px"
+                            android:src="@drawable/permission_04" />
+
+                        <TextView
+                            android:id="@+id/tt1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/cameraSelect"
+                            android:layout_toRightOf="@+id/p1"
+                            android:fontFamily="@font/rubik_regular"
+                            android:gravity="center_vertical"
+                            android:lines="1"
+                            android:text="@string/gps70"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <ImageView
+                            android:id="@+id/cameraSelect"
+                            android:layout_width="47px"
+                            android:layout_height="47px"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="50px"
+                            android:layout_marginLeft="50px"
+                            android:layout_marginRight="50px"
+                            android:src="@drawable/done_w"
+                            android:tint="@color/main" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/locationRl"
+                        android:layout_width="920px"
+                        android:layout_height="169px"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_round_main_white">
+
+                        <ImageView
+                            android:id="@+id/p2"
+                            android:layout_width="79px"
+                            android:layout_height="79px"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="50px"
+                            android:layout_marginLeft="30px"
+                            android:layout_marginRight="30px"
+                            android:src="@drawable/permission_03" />
+
+                        <TextView
+                            android:id="@+id/tt2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/locationSelect"
+                            android:layout_toRightOf="@+id/p2"
+                            android:fontFamily="@font/rubik_regular"
+                            android:gravity="center_vertical"
+                            android:lines="1"
+                            android:text="@string/gps71"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <ImageView
+                            android:id="@+id/locationSelect"
+                            android:layout_width="47px"
+                            android:layout_height="47px"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="50px"
+                            android:layout_marginLeft="50px"
+                            android:layout_marginRight="50px"
+                            android:src="@drawable/done_w"
+                            android:tint="@color/main" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/photoVideoRl"
+                        android:layout_width="920px"
+                        android:layout_height="169px"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_round_main_white">
+
+                        <ImageView
+                            android:id="@+id/p3"
+                            android:layout_width="79px"
+                            android:layout_height="79px"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="50px"
+                            android:layout_marginLeft="30px"
+                            android:layout_marginRight="30px"
+                            android:src="@drawable/permission_02" />
+
+                        <TextView
+                            android:id="@+id/tt3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/photoVideoSelect"
+                            android:layout_toRightOf="@+id/p3"
+                            android:fontFamily="@font/rubik_regular"
+                            android:gravity="center_vertical"
+                            android:lines="1"
+                            android:text="@string/gps72"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <ImageView
+                            android:id="@+id/photoVideoSelect"
+                            android:layout_width="47px"
+                            android:layout_height="47px"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="50px"
+                            android:layout_marginLeft="50px"
+                            android:layout_marginRight="50px"
+                            android:src="@drawable/done_w"
+                            android:tint="@color/main" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/notificationRl"
+                        android:layout_width="920px"
+                        android:layout_height="169px"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_round_main_white">
+
+                        <ImageView
+                            android:id="@+id/p4"
+                            android:layout_width="79px"
+                            android:layout_height="79px"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="50px"
+                            android:layout_marginLeft="30px"
+                            android:layout_marginRight="30px"
+                            android:src="@drawable/permission_01" />
+
+                        <TextView
+                            android:id="@+id/tt4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/notificationSelect"
+                            android:layout_toRightOf="@+id/p4"
+                            android:fontFamily="@font/rubik_regular"
+                            android:gravity="center_vertical"
+                            android:lines="1"
+                            android:text="@string/gps73"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13sdp" />
+
+                        <ImageView
+                            android:id="@+id/notificationSelect"
+                            android:layout_width="47px"
+                            android:layout_height="47px"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="50px"
+                            android:layout_marginLeft="50px"
+                            android:layout_marginRight="50px"
+                            android:src="@drawable/done_w"
+                            android:tint="@color/main" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/Ad_Native"
+                    style="@style/medium_attr"
+                    android:layout_above="@id/footer" />
+
+                <RelativeLayout
+                    android:id="@+id/footer"
+                    android:layout_width="1080px"
+                    android:layout_height="230px"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_alignParentBottom="true">
+
+                    <TextView
+                        android:id="@+id/start"
+                        android:layout_width="807px"
+                        android:layout_height="150px"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/effect_get_start"
+                        android:backgroundTint="@color/main"
+                        android:fontFamily="@font/gilroy_semi_bold"
+                        android:gravity="center"
+                        android:text="@string/gps74"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_18sdp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </com.fom.rapid.views.RapidRelativeLayout>
+</layout>

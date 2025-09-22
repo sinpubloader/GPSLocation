@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/b_bg"
+        android:backgroundTint="@color/white">
+
+        <com.fom.rapid.views.RapidRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:measureMargin="true"
+            app:measureWith="-1"
+            app:resizeChildren="true">
+
+            <RelativeLayout
+                android:id="@+id/header"
+                android:layout_width="1080px"
+                android:layout_height="180px"
+                android:layout_alignParentTop="true">
+
+                <RelativeLayout
+                    android:id="@+id/back"
+                    android:layout_width="105px"
+                    android:layout_height="105px"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="50px"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginRight="50px">
+
+                    <ImageView
+                        android:layout_width="63px"
+                        android:layout_height="47px"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/effect_back" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="50px"
+                    android:layout_toRightOf="@+id/back"
+                    android:fontFamily="@font/gilroy_semi_bold"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:text="@string/gps33"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/Ad_Native"
+                android:layout_below="@+id/header">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="950px"
+                    android:layout_height="1500px"
+                    android:elevation="5dp"
+                    android:layout_centerInParent="true"
+                    app:cardCornerRadius="@dimen/_16sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/image_bg"
+                        android:backgroundTint="@color/white">
+
+                        <ImageView
+                            android:id="@+id/preview"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:scaleType="centerCrop" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+            <FrameLayout
+                android:id="@+id/Ad_Native"
+                android:layout_above="@id/footer"
+                style="@style/medium_attr"/>
+            <RelativeLayout
+                android:id="@+id/footer"
+                android:layout_width="match_parent"
+                android:layout_height="200px"
+                android:layout_alignParentBottom="true">
+
+                <ImageView
+                    android:id="@+id/rotate"
+                    android:layout_width="120px"
+                    android:layout_height="105px"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="50px"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginRight="50px"
+                    android:src="@drawable/reset_pressed1" />
+
+                <TextView
+                    android:id="@+id/next"
+                    android:layout_width="230px"
+                    android:layout_height="105px"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="50px"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginRight="50px"
+                    android:background="@drawable/next_pressed1"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:text="@string/gps31"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp" />
+            </RelativeLayout>
+        </com.fom.rapid.views.RapidRelativeLayout>
+
+    </RelativeLayout>
+</layout>

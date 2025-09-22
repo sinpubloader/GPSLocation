@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fom.rapid.views.RapidRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:measureMargin="true"
+    app:measurePadding="true"
+    app:measureWith="-1"
+    app:resizeChildren="true">
+
+    <LinearLayout
+        android:layout_width="1080px"
+        android:layout_height="580px"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bottom_bar"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="900px"
+            android:layout_height="400px">
+
+            <RelativeLayout
+                android:id="@+id/rlOne"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true">
+
+                <RelativeLayout
+                    android:layout_width="218px"
+                    android:layout_height="116px"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/weather_bg_6">
+
+                    <ImageView
+                        android:id="@+id/icon"
+                        android:layout_width="60px"
+                        android:layout_height="60px"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginHorizontal="15px"
+                        android:layout_marginLeft="15px"
+                        android:layout_marginRight="15px"
+                        android:src="@drawable/w_1" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="15px"
+                        android:layout_toRightOf="@+id/icon"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/temp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_3sdp"
+                            android:fontFamily="@font/gilroy_regular"
+                            android:lines="1"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp" />
+
+                        <TextView
+                            android:id="@+id/mainWeather"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/gilroy_regular"
+                            android:lines="1"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_9sdp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/cardView"
+                    android:layout_width="218px"
+                    android:layout_height="260px"
+                    android:layout_alignParentBottom="true"
+                    app:cardCornerRadius="@dimen/_8sdp">
+
+                    <ImageView
+                        android:id="@+id/map"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlTwo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20px"
+                android:layout_toRightOf="@+id/rlOne">
+
+                <LinearLayout
+                    android:id="@+id/dateTimeLl"
+                    android:layout_width="409px"
+                    android:layout_height="75px"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/date_time_bg_6"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:lines="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:lines="1"
+                        android:text=", "
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:lines="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/latLonLl"
+                    android:layout_width="530px"
+                    android:layout_height="100px"
+                    android:layout_below="@+id/dateTimeLl"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginVertical="20px"
+                    android:layout_marginTop="20px"
+                    android:layout_marginBottom="20px"
+                    android:background="@drawable/lat_long_bg_6"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:lines="1"
+                        android:text="@string/gps58"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/latitude"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:lines="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:lines="1"
+                        android:text=" "
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gilroy_medium"
+                        android:lines="1"
+                        android:text="@string/gps59"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/longitude"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:lines="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/latLonLl"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/gilroy_regular"
+                    android:gravity="top"
+                    android:lines="4"
+                    android:text="@string/gpl11"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</com.fom.rapid.views.RapidRelativeLayout>

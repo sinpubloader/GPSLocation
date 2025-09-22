@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.fom.rapid.views.RapidRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:measureMargin="true"
+        app:measureWith="-1"
+        app:resizeChildren="true">
+
+        <RelativeLayout
+            android:id="@+id/rlOne"
+            android:layout_width="1080px"
+            android:layout_height="180px">
+
+            <RelativeLayout
+                android:id="@+id/back"
+                android:layout_width="105px"
+                android:layout_height="105px"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="50px"
+                android:layout_marginLeft="50px"
+                android:layout_marginRight="50px">
+
+                <ImageView
+                    android:layout_width="63px"
+                    android:layout_height="47px"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/effect_back" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/save"
+                android:layout_width="105px"
+                android:layout_height="105px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="50px"
+                android:layout_marginLeft="50px"
+                android:layout_marginRight="50px">
+
+                <ImageView
+                    android:layout_width="50px"
+                    android:layout_height="50px"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/effect_done" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/save"
+                android:layout_toRightOf="@+id/back"
+                android:fontFamily="@font/gilroy_semi_bold"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:text="@string/gps60"
+                android:textColor="@color/txt_one"
+                android:textSize="@dimen/_15sdp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/optionRl"
+            android:layout_width="match_parent"
+            android:layout_height="200px"
+            android:layout_below="@+id/rlOne"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/current"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_margin="18dp"
+                android:background="@drawable/bb"
+                android:fontFamily="@font/gilroy_semi_bold"
+                android:gravity="center"
+                android:text="@string/gps63"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp" />
+
+            <TextView
+                android:id="@+id/manual"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_margin="18dp"
+                android:background="@drawable/aa"
+                android:fontFamily="@font/gilroy_semi_bold"
+                android:gravity="center"
+                android:text="@string/gps64"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp" />
+        </LinearLayout>
+        <FrameLayout
+            android:id="@+id/Ad_Native"
+            android:layout_below="@+id/optionRl"
+            style="@style/medium_attr"/>
+        <FrameLayout
+            android:id="@+id/frameLayoutOne"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/Ad_Native" />
+    </com.fom.rapid.views.RapidRelativeLayout>
+</layout>

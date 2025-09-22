@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <com.fom.rapid.views.RapidRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:measureMargin="true"
+        app:measureWith="-1"
+        app:resizeChildren="true">
+
+        <LinearLayout
+            android:id="@+id/mainCl"
+            android:layout_width="960px"
+            android:layout_height="645px"
+            android:background="@drawable/delete_popup"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="164px"
+                android:layout_height="164px"
+                android:src="@drawable/delete_ic" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginVertical="15px"
+                android:layout_marginTop="15px"
+                android:layout_marginBottom="15px"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_semi_bold"
+                    android:gravity="center"
+                    android:text="@string/gps34"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="100px"
+                    android:layout_marginVertical="10px"
+                    android:layout_marginLeft="100px"
+                    android:layout_marginTop="10px"
+                    android:layout_marginRight="100px"
+                    android:layout_marginBottom="10px"
+                    android:fontFamily="@font/gilroy_regular"
+                    android:gravity="center"
+                    android:lines="2"
+                    android:text="@string/gps35"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="160px"
+                android:layout_alignParentBottom="true"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/close"
+                    android:layout_width="360px"
+                    android:layout_height="125px"
+                    android:layout_marginHorizontal="25px"
+                    android:layout_marginLeft="25px"
+                    android:layout_marginRight="25px"
+                    android:background="@drawable/effect_cancel"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:gravity="center"
+                    android:text="@string/gps37"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:id="@+id/delete"
+                    android:layout_width="360px"
+                    android:layout_height="125px"
+                    android:layout_marginHorizontal="25px"
+                    android:layout_marginLeft="25px"
+                    android:layout_marginRight="25px"
+                    android:background="@drawable/effect_delete"
+                    android:backgroundTint="@color/main"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:gravity="center"
+                    android:text="@string/gps36"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.fom.rapid.views.RapidRelativeLayout>
+</layout>

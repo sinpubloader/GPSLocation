@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_language"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="@dimen/_5sdp"
+    android:layout_marginLeft="@dimen/_5sdp"
+    android:layout_marginRight="@dimen/_5sdp"
+    android:background="@drawable/bg_lang"
+    android:orientation="horizontal">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivLanguageImage"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvLanguageName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/rubik_meduim"
+            android:text="English"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginVertical="@dimen/_12sdp"
+            app:layout_constraintStart_toEndOf="@+id/ivLanguageImage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <!--        <ImageView-->
+        <!--            android:id="@+id/radioButton"-->
+        <!--            android:layout_width="@dimen/_18sdp"-->
+        <!--            android:layout_height="@dimen/_18sdp"-->
+        <!--            android:layout_gravity="center_vertical"-->
+        <!--            android:gravity="center"-->
+        <!--            android:src="@drawable/ic_radio_unchecked"-->
+        <!--            app:tint="@color/main_theme" />-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

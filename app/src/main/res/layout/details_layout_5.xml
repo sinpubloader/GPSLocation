@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fom.rapid.views.RapidRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:measureMargin="true"
+    app:measurePadding="true"
+    app:measureWith="-1"
+    app:resizeChildren="true">
+
+    <LinearLayout
+        android:layout_width="1080px"
+        android:layout_height="580px"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bottom_bar"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="900px"
+            android:layout_height="300px">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/weatherLl">
+
+                <RelativeLayout
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true">
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="282px"
+                        android:layout_height="76px"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/date_bg_5"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:id="@+id/time"
+                        android:layout_width="250px"
+                        android:layout_height="76px"
+                        android:layout_centerVertical="true"
+                        android:layout_marginHorizontal="20px"
+                        android:layout_marginLeft="20px"
+                        android:layout_marginRight="20px"
+                        android:layout_toRightOf="@+id/date"
+                        android:background="@drawable/time_bg_5"
+                        android:fontFamily="@font/gilroy_regular"
+                        android:gravity="center"
+                        android:lines="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_11sdp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/header"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="20px"
+                    android:layout_marginRight="20px"
+                    android:fontFamily="@font/gilroy_regular"
+                    android:gravity="top"
+                    android:lines="4"
+                    android:text="@string/gpl11"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/weatherLl"
+                android:layout_width="244px"
+                android:layout_height="244px"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/weather_bg_5"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingHorizontal="20px"
+                android:paddingLeft="20px"
+                android:paddingRight="20px">
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="70px"
+                    android:layout_height="70px"
+                    android:src="@drawable/w_1" />
+
+                <TextView
+                    android:id="@+id/temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:fontFamily="@font/gilroy_regular"
+                    android:lines="1"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_13sdp" />
+
+                <TextView
+                    android:id="@+id/mainWeather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_regular"
+                    android:lines="1"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="900px"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20px"
+            android:layout_marginTop="20px"
+            android:layout_marginBottom="20px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/latLl"
+                android:layout_width="350px"
+                android:layout_height="90px"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/lat_long_bg_5"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:lines="1"
+                    android:text="@string/gps58"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/latitude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:fontFamily="@font/gilroy_regular"
+                    android:lines="1"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lonLl"
+                android:layout_width="350px"
+                android:layout_height="90px"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="20px"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px"
+                android:layout_toRightOf="@+id/latLl"
+                android:background="@drawable/lat_long_bg_5"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:lines="1"
+                    android:text="@string/gps59"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+
+                <TextView
+                    android:id="@+id/longitude"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_regular"
+                    android:lines="1"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</com.fom.rapid.views.RapidRelativeLayout>

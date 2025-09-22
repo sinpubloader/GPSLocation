@@ -1,0 +1,481 @@
+package chin.pswm.gps.photo.location.map.earthview.view
+
+import android.app.Activity
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
+import androidx.lifecycle.compose.LifecycleStartEffect
+import chin.pswm.gps.photo.location.map.earthview.custom.AppIcon
+import chin.pswm.gps.photo.location.map.earthview.custom.AppImage
+import chin.pswm.gps.photo.location.map.earthview.custom.BaseScreen
+import chin.pswm.gps.photo.location.map.earthview.custom.CenterBox
+import chin.pswm.gps.photo.location.map.earthview.custom.CenterColumn
+import chin.pswm.gps.photo.location.map.earthview.custom.CenterRow
+import chin.pswm.gps.photo.location.map.earthview.custom.circle
+import chin.pswm.gps.photo.location.map.earthview.custom.onClick
+import chin.pswm.gps.photo.location.map.earthview.custom.onClickNotRipple
+import chin.pswm.gps.photo.location.map.earthview.custom.round
+import chin.pswm.gps.photo.location.map.earthview.custom.rounded
+//import com.ai.panda.BuildConfig
+import chin.pswm.gps.photo.location.map_debug.R;
+//import com.ai.panda.ads.adunit.banner.view.BannerView
+//import com.ai.panda.ui.base.BaseScreen
+//import com.ai.panda.ui.base.properties.AppIcon
+//import com.ai.panda.ui.base.properties.AppImage
+//import com.ai.panda.ui.base.properties.CenterBox
+//import com.ai.panda.ui.base.properties.CenterColumn
+//import com.ai.panda.ui.base.properties.CenterRow
+//import com.ai.panda.ui.base.properties.circle
+//import com.ai.panda.ui.base.properties.onClick
+//import com.ai.panda.ui.base.properties.onClickNotRipple
+//import com.ai.panda.ui.base.properties.round
+//import com.ai.panda.ui.base.properties.rounded
+import chin.pswm.gps.photo.location.map.earthview.state.EarthViewScreenState
+import chin.pswm.gps.photo.location.map.earthview.state.SearchState
+import chin.pswm.gps.photo.location.map.ui.theme.appFont
+import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
+import chin.pswm.gps.photo.location.map.ui.theme.neutral50
+import chin.pswm.gps.photo.location.map.ui.theme.neutral700
+import chin.pswm.gps.photo.location.map.ui.theme.primaryColor
+import com.fom.rapid.resize.BuildConfig
+//import com.ai.panda.ui.theme.appFont
+//import com.ai.panda.ui.theme.brushMain
+//import com.ai.panda.ui.theme.colorWhite
+//import com.ai.panda.ui.theme.neutral50
+//import com.ai.panda.ui.theme.neutral700
+//import com.ai.panda.ui.theme.primaryColor
+import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.compose.GoogleMap
+import com.google.maps.android.compose.MapProperties
+import com.google.maps.android.compose.MapUiSettings
+import com.google.maps.android.compose.Marker
+//import com.google.maps.android.compose.rememberUpdatedMarkerState
+import earth.worldwind.geom.Angle.Companion.degrees
+import earth.worldwind.geom.Location
+import earth.worldwind.globe.projection.MercatorProjection
+import earth.worldwind.globe.projection.Wgs84Projection
+import earth.worldwind.layer.BackgroundLayer
+import earth.worldwind.layer.atmosphere.AtmosphereLayer
+import earth.worldwind.layer.mercator.WebMercatorLayerFactory
+import earth.worldwind.layer.starfield.StarFieldLayer
+import kotlinx.coroutines.launch
+
+@Composable
+fun EarthViewContent(
+    state: EarthViewScreenState,
+    searchState: SearchState
+) {
+    val preview = LocalInspectionMode.current
+    val context = LocalContext.current
+    BaseScreen(
+        topBar = {
+            EarthTopBarView(
+                is2DMode = state.is2DMode,
+                onBack = {
+                    state.onBack(context as Activity)
+                },
+                onCheckChange = {
+                    state.is2DMode = it
+                }
+            )
+        },
+        bottomBar = {
+            BannerView(
+                adUnit = BuildConfig.banner_inapp,
+                adUnitName = BuildConfig.banner_inapp_name,
+            )
+        }
+    ) {
+        Box(Modifier.fillMaxSize()) {
+            if (!preview) {
+                AnimatedContent(state.is2DMode) { is2DMode ->
+                    if (!is2DMode) {
+                        AndroidView(
+                            factory = {
+                                state.wwd
+                            }, modifier = Modifier.fillMaxSize()
+                        )
+                    } else {
+
+                        GoogleMap(
+                            modifier = Modifier.fillMaxSize(),
+                            cameraPositionState = state.cameraPositionState,
+                            properties = MapProperties(
+                                mapType = state.mapType.type
+                            ),
+                            uiSettings = MapUiSettings(
+                                myLocationButtonEnabled = false,
+                                zoomControlsEnabled = false,
+                            )
+                        ) {
+                            state.markLocation?.let { markLocation ->
+                                val markLocationLatLng = remember {
+                                    LatLng(markLocation.latitude, markLocation.longitude)
+                                }
+                                val singaporeMarkerState = rememberUpdatedMarkerState(position = markLocationLatLng)
+                                Marker(
+                                    state = singaporeMarkerState,
+                                    title = markLocation.name,
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+
+            Row(
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
+                    .fillMaxWidth(),
+                verticalAlignment = Alignment.Bottom
+            ) {
+
+                Column(Modifier.weight(1f)) {
+                    var showInfo by remember {
+                        mutableStateOf(false)
+                    }
+
+                    if (showInfo) {
+                        Text(
+                            buildAnnotatedString {
+                                append(stringResource(R.string.worldwindkotlin))
+                                append("\n")
+                                append(stringResource(R.string.copyright_2025_worldwindearth))
+                                append("\n")
+                                append(stringResource(R.string.worldwindkotlin_apache))
+                            },
+                            style = appFont(400, 12),
+                            color = Color(0xFF414651),
+                            lineHeight = 16.sp,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 6.dp)
+                                .background(Color.White, round(8.dp))
+                                .padding(vertical = 8.dp, horizontal = 12.dp)
+                        )
+
+                        Box(
+                            Modifier
+                                .padding(start = 26.dp)
+                                .size(12.dp)
+                                .clip(TriangleShape())
+                                .background(Color.White)
+                        )
+                    }
+
+                    AppImage(
+                        res = R.drawable.ic_info_circle,
+                        modifier = Modifier
+                            .padding(bottom = 24.dp, start = 16.dp)
+                            .size(32.dp)
+                            .onClick("info") {
+                                showInfo = !showInfo
+                            }
+                    )
+                }
+
+                CenterColumn(
+                    modifier = Modifier
+                        .padding(bottom = 24.dp, end = 16.dp), itemSpacing = 12.dp
+                ) {
+                    if (state.is2DMode) {
+                        AppIcon(
+                            res = R.drawable.ic_map,
+                            color = colorWhite,
+                            modifier = Modifier
+                                .size(40.dp)
+                                .circle()
+                                .background(primaryColor)
+                                .onClick("map_type") {
+                                    state.onMapType()
+                                }
+                                .padding(8.dp))
+                    }
+
+                    AppIcon(
+                        res = R.drawable.iuc_gps,
+                        color = colorWhite,
+                        modifier = Modifier
+                            .size(40.dp)
+                            .circle()
+                            .background(primaryColor)
+                            .onClick("gps") {
+                                state.onMyLocation()
+                            }
+                            .padding(8.dp))
+                }
+            }
+
+            SearchView(
+                searchState = searchState
+            )
+        }
+    }
+
+    LaunchedEffect(Unit) {
+        state.wwd.engine.globe.projection = if (state.is2DMode) MercatorProjection() else Wgs84Projection()
+        state.wwd.requestRedraw()
+
+        state.wwd.engine.layers.apply {
+            addLayer(BackgroundLayer())
+            addLayer(
+                WebMercatorLayerFactory.createLayer(
+                    urlTemplate = "https://mt.google.com/vt/lyrs=s&x={x}&y={y}&z={z}&hl={lang}",
+                    imageFormat = "image/jpeg",
+                    name = "Google Satellite"
+                ).apply {
+                    state.wwd.mainScope.launch { configureCache(state.contentManager, "GSat") }
+                })
+            addLayer(StarFieldLayer())
+            addLayer(AtmosphereLayer())
+            addLayer(state.placeLayer)
+        }
+
+        state.wwd.engine.goToAnimator.goTo(
+            position = Location(
+                state.defaultLatLng.latitude.degrees, state.defaultLatLng.longitude.degrees
+            ), completionCallback = {
+
+            })
+    }
+
+    LifecycleStartEffect(Unit) {
+        state.wwd.onResume()
+        onStopOrDispose {
+            state.wwd.onPause()
+        }
+    }
+}
+
+@Composable
+private fun SearchView(
+    searchState: SearchState = SearchState()
+) {
+    val focusManager = LocalFocusManager.current
+    Column(
+        Modifier
+            .fillMaxSize()
+            .padding(vertical = 24.dp, horizontal = 16.dp),
+    ) {
+        CenterRow(
+            Modifier
+                .fillMaxWidth()
+                .then(
+                    if (searchState.hasItems) Modifier.clip(RoundedCornerShape(topStart = 28.dp, topEnd = 28.dp))
+                    else Modifier.rounded(28.dp)
+                )
+                .background(neutral50)
+                .padding(12.dp)
+        ) {
+
+            BasicTextField(
+                searchState.text,
+                onValueChange = { text ->
+                    searchState.text = text
+                },
+                decorationBox = {
+                    if (searchState.text.isEmpty()) {
+                        Text(
+                            "Search", style = appFont(400, 16), color = neutral700, modifier = Modifier.fillMaxWidth()
+                        )
+                    }
+                    it()
+                },
+                keyboardActions = KeyboardActions(onDone = {
+                    focusManager.clearFocus()
+                    searchState.onSearchSubmit()
+                }),
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Done
+                ),
+                maxLines = 1,
+                cursorBrush = brushMain,
+                textStyle = appFont(400, 16),
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(start = 12.dp)
+            )
+
+            if (searchState.text.isNotEmpty()) {
+                AppIcon(
+                    res = R.drawable.ic_close, modifier = Modifier
+                        .size(24.dp)
+                        .onClickNotRipple("clear") {
+                            searchState.searching = false
+                            searchState.text = ""
+                            searchState.items.clear()
+                            focusManager.clearFocus()
+                        })
+            } else {
+                AppIcon(
+                    res = R.drawable.ic_search, modifier = Modifier.size(24.dp)
+                )
+            }
+        }
+
+        Box(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+        ) {
+            if (searchState.searching) {
+                CircularProgressIndicator(
+                    color = Color.White, modifier = Modifier
+                        .align(Alignment.TopCenter)
+                        .padding(top = 24.dp)
+                )
+            } else if (searchState.items.isNotEmpty()) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(bottomEnd = 28.dp, bottomStart = 28.dp))
+                        .background(neutral50)
+                        .verticalScroll(rememberScrollState()),
+                ) {
+                    searchState.items.forEach { item ->
+                        CenterRow(
+                            Modifier
+                                .fillMaxWidth()
+                                .onClickNotRipple("select_place") {
+                                    focusManager.clearFocus()
+                                    searchState.onPlaceSelected(item)
+                                }
+                                .padding(horizontal = 16.dp, vertical = 12.dp)) {
+                            CenterColumn(Modifier.weight(1f)) {
+                                Text(
+                                    item.name,
+                                    style = appFont(600, 16),
+                                    color = Color(0xFF444444),
+                                    modifier = Modifier.fillMaxWidth()
+                                )
+                                Text(
+                                    item.address,
+                                    style = appFont(400, 14),
+                                    color = Color(0xFF444444),
+                                    modifier = Modifier.fillMaxWidth()
+                                )
+                            }
+
+                            AppIcon(
+                                res = R.drawable.ic_location_red,
+                                color = Color(0xff444444),
+                                modifier = Modifier.size(20.dp)
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun EarthTopBarView(
+    is2DMode: Boolean = false,
+    onBack: () -> Unit = {},
+    onCheckChange: (Boolean) -> Unit = {},
+) {
+    CenterBox(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(primaryColor)
+            .padding(14.dp),
+    ) {
+        AppIcon(
+            res = R.drawable.ic_back,
+            color = colorWhite,
+            modifier = Modifier
+                .align(Alignment.CenterStart)
+                .size(24.dp)
+                .onClick("left") {
+                    onBack()
+                })
+
+        Text(
+            stringResource(if (is2DMode) R.string.map_2d else R.string.map_3d),
+            style = appFont(700, 18),
+            textAlign = TextAlign.Center,
+            color = colorWhite,
+            modifier = Modifier.align(Alignment.Center)
+        )
+
+        CenterRow(
+            Modifier.align(Alignment.CenterEnd), itemSpacing = 8.dp
+        ) {
+            Text(
+                stringResource(R.string._2d), style = appFont(600, 14), color = colorWhite
+            )
+
+            Switch(
+                checked = is2DMode, colors = SwitchDefaults.colors(
+                    checkedThumbColor = primaryColor,
+                    checkedTrackColor = colorWhite,
+                    uncheckedBorderColor = Color(0xFFAFB1B6),
+                    uncheckedTrackColor = Color(0xFFAFB1B6),
+                    uncheckedThumbColor = colorWhite
+                ), onCheckedChange = {
+                    onCheckChange(!is2DMode)
+                }, modifier = Modifier
+            )
+        }
+    }
+}
+
+class TriangleShape : Shape {
+    override fun createOutline(
+        size: Size,
+        layoutDirection: LayoutDirection,
+        density: Density
+    ): Outline {
+        val trianglePath = Path().apply {
+            moveTo(0f, 0f)
+            lineTo(size.width, 0f)
+            lineTo(size.width / 2, size.height * 0.8f)
+            lineTo(0f, 0f)
+            close()
+        }
+        return Outline.Generic(trianglePath)
+    }
+}

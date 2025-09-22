@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <com.fom.rapid.views.RapidRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:measureMargin="true"
+        app:measureWith="-1"
+        app:resizeChildren="true">
+
+        <LinearLayout
+            android:id="@+id/mainCl"
+            android:layout_width="965px"
+            android:layout_height="550px"
+            android:background="@drawable/create_more_popup"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="310px"
+                android:layout_marginHorizontal="50px"
+                android:layout_marginLeft="50px"
+                android:layout_marginRight="50px"
+                android:fontFamily="@font/gilroy_medium"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="230px"
+                android:layout_alignParentBottom="true"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/no"
+                    android:layout_width="300px"
+                    android:layout_height="125px"
+                    android:layout_marginHorizontal="25px"
+                    android:layout_marginLeft="25px"
+                    android:layout_marginRight="25px"
+                    android:background="@drawable/effect_creat_no"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp" />
+
+                <TextView
+                    android:id="@+id/yes"
+                    android:layout_width="420px"
+                    android:layout_height="125px"
+                    android:layout_marginHorizontal="25px"
+                    android:layout_marginLeft="25px"
+                    android:layout_marginRight="25px"
+                    android:background="@drawable/effect_create_yes"
+                    android:backgroundTint="@color/main"
+                    android:fontFamily="@font/gilroy_medium"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/Ad_Banner"
+                style="@style/small_attr" />
+        </LinearLayout>
+    </com.fom.rapid.views.RapidRelativeLayout>
+</layout>

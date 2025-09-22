@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_itemframe"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_3sdp"
+    android:orientation="vertical"
+    app:measureMargin="true"
+    app:measureWith="-1"
+    android:background="#F5F5F5"
+    app:resizeChildren="true">
+
+    <ImageView
+        android:id="@+id/img_frame"
+        android:layout_width="60dp"
+        android:background="#F5F5F5"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop" />
+</LinearLayout>
