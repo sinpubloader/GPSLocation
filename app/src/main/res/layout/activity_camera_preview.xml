@@ -6,7 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/b_bg"
-        android:backgroundTint="@color/white">
+        android:backgroundTint="@color/white"
+        android:fitsSystemWindows="true">
 
         <com.fom.rapid.views.RapidRelativeLayout
             android:layout_width="match_parent"

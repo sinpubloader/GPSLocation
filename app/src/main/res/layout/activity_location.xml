@@ -7,7 +7,8 @@
         android:layout_height="match_parent"
         app:measureMargin="true"
         app:measureWith="-1"
-        app:resizeChildren="true">
+        app:resizeChildren="true"
+        android:fitsSystemWindows="true">
 
         <RelativeLayout
             android:id="@+id/rlOne"

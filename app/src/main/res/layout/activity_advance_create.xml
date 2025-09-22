@@ -11,7 +11,8 @@
         app:measureMargin="true"
         app:measurePadding="true"
         app:measureWith="-1"
-        app:resizeChildren="true">
+        app:resizeChildren="true"
+        android:fitsSystemWindows="true">
 
         <RelativeLayout
             android:id="@+id/HeaderRl"

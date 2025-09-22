@@ -196,4 +196,5 @@
     <string name="no">No</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="allow">Allow</string>
+    <string name="earth_view">Earth view</string>
 </resources>

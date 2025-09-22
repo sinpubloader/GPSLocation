@@ -8,7 +8,8 @@
         android:background="@drawable/b_bg"
         app:measureMargin="true"
         app:measureWith="-1"
-        app:resizeChildren="true">
+        app:resizeChildren="true"
+        android:fitsSystemWindows="true">
 
         <RelativeLayout
             android:id="@+id/header"

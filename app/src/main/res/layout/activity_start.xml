@@ -5,7 +5,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg">
+        android:background="@drawable/bg"
+        android:fitsSystemWindows="true">
 
         <com.fom.rapid.views.RapidRelativeLayout
             android:id="@+id/headerRl"
@@ -110,13 +111,66 @@
                     </RelativeLayout>
                 </com.fom.rapid.views.RapidRelativeLayout>
 
+                <com.fom.rapid.views.RapidRelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:measureMargin="true"
+                    app:measureWith="-1"
+                    app:resizeChildren="true">
+
+                    <RelativeLayout
+                        android:id="@+id/rlEathView"
+                        android:layout_width="match_parent"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_height="180px"
+                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginVertical="20px"
+                        android:layout_marginTop="20px"
+                        android:layout_marginBottom="20px"
+                        android:background="@drawable/rectangle27_bg"
+                        android:backgroundTint="#F0F5FF">
+
+                        <ImageView
+                            android:id="@+id/eView"
+                            android:layout_width="95px"
+                            android:layout_height="95px"
+                            android:layout_centerVertical="true"
+                            android:layout_marginHorizontal="50px"
+                            android:layout_marginLeft="50px"
+                            android:layout_marginRight="50px"
+                            android:layout_toLeftOf="@id/lleView"
+                            android:src="@drawable/icn_earth" />
+
+                        <LinearLayout
+                            android:id="@+id/lleView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="20px"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/gilroy_semi_bold"
+                                android:lines="1"
+                                android:text="@string/earth_view"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_15sdp" />
+
+                        </LinearLayout>
+                    </RelativeLayout>
+                </com.fom.rapid.views.RapidRelativeLayout>
+
                 <FrameLayout
                     android:id="@+id/Ad_Native"
                     style="@style/medium_attr"/>
                 <com.fom.rapid.views.RapidLinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
                     app:measureMargin="true"
