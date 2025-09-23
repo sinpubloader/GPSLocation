@@ -33,6 +33,7 @@ import androidx.core.net.MailTo;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import chin.pswm.gps.photo.location.map.earthview.EarthViewActivity;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map.adapter.StartAdapter;
 import chin.pswm.gps.photo.location.map.ads.AdsVariable;
@@ -123,6 +124,13 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
             @Override
             public final void onClick(View view) {
                 StartActivity.this.m116xd0e95e84(view);
+            }
+        });
+        binding.rlEathView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), EarthViewActivity.class);
+                startActivity(intent);
             }
         });
         binding.setting.setOnClickListener(new View.OnClickListener() {

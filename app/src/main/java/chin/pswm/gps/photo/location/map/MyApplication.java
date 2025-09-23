@@ -2,32 +2,32 @@ package chin.pswm.gps.photo.location.map;
 
 import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
 import android.content.Intent;
 import android.media.projection.MediaProjectionManager;
-import android.os.Bundle;
 import android.util.Log;
+
 import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
+
+import com.adjust.sdk.Adjust;
+import com.adjust.sdk.AdjustConfig;
+import com.adjust.sdk.LogLevel;
+import com.onesignal.OneSignal;
+
 import chin.pswm.gps.photo.location.map.activity.PrivacyPolicyActivity;
 import chin.pswm.gps.photo.location.map.activity.SplashActivity;
-import chin.pswm.gps.photo.location.map.ads.AdsVariable;
 import chin.pswm.gps.photo.location.map.notification.ClickNotification;
 import chin.pswm.gps.photo.location.map.notification.NotificationView;
-import com.onesignal.OneSignal;
-import java.util.Date;
+import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 
 
-public class MyApplication extends Application  {
+public class MyApplication extends Application {
     public static Activity currentActivity = null;
     public static MyApplication instance = null;
     private static Intent intent = null;
     private static MediaProjectionManager mMediaProjectionManager = null;
     public static boolean needToShow = false;
     private static int result;
-
-    
 
 
     @Override
@@ -39,6 +39,20 @@ public class MyApplication extends Application  {
         OneSignal.setNotificationOpenedHandler(new ClickNotification(this));
         OneSignal.initWithContext(this);
         OneSignal.setAppId("cd0d2840-e92c-4ba7-8dd5-c19efa8d37a9");
+
+        String appToken = "5e73pcy05ce8";
+        String environment;
+        LogLevel logLevel;
+        if (BuildConfig.DEBUG) {
+            environment = AdjustConfig.ENVIRONMENT_SANDBOX;
+            logLevel = LogLevel.VERBOSE;
+        } else {
+            environment = AdjustConfig.ENVIRONMENT_PRODUCTION;
+            logLevel = LogLevel.WARN;
+        }
+        AdjustConfig config = new AdjustConfig(this, appToken, environment);
+        config.setLogLevel(logLevel);
+        Adjust.initSdk(config);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)

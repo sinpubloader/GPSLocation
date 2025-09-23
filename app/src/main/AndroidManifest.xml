@@ -68,11 +68,11 @@
         android:theme="@style/Theme.GpsPhotoLocation"
         tools:replace="android:allowBackup"
         tools:targetApi="31">
-        <activity
-            android:name="chin.pswm.gps.photo.location.map.MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.GpsPhotoLocation" />
+<!--        <activity-->
+<!--            android:name="chin.pswm.gps.photo.location.map.MainActivity"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_main"-->
+<!--            android:theme="@style/Theme.GpsPhotoLocation" />-->
         <activity
             android:name="chin.pswm.gps.photo.location.map.activity.settingActivity"
             android:exported="false" />
