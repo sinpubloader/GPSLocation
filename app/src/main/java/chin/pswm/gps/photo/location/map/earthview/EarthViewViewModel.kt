@@ -1,11 +1,5 @@
 package chin.pswm.gps.photo.location.map.earthview
 
-import android.app.Activity
-import android.app.Application
-import androidx.lifecycle.viewModelScope
-import chin.pswm.gps.photo.location.map.earthview.custom.MarkLocation
-
-import chin.pswm.gps.photo.location.map_debug.R;
 //import com.ai.panda.ads.AdsManager
 //import com.ai.panda.common.allowLocation
 //import com.ai.panda.domain.models.enumClass.PermissionType
@@ -18,17 +12,24 @@ import chin.pswm.gps.photo.location.map_debug.R;
 //import com.ai.panda.ui.base.bottom_sheet.PermissionBottomSheetState
 //import com.ai.panda.ui.nav.AppDestination
 //import com.ai.panda.ui.nav.NavigationManager
+import android.app.Activity
+import android.app.Application
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import chin.pswm.gps.photo.location.map.earthview.custom.MarkLocation
 import chin.pswm.gps.photo.location.map.earthview.state.EarthViewScreenState
 import chin.pswm.gps.photo.location.map.earthview.state.SearchState
 import chin.pswm.gps.photo.location.map.ui.theme.MapTypeBottomSheetState
 import chin.pswm.gps.photo.location.map.ui.theme.PermissionBottomSheetState
+import chin.pswm.gps.photo.location.map.ui.theme.PermissionManager.Companion.allowLocation
 import chin.pswm.gps.photo.location.map.ui.theme.PermissionType
 import chin.pswm.gps.photo.location.map.ui.theme.PlacesResponseGson
+import chin.pswm.gps.photo.location.map.ui.theme.TypeMap
 import chin.pswm.gps.photo.location.map.utils.StorageUtils.TAG
+import chin.pswm.gps.photo.location.map_debug.R
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.gson.Gson
-import com.google.maps.android.compose.MapType
 import earth.worldwind.geom.AltitudeMode
 import earth.worldwind.geom.Angle.Companion.degrees
 import earth.worldwind.geom.Location
@@ -37,6 +38,7 @@ import earth.worldwind.globe.Globe
 import earth.worldwind.render.image.ImageSource
 import earth.worldwind.shape.Placemark
 import earth.worldwind.shape.PlacemarkAttributes
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -54,29 +56,29 @@ import kotlin.coroutines.resume
 
 class EarthViewViewModel(
     private val application: Application,
-    val appRepository: AppRepository,
-    private val navigationManager: NavigationManager,
-    private val adsManager: AdsManager,
-) : BaseViewModel() {
+) : ViewModel() {
+
+    // todo: NEED_UPDATE update location
+    var latitude = 0.0
+    var longitude = 0.0
+
+    val hasLocationData: Boolean
+        get() = latitude != 0.0 || longitude != 0.0
+
+    val latLng: LatLng
+        get() = LatLng(latitude, longitude)
 
     var movingCamera = false
     val screenState =
-        object : EarthViewScreenState(context = application, defaultLatLng = appRepository.customState.latLng) {
+        object : EarthViewScreenState(context = application, defaultLatLng = latLng) {
 
             override fun onBack(activity: Activity) {
-                adsManager.showInterInApp(
-                    activity = activity,
-                    onNextAction = {
-                        navigationManager.pop(AppDestination.EarthView::class.java)
-                    }
-                )
+                // handle back
             }
 
             override fun onMyLocation() {
-                Timber.tag(TAG)
-                    .d("onMyLocation: ${appRepository.customState.latitude}/${appRepository.customState.longitude}")
                 if (application.allowLocation) {
-                    if (!appRepository.hasLocationData || movingCamera) return
+                    if (!hasLocationData || movingCamera) return
                     movingCamera = true
                     if (is2DMode) {
                         viewModelScope.launch(errorHandle {
@@ -85,8 +87,8 @@ class EarthViewViewModel(
                             cameraPositionState.animate(
                                 update = CameraUpdateFactory.newLatLngZoom(
                                     LatLng(
-                                        appRepository.customState.latitude,
-                                        appRepository.customState.longitude
+                                        latitude,
+                                        longitude
                                     ),
                                     15f
                                 ),
@@ -99,8 +101,8 @@ class EarthViewViewModel(
                         wwd.engine.camera.position.altitude = 2000.0
                         wwd.engine.goToAnimator.goTo(
                             position = Location(
-                                appRepository.customState.latitude.degrees,
-                                appRepository.customState.longitude.degrees
+                                latitude = latitude.degrees,
+                                longitude = longitude.degrees
                             ),
                             completionCallback = {
 
@@ -114,21 +116,21 @@ class EarthViewViewModel(
             }
 
             override fun onMapType() {
-                mapTypeBottomSheetState.show(mapType)
+                mapTypeBottomSheetState.show()
             }
         }
 
     val permissionBottomSheetState = object : PermissionBottomSheetState() {
-        override fun allowPermissionClick(permissionType: PermissionType) {
-            viewModelScope.launch {
-                _permissionAction.emit(permissionType)
-            }
+
+        override fun onAllow(permissionType: PermissionType) {
+
         }
     }
 
     val mapTypeBottomSheetState = object : MapTypeBottomSheetState() {
-        override fun onMapTypeChange(mapType: MapType) {
-            setMapType(mapType)
+
+        override fun onSave(typeMap: TypeMap) {
+            setMapType(typeMap)
         }
     }
 
@@ -214,12 +216,10 @@ class EarthViewViewModel(
     val permissionAction = _permissionAction.asSharedFlow()
 
     init {
-        if (appRepository.hasLocationData) {
+        if (hasLocationData) {
             updateAddMark()
         } else {
-            appRepository.onUpdateLocation = { location ->
-                updateAddMark()
-            }
+            // todo: NEED_UPDATE update location
         }
     }
 
@@ -278,13 +278,13 @@ class EarthViewViewModel(
     }
 
     private fun updateAddMark() {
-        if (!appRepository.hasLocationData) return
+        if (!hasLocationData) return
         screenState.wwd.mainScope.launch {
             if (screenState.placeLayer.isEmpty()) {
                 val placemark = Placemark(
                     Position(
-                        appRepository.customState.latitude.degrees,
-                        appRepository.customState.longitude.degrees,
+                        latitude.degrees,
+                        longitude.degrees,
                         1000.0
                     ),
                     PlacemarkAttributes(),
@@ -304,8 +304,8 @@ class EarthViewViewModel(
 
             screenState.markLocation = MarkLocation(
                 name = application.getString(R.string.your_location),
-                latitude = appRepository.customState.latitude,
-                longitude = appRepository.customState.longitude,
+                latitude = latitude,
+                longitude = longitude,
                 address = ""
             )
         }
@@ -313,10 +313,13 @@ class EarthViewViewModel(
 
     override fun onCleared() {
         super.onCleared()
-        appRepository.onUpdateLocation = null
     }
 
-    private fun setMapType(mapType: MapType) {
+    private fun setMapType(mapType: TypeMap) {
         this@EarthViewViewModel.screenState.mapType = mapType
+    }
+
+    fun errorHandle(exception: (Throwable) -> Unit) = CoroutineExceptionHandler { _, throwable ->
+        exception.invoke(throwable)
     }
 }

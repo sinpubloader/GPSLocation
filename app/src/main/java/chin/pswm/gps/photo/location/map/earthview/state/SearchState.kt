@@ -6,7 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-//import com.ai.panda.domain.models.location.MarkLocation
+import chin.pswm.gps.photo.location.map.earthview.custom.MarkLocation
 
 @Immutable
 open class SearchState {

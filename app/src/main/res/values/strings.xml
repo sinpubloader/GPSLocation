@@ -197,4 +197,12 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="allow">Allow</string>
     <string name="earth_view">Earth view</string>
+    <string name="worldwindkotlin">WorldWindKotlin</string>
+    <string name="copyright_2025_worldwindearth">Copyright 2025 WorldWindEarth</string>
+    <string name="worldwindkotlin_apache">Licensed under the Apache License, Version 2.0.</string>
+    <string name="map_2d">Map 2D</string>
+    <string name="map_3d">Map 3D</string>
+    <string name="_2d">2D</string>
+    <string name="permissions_required">Permissions required</string>
+    <string name="your_location">Your location</string>
 </resources>

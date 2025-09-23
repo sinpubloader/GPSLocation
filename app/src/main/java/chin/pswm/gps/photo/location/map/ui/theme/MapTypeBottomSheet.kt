@@ -1,8 +1,10 @@
 package chin.pswm.gps.photo.location.map.ui.theme
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -15,14 +17,15 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map.earthview.custom.AppIcon
 import chin.pswm.gps.photo.location.map.earthview.custom.AppImage
+import chin.pswm.gps.photo.location.map.earthview.custom.BaseBottomSheet
 import chin.pswm.gps.photo.location.map.earthview.custom.CenterColumn
 import chin.pswm.gps.photo.location.map.earthview.custom.CenterRow
-//import com.example.gps.ui.properties.custom.ActionButton
 import chin.pswm.gps.photo.location.map.earthview.custom.onClick
+import chin.pswm.gps.photo.location.map.earthview.custom.onClickNotRipple
 import chin.pswm.gps.photo.location.map.earthview.custom.rounded
+import chin.pswm.gps.photo.location.map_debug.R
 
 @Immutable
 open class MapTypeBottomSheetState {
@@ -47,14 +50,14 @@ open class MapTypeBottomSheetState {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MapTypeBottomSheet(
     state: MapTypeBottomSheetState
 ) {
     if (state.isShow) {
         BaseBottomSheet(
-            title = R.string.stamp_name,
-            onDismissRequest = {
+            onDismiss = {
                 state.hide()
             }
         ) {
@@ -112,17 +115,18 @@ fun MapTypeBottomSheetContent(
         }
 
 
-        ActionButton(
+        Text(
+            text = stringResource(R.string.save),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp),
-            title = R.string.save,
-            background = primary,
-            event = "save_type_map",
-            onClick = {
-                state.onSave(state.typeMap)
-                state.hide()
-            }
+                .padding(horizontal = 24.dp)
+                .rounded(8.dp)
+                .background(primary)
+                .onClickNotRipple("save") {
+                    state.onSave(state.typeMap)
+                    state.hide()
+                }
+                .padding(vertical = 6.dp),
         )
     }
 }

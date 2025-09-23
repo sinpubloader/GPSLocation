@@ -14,6 +14,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import chin.pswm.gps.photo.location.map.ui.theme.GPSPhotoLocationWithMapTheme
 
 class MainActivity : ComponentActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

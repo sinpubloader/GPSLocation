@@ -1,5 +1,25 @@
 package chin.pswm.gps.photo.location.map.earthview.view
 
+//import com.ai.panda.BuildConfig
+//import com.ai.panda.ads.adunit.banner.view.BannerView
+//import com.ai.panda.ui.base.BaseScreen
+//import com.ai.panda.ui.base.properties.AppIcon
+//import com.ai.panda.ui.base.properties.AppImage
+//import com.ai.panda.ui.base.properties.CenterBox
+//import com.ai.panda.ui.base.properties.CenterColumn
+//import com.ai.panda.ui.base.properties.CenterRow
+//import com.ai.panda.ui.base.properties.circle
+//import com.ai.panda.ui.base.properties.onClick
+//import com.ai.panda.ui.base.properties.onClickNotRipple
+//import com.ai.panda.ui.base.properties.round
+//import com.ai.panda.ui.base.properties.rounded
+//import com.ai.panda.ui.theme.appFont
+//import com.ai.panda.ui.theme.brushMain
+//import com.ai.panda.ui.theme.colorWhite
+//import com.ai.panda.ui.theme.neutral50
+//import com.ai.panda.ui.theme.neutral700
+//import com.ai.panda.ui.theme.primaryColor
+//import com.google.maps.android.compose.rememberUpdatedMarkerState
 import android.app.Activity
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.background
@@ -58,40 +78,21 @@ import chin.pswm.gps.photo.location.map.earthview.custom.onClick
 import chin.pswm.gps.photo.location.map.earthview.custom.onClickNotRipple
 import chin.pswm.gps.photo.location.map.earthview.custom.round
 import chin.pswm.gps.photo.location.map.earthview.custom.rounded
-//import com.ai.panda.BuildConfig
-import chin.pswm.gps.photo.location.map_debug.R;
-//import com.ai.panda.ads.adunit.banner.view.BannerView
-//import com.ai.panda.ui.base.BaseScreen
-//import com.ai.panda.ui.base.properties.AppIcon
-//import com.ai.panda.ui.base.properties.AppImage
-//import com.ai.panda.ui.base.properties.CenterBox
-//import com.ai.panda.ui.base.properties.CenterColumn
-//import com.ai.panda.ui.base.properties.CenterRow
-//import com.ai.panda.ui.base.properties.circle
-//import com.ai.panda.ui.base.properties.onClick
-//import com.ai.panda.ui.base.properties.onClickNotRipple
-//import com.ai.panda.ui.base.properties.round
-//import com.ai.panda.ui.base.properties.rounded
 import chin.pswm.gps.photo.location.map.earthview.state.EarthViewScreenState
 import chin.pswm.gps.photo.location.map.earthview.state.SearchState
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
+import chin.pswm.gps.photo.location.map.ui.theme.brushMain
 import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
 import chin.pswm.gps.photo.location.map.ui.theme.neutral50
 import chin.pswm.gps.photo.location.map.ui.theme.neutral700
 import chin.pswm.gps.photo.location.map.ui.theme.primaryColor
-import com.fom.rapid.resize.BuildConfig
-//import com.ai.panda.ui.theme.appFont
-//import com.ai.panda.ui.theme.brushMain
-//import com.ai.panda.ui.theme.colorWhite
-//import com.ai.panda.ui.theme.neutral50
-//import com.ai.panda.ui.theme.neutral700
-//import com.ai.panda.ui.theme.primaryColor
+import chin.pswm.gps.photo.location.map_debug.R
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.MapProperties
 import com.google.maps.android.compose.MapUiSettings
 import com.google.maps.android.compose.Marker
-//import com.google.maps.android.compose.rememberUpdatedMarkerState
+import com.google.maps.android.compose.rememberUpdatedMarkerState
 import earth.worldwind.geom.Angle.Companion.degrees
 import earth.worldwind.geom.Location
 import earth.worldwind.globe.projection.MercatorProjection
@@ -121,12 +122,6 @@ fun EarthViewContent(
                 }
             )
         },
-        bottomBar = {
-            BannerView(
-                adUnit = BuildConfig.banner_inapp,
-                adUnitName = BuildConfig.banner_inapp_name,
-            )
-        }
     ) {
         Box(Modifier.fillMaxSize()) {
             if (!preview) {
