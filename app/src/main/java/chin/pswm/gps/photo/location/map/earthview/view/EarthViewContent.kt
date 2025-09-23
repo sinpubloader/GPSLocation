@@ -1,25 +1,6 @@
 package chin.pswm.gps.photo.location.map.earthview.view
 
-//import com.ai.panda.BuildConfig
-//import com.ai.panda.ads.adunit.banner.view.BannerView
-//import com.ai.panda.ui.base.BaseScreen
-//import com.ai.panda.ui.base.properties.AppIcon
-//import com.ai.panda.ui.base.properties.AppImage
-//import com.ai.panda.ui.base.properties.CenterBox
-//import com.ai.panda.ui.base.properties.CenterColumn
-//import com.ai.panda.ui.base.properties.CenterRow
-//import com.ai.panda.ui.base.properties.circle
-//import com.ai.panda.ui.base.properties.onClick
-//import com.ai.panda.ui.base.properties.onClickNotRipple
-//import com.ai.panda.ui.base.properties.round
-//import com.ai.panda.ui.base.properties.rounded
-//import com.ai.panda.ui.theme.appFont
-//import com.ai.panda.ui.theme.brushMain
-//import com.ai.panda.ui.theme.colorWhite
-//import com.ai.panda.ui.theme.neutral50
-//import com.ai.panda.ui.theme.neutral700
-//import com.ai.panda.ui.theme.primaryColor
-//import com.google.maps.android.compose.rememberUpdatedMarkerState
+
 import android.app.Activity
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.background

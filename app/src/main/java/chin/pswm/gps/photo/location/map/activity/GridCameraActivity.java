@@ -337,7 +337,6 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
         });
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
     
     public class ProcessAsyncTask extends AsyncTask<String, Void, String> {
         ProcessDialogLayoutBinding binding1;

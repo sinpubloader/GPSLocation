@@ -14,6 +14,7 @@ package chin.pswm.gps.photo.location.map.earthview
 //import com.ai.panda.ui.nav.NavigationManager
 import android.app.Activity
 import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import chin.pswm.gps.photo.location.map.earthview.custom.MarkLocation
@@ -56,7 +57,9 @@ import kotlin.coroutines.resume
 
 class EarthViewViewModel(
     private val application: Application,
-) : ViewModel() {
+) : AndroidViewModel(application) {
+
+    private val app = getApplication<Application>()
 
     // todo: NEED_UPDATE update location
     var latitude = 0.0

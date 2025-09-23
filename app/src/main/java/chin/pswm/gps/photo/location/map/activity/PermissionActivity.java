@@ -146,42 +146,42 @@ public class PermissionActivity extends BaseActivity {
         if (permissionUtils.checkPermission(permissionUtils.permissionsCamera)) {
             this.binding.cameraSelect.setVisibility(0);
             this.binding.tt1.setTextColor(Color.parseColor("#000000"));
-            this.binding.cameraRl.setBackground(getResources().getDrawable(R.drawable.strock_blue));
+            this.binding.cameraRl.setBackgroundResource(R.drawable.permission_detail_allow);
         } else {
             this.binding.cameraSelect.setVisibility(4);
             this.binding.tt1.setTextColor(Color.parseColor("#000000"));
-            this.binding.cameraRl.setBackground(getResources().getDrawable(R.drawable.rect_round_main_white));
+            this.binding.cameraRl.setBackgroundResource(R.drawable.permission_detail);
         }
         PermissionUtils permissionUtils2 = this.permissionUtils;
         if (permissionUtils2.checkPermission(permissionUtils2.permissionsLocation)) {
             this.binding.locationSelect.setVisibility(0);
             this.binding.tt2.setTextColor(Color.parseColor("#000000"));
-            this.binding.locationRl.setBackground(getResources().getDrawable(R.drawable.strock_blue));
+            this.binding.locationRl.setBackgroundResource(R.drawable.permission_detail_allow);
         } else {
             this.binding.locationSelect.setVisibility(4);
             this.binding.tt2.setTextColor(Color.parseColor("#000000"));
-            this.binding.locationRl.setBackground(getResources().getDrawable(R.drawable.rect_round_main_white));
+            this.binding.locationRl.setBackgroundResource(R.drawable.permission_detail);
         }
         PermissionUtils permissionUtils3 = this.permissionUtils;
         if (permissionUtils3.checkPermission(permissionUtils3.permissionsStorage)) {
             this.binding.photoVideoSelect.setVisibility(0);
             this.binding.tt3.setTextColor(Color.parseColor("#000000"));
-            this.binding.photoVideoRl.setBackground(getResources().getDrawable(R.drawable.strock_blue));
+            this.binding.photoVideoRl.setBackgroundResource(R.drawable.permission_detail_allow);
         } else {
             this.binding.photoVideoSelect.setVisibility(4);
             this.binding.tt3.setTextColor(Color.parseColor("#000000"));
-            this.binding.photoVideoRl.setBackground(getResources().getDrawable(R.drawable.rect_round_main_white));
+            this.binding.photoVideoRl.setBackgroundResource(R.drawable.permission_detail);
         }
         PermissionUtils permissionUtils4 = this.permissionUtils;
         if (permissionUtils4.checkPermission(permissionUtils4.permissionsNotification)) {
             this.binding.notificationSelect.setVisibility(0);
             this.binding.tt4.setTextColor(Color.parseColor("#000000"));
-            this.binding.notificationRl.setBackground(getResources().getDrawable(R.drawable.strock_blue));
+            this.binding.notificationRl.setBackgroundResource(R.drawable.permission_detail_allow);
             return;
         }
         this.binding.notificationSelect.setVisibility(4);
         this.binding.tt4.setTextColor(Color.parseColor("#000000"));
-        this.binding.notificationRl.setBackground(getResources().getDrawable(R.drawable.rect_round_main_white));
+        this.binding.notificationRl.setBackgroundResource(R.drawable.permission_detail);
     }
 
     @Override

@@ -27,7 +27,7 @@ import timber.log.Timber
 
 class PermissionManager(
     private val app: Application
-) : ITag {
+) /*: ITag*/ {
 
 
     private var _permissionRequest = MutableSharedFlow<PermissionType>()

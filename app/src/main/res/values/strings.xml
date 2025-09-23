@@ -197,6 +197,7 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="allow">Allow</string>
     <string name="earth_view">Earth view</string>
+
     <string name="worldwindkotlin">WorldWindKotlin</string>
     <string name="copyright_2025_worldwindearth">Copyright 2025 WorldWindEarth</string>
     <string name="worldwindkotlin_apache">Licensed under the Apache License, Version 2.0.</string>
@@ -205,4 +206,13 @@
     <string name="_2d">2D</string>
     <string name="permissions_required">Permissions required</string>
     <string name="your_location">Your location</string>
+
+    <string name="permission_camera_title">Camera Permission</string>
+    <string name="permission_camera_content">Camera Permission Required!</string>
+    <string name="permission_location_title">Location Permission</string>
+    <string name="permission_location_content">Location Permission Required!</string>
+    <string name="permission_voice_title">Voice Permission</string>
+    <string name="permission_voice_content">Voice Permission Required!</string>
+    <string name="map_type_normal_content">Normal view</string>
+    <string name="map_type_satellite_content">Satellite view</string>
 </resources>

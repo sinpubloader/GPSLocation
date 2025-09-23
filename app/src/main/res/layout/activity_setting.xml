@@ -1,180 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.settingActivity"
-    android:fitsSystemWindows="true">
 
-    <RelativeLayout
-        android:id="@+id/header"
-        android:layout_width="1080px"
-        android:layout_height="180px"
-        android:layout_alignParentTop="true">
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".activity.settingActivity">
 
         <RelativeLayout
-            android:id="@+id/back"
-            android:layout_width="105px"
-            android:layout_height="105px"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_marginHorizontal="50px"
-            android:layout_marginLeft="50px"
-            android:layout_marginRight="50px">
+            android:id="@+id/header"
+            android:layout_width="1080px"
+            android:layout_height="180px"
+            android:layout_alignParentTop="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:layout_width="63px"
-                android:layout_height="47px"
+            <RelativeLayout
+                android:id="@+id/back"
+                android:layout_width="105px"
+                android:layout_height="105px"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="50px"
+                android:layout_marginLeft="50px"
+                android:layout_marginRight="50px">
+
+                <ImageView
+                    android:layout_width="63px"
+                    android:layout_height="47px"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/effect_back" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/effect_back" />
+                android:layout_toRightOf="@+id/back"
+                android:fontFamily="@font/gilroy_semi_bold"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:text="Setting"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
+
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/text"
+        <LinearLayout
+            android:id="@+id/lang"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_toRightOf="@+id/back"
-            android:fontFamily="@font/gilroy_semi_bold"
-            android:gravity="center_vertical"
-            android:lines="1"
-            android:text="Setting"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_15sdp" />
+            android:layout_height="@dimen/_46sdp"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@drawable/permission_detail"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/header">
 
-    </RelativeLayout>
+            <ImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/langu_1" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/header"
-        android:layout_marginHorizontal="15dp"
-        android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/rubik_meduim"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:text="@string/language"
+                android:textColor="@color/black"
+                android:textSize="17dp" />
+
+        </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/share"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="@dimen/_46sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/permission_detail"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lang">
 
-            <LinearLayout
-                android:id="@+id/lang"
+            <ImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/share_1" />
+
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_1"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/langu_1" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/rubik_meduim"
-                    android:gravity="center_vertical"
-                    android:text="@string/language"
-                    android:textColor="@color/black"
-                    android:textSize="17dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/share"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_1"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/share_1" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/rubik_meduim"
-                    android:gravity="center_vertical"
-                    android:text="Share"
-                    android:textColor="@color/black"
-                    android:textSize="17dp" />
-            </LinearLayout>
+                android:layout_height="match_parent"
+                android:fontFamily="@font/rubik_meduim"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:text="Share"
+                android:textColor="@color/black"
+                android:textSize="17dp" />
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rate"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_46sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/permission_detail"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/share">
+
+            <ImageView
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/rate_1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/rubik_meduim"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:text="Rate App"
+                android:textColor="@color/black"
+                android:textSize="17dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/privacy"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_46sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_weight="1"
+            android:background="@drawable/permission_detail"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rate">
+
+            <ImageView
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/privacy1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/rubik_meduim"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:text="Privacy"
+                android:textColor="@color/black"
+                android:textSize="17dp" />
+        </LinearLayout>
+
         <FrameLayout
             android:id="@+id/Ad_Native"
-            style="@style/medium_attr"/>
-        <LinearLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="15dp"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/rate"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_1"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/rate_1" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/rubik_meduim"
-                    android:gravity="center_vertical"
-                    android:text="Rate App"
-                    android:textColor="@color/black"
-                    android:textSize="17dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/privacy"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_1"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/privacy1" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/rubik_meduim"
-                    android:gravity="center_vertical"
-                    android:text="Privacy"
-                    android:textColor="@color/black"
-                    android:textSize="17dp" />
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-</RelativeLayout>
+            style="@style/medium_attr"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
