@@ -109,6 +109,12 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         initSocketConnection(this, true, true);
         showDynamicNativeData(StartActivity.this, binding.AdNative1, null, true);
 
+        int count = SharedHelper.getInt(StartActivity.this, "rate_dialog_counter", 0) + 1;
+        SharedHelper.putInt(StartActivity.this, "rate_dialog_counter", count);
+        if (count > 1) {
+            showRateDialog(false);
+        }
+
         setData();
     }
 
@@ -431,7 +437,12 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
 
     @Override
     public void onBackPressed() {
-        temp();
+        int count = SharedHelper.getInt(StartActivity.this, "rate_dialog_counter", 0);
+        if (count == 1 || count == 3 || count == 5) {
+            showRateDialog(true);
+        } else {
+            temp();
+        }
     }
     public void temp() {
         final Dialog dialog = new Dialog(StartActivity.this);
@@ -466,7 +477,15 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         }
     }
 
-    private void showRateDialog() {
+    private void showRateDialog(boolean isFromExit) {
+
+        if (SharedHelper.getBoolean(getApplicationContext(), "is_user_already_rated", false)) {
+//            StartActivity.this.m133x7f7b49d1(null, null);
+            if (isFromExit)
+                temp();
+            return;
+        }
+
         final RateDialogBinding inflate = RateDialogBinding.inflate(getLayoutInflater());
         final Dialog dialog = new Dialog(this);
         dialog.getWindow().requestFeature(1);
@@ -513,7 +532,10 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         inflate.close.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                StartActivity.this.m133x7f7b49d1(dialog, view);
+//                StartActivity.this.m133x7f7b49d1(dialog, view);
+                dialog.dismiss();
+                if (isFromExit)
+                    temp();
             }
         });
         inflate.rate.setOnClickListener(new View.OnClickListener() {
@@ -577,7 +599,9 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
 
     public void m133x7f7b49d1(Dialog dialog, View view) {
         List<ActivityManager.AppTask> appTasks;
-        dialog.dismiss();
+        if (dialog != null)
+            dialog.dismiss();
+
         ActivityManager activityManager = (ActivityManager) getSystemService("activity");
         if (activityManager == null || (appTasks = activityManager.getAppTasks()) == null || appTasks.size() <= 0) {
             return;
@@ -593,7 +617,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         int i = this.i;
         if (i == 0) {
             Toast.makeText(this, getResources().getString(R.string.gps80), 0).show();
-        } else if (i > 1 && i <= 3) {
+        } /*else if (i > 1 && i <= 3) {
             SpManager.setRate_Which(i);
             Intent intent = new Intent("android.intent.action.SENDTO");
             intent.setType("text/plain");
@@ -614,21 +638,24 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
                     StartActivity.this.m134xa50f52d2();
                 }
             }, 2000L);
-        } else {
+        }*/ else if (i > 3) {
+            SharedHelper.putBoolean(getApplicationContext(), "is_user_already_rated", true);
             SpManager.setRate_Which(i);
             try {
                 startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + getPackageName())));
             } catch (ActivityNotFoundException unused2) {
                 startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName())));
             }
-            dialog.dismiss();
+            /*dialog.dismiss();
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public final void run() {
                     StartActivity.this.m135xcaa35bd3();
                 }
-            }, 2000L);
+            }, 2000L);*/
         }
+        dialog.dismiss();
+//        StartActivity.this.m135xcaa35bd3();
     }
 
 
