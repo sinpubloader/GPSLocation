@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_semibold"
+        android:text="@string/which_features_are_you_interested_in"
+        android:layout_marginHorizontal="20dp"
+        android:textColor="@color/black"
+        android:textSize="26dp"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/_14sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <RelativeLayout
+        android:id="@+id/llEarthView"
+        android:layout_width="920px"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/permission_detail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+        <TextView
+            android:id="@+id/tvEarth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/ivEarthview"
+            android:fontFamily="@font/rubik_semibold"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="@string/earth_view"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+        <ImageView
+            android:id="@+id/ivEarthview"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginRight="50px"
+            android:src="@drawable/ic_select_round" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/llTime"
+        android:layout_width="920px"
+        android:layout_height="@dimen/_48sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/permission_detail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llEarthView"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tt1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/ivTimeView"
+            android:fontFamily="@font/rubik_semibold"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:text="@string/timestamp_camera"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+        <ImageView
+            android:id="@+id/ivTimeView"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="50px"
+            android:layout_marginLeft="50px"
+            android:layout_marginRight="50px"
+            android:src="@drawable/ic_unselect_round" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/start"
+        android:layout_width="807px"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:background="@drawable/btn_global"
+        android:fontFamily="@font/gilroy_semi_bold"
+        android:gravity="center"
+        android:text="@string/contin"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

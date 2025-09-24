@@ -176,6 +176,10 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name="chin.pswm.gps.photo.location.map.New_intro.ActivitySelectFeature"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="chin.pswm.gps.photo.location.map.languegess.New_first_languagesselect"
             android:exported="false"
             android:screenOrientation="portrait" />

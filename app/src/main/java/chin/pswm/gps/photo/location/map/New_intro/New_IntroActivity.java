@@ -119,18 +119,11 @@ public class New_IntroActivity extends AppCompatActivity {
 
     public final void startMainActivity() {
 
-        PermissionUtils permissionUtils = this.permissionUtils;
-        if (permissionUtils.checkPermission(permissionUtils.allPermissions)) {
-            Intent intent = new Intent(this, StartActivity.class);
-            intent.setFlags(268435456);
-            startActivity(intent);
-            finish();
-            return;
-        }
-        Intent intent2 = new Intent(this, PermissionActivity.class);
+        Intent intent2 = new Intent(this, ActivitySelectFeature.class);
         intent2.setFlags(268435456);
         startActivity(intent2);
         finish();
+
     }
 
     private void completeIntro() {

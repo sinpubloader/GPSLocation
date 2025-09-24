@@ -33,7 +33,7 @@ public class AllKeyHub {
 
 
     public static void initSocketConnection(Activity activity, boolean isreportshow, boolean isshownative) {
-        Toast.makeText(activity, "ALL", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(activity, "ALL", Toast.LENGTH_SHORT).show();
 
 //        if (bigNative != null) {
 //

@@ -215,4 +215,7 @@
     <string name="permission_voice_content">Voice Permission Required!</string>
     <string name="map_type_normal_content">Normal view</string>
     <string name="map_type_satellite_content">Satellite view</string>
+    <string name="which_features_are_you_interested_in">Which features are you interested in?</string>
+    <string name="contin">Continue</string>
+    <string name="timestamp_camera">Timestamp camera</string>
 </resources>
