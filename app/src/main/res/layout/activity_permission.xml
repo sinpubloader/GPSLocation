@@ -265,6 +265,7 @@
                 android:id="@+id/footer"
                 android:layout_width="1080px"
                 android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp">
 

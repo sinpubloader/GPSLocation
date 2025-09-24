@@ -231,7 +231,7 @@ fun EarthViewContent(
     }
 
     LaunchedEffect(Unit) {
-        state.wwd.engine.globe.projection = if (state.is2DMode) MercatorProjection() else Wgs84Projection()
+        state.wwd.engine.globe.projection = if (!state.is2DMode) MercatorProjection() else Wgs84Projection()
         state.wwd.requestRedraw()
 
         state.wwd.engine.layers.apply {

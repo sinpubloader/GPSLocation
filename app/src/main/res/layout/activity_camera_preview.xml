@@ -100,7 +100,7 @@
                     android:layout_marginHorizontal="50px"
                     android:layout_marginLeft="50px"
                     android:layout_marginRight="50px"
-                    android:src="@drawable/reset_pressed1" />
+                    android:src="@drawable/reset_pressed" />
 
                 <TextView
                     android:id="@+id/next"
@@ -111,7 +111,7 @@
                     android:layout_marginHorizontal="50px"
                     android:layout_marginLeft="50px"
                     android:layout_marginRight="50px"
-                    android:background="@drawable/next_pressed1"
+                    android:background="@drawable/next_pressed"
                     android:gravity="center"
                     android:lines="1"
                     android:text="@string/gps31"
