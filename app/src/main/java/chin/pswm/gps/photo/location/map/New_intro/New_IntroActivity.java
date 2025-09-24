@@ -38,7 +38,7 @@ public class New_IntroActivity extends AppCompatActivity {
     TextView skip;
     ViewAdapter viewAdapter;
     private SharedPreferences sharedPreferences;
-    private static final String PREF_INTRO_COMPLETED = "display_intro_everytime";
+
 //    FrameLayout frameLayout;
     private Handler handler = new Handler();
     PermissionUtils permissionUtils;
@@ -54,11 +54,11 @@ public class New_IntroActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("intro_prefs", MODE_PRIVATE);
         this.permissionUtils = new PermissionUtils(this);
-        boolean displayIntroEveryTime = sharedPreferences.getBoolean(PREF_INTRO_COMPLETED, false);
-        if (displayIntroEveryTime) {
-            redirectToMain();
-            return;
-        }
+//        boolean displayIntroEveryTime = sharedPreferences.getBoolean(PREF_INTRO_COMPLETED, false);
+//        if (displayIntroEveryTime) {
+//            redirectToMain();
+//            return;
+//        }
         viewPager = findViewById(R.id.view_pager);
 //        frameLayout = findViewById(R.id.Ad_Native);
         dot1 = findViewById(R.id.dots_indicator);
@@ -128,7 +128,7 @@ public class New_IntroActivity extends AppCompatActivity {
 
     private void completeIntro() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(PREF_INTRO_COMPLETED, true);
+        editor.putBoolean("display_intro_everytime", true);
         editor.apply();
     }
 

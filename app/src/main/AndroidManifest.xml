@@ -200,7 +200,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="chin.pswm.gps.photo.location.map.provider"
+            android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

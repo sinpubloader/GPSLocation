@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import chin.pswm.gps.photo.location.map.earthview.custom.AppIcon
@@ -117,6 +118,7 @@ fun MapTypeBottomSheetContent(
 
         Text(
             text = stringResource(R.string.save),
+            textAlign = TextAlign.Center,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp)
@@ -126,7 +128,7 @@ fun MapTypeBottomSheetContent(
                     state.onSave(state.typeMap)
                     state.hide()
                 }
-                .padding(vertical = 6.dp),
+                .padding(vertical = 12.dp),
         )
     }
 }

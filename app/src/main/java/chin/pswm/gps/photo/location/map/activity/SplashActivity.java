@@ -28,8 +28,6 @@ public class SplashActivity extends BaseActivity {
     ActivitySplashBinding binding;
     PermissionUtils permissionUtils;
 
-
-
     @Override 
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(SplashActivity.this, SharedHelper.getString(SplashActivity.this, "lang_key", ""));
@@ -79,7 +77,6 @@ public class SplashActivity extends BaseActivity {
         if (SplashActivity.this.permissionUtils.checkPermission(SplashActivity.this.permissionUtils.allPermissions)) {
             startActivity(new Intent(this, PermissionActivity.class));
         } else {
-
             startActivity(new Intent(this, StartActivity.class));
         }
         finish();
