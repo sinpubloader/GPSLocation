@@ -13,14 +13,14 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/mainRl"
             android:layout_width="906px"
-            android:layout_height="734px"
+            android:layout_height="wrap_content"
             android:background="@drawable/rate_popup">
 
             <ImageView
                 android:id="@+id/close"
                 android:layout_width="78px"
                 android:layout_height="78px"
-                android:layout_margin="20px"
+                android:layout_margin="@dimen/_10sdp"
                 android:src="@drawable/effect_close"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -31,6 +31,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
+                android:layout_marginTop="@dimen/_10sdp"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -54,9 +55,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_15sdp"
-                    android:layout_marginVertical="@dimen/_3sdp"
                     android:layout_marginLeft="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_15sdp"
                     android:layout_marginBottom="@dimen/_3sdp"
                     android:fontFamily="@font/gilroy_medium"
@@ -64,7 +64,7 @@
                     android:lines="2"
                     android:text="@string/gps77"
                     android:textColor="@color/txt_one"
-                    android:textSize="@dimen/_15sdp" />
+                    android:textSize="@dimen/_14sdp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -75,6 +75,7 @@
                     android:fontFamily="@font/gilroy_regular"
                     android:gravity="center"
                     android:lines="1"
+                    android:visibility="gone"
                     android:text="@string/gps78"
                     android:textColor="@color/txt_three"
                     android:textSize="@dimen/_13sdp" />
@@ -85,10 +86,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_15sdp"
-                android:layout_marginLeft="@dimen/_15sdp"
-                android:layout_marginRight="@dimen/_15sdp"
                 android:gravity="center"
                 android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
                 app:layout_constraintBottom_toTopOf="@+id/rate"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -136,7 +136,7 @@
                 android:id="@+id/rate"
                 android:layout_width="415px"
                 android:layout_height="116px"
-                android:background="@drawable/effect_rate"
+                android:background="@drawable/btn_global"
                 android:backgroundTint="@color/main"
                 android:fontFamily="@font/gilroy_medium"
                 android:gravity="center"
@@ -144,6 +144,8 @@
                 android:text="@string/gps79"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"

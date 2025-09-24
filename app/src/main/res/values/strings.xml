@@ -218,4 +218,15 @@
     <string name="which_features_are_you_interested_in">Which features are you interested in?</string>
     <string name="contin">Continue</string>
     <string name="timestamp_camera">Timestamp camera</string>
+    <string name="gps_camera">GPS Camera</string>
+    <string name="pinpoint_every_moment_n_with_gps_accuracy">Pinpoint every moment \nwith GPS accuracy</string>
+    <string name="capture_photo">Capture Photo</string>
+    <string name="make_every_memory_part_of_n_the_earth_s_map">Make every memory part of \n the Earth’s map</string>
+    <string name="photo_grid">Photo Grid</string>
+    <string name="template">Template</string>
+    <string name="location">Location</string>
+    <string name="route_planner">Route planner</string>
+    <string name="video">Video</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
 </resources>

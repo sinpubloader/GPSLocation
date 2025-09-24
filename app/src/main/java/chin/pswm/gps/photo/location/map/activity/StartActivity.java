@@ -107,8 +107,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
             }
         }
-        initSocketConnection(this, true, true);
-        showDynamicNativeData(StartActivity.this, binding.AdNative1, null, true);
+//        initSocketConnection(this, true, true);
+//        showDynamicNativeData(StartActivity.this, binding.AdNative1, null, true);
 
         int count = SharedHelper.getInt(StartActivity.this, "rate_dialog_counter", 0) + 1;
         SharedHelper.putInt(StartActivity.this, "rate_dialog_counter", count);
