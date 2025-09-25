@@ -27,13 +27,64 @@ android {
         }
 
         debug {
-            minifyEnabled true
+            minifyEnabled false
             debuggable true
-            shrinkResources true
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
+
+    flavorDimensions += "version"
+    productFlavors {
+        create("Tester") {
+            buildConfigField("String", "inter_splash_high", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "inter_splash", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "inter_inapp", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "native_lang_high", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_lang", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_lang_alt_high", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_lang_alt", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_ob_high", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_ob", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_fsob_high", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_fsob", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_select_high", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_select", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_select_alt_high", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_select_alt", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_home", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_exit", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_uninstall", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_select_alt", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "banner_home", "\"ca-app-pub-3940256099942544/2014213617\"")
+            buildConfigField("String", "banner_inapp", "\"ca-app-pub-3940256099942544/2014213617\"")
+        }
+
+        create("Production") {
+            buildConfigField("String", "inter_splash_high", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "inter_splash", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "inter_inapp", "\"ca-app-pub-3940256099942544/1033173712\"")
+            buildConfigField("String", "native_lang_high", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_lang", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_lang_alt_high", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_lang_alt", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_ob_high", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_ob", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_fsob_high", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_fsob", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_select_high", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_select", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_select_alt_high", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_select_alt", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_home", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_exit", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_uninstall", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "native_select_alt", "\"ca-app-pub-3940256099942544/2247696110\"")
+            buildConfigField("String", "banner_home", "\"ca-app-pub-3940256099942544/2014213617\"")
+            buildConfigField("String", "banner_inapp", "\"ca-app-pub-3940256099942544/2014213617\"")
+        }
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -58,6 +109,8 @@ android {
     buildFeatures {
         compose true
         buildConfig true
+        viewBinding = true
+        dataBinding = true
     }
     kotlinOptions {
         jvmTarget = "17"
@@ -119,4 +172,13 @@ dependencies {
     implementation "com.adjust.sdk:adjust-android:5.4.4"
     implementation "com.adjust.signature:adjust-android-signature:3.47.0"
 
+    implementation("com.google.android.gms:play-services-ads:24.6.0")
+    implementation("com.adjust.signature:adjust-android-signature:3.47.0")
+    implementation("com.adjust.sdk:adjust-android:5.4.3")
+    implementation("com.facebook.android:facebook-android-sdk:18.1.3")
+    implementation("androidx.compose.ui:ui-viewbinding:1.9.0")
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
+//            {
+//        exclude(group = "com.adjust.signature", module = "adjust-android-signature")
+//    }
 }

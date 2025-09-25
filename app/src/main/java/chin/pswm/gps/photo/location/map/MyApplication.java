@@ -9,16 +9,14 @@ import android.util.Log;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 
-import com.adjust.sdk.Adjust;
-import com.adjust.sdk.AdjustConfig;
-import com.adjust.sdk.LogLevel;
 import com.onesignal.OneSignal;
 
 import chin.pswm.gps.photo.location.map.activity.PrivacyPolicyActivity;
 import chin.pswm.gps.photo.location.map.activity.SplashActivity;
+import chin.pswm.gps.photo.location.map.ads.adjust.AdjustManager;
+import chin.pswm.gps.photo.location.map.ads.prefs.Prefs;
 import chin.pswm.gps.photo.location.map.notification.ClickNotification;
 import chin.pswm.gps.photo.location.map.notification.NotificationView;
-import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 
 
 public class MyApplication extends Application {
@@ -40,19 +38,9 @@ public class MyApplication extends Application {
         OneSignal.initWithContext(this);
         OneSignal.setAppId("cd0d2840-e92c-4ba7-8dd5-c19efa8d37a9");
 
-        String appToken = "5e73pcy05ce8";
-        String environment;
-        LogLevel logLevel;
-        if (BuildConfig.DEBUG) {
-            environment = AdjustConfig.ENVIRONMENT_SANDBOX;
-            logLevel = LogLevel.VERBOSE;
-        } else {
-            environment = AdjustConfig.ENVIRONMENT_PRODUCTION;
-            logLevel = LogLevel.WARN;
-        }
-        AdjustConfig config = new AdjustConfig(this, appToken, environment);
-        config.setLogLevel(logLevel);
-        Adjust.initSdk(config);
+        // init some for ads
+        AdjustManager adjustManager = new AdjustManager();
+        Prefs prefs = new Prefs(this);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.gms.ads.nativead.NativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/nativeAdView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/nativeBG">
+
+        <LinearLayout
+            android:id="@+id/ad_unit_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="6dp">
+
+            <LinearLayout
+                android:id="@+id/llTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ad_app_icon"
+                    android:layout_width="44dip"
+                    android:layout_height="44dip"
+                    android:adjustViewBounds="true"
+                    android:src="@color/colorAds" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="5dp">
+
+                    <TextView
+                        android:id="@+id/ad_headline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:text="hellop .this ius dsa dsadsa " />
+
+                    <TextView
+                        android:id="@+id/ad_advertiser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        app:layout_constraintTop_toBottomOf="@+id/llTop"
+                        tools:text=" dá dsa dsa ds a dsads ad sad sa " />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/ad_call_to_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:background="@drawable/bg_button_native"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="Cài Đặt" />
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp">
+
+                <com.google.android.gms.ads.nativead.MediaView
+                    android:id="@+id/ad_media"
+                    android:layout_width="0dp"
+                    android:layout_height="140dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="16:9"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/ad_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bg_ads_tag"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:padding="3.5dp"
+                    android:text="Ad"
+                    android:textColor="@color/white"
+                    android:textSize="8sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </com.google.android.gms.ads.nativead.NativeAdView>
+</layout>
