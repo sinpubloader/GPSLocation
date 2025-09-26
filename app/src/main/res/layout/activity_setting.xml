@@ -45,7 +45,7 @@
                 android:fontFamily="@font/gilroy_semi_bold"
                 android:gravity="center_vertical"
                 android:lines="1"
-                android:text="Setting"
+                android:text="@string/setting"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_15sdp" />
 
@@ -108,7 +108,7 @@
                 android:fontFamily="@font/rubik_meduim"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:gravity="center_vertical"
-                android:text="Share"
+                android:text="@string/share"
                 android:textColor="@color/black"
                 android:textSize="17dp" />
         </LinearLayout>
@@ -140,7 +140,7 @@
                 android:fontFamily="@font/rubik_meduim"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:gravity="center_vertical"
-                android:text="Rate App"
+                android:text="@string/rate_app"
                 android:textColor="@color/black"
                 android:textSize="17dp" />
 
@@ -172,7 +172,7 @@
                 android:fontFamily="@font/rubik_meduim"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:gravity="center_vertical"
-                android:text="Privacy"
+                android:text="@string/privacy"
                 android:textColor="@color/black"
                 android:textSize="17dp" />
         </LinearLayout>

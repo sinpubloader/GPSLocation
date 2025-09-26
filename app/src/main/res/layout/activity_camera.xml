@@ -103,10 +103,11 @@
             </com.otaliastudios.cameraview.CameraView>
 
             <RelativeLayout
+                android:layout_alignParentBottom="true"
                 android:id="@+id/footer"
                 android:layout_width="1080px"
                 android:layout_height="260px"
-            android:layout_above="@id/Ad_Banner"
+                android:layout_above="@id/Ad_Banner"
                 android:background="@drawable/capture_bg"
                 app:layout_drawOnPreview="true">
 

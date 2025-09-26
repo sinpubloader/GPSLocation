@@ -154,7 +154,7 @@
                     android:elevation="@dimen/_4sdp"
                     app:cardBackgroundColor="#E3E2FF"
                     app:cardCornerRadius="@dimen/_10sdp"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:layout_marginHorizontal="@dimen/_16sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

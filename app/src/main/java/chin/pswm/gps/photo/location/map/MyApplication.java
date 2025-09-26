@@ -12,12 +12,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.adjust.sdk.Adjust;
 import com.adjust.sdk.AdjustConfig;
 import com.adjust.sdk.LogLevel;
-import com.onesignal.OneSignal;
-
 import chin.pswm.gps.photo.location.map.activity.PrivacyPolicyActivity;
 import chin.pswm.gps.photo.location.map.activity.SplashActivity;
-import chin.pswm.gps.photo.location.map.notification.ClickNotification;
-import chin.pswm.gps.photo.location.map.notification.NotificationView;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 
 
@@ -34,11 +30,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
-        OneSignal.setNotificationWillShowInForegroundHandler(new NotificationView(this));
-        OneSignal.setNotificationOpenedHandler(new ClickNotification(this));
-        OneSignal.initWithContext(this);
-        OneSignal.setAppId("cd0d2840-e92c-4ba7-8dd5-c19efa8d37a9");
 
         String appToken = "5e73pcy05ce8";
         String environment;

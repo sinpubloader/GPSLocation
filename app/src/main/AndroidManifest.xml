@@ -33,7 +33,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_APP_BADGE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<!--    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />-->
 
     <queries>
         <package android:name="com.google.android.apps.maps" />
@@ -68,11 +68,7 @@
         android:theme="@style/Theme.GpsPhotoLocation"
         tools:replace="android:allowBackup"
         tools:targetApi="31">
-<!--        <activity-->
-<!--            android:name="chin.pswm.gps.photo.location.map.MainActivity"-->
-<!--            android:exported="false"-->
-<!--            android:label="@string/title_activity_main"-->
-<!--            android:theme="@style/Theme.GpsPhotoLocation" />-->
+
         <activity
             android:name="chin.pswm.gps.photo.location.map.activity.settingActivity"
             android:exported="false" />
@@ -208,96 +204,12 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <meta-data
-            android:name="com.onesignal.NotificationOpened.DEFAULT"
-            android:value="DISABLE" />
-
         <activity
             android:name="chin.pswm.gps.photo.location.map.notification.WebActivity"
             android:exported="true"
             android:launchMode="singleTask" />
 
-        <receiver
-            android:name="com.onesignal.BootUpReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.REBOOT" />
-                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name="com.onesignal.FCMBroadcastReceiver"
-            android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter android:priority="999">
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="chin.pswm.gps.photo.location.map" />
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name="com.onesignal.HmsMessageServiceOneSignal"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
-
-        <activity
-            android:name="com.onesignal.NotificationOpenedActivityHMS"
-            android:exported="true"
-            android:noHistory="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-        </activity>
-
-        <service
-            android:name="com.onesignal.FCMIntentService"
-            android:exported="false" />
-        <service
-            android:name="com.onesignal.FCMIntentJobService"
-            android:exported="false"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-        <service
-            android:name="com.onesignal.SyncService"
-            android:exported="false"
-            android:stopWithTask="true" />
-        <service
-            android:name="com.onesignal.SyncJobService"
-            android:exported="false"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-
-        <activity
-            android:name="com.onesignal.PermissionsActivity"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-        <receiver
-            android:name="com.onesignal.NotificationDismissReceiver"
-            android:exported="true" />
-        <receiver
-            android:name="com.onesignal.UpgradeReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-            </intent-filter>
-        </receiver>
-
-        <activity
-            android:name="com.onesignal.NotificationOpenedReceiver"
-            android:excludeFromRecents="true"
-            android:exported="true"
-            android:noHistory="true"
-            android:taskAffinity=""
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
 </manifest>

@@ -145,6 +145,8 @@
             </RelativeLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_alignParentBottom="true"
+
                 android:id="@+id/footer"
                 android:layout_width="match_parent"
                 android:layout_height="280px"

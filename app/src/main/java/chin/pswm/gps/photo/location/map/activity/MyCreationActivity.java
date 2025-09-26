@@ -12,6 +12,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Toast;
+
 import androidx.fragment.app.FragmentActivity;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
@@ -26,11 +28,14 @@ import chin.pswm.gps.photo.location.map.model.PlaceData;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+
 import com.bumptech.glide.Glide;
 import com.google.maps.android.clustering.Cluster;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
 @SuppressWarnings("all")
 
 public class MyCreationActivity extends BaseActivity implements OnClickGallery {
@@ -44,7 +49,7 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
     public void onClickFolder(int i) {
     }
 
-    @Override 
+    @Override
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(MyCreationActivity.this, SharedHelper.getString(MyCreationActivity.this, "lang_key", ""));
 
@@ -61,6 +66,7 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
 
         setData();
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -75,11 +81,12 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
         }
         return true;
     }
+
     private void setData() {
         this.myCreationAdapter = new MyCreationAdapter(this, this.uriList, this, 2);
         this.binding.recyclerview.setAdapter(this.myCreationAdapter);
         this.binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 showUserInterDataBack(MyCreationActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
@@ -92,7 +99,7 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
     }
 
 
-    public  void m102x323c4bc7(View view) {
+    public void m102x323c4bc7(View view) {
         onBackPressed();
     }
 
@@ -104,23 +111,30 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
 
     @Override
     public void onClickItem(String str) {
-        if (str.contains(".mp4")) {
-            startActivity(new Intent(this, VideoPreviewActivity.class).setFlags(536870912).putExtra("Path", str));
+        Toast.makeText(this, ""+str, Toast.LENGTH_SHORT).show();
+        if (str.toLowerCase().endsWith(".mp4")) {
+            startActivity(
+                    new Intent(this, VideoPreviewActivity.class)
+                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            .putExtra("Path", str)
+            );
         } else {
-            startActivity(new Intent(this, PreviewActivity.class).setFlags(536870912).putExtra("Path", str));
+            startActivity(
+                    new Intent(this, PreviewActivity.class)
+                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            .putExtra("Path", str)
+            );
         }
     }
 
 
-    
     public class ProcessAsyncTask extends AsyncTask<String, Void, String> {
         ProcessDialogLayoutBinding binding1;
         Dialog dialog;
-
         ProcessAsyncTask() {
         }
 
-        @Override 
+        @Override
         protected void onPreExecute() {
             super.onPreExecute();
             MyCreationActivity.this.uriList.clear();
@@ -132,7 +146,7 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
             this.dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
             this.dialog.setCanceledOnTouchOutside(false);
             this.dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
-                @Override 
+                @Override
                 public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
                     return true;
                 }
@@ -141,7 +155,7 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
             this.dialog.show();
         }
 
-        @Override 
+        @Override
         public String doInBackground(String[] strArr) {
             if (MyCreationActivity.cluster == null) {
                 if (MyCreationActivity.this.type == 0) {
@@ -161,7 +175,7 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
             return null;
         }
 
-        @Override 
+        @Override
         public void onPostExecute(String str) {
             this.dialog.dismiss();
             if (MyCreationActivity.this.uriList != null && MyCreationActivity.this.uriList.size() > 0) {

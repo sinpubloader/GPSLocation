@@ -3,9 +3,12 @@ package chin.pswm.gps.photo.location.map.activity;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.showUserInterDataBack;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.graphics.drawable.ColorDrawable;
@@ -20,7 +23,9 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -66,7 +71,7 @@ import java.util.Locale;
 import org.json.JSONObject;
 
 
-public class CameraActivity extends BaseActivity implements OnMapReadyCallback, LocationListener {
+public class CameraActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
     ActivityCameraBinding binding;
     double latitude;
     public Location location;
@@ -162,11 +167,11 @@ public class CameraActivity extends BaseActivity implements OnMapReadyCallback, 
     
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(CameraActivity.this, SharedHelper.getString(CameraActivity.this, "lang_key", ""));
-
         super.onCreate(bundle);
         ActivityCameraBinding inflate = ActivityCameraBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
+
         this.locationManager = (LocationManager) getSystemService("location");
         this.binding.mapView.onCreate(bundle);
         this.binding.mapView.getMapAsync(this);
@@ -273,7 +278,6 @@ public class CameraActivity extends BaseActivity implements OnMapReadyCallback, 
     public void onLocationChanged(Location location) {
         setMapData(location);
     }
-
 
     public class ProcessAsyncTask extends AsyncTask<String, Void, String> {
         ProcessDialogLayoutBinding binding1;
@@ -521,4 +525,7 @@ public class CameraActivity extends BaseActivity implements OnMapReadyCallback, 
             }
         }
     }
+
 }
+
+

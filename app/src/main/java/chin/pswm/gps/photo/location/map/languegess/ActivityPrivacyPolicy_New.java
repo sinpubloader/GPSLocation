@@ -54,20 +54,14 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
         ClickableSpan privacyPolicySpan = new ClickableSpan() {
             @Override
             public void onClick(View view) {
-                if (!SharedHelper.getInstance().isOnline(ActivityPrivacyPolicy_New.this)) {
-                    Toast.makeText(ActivityPrivacyPolicy_New.this, getResources().getString(R.string.check_internet), Toast.LENGTH_SHORT).show();
-                    return;
-                }
+
                 startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://www.google.co.in/")));
             }
         };
         ClickableSpan termsConditionsSpan = new ClickableSpan() {
             @Override
             public void onClick(View view) {
-                if (!SharedHelper.getInstance().isOnline(ActivityPrivacyPolicy_New.this)) {
-                    Toast.makeText(ActivityPrivacyPolicy_New.this, getResources().getString(R.string.check_internet), Toast.LENGTH_SHORT).show();
-                    return;
-                }
+
                 startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://www.google.co.in/")));
             }
         };
