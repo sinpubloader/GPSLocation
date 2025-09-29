@@ -171,6 +171,7 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
         setData();
 
         ComposeBannerKt.setBannerContent(binding.composeView,
+                "GridCameraActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE

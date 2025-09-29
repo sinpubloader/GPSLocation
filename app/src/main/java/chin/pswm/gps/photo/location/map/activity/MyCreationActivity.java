@@ -74,6 +74,7 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
 
         ComposeBannerKt.setBannerContent(
                 binding.composeView,
+                "MyCreationActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE

@@ -144,6 +144,7 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
         getCurrentLocation();
 
         ComposeBannerKt.setBannerContent(composeView,
+                "RoutePlanerActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE

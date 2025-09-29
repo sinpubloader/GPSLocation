@@ -118,6 +118,7 @@ public class VideoPreviewActivity extends BaseActivity {
         });
 
         ComposeBannerKt.setBannerContent(binding.composeView,
+                "VideoPreviewActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE

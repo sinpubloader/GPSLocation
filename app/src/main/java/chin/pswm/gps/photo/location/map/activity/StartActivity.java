@@ -118,6 +118,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         setData();
 
         ComposeBannerKt.setBannerContent(binding.composeView,
+                "StartActivity",
                 BuildConfig.banner_home,
                 "banner_home",
                 BannerType.BANNER_COLLAPSIBLE

@@ -181,6 +181,7 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
         setData();
 
         ComposeBannerKt.setBannerContent(binding.composeView,
+                "CameraActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE

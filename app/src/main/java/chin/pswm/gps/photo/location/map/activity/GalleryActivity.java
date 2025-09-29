@@ -115,6 +115,7 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
         setData();
 
         ComposeBannerKt.setBannerContent(binding.composeView,
+                "GalleryActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE

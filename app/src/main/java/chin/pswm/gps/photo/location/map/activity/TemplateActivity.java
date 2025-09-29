@@ -81,6 +81,7 @@ public class TemplateActivity extends BaseActivity implements TemplateAdapter.On
         });
 
         ComposeBannerKt.setBannerContent(binding.composeView,
+                "TemplateActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE

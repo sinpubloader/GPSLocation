@@ -142,6 +142,7 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         });
 
         ComposeBannerKt.setBannerContent(composeView,
+                "CompassActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE

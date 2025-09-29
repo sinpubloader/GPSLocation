@@ -113,6 +113,7 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
         setData();
 
         ComposeBannerKt.setBannerContent(binding.composeView,
+                "VideoActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE

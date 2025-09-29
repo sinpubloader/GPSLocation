@@ -112,6 +112,7 @@ public class PreviewActivity extends BaseActivity {
             }
         });
         ComposeBannerKt.setBannerContent(binding.composeView,
+                "PreviewActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE

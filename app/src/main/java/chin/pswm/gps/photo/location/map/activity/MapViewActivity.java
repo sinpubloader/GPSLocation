@@ -77,6 +77,7 @@ public class MapViewActivity extends BaseActivity {
         });
 
         ComposeBannerKt.setBannerContent(binding.composeView,
+                "MapViewActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE

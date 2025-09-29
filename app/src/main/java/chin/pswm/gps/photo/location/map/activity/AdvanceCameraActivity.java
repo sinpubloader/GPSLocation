@@ -183,6 +183,7 @@ public class AdvanceCameraActivity extends BaseActivity implements OnMapReadyCal
         setData();
 
         ComposeBannerKt.setBannerContent(binding.composeView,
+                "AdvanceCameraActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE

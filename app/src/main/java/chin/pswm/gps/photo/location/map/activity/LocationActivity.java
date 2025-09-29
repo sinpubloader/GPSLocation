@@ -85,6 +85,7 @@ public class LocationActivity extends BaseActivity {
         });
 
         ComposeBannerKt.setBannerContent(binding.composeView,
+                "LocationActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE
