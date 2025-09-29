@@ -14,6 +14,7 @@ import androidx.compose.runtime.setValue
 import androidx.core.content.getSystemService
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ProcessLifecycleOwner
 import chin.pswm.gps.photo.location.map.ads.AdsConfig
 import chin.pswm.gps.photo.location.map.ads.ext.AppUtils
@@ -31,9 +32,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -48,8 +47,6 @@ open class BaseAds(
         Timber.tag(TAG).d("init: ")
         this.application.registerActivityLifecycleCallbacks(this)
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
-
-        initMobileAds()
     }
 
     private val scope = CoroutineScope(Dispatchers.IO + CoroutineExceptionHandler { _, throwable ->
@@ -67,9 +64,7 @@ open class BaseAds(
         UserMessagingPlatform.getConsentInformation(application)
     }
 
-    private var _consentFinished = MutableStateFlow(false)
-    val initFinished = _consentFinished.asStateFlow()
-
+    val consentFinished = MutableLiveData(false)
 
     private val connectivityManager = application.getSystemService<ConnectivityManager>()
     val isConnectedFlow: Flow<Boolean>
@@ -137,11 +132,13 @@ open class BaseAds(
         isMobileAdsInitializeCalled = true
         CoroutineScope(Dispatchers.IO + CoroutineExceptionHandler { _, e ->
             Timber.tag(TAG).e("initMobileAds: error ${e.message}")
+            consentFinished.value = true
         }).launch {
             MobileAds.setRequestConfiguration(
                 RequestConfiguration.Builder().setTestDeviceIds(AdsConfig.listDeviceTest).build()
             )
             MobileAds.initialize(application) { initializationStatus: InitializationStatus ->
+                consentFinished.value = true
                 val statusMap = initializationStatus.adapterStatusMap
                 for (adapterClass in statusMap.keys) {
                     val status = statusMap[adapterClass]
@@ -193,20 +190,20 @@ open class BaseAds(
                         // Consent gathering failed.
                         Timber.tag(TAG).w("%s: %s", loadAndShowError.errorCode, loadAndShowError.message)
                     }
-                    _consentFinished.value = true
+                    initMobileAds()
                 }
             } else {
                 Timber.tag(TAG).d("requestUMP: not required")
-                _consentFinished.value = true
+                initMobileAds()
             }
         }, { requestConsentError ->
             Timber.tag(TAG).w("%s: %s", requestConsentError.errorCode, requestConsentError.message)
-            _consentFinished.value = true
+            initMobileAds()
         })
 
         if (consentInformation.canRequestAds()) {
             Timber.tag(TAG).d("requestUMP: be could show ads")
-            _consentFinished.value = true
+            initMobileAds()
         }
     }
 

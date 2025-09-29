@@ -8,7 +8,6 @@ import android.util.DisplayMetrics;
 
 import java.util.Locale;
 
-import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.compose.splash.ComposeSplashKt;
 import chin.pswm.gps.photo.location.map.compose.splash.ComposeSplashState;
@@ -36,17 +35,19 @@ public class SplashActivity extends BaseActivity {
         this.permissionUtils = new PermissionUtils(this);
         boolean privacyScreenShown = SharedHelper.getBoolean(getApplicationContext(), "privacy_screen_shown", false);
 
-        if (!privacyScreenShown) {
-            showPrivacyScreen();
-        } else {
-            checkMain();
-        }
+        AdsManager.INSTANCE.requestUMP(SplashActivity.this, true, true);
+        AdsManager.INSTANCE.getConsentFinished().observe(this, finished -> {
+                    if (!privacyScreenShown) {
+                        showPrivacyScreen();
+                    } else {
+                        checkMain();
+                    }
+                }
+        );
     }
-
 
     private void showPrivacyScreen() {
         startActivity(new Intent(SplashActivity.this, ActivityPrivacyPolicy_New.class));
-        SharedHelper.putBoolean(getApplicationContext(), "privacy_screen_shown", true);
         finish();
     }
 
@@ -58,13 +59,16 @@ public class SplashActivity extends BaseActivity {
             gotoLoginActivity();
             finish();
         } else {
+            Boolean finishFO = SharedHelper.getBoolean(getApplicationContext(), "finis_fo", false);
             if (selectedLanguage.isEmpty()) {
                 AdsManager.INSTANCE.getNativeLanguage().loadAd(SplashActivity.this);
                 ComposeSplashState.INSTANCE.getClickedAgree().setValue(true);
-            } else {
+            } else if (!finishFO) {
                 AdsManager.INSTANCE.getNativeOnboard1().loadAd(SplashActivity.this);
                 AdsManager.INSTANCE.getNativeOnboard3().loadAd(SplashActivity.this);
                 ComposeSplashState.INSTANCE.getClickedOnboard().setValue(true);
+            } else {
+                ComposeSplashState.INSTANCE.getClickedMain().setValue(true);
             }
         }
     }

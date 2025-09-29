@@ -14,9 +14,9 @@ import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.compose.dialog.LoadingDialog
 import chin.pswm.gps.photo.location.map.compose.utils.black
-import chin.pswm.gps.photo.location.map.compose.utils.visible
 import chin.pswm.gps.photo.location.map.languegess.ActivityPrivacyPolicy_New
 import chin.pswm.gps.photo.location.map.languegess.New_first_languagesselect
+import chin.pswm.gps.photo.location.map.languegess.SharedHelper
 import kotlinx.coroutines.flow.MutableStateFlow
 
 object ComposePrivacyState {
@@ -47,10 +47,12 @@ fun ComposePrivacy(composeView: ComposeView) {
                     AdsManager.INSTANCE.interSplash.show(
                         activity = context as ActivityPrivacyPolicy_New,
                         onAdClosed = {
+                            SharedHelper.putBoolean(context, "privacy_screen_shown", true)
                             context.startActivity(Intent(context, New_first_languagesselect::class.java))
                             context.finish()
                         },
                         onAdFailedToShow = {
+                            SharedHelper.putBoolean(context, "privacy_screen_shown", true)
                             context.startActivity(Intent(context, New_first_languagesselect::class.java))
                             context.finish()
                         }
@@ -58,6 +60,7 @@ fun ComposePrivacy(composeView: ComposeView) {
                 }
 
                 AdsStatus.FAIL -> {
+                    SharedHelper.putBoolean(context, "privacy_screen_shown", true)
                     context.startActivity(Intent(context, New_first_languagesselect::class.java))
                     (context as? ActivityPrivacyPolicy_New)?.finish()
                 }

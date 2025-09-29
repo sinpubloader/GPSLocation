@@ -7,9 +7,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.asFlow
 import androidx.lifecycle.compose.LifecycleResumeEffect
 import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity
 import chin.pswm.gps.photo.location.map.activity.SplashActivity
+import chin.pswm.gps.photo.location.map.activity.StartActivity
 import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.languegess.New_first_languagesselect
@@ -18,6 +20,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 object ComposeSplashState {
     val clickedAgree = MutableStateFlow(false)
     val clickedOnboard = MutableStateFlow(false)
+    val clickedMain = MutableStateFlow(false)
 }
 
 fun setMyContent(composeView: ComposeView) {
@@ -29,12 +32,16 @@ fun setMyContent(composeView: ComposeView) {
 @Composable
 fun ComposeSplash(composeView: ComposeView) {
     val context = LocalContext.current
-    LaunchedEffect(Unit) {
-        AdsManager.INSTANCE.interSplash.loadAd(context)
-    }
 
+
+    val initFinished = AdsManager.INSTANCE.consentFinished.asFlow().collectAsState(false).value
     val adsStatus = AdsManager.INSTANCE.interSplash.statusFlow.collectAsState().value
     val clickedAgree = ComposeSplashState.clickedAgree.collectAsState().value
+
+    LaunchedEffect(initFinished) {
+        if (initFinished) AdsManager.INSTANCE.interSplash.loadAd(context)
+    }
+
     LifecycleResumeEffect(clickedAgree, adsStatus) {
         if (clickedAgree) {
             when (adsStatus) {
@@ -87,6 +94,38 @@ fun ComposeSplash(composeView: ComposeView) {
 
                 AdsStatus.FAIL -> {
                     context.startActivity(Intent(context, New_IntroActivity::class.java))
+                    (context as? SplashActivity)?.finish()
+                }
+
+                else -> Unit
+            }
+        }
+        onPauseOrDispose {
+
+        }
+    }
+
+    val clickedSplash = ComposeSplashState.clickedMain.collectAsState().value
+    LifecycleResumeEffect(clickedSplash, adsStatus) {
+        if (clickedSplash) {
+            when (adsStatus) {
+                AdsStatus.SUCCESS -> {
+                    composeView.setBackgroundColor(Color.BLACK)
+                    AdsManager.INSTANCE.interSplash.show(
+                        activity = context as SplashActivity,
+                        onAdClosed = {
+                            context.startActivity(Intent(context, StartActivity::class.java))
+                            context.finish()
+                        },
+                        onAdFailedToShow = {
+                            context.startActivity(Intent(context, StartActivity::class.java))
+                            context.finish()
+                        }
+                    )
+                }
+
+                AdsStatus.FAIL -> {
+                    context.startActivity(Intent(context, StartActivity::class.java))
                     (context as? SplashActivity)?.finish()
                 }
 

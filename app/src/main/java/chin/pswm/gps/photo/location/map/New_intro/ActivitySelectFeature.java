@@ -77,6 +77,7 @@ public class ActivitySelectFeature extends AppCompatActivity {
     }
 
     public final void startMainActivity() {
+        SharedHelper.putBoolean(getApplicationContext(), "finis_fo", true);
         if (ComposeSelectState.INSTANCE.isSelected()) {
             PermissionUtils permissionUtils = this.permissionUtils;
             if (permissionUtils.checkPermission(permissionUtils.allPermissions)) {
