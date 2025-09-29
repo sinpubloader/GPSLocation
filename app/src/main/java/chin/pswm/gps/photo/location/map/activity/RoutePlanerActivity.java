@@ -83,6 +83,7 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_route_planer);
 
+        composeView = findViewById(R.id.composeView);
         txtCurrentLocation = findViewById(R.id.txtCurrentLocation);
         txtDestinationLocation = findViewById(R.id.txtDestinationLocation);
         ivCurrentLocation = findViewById(R.id.iv_current_location);
