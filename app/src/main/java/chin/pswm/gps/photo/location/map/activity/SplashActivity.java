@@ -62,8 +62,9 @@ public class SplashActivity extends BaseActivity {
                 AdsManager.INSTANCE.getNativeLanguage().loadAd(SplashActivity.this);
                 ComposeSplashState.INSTANCE.getClickedAgree().setValue(true);
             } else {
-                startActivity(new Intent(SplashActivity.this, New_IntroActivity.class));
-                finish();
+                AdsManager.INSTANCE.getNativeOnboard1().loadAd(SplashActivity.this);
+                AdsManager.INSTANCE.getNativeOnboard3().loadAd(SplashActivity.this);
+                ComposeSplashState.INSTANCE.getClickedOnboard().setValue(true);
             }
         }
     }

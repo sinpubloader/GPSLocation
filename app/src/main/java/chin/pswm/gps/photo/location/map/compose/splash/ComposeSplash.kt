@@ -8,6 +8,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.LifecycleResumeEffect
+import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity
 import chin.pswm.gps.photo.location.map.activity.SplashActivity
 import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
@@ -16,6 +17,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 object ComposeSplashState {
     val clickedAgree = MutableStateFlow(false)
+    val clickedOnboard = MutableStateFlow(false)
 }
 
 fun setMyContent(composeView: ComposeView) {
@@ -53,6 +55,38 @@ fun ComposeSplash(composeView: ComposeView) {
 
                 AdsStatus.FAIL -> {
                     context.startActivity(Intent(context, New_first_languagesselect::class.java))
+                    (context as? SplashActivity)?.finish()
+                }
+
+                else -> Unit
+            }
+        }
+        onPauseOrDispose {
+
+        }
+    }
+
+    val clickedOnboard = ComposeSplashState.clickedOnboard.collectAsState().value
+    LifecycleResumeEffect(clickedOnboard, adsStatus) {
+        if (clickedOnboard) {
+            when (adsStatus) {
+                AdsStatus.SUCCESS -> {
+                    composeView.setBackgroundColor(Color.BLACK)
+                    AdsManager.INSTANCE.interSplash.show(
+                        activity = context as SplashActivity,
+                        onAdClosed = {
+                            context.startActivity(Intent(context, New_IntroActivity::class.java))
+                            context.finish()
+                        },
+                        onAdFailedToShow = {
+                            context.startActivity(Intent(context, New_IntroActivity::class.java))
+                            context.finish()
+                        }
+                    )
+                }
+
+                AdsStatus.FAIL -> {
+                    context.startActivity(Intent(context, New_IntroActivity::class.java))
                     (context as? SplashActivity)?.finish()
                 }
 

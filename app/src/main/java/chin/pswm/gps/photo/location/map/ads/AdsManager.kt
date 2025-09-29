@@ -88,17 +88,17 @@ class AdsManager(
         )
     }
 
-    val nativeOnboard by lazy {
+    val nativeOnboard1 by lazy {
         NativeAdUnit(
-            "native_ob_high" to BuildConfig.native_ob_high,
-            "native_ob" to BuildConfig.native_ob,
+            "native_ob_high" to BuildConfig.native_ob1_high,
+            "native_ob" to BuildConfig.native_ob1,
         )
     }
 
-    val nativeFSN by lazy {
+    val nativeOnboard3 by lazy {
         NativeAdUnit(
-            "native_fsob_high" to BuildConfig.native_fsob_high,
-            "native_fsob" to BuildConfig.native_fsob,
+            "native_ob_high" to BuildConfig.native_ob3_high,
+            "native_ob" to BuildConfig.native_ob3,
             defaultEnable = false
         )
     }
