@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.compose.ui.platform.ComposeView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +26,8 @@ import java.util.ArrayList;
 
 import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity;
 import chin.pswm.gps.photo.location.map.activity.StartActivity;
+import chin.pswm.gps.photo.location.map.compose.language.ComposeLanguageKt;
+import chin.pswm.gps.photo.location.map.compose.language.ComposeLanguageState;
 import chin.pswm.gps.photo.location.map_debug.R;
 
 
@@ -33,10 +36,12 @@ public class New_first_languagesselect extends AppCompatActivity {
     String localeCode;
     int selectedPosition = -1;
     TextView btn_save;
+    ComposeView composeView;
     boolean languageSelected = false;
     boolean fromSplash = false;
     boolean fromNavigationBar;
     LinearLayout languges_s;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,14 +102,21 @@ public class New_first_languagesselect extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         allbank_MyLangAdapter adapter = new allbank_MyLangAdapter(languesslist);
         recyclerView.setAdapter(adapter);
+        composeView = findViewById(R.id.composeView);
         btn_save = findViewById(R.id.done);
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nextScreen();
+                if (ComposeLanguageState.INSTANCE.getClickedLanguage()) {
+                    nextScreen();
+                } else {
+                    Toast toast = Toast.makeText(New_first_languagesselect.this, R.string.select_language_please, Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
         });
 
+        ComposeLanguageKt.setMyContent(composeView);
     }
 
 
@@ -125,6 +137,7 @@ public class New_first_languagesselect extends AppCompatActivity {
             finish();
         }
     }
+
     public class allbank_MyLangAdapter extends RecyclerView.Adapter<allbank_MyLangAdapter.ViewHolder> {
         private final ArrayList<Lang_item> listdata;
 
@@ -160,6 +173,7 @@ public class New_first_languagesselect extends AppCompatActivity {
                     notifyDataSetChanged();
                     btn_save.setVisibility(View.VISIBLE);
                     localeCode = langItem.getLag_code();
+                    ComposeLanguageState.INSTANCE.setClickedLanguage(true);
                     SharedHelper.putInt(getApplicationContext(), "Lastlang_poss", selectedPosition);
                     SharedHelper.putString(getApplicationContext(), "lang_key", localeCode);
                 }

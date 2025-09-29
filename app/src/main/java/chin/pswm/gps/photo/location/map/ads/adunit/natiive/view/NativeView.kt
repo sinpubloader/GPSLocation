@@ -40,7 +40,6 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.koin.compose.koinInject
 
 @Composable
 fun NativeView(
@@ -60,7 +59,9 @@ fun NativeView(
         val preview = LocalInspectionMode.current
         if (preview) return default
 
-        val prefs: Prefs = koinInject()
+        val prefs: Prefs = remember {
+            Prefs.INSTANCE
+        }
         val configLayout = remember {
             prefs.getString(name, "")
         }

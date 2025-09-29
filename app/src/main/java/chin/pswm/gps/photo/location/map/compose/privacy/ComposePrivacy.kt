@@ -34,6 +34,7 @@ fun ComposePrivacy(composeView: ComposeView) {
     val context = LocalContext.current
     LaunchedEffect(Unit) {
         AdsManager.INSTANCE.interSplash.loadAd(context)
+        AdsManager.INSTANCE.nativeLanguage.loadAd(context)
     }
 
     val adsStatus = AdsManager.INSTANCE.interSplash.statusFlow.collectAsState().value

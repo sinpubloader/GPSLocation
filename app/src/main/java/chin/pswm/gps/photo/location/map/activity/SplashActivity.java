@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity;
+import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.compose.splash.ComposeSplashKt;
 import chin.pswm.gps.photo.location.map.compose.splash.ComposeSplashState;
 import chin.pswm.gps.photo.location.map.languegess.ActivityPrivacyPolicy_New;
@@ -58,6 +59,7 @@ public class SplashActivity extends BaseActivity {
             finish();
         } else {
             if (selectedLanguage.isEmpty()) {
+                AdsManager.INSTANCE.getNativeLanguage().loadAd(SplashActivity.this);
                 ComposeSplashState.INSTANCE.getClickedAgree().setValue(true);
             } else {
                 startActivity(new Intent(SplashActivity.this, New_IntroActivity.class));
