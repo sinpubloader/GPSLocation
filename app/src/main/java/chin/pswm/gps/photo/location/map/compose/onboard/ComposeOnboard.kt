@@ -3,9 +3,11 @@ package chin.pswm.gps.photo.location.map.compose.onboard
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
@@ -19,6 +21,14 @@ fun setMyContent(composeView: ComposeView, index: Int) {
 
 @Composable
 fun ComposeOnboard(index: Int) {
+    val context = LocalContext.current
+    LaunchedEffect(Unit) {
+        AdsManager.INSTANCE.run {
+            nativeSelect.loadAd(context)
+            nativeSelectAlt.loadAd(context)
+        }
+    }
+
     val nativeAdUnit = remember {
         if (index == 0) {
             AdsManager.INSTANCE.nativeOnboard1

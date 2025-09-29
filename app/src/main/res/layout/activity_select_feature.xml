@@ -4,24 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:fitsSystemWindows="true"
     android:gravity="center"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/rubik_semibold"
-        android:text="@string/which_features_are_you_interested_in"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:fontFamily="@font/rubik_semibold"
+        android:gravity="center"
+        android:text="@string/which_features_are_you_interested_in"
         android:textColor="@color/black"
         android:textSize="26dp"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/_14sdp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
         android:id="@+id/llEarthView"
@@ -29,9 +29,9 @@
         android:layout_height="@dimen/_48sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:background="@drawable/permission_detail"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/tvTitle">
 
 
         <TextView
@@ -39,11 +39,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_toLeftOf="@+id/ivEarthview"
             android:fontFamily="@font/rubik_semibold"
             android:gravity="center_vertical"
             android:lines="1"
-            android:layout_marginStart="@dimen/_10sdp"
             android:text="@string/earth_view"
             android:textColor="@color/black"
             android:textSize="@dimen/_13sdp" />
@@ -57,7 +57,7 @@
             android:layout_marginHorizontal="50px"
             android:layout_marginLeft="50px"
             android:layout_marginRight="50px"
-            android:src="@drawable/ic_select_round" />
+            android:src="@drawable/ic_unselect_round" />
     </RelativeLayout>
 
 
@@ -67,21 +67,21 @@
         android:layout_height="@dimen/_48sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/permission_detail"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/llEarthView"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/llEarthView">
 
         <TextView
             android:id="@+id/tt1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_10sdp"
             android:layout_toLeftOf="@+id/ivTimeView"
             android:fontFamily="@font/rubik_semibold"
             android:gravity="center_vertical"
             android:lines="1"
             android:text="@string/timestamp_camera"
-            android:layout_marginStart="@dimen/_10sdp"
             android:textColor="@color/black"
             android:textSize="@dimen/_13sdp" />
 
@@ -103,15 +103,21 @@
         android:layout_height="@dimen/_40sdp"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:background="@drawable/btn_global"
         android:fontFamily="@font/gilroy_semi_bold"
         android:gravity="center"
         android:text="@string/contin"
         android:textColor="@color/white"
         android:textSize="@dimen/_14sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/composeView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/composeView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
