@@ -47,6 +47,8 @@ import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.adapter.MyPagerAdapter;
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
+import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
@@ -54,8 +56,10 @@ import chin.pswm.gps.photo.location.map.utils.Common;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityVideoBinding;
+
 @SuppressWarnings("all")
 
 public class VideoActivity extends BaseActivity implements OnMapReadyCallback, LocationListener {
@@ -76,7 +80,7 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
     long timeSwapBuff = 0;
     long updatedTime = 0;
     private Runnable updateTimerThread = new Runnable() {
-        @Override 
+        @Override
         public void run() {
             VideoActivity.this.timeInMilliseconds = SystemClock.uptimeMillis() - VideoActivity.this.startTime;
             VideoActivity videoActivity = VideoActivity.this;
@@ -88,8 +92,8 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
     };
     CameraListener cameraListener = new AnonymousClass2();
 
-    
-    @Override 
+
+    @Override
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(VideoActivity.this, SharedHelper.getString(VideoActivity.this, "lang_key", ""));
 
@@ -104,6 +108,12 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
         initSocketConnection(this, true, true);
 
         setData();
+
+        ComposeBannerKt.setBannerContent(binding.composeView,
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
     }
 
     private void setData() {
@@ -118,25 +128,25 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
             this.binding.flash.setVisibility(4);
         }
         this.binding.flip.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 VideoActivity.this.m139xb96d859d(view);
             }
         });
         this.binding.flash.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 VideoActivity.this.m140xdf018e9e(view);
             }
         });
         this.binding.capture.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 VideoActivity.this.m141x495979f(view);
             }
         });
         this.binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 showUserInterDataBack(VideoActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
@@ -147,6 +157,7 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
             }
         });
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -161,7 +172,8 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
         }
         return true;
     }
-    public  void m139xb96d859d(View view) {
+
+    public void m139xb96d859d(View view) {
         if (this.binding.camera.getFacing() == Facing.BACK) {
             this.binding.camera.setFacing(Facing.FRONT);
             this.binding.flash.setVisibility(4);
@@ -172,7 +184,7 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
         this.binding.flash.setImageDrawable(getResources().getDrawable(R.drawable.effect_flash_off));
     }
 
-    public  void m140xdf018e9e(View view) {
+    public void m140xdf018e9e(View view) {
         if (this.flash) {
             this.flash = false;
             this.binding.camera.setFlash(Flash.OFF);
@@ -185,7 +197,7 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
     }
 
 
-    public  void m141x495979f(View view) {
+    public void m141x495979f(View view) {
         if (SystemClock.elapsedRealtime() - this.mLastClickTime < 1000) {
             return;
         }
@@ -202,7 +214,7 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
         startTimer();
     }
 
-    public  void m142x2a29a0a0(View view) {
+    public void m142x2a29a0a0(View view) {
         onBackPressed();
     }
 
@@ -225,89 +237,89 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
         AnonymousClass2() {
         }
 
-        @Override 
+        @Override
         public void onCameraOpened(CameraOptions cameraOptions) {
             super.onCameraOpened(cameraOptions);
         }
 
-        @Override 
+        @Override
         public void onCameraClosed() {
             super.onCameraClosed();
         }
 
-        @Override 
+        @Override
         public void onCameraError(CameraException cameraException) {
             super.onCameraError(cameraException);
         }
 
-        @Override 
+        @Override
         public void onPictureTaken(PictureResult pictureResult) {
             super.onPictureTaken(pictureResult);
         }
 
-        @Override 
+        @Override
         public void onVideoTaken(VideoResult videoResult) {
             super.onVideoTaken(videoResult);
             final File file = videoResult.getFile();
             VideoActivity.this.runOnUiThread(new Runnable() {
-                @Override 
+                @Override
                 public final void run() {
                     VideoActivity.AnonymousClass2.this.m144x11ae0624(file);
                 }
             });
         }
 
-        public  void m144x11ae0624(File file) {
+        public void m144x11ae0624(File file) {
             VideoActivity.this.startActivity(new Intent(VideoActivity.this, VideoPreviewActivity.class).setFlags(536870912).putExtra("Path", file.getAbsolutePath()));
         }
 
-        @Override 
+        @Override
         public void onOrientationChanged(int i) {
             super.onOrientationChanged(i);
         }
 
-        @Override 
+        @Override
         public void onAutoFocusStart(PointF pointF) {
             super.onAutoFocusStart(pointF);
         }
 
-        @Override 
+        @Override
         public void onAutoFocusEnd(boolean z, PointF pointF) {
             super.onAutoFocusEnd(z, pointF);
         }
 
-        @Override 
+        @Override
         public void onZoomChanged(float f, float[] fArr, PointF[] pointFArr) {
             super.onZoomChanged(f, fArr, pointFArr);
         }
 
-        @Override 
+        @Override
         public void onExposureCorrectionChanged(float f, float[] fArr, PointF[] pointFArr) {
             super.onExposureCorrectionChanged(f, fArr, pointFArr);
         }
 
-        @Override 
+        @Override
         public void onVideoRecordingStart() {
             super.onVideoRecordingStart();
         }
 
-        @Override 
+        @Override
         public void onVideoRecordingEnd() {
             super.onVideoRecordingEnd();
         }
 
-        @Override 
+        @Override
         public void onPictureShutter() {
             super.onPictureShutter();
         }
     }
 
-    @Override 
+    @Override
     public void onLocationChanged(Location location) {
         setMapData(location);
     }
 
-    @Override 
+    @Override
     public void onMapReady(GoogleMap googleMap) {
         this.mMap = googleMap;
         if (ActivityCompat.checkSelfPermission(this, "android.permission.ACCESS_FINE_LOCATION") == 0 || ActivityCompat.checkSelfPermission(this, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
@@ -386,7 +398,7 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
                 Common.lonTemplate = Common.formatNumber(this.longitude);
                 Common.addressTemplate = addressLine;
                 new Handler().postDelayed(new Runnable() {
-                    @Override 
+                    @Override
                     public final void run() {
                         VideoActivity.this.m143xce8e8533();
                     }
@@ -396,7 +408,7 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
         }
     }
 
-    public  void m143xce8e8533() {
+    public void m143xce8e8533() {
         this.mMap.snapshot(new GoogleMap.SnapshotReadyCallback() {
             @Override
             public void onSnapshotReady(Bitmap bitmap) {
@@ -409,7 +421,7 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
         });
     }
 
-    
+
     public class WeatherDataFetcher extends AsyncTask<Void, Void, String> {
         private String API_KEY = "5b919eba028aef3bf10707088ddee3fd";
         private String API_URL;
@@ -421,14 +433,14 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
             this.longitude = str2;
         }
 
-        @Override 
+        @Override
         protected void onPreExecute() {
             super.onPreExecute();
             this.API_URL = "https://api.openweathermap.org/data/2.5/weather?units=metric&lat=" + this.latitude + "&lon=" + this.longitude + "&appid=" + this.API_KEY;
         }
 
-        
-        @Override 
+
+        @Override
         public String doInBackground(Void... voidArr) {
             try {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(((HttpURLConnection) new URL(this.API_URL).openConnection()).getInputStream()));
@@ -446,8 +458,8 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
             }
         }
 
-        
-        @Override 
+
+        @Override
         public void onPostExecute(String str) {
             if (str != null) {
                 try {

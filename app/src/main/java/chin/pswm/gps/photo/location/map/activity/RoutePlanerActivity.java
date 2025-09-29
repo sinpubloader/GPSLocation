@@ -28,6 +28,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.compose.ui.platform.ComposeView;
 import androidx.core.app.ActivityCompat;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -45,8 +46,11 @@ import java.util.List;
 import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
+import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
+import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 
 public class RoutePlanerActivity extends AppCompatActivity implements OnMapReadyCallback {
@@ -56,15 +60,16 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
     private static final int SPEECH_REQUEST_CODE_CURRENT = 1;
     private static final int SPEECH_REQUEST_CODE_DESTINATION = 2;
     private static final int LOCATION_PERMISSION_REQUEST = 100;
-    private TextView  tvOpenMap;
+    private TextView tvOpenMap;
     private ImageView ivCurrentLocation, ivDestination, ivSwitch;
-    EditText txtDestinationLocation,txtCurrentLocation;
+    EditText txtDestinationLocation, txtCurrentLocation;
     private LinearLayout llMapOption, liNormal, liSatellite, liTerrain, liHybrid;
     private String currentLocation = "";
     private String destinationLocation = "";
     private static final int SEARCH_REQUEST_CODE = 101;
     private Dialog mapTypeDialog;
-    private ImageView ivNormal, ivSatellite, ivTerrain, ivHybrid,iv_back;
+    private ComposeView composeView;
+    private ImageView ivNormal, ivSatellite, ivTerrain, ivHybrid, iv_back;
     private int selectedMapType = GoogleMap.MAP_TYPE_NORMAL;
     private boolean isUpdatingLocation = false;
 
@@ -126,7 +131,13 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
 
         getCurrentLocation();
 
+        ComposeBannerKt.setBannerContent(composeView,
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -141,6 +152,7 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
         }
         return true;
     }
+
     private final TextWatcher textWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -326,6 +338,7 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
             }
         }
     }
+
     private void showMapTypeDialog() {
         mapTypeDialog = new Dialog(this);
         mapTypeDialog.setContentView(R.layout.dialog_map_type);

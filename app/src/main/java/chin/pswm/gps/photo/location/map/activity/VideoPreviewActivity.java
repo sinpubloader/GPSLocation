@@ -29,13 +29,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
+import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.Common;
+import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityVideoPreviewBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.DeleteDialogLayoutBinding;
+
 @SuppressWarnings("all")
 
 public class VideoPreviewActivity extends BaseActivity {
@@ -47,7 +51,7 @@ public class VideoPreviewActivity extends BaseActivity {
     public long total_duration = 0;
     public ArrayList<Uri> uris = new ArrayList<>();
 
-    @Override 
+    @Override
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(VideoPreviewActivity.this, SharedHelper.getString(VideoPreviewActivity.this, "lang_key", ""));
 
@@ -60,7 +64,7 @@ public class VideoPreviewActivity extends BaseActivity {
 
         setData();
         this.binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 showUserInterDataBack(VideoPreviewActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
@@ -71,44 +75,50 @@ public class VideoPreviewActivity extends BaseActivity {
             }
         });
         this.binding.wh.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 VideoPreviewActivity.this.m147x3ec160ff(view);
             }
         });
         this.binding.fb.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 VideoPreviewActivity.this.m148xbd2264de(view);
             }
         });
         this.binding.insta.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 VideoPreviewActivity.this.m149x3b8368bd(view);
             }
         });
         this.binding.more.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 VideoPreviewActivity.this.m150xb9e46c9c(view);
             }
         });
         this.binding.delete.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 VideoPreviewActivity.this.m151x3845707b(view);
             }
         });
+
+        ComposeBannerKt.setBannerContent(binding.composeView,
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
     }
 
 
-    public  void m146xc0605d20(View view) {
+    public void m146xc0605d20(View view) {
         onBackPressed();
     }
 
 
-    public  void m147x3ec160ff(View view) {
+    public void m147x3ec160ff(View view) {
         if (SystemClock.elapsedRealtime() - this.mLastClickTime < 1000) {
             return;
         }
@@ -128,7 +138,7 @@ public class VideoPreviewActivity extends BaseActivity {
     }
 
 
-    public  void m148xbd2264de(View view) {
+    public void m148xbd2264de(View view) {
         if (SystemClock.elapsedRealtime() - this.mLastClickTime < 1000) {
             return;
         }
@@ -146,6 +156,7 @@ public class VideoPreviewActivity extends BaseActivity {
             Toast.makeText(this, getResources().getString(R.string.gpl18), 0).show();
         }
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -161,7 +172,7 @@ public class VideoPreviewActivity extends BaseActivity {
         return true;
     }
 
-    public  void m149x3b8368bd(View view) {
+    public void m149x3b8368bd(View view) {
         if (SystemClock.elapsedRealtime() - this.mLastClickTime < 1000) {
             return;
         }
@@ -181,7 +192,7 @@ public class VideoPreviewActivity extends BaseActivity {
     }
 
 
-    public  void m150xb9e46c9c(View view) {
+    public void m150xb9e46c9c(View view) {
         if (SystemClock.elapsedRealtime() - this.mLastClickTime < 1000) {
             return;
         }
@@ -195,7 +206,7 @@ public class VideoPreviewActivity extends BaseActivity {
         startActivity(intent);
     }
 
-    public  void m151x3845707b(View view) {
+    public void m151x3845707b(View view) {
         deleteDialog();
     }
 
@@ -206,13 +217,13 @@ public class VideoPreviewActivity extends BaseActivity {
         dialog.setContentView(inflate.getRoot());
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
         inflate.close.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 dialog.cancel();
             }
         });
         inflate.delete.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 VideoPreviewActivity.this.m145xab8066a1(dialog, view);
             }
@@ -221,7 +232,7 @@ public class VideoPreviewActivity extends BaseActivity {
     }
 
 
-    public  void m145xab8066a1(Dialog dialog, View view) {
+    public void m145xab8066a1(Dialog dialog, View view) {
         dialog.cancel();
         deleteImage(this.path);
     }
@@ -269,7 +280,7 @@ public class VideoPreviewActivity extends BaseActivity {
     private void setData() {
         playVideo(this.path);
         this.binding.pause.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public void onClick(View view) {
                 if (VideoPreviewActivity.this.binding.videoView.isPlaying()) {
                     VideoPreviewActivity.this.binding.pause.setImageResource(R.drawable.play);
@@ -328,7 +339,7 @@ public class VideoPreviewActivity extends BaseActivity {
         }
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
-            @Override 
+            @Override
             public void run() {
                 try {
                     VideoPreviewActivity videoPreviewActivity = VideoPreviewActivity.this;

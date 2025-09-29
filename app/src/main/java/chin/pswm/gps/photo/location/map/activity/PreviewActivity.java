@@ -28,12 +28,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
+import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
+import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityPreviewBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.DeleteDialogLayoutBinding;
+
 @SuppressWarnings("all")
 
 public class PreviewActivity extends BaseActivity {
@@ -42,7 +46,7 @@ public class PreviewActivity extends BaseActivity {
     private long mLastClickTime = 0;
     public ArrayList<Uri> uris = new ArrayList<>();
 
-    @Override 
+    @Override
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(PreviewActivity.this, SharedHelper.getString(PreviewActivity.this, "lang_key", ""));
 
@@ -55,7 +59,7 @@ public class PreviewActivity extends BaseActivity {
         initSocketConnection(this, true, true);
 
         this.binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 showUserInterDataBack(PreviewActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
@@ -66,35 +70,40 @@ public class PreviewActivity extends BaseActivity {
             }
         });
         this.binding.wh.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 PreviewActivity.this.m110xf4af0d14(view);
             }
         });
         this.binding.fb.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 PreviewActivity.this.m111x564d9d5(view);
             }
         });
         this.binding.insta.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 PreviewActivity.this.m112x161aa696(view);
             }
         });
         this.binding.more.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 PreviewActivity.this.m113x26d07357(view);
             }
         });
         this.binding.delete.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 PreviewActivity.this.m114x37864018(view);
             }
         });
+        ComposeBannerKt.setBannerContent(binding.composeView,
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
     }
 
     @Override
@@ -111,12 +120,13 @@ public class PreviewActivity extends BaseActivity {
         }
         return true;
     }
-    public  void m109xe3f94053(View view) {
+
+    public void m109xe3f94053(View view) {
         onBackPressed();
     }
 
 
-    public  void m110xf4af0d14(View view) {
+    public void m110xf4af0d14(View view) {
         if (SystemClock.elapsedRealtime() - this.mLastClickTime < 1000) {
             return;
         }
@@ -136,7 +146,7 @@ public class PreviewActivity extends BaseActivity {
     }
 
 
-    public  void m111x564d9d5(View view) {
+    public void m111x564d9d5(View view) {
         if (SystemClock.elapsedRealtime() - this.mLastClickTime < 1000) {
             return;
         }
@@ -156,7 +166,7 @@ public class PreviewActivity extends BaseActivity {
     }
 
 
-    public  void m112x161aa696(View view) {
+    public void m112x161aa696(View view) {
         if (SystemClock.elapsedRealtime() - this.mLastClickTime < 1000) {
             return;
         }
@@ -176,7 +186,7 @@ public class PreviewActivity extends BaseActivity {
     }
 
 
-    public  void m113x26d07357(View view) {
+    public void m113x26d07357(View view) {
         if (SystemClock.elapsedRealtime() - this.mLastClickTime < 1000) {
             return;
         }
@@ -191,7 +201,7 @@ public class PreviewActivity extends BaseActivity {
     }
 
 
-    public  void m114x37864018(View view) {
+    public void m114x37864018(View view) {
         deleteDialog();
     }
 
@@ -202,13 +212,13 @@ public class PreviewActivity extends BaseActivity {
         dialog.setContentView(inflate.getRoot());
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
         inflate.close.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 dialog.cancel();
             }
         });
         inflate.delete.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 PreviewActivity.this.m108xcbe78a32(dialog, view);
             }
@@ -217,7 +227,7 @@ public class PreviewActivity extends BaseActivity {
     }
 
 
-    public  void m108xcbe78a32(Dialog dialog, View view) {
+    public void m108xcbe78a32(Dialog dialog, View view) {
         dialog.cancel();
         deleteImage(this.path);
     }

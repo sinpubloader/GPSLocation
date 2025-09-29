@@ -37,6 +37,8 @@ import java.util.List;
 
 import chin.pswm.gps.photo.location.map.adapter.StartAdapter;
 import chin.pswm.gps.photo.location.map.ads.AdsVariable;
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
+import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.earthview.EarthViewActivity;
 import chin.pswm.gps.photo.location.map.fragment.StartFragment;
 import chin.pswm.gps.photo.location.map.interfaces.OnClickGallery;
@@ -48,6 +50,7 @@ import chin.pswm.gps.photo.location.map.utils.GPSUtils;
 import chin.pswm.gps.photo.location.map.utils.ImageLocationExtractor;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityStartBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
@@ -113,6 +116,12 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         }
 
         setData();
+
+        ComposeBannerKt.setBannerContent(binding.composeView,
+                BuildConfig.banner_home,
+                "banner_home",
+                BannerType.BANNER_COLLAPSIBLE
+        );
     }
 
     private void setData() {
@@ -448,6 +457,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
             temp();
         }
     }
+
     public void temp() {
         final Dialog dialog = new Dialog(StartActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -472,6 +482,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         });
         dialog.show();
     }
+
     @Override
     public void onClickItem(String str) {
         if (str.contains(".mp4")) {

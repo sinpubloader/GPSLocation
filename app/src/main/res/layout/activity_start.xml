@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg"
@@ -52,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:scrollbars="none"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/composeView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/headerRl">
@@ -67,10 +66,10 @@
                     android:id="@+id/advanceCamera"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
                     android:elevation="@dimen/_4sdp"
                     app:cardBackgroundColor="#5085F7"
                     app:cardCornerRadius="@dimen/_10sdp"
-                    android:layout_marginHorizontal="@dimen/_16sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -150,12 +149,12 @@
                     android:id="@+id/rlEathView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:elevation="@dimen/_4sdp"
+                    android:visibility="visible"
                     app:cardBackgroundColor="#E3E2FF"
                     app:cardCornerRadius="@dimen/_10sdp"
-                    android:visibility="visible"
-                    android:layout_marginHorizontal="@dimen/_16sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/advanceCamera">
@@ -206,13 +205,13 @@
                     android:id="@+id/tvmap"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
                     android:layout_marginTop="@dimen/_18sdp"
                     android:fontFamily="@font/rubik_semibold"
                     android:lines="1"
                     android:text="@string/gpl25"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_15sdp"
-                    android:layout_marginStart="@dimen/_16sdp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/rlEathView" />
 
@@ -251,8 +250,8 @@
                     android:id="@+id/photoGrid"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp"
                     android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
                     app:cardBackgroundColor="#5085F7"
                     app:cardCornerRadius="@dimen/_10sdp"
                     app:layout_constraintEnd_toStartOf="@+id/template"
@@ -288,9 +287,9 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
                     app:cardBackgroundColor="#FEC51B"
                     app:cardCornerRadius="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_16sdp"
                     app:layout_constraintBottom_toBottomOf="@+id/photoGrid"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/photoGrid"
@@ -323,10 +322,10 @@
                     android:id="@+id/location"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
                     android:layout_marginTop="@dimen/_16sdp"
                     app:cardBackgroundColor="#0BBF68"
                     app:cardCornerRadius="@dimen/_10sdp"
-                    android:layout_marginStart="@dimen/_16sdp"
                     app:layout_constraintEnd_toStartOf="@+id/camera"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/photoGrid">
@@ -361,9 +360,9 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
                     app:cardBackgroundColor="#3AA1FF"
                     app:cardCornerRadius="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_16sdp"
                     app:layout_constraintBottom_toBottomOf="@+id/location"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/location"
@@ -396,10 +395,10 @@
                     android:id="@+id/gallery"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
                     android:layout_marginTop="@dimen/_16sdp"
                     app:cardBackgroundColor="#766BF5"
                     app:cardCornerRadius="@dimen/_10sdp"
-                    android:layout_marginStart="@dimen/_16sdp"
                     app:layout_constraintEnd_toStartOf="@+id/videoCamera"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/location">
@@ -433,9 +432,9 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
                     app:cardBackgroundColor="#FA5FAD"
                     app:cardCornerRadius="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_16sdp"
                     app:layout_constraintBottom_toBottomOf="@+id/gallery"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/gallery"
@@ -469,10 +468,10 @@
                     android:id="@+id/compass"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_16sdp"
                     android:layout_marginTop="@dimen/_16sdp"
                     app:cardBackgroundColor="#FA8636"
                     app:cardCornerRadius="@dimen/_10sdp"
-                    android:layout_marginStart="@dimen/_16sdp"
                     app:layout_constraintEnd_toStartOf="@+id/route_plan"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/gallery">
@@ -506,9 +505,9 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
                     app:cardBackgroundColor="#3AA1FF"
                     app:cardCornerRadius="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_16sdp"
                     app:layout_constraintBottom_toBottomOf="@+id/compass"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/compass"
@@ -542,21 +541,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/compass"
-                    app:layout_constraintEnd_toEndOf="parent"/>
+                    app:layout_constraintTop_toBottomOf="@+id/compass" />
 
                 <LinearLayout
                     android:id="@+id/myCreation"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
                     android:visibility="gone"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:layout_marginHorizontal="@dimen/_16sdp"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view2">
 
                     <com.fom.rapid.views.RapidRelativeLayout
@@ -608,13 +607,13 @@
                     android:id="@+id/myCreationVideo"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
                     android:visibility="gone"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginHorizontal="@dimen/_16sdp"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/myCreation">
 
                     <com.fom.rapid.views.RapidRelativeLayout
@@ -665,6 +664,12 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.core.widget.NestedScrollView>
+
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/composeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

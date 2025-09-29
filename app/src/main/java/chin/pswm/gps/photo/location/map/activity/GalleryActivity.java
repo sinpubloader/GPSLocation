@@ -44,6 +44,8 @@ import java.util.Locale;
 import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.adapter.FolderAdapter;
 import chin.pswm.gps.photo.location.map.adapter.ItemAdapter;
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
+import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.interfaces.OnClickGallery;
 import chin.pswm.gps.photo.location.map.interfaces.OnProgressUpdate;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
@@ -55,9 +57,11 @@ import chin.pswm.gps.photo.location.map.utils.GalleryAsyncTask;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityGalleryBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
+
 @SuppressWarnings("all")
 
 public class GalleryActivity extends BaseActivity implements OnClickGallery, OnMapReadyCallback, LocationListener {
@@ -75,8 +79,8 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
     public long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
     public long MIN_TIME_BW_UPDATES = 60000;
 
-    
-    @Override 
+
+    @Override
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(GalleryActivity.this, SharedHelper.getString(GalleryActivity.this, "lang_key", ""));
 
@@ -96,7 +100,7 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
         this.dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
         this.dialog.setCanceledOnTouchOutside(false);
         this.dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
-            @Override 
+            @Override
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
                 return true;
             }
@@ -106,7 +110,14 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
         Glide.with((FragmentActivity) this).load(Integer.valueOf((int) R.drawable.loading)).into(this.binding1.gif);
         setSize();
         setData();
+
+        ComposeBannerKt.setBannerContent(binding.composeView,
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -121,6 +132,7 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
         }
         return true;
     }
+
     private void setData() {
         this.folderAdapter = new FolderAdapter(this, this.arrayList, this);
         this.binding.folder.setAdapter(this.folderAdapter);
@@ -147,7 +159,7 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
             }
         }).execute(new Void[0]);
         this.binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 showUserInterDataBack(GalleryActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
@@ -160,7 +172,7 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
         });
     }
 
-    public  void m78x27a3b0b4(View view) {
+    public void m78x27a3b0b4(View view) {
         onBackPressed();
     }
 
@@ -195,12 +207,12 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
         }
     }
 
-    @Override 
+    @Override
     public void onLocationChanged(Location location) {
         setMapData(location);
     }
 
-    @Override 
+    @Override
     public void onMapReady(GoogleMap googleMap) {
         this.mMap = googleMap;
         if (ActivityCompat.checkSelfPermission(this, "android.permission.ACCESS_FINE_LOCATION") == 0 || ActivityCompat.checkSelfPermission(this, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
@@ -283,7 +295,7 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
                 Common.lonTemplate = Common.formatNumber(this.longitude);
                 Common.addressTemplate = addressLine;
                 new Handler().postDelayed(new Runnable() {
-                    @Override 
+                    @Override
                     public final void run() {
                         GalleryActivity.this.m79x4661bc87();
                     }
@@ -294,10 +306,9 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
     }
 
 
-
-    public  void m79x4661bc87() {
+    public void m79x4661bc87() {
         this.mMap.snapshot(new GoogleMap.SnapshotReadyCallback() {
-            @Override 
+            @Override
             public void onSnapshotReady(Bitmap bitmap) {
                 Common.mapTemplate = bitmap;
                 GalleryActivity.this.binding.mapRl.setVisibility(8);
@@ -305,7 +316,7 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
         });
     }
 
-    
+
     public class WeatherDataFetcher extends AsyncTask<Void, Void, String> {
         private String API_URL;
         String latitude;
@@ -316,14 +327,14 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
             this.longitude = str2;
         }
 
-        @Override 
+        @Override
         protected void onPreExecute() {
             super.onPreExecute();
             this.API_URL = "https://api.openweathermap.org/data/2.5/weather?units=metric&lat=" + this.latitude + "&lon=" + this.longitude + "&appid=5b919eba028aef3bf10707088ddee3fd";
         }
 
-        
-        @Override 
+
+        @Override
         public String doInBackground(Void... voidArr) {
             try {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(((HttpURLConnection) new URL(this.API_URL).openConnection()).getInputStream()));
@@ -341,8 +352,8 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
             }
         }
 
-        
-        @Override 
+
+        @Override
         public void onPostExecute(String str) {
             if (str != null) {
                 try {

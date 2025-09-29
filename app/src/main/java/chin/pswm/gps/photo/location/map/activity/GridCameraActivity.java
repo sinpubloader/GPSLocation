@@ -41,6 +41,8 @@ import com.otaliastudios.cameraview.controls.Preview;
 import java.util.ArrayList;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
+import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.photoGrid.activity.PG_CollageActivity;
@@ -48,9 +50,11 @@ import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.Common;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityGridCameraBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
+
 @SuppressWarnings("all")
 
 
@@ -68,23 +72,22 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
     public long MIN_TIME_BW_UPDATES = 60000;
     private long mLastClickTime = 0;
     CameraListener cameraListener = new CameraListener() {
-        @Override 
+        @Override
         public void onCameraOpened(CameraOptions cameraOptions) {
             super.onCameraOpened(cameraOptions);
         }
 
-        @Override 
+        @Override
         public void onCameraClosed() {
             super.onCameraClosed();
         }
 
-        @Override 
+        @Override
         public void onCameraError(CameraException cameraException) {
             super.onCameraError(cameraException);
         }
 
 
-        
         public void onPictureTaken(PictureResult pictureResult) {
             super.onPictureTaken(pictureResult);
             pictureResult.toBitmap(new BitmapCallback() {
@@ -102,53 +105,53 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
             });
         }
 
-        @Override 
+        @Override
         public void onVideoTaken(VideoResult videoResult) {
             super.onVideoTaken(videoResult);
         }
 
-        @Override 
+        @Override
         public void onOrientationChanged(int i) {
             super.onOrientationChanged(i);
         }
 
-        @Override 
+        @Override
         public void onAutoFocusStart(PointF pointF) {
             super.onAutoFocusStart(pointF);
         }
 
-        @Override 
+        @Override
         public void onAutoFocusEnd(boolean z, PointF pointF) {
             super.onAutoFocusEnd(z, pointF);
         }
 
-        @Override 
+        @Override
         public void onZoomChanged(float f, float[] fArr, PointF[] pointFArr) {
             super.onZoomChanged(f, fArr, pointFArr);
         }
 
-        @Override 
+        @Override
         public void onExposureCorrectionChanged(float f, float[] fArr, PointF[] pointFArr) {
             super.onExposureCorrectionChanged(f, fArr, pointFArr);
         }
 
-        @Override 
+        @Override
         public void onVideoRecordingStart() {
             super.onVideoRecordingStart();
         }
 
-        @Override 
+        @Override
         public void onVideoRecordingEnd() {
             super.onVideoRecordingEnd();
         }
 
-        @Override 
+        @Override
         public void onPictureShutter() {
             super.onPictureShutter();
         }
     };
 
-    @Override 
+    @Override
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(GridCameraActivity.this, SharedHelper.getString(GridCameraActivity.this, "lang_key", ""));
 
@@ -163,6 +166,12 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
         initSocketConnection(this, true, true);
 
         setData();
+
+        ComposeBannerKt.setBannerContent(binding.composeView,
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
     }
 
     private void setData() {
@@ -175,7 +184,7 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
             this.binding.flash.setEnabled(false);
         }
         this.binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 showUserInterDataBack(GridCameraActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
@@ -186,19 +195,19 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
             }
         });
         this.binding.flip.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 GridCameraActivity.this.m89x549114c6(view);
             }
         });
         this.binding.flash.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 GridCameraActivity.this.m90xe8cf8465(view);
             }
         });
         this.binding.capture.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 GridCameraActivity.this.m91x7d0df404(view);
             }
@@ -219,12 +228,13 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
         }
         return true;
     }
-    public  void m88xc052a527(View view) {
+
+    public void m88xc052a527(View view) {
         onBackPressed();
     }
 
 
-    public  void m89x549114c6(View view) {
+    public void m89x549114c6(View view) {
         if (this.binding.camera.getFacing() == Facing.BACK) {
             this.binding.camera.setFacing(Facing.FRONT);
             this.binding.flash.setEnabled(false);
@@ -235,7 +245,7 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
         this.binding.flash.setImageDrawable(getResources().getDrawable(R.drawable.effect_flash_off));
     }
 
-    public  void m90xe8cf8465(View view) {
+    public void m90xe8cf8465(View view) {
         if (this.flash) {
             this.flash = false;
             this.binding.camera.setFlash(Flash.OFF);
@@ -248,7 +258,7 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
     }
 
 
-    public  void m91x7d0df404(View view) {
+    public void m91x7d0df404(View view) {
         if (SystemClock.elapsedRealtime() - this.mLastClickTime < 1000) {
             return;
         }
@@ -258,12 +268,12 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
         this.binding.capture.setEnabled(false);
     }
 
-    @Override 
+    @Override
     public void onLocationChanged(Location location) {
         setMapData(location);
     }
 
-    @Override 
+    @Override
     public void onMapReady(GoogleMap googleMap) {
         this.mMap = googleMap;
         if (ActivityCompat.checkSelfPermission(this, "android.permission.ACCESS_FINE_LOCATION") == 0 || ActivityCompat.checkSelfPermission(this, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
@@ -318,7 +328,7 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
                 Common.latTemplate = Common.formatNumber(this.latitude);
                 Common.lonTemplate = Common.formatNumber(this.longitude);
                 new Handler().postDelayed(new Runnable() {
-                    @Override 
+                    @Override
                     public final void run() {
                         GridCameraActivity.this.m92x2eff351();
                     }
@@ -329,9 +339,9 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
     }
 
 
-    public  void m92x2eff351() {
+    public void m92x2eff351() {
         this.mMap.snapshot(new GoogleMap.SnapshotReadyCallback() {
-            @Override 
+            @Override
             public void onSnapshotReady(Bitmap bitmap) {
                 Common.mapTemplate = bitmap;
                 GridCameraActivity.this.binding.mapView.setVisibility(4);
@@ -339,7 +349,7 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
         });
     }
 
-    
+
     public class ProcessAsyncTask extends AsyncTask<String, Void, String> {
         ProcessDialogLayoutBinding binding1;
         Dialog dialog;
@@ -349,7 +359,7 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
         ProcessAsyncTask() {
         }
 
-        @Override 
+        @Override
         protected void onPreExecute() {
             super.onPreExecute();
             this.binding1 = ProcessDialogLayoutBinding.inflate(GridCameraActivity.this.getLayoutInflater());
@@ -360,7 +370,7 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
             this.dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
             this.dialog.setCanceledOnTouchOutside(false);
             this.dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
-                @Override 
+                @Override
                 public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
                     return true;
                 }
@@ -370,13 +380,13 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
             this.arrayList.clear();
         }
 
-        @Override 
+        @Override
         public String doInBackground(String[] strArr) {
             GridCameraActivity gridCameraActivity = GridCameraActivity.this;
             final String saveImage = StorageUtils.saveImage(gridCameraActivity, gridCameraActivity.cameraBitmap, GridCameraActivity.this.getFilesDir().getAbsolutePath(), "camera_" + String.valueOf(System.currentTimeMillis()) + "_image.jpg");
             if (Common.mapTemplate == null) {
                 GridCameraActivity.this.mMap.snapshot(new GoogleMap.SnapshotReadyCallback() {
-                    @Override 
+                    @Override
                     public void onSnapshotReady(Bitmap bitmap) {
                         GridCameraActivity.this.binding.mapView.setVisibility(4);
                         ProcessAsyncTask processAsyncTask = ProcessAsyncTask.this;
@@ -393,7 +403,7 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
             return null;
         }
 
-        @Override 
+        @Override
         public void onPostExecute(String str) {
             this.dialog.dismiss();
             Intent intent = new Intent(GridCameraActivity.this, PG_CollageActivity.class);

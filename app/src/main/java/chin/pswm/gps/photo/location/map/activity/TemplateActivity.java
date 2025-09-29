@@ -11,12 +11,16 @@ import java.util.ArrayList;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.adapter.TemplateAdapter;
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
+import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
+import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityTemplateBinding;
+
 @SuppressWarnings("all")
 
 public class TemplateActivity extends BaseActivity implements TemplateAdapter.OnClickTemplate {
@@ -25,7 +29,7 @@ public class TemplateActivity extends BaseActivity implements TemplateAdapter.On
     int selectPos = 0;
     ArrayList<Integer> arrayList = new ArrayList<>();
 
-    @Override 
+    @Override
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(TemplateActivity.this, SharedHelper.getString(TemplateActivity.this, "lang_key", ""));
 
@@ -45,7 +49,7 @@ public class TemplateActivity extends BaseActivity implements TemplateAdapter.On
         this.arrayList.add(Integer.valueOf((int) R.drawable.template_8));
 
         this.binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 showUserInterDataBack(TemplateActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
@@ -58,12 +62,19 @@ public class TemplateActivity extends BaseActivity implements TemplateAdapter.On
         this.templateAdapter = new TemplateAdapter(this, this.arrayList, this);
         this.binding.recyclerview.setAdapter(this.templateAdapter);
         this.binding.save.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 TemplateActivity.this.m138x9259332c(view);
             }
         });
+
+        ComposeBannerKt.setBannerContent(binding.composeView,
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -79,12 +90,12 @@ public class TemplateActivity extends BaseActivity implements TemplateAdapter.On
         return true;
     }
 
-    public  void m137x8c5567cd(View view) {
+    public void m137x8c5567cd(View view) {
         onBackPressed();
     }
 
 
-    public  void m138x9259332c(View view) {
+    public void m138x9259332c(View view) {
         SpManager.setSelectTemplate(this.selectPos);
         finish();
     }

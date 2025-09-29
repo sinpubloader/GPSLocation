@@ -45,6 +45,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.compose.LifecycleStartEffect
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.view.BannerView
 import chin.pswm.gps.photo.location.map.earthview.custom.AppIcon
 import chin.pswm.gps.photo.location.map.earthview.custom.AppImage
 import chin.pswm.gps.photo.location.map.earthview.custom.BaseScreen
@@ -63,8 +64,8 @@ import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
 import chin.pswm.gps.photo.location.map.ui.theme.neutral50
 import chin.pswm.gps.photo.location.map.ui.theme.neutral700
 import chin.pswm.gps.photo.location.map.ui.theme.primaryColor
+import chin.pswm.gps.photo.location.map_debug.BuildConfig
 import chin.pswm.gps.photo.location.map_debug.R
-import earth.worldwind.globe.projection.MercatorProjection
 import earth.worldwind.globe.projection.Wgs84Projection
 import earth.worldwind.layer.BackgroundLayer
 import earth.worldwind.layer.atmosphere.AtmosphereLayer
@@ -87,6 +88,12 @@ fun EarthViewContent(
                 },
             )
         },
+        bottomBar = {
+            BannerView(
+                adUnit = BuildConfig.banner_inapp,
+                adUnitName = "banner_inapp"
+            )
+        }
     ) {
         Box(Modifier.fillMaxSize()) {
             if (!preview) {

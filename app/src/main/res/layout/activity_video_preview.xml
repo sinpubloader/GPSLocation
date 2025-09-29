@@ -1,206 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <com.fom.rapid.views.RapidRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:fitsSystemWindows="true">
+        android:orientation="vertical">
 
-        <com.fom.rapid.views.RapidRelativeLayout
+        <com.fom.rapid.views.RapidRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/mainbanner"
-            app:measureMargin="true"
-            app:measureWith="-1"
-            app:resizeChildren="true">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:fitsSystemWindows="true">
 
-            <RelativeLayout
-                android:id="@+id/header"
-                android:layout_width="1080px"
-                android:layout_height="180px"
-                android:layout_alignParentTop="true">
-
-                <RelativeLayout
-                    android:id="@+id/back"
-                    android:layout_width="105px"
-                    android:layout_height="105px"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginHorizontal="50px"
-                    android:layout_marginLeft="50px"
-                    android:layout_marginRight="50px">
-
-                    <ImageView
-                        android:layout_width="63px"
-                        android:layout_height="47px"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/effect_back" />
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_toLeftOf="@+id/delete"
-                    android:layout_toRightOf="@+id/back"
-                    android:fontFamily="@font/gilroy_semi_bold"
-                    android:gravity="center_vertical"
-                    android:lines="1"
-                    android:text="@string/gps33"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/_15sdp" />
-
-                <ImageView
-                    android:id="@+id/delete"
-                    android:layout_width="79px"
-                    android:layout_height="79px"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginHorizontal="30px"
-                    android:layout_marginLeft="30px"
-                    android:layout_marginRight="30px"
-                    android:src="@drawable/effect_delete_w"
-                    android:tint="@color/black" />
-            </RelativeLayout>
-
-            <RelativeLayout
+            <com.fom.rapid.views.RapidRelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_above="@+id/footer"
-                android:layout_below="@+id/header">
+                android:layout_above="@+id/mainbanner"
+                app:measureMargin="true"
+                app:measureWith="-1"
+                app:resizeChildren="true">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
-                    android:layout_width="846px"
-                    android:layout_height="1300px"
-                    android:layout_centerInParent="true"
-                    app:cardCornerRadius="@dimen/_20sdp">
+                <RelativeLayout
+                    android:id="@+id/header"
+                    android:layout_width="1080px"
+                    android:layout_height="180px"
+                    android:layout_alignParentTop="true">
 
                     <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <VideoView
-                            android:id="@+id/videoView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent" />
+                        android:id="@+id/back"
+                        android:layout_width="105px"
+                        android:layout_height="105px"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginHorizontal="50px"
+                        android:layout_marginLeft="50px"
+                        android:layout_marginRight="50px">
 
                         <ImageView
-                            android:id="@+id/pause"
-                            android:layout_width="113px"
-                            android:layout_height="113px"
+                            android:layout_width="63px"
+                            android:layout_height="47px"
                             android:layout_centerInParent="true"
-                            android:src="@drawable/plause" />
+                            android:src="@drawable/effect_back" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_toLeftOf="@+id/delete"
+                        android:layout_toRightOf="@+id/back"
+                        android:fontFamily="@font/gilroy_semi_bold"
+                        android:gravity="center_vertical"
+                        android:lines="1"
+                        android:text="@string/gps33"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_15sdp" />
+
+                    <ImageView
+                        android:id="@+id/delete"
+                        android:layout_width="79px"
+                        android:layout_height="79px"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginHorizontal="30px"
+                        android:layout_marginLeft="30px"
+                        android:layout_marginRight="30px"
+                        android:src="@drawable/effect_delete_w"
+                        android:tint="@color/black" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/footer"
+                    android:layout_below="@+id/header">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView"
+                        android:layout_width="846px"
+                        android:layout_height="1300px"
+                        android:layout_centerInParent="true"
+                        app:cardCornerRadius="@dimen/_20sdp">
 
                         <RelativeLayout
-                            android:layout_width="846px"
-                            android:layout_height="110px"
-                            android:layout_alignParentBottom="true"
-                            android:background="@drawable/seakhbar_bg">
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-                            <TextView
-                                android:id="@+id/current_duration"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentLeft="true"
-                                android:layout_centerVertical="true"
-                                android:layout_marginHorizontal="30px"
-                                android:layout_marginLeft="30px"
-                                android:layout_marginRight="30px"
-                                android:fontFamily="@font/gilroy_regular"
-                                android:lines="1"
-                                android:textColor="@color/white" />
-
-                            <SeekBar
-                                android:id="@+id/seekbar"
-                                style="?android:attr/progressBarStyleHorizontal"
+                            <VideoView
+                                android:id="@+id/videoView"
                                 android:layout_width="match_parent"
-                                android:layout_height="35dp"
+                                android:layout_height="match_parent" />
+
+                            <ImageView
+                                android:id="@+id/pause"
+                                android:layout_width="113px"
+                                android:layout_height="113px"
                                 android:layout_centerInParent="true"
-                                android:layout_gravity="center_vertical"
-                                android:layout_toLeftOf="@+id/total_duration"
-                                android:layout_toRightOf="@+id/current_duration"
-                                android:maxHeight="@dimen/_3sdp"
-                                android:progressDrawable="@drawable/seek_bar"
-                                android:thumb="@drawable/pointer" />
+                                android:src="@drawable/plause" />
 
-                            <TextView
-                                android:id="@+id/total_duration"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:layout_centerVertical="true"
-                                android:layout_marginHorizontal="30px"
-                                android:layout_marginLeft="30px"
-                                android:layout_marginRight="30px"
-                                android:fontFamily="@font/gilroy_regular"
-                                android:lines="1"
-                                android:textColor="@color/white" />
+                            <RelativeLayout
+                                android:layout_width="846px"
+                                android:layout_height="110px"
+                                android:layout_alignParentBottom="true"
+                                android:background="@drawable/seakhbar_bg">
+
+                                <TextView
+                                    android:id="@+id/current_duration"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentLeft="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginHorizontal="30px"
+                                    android:layout_marginLeft="30px"
+                                    android:layout_marginRight="30px"
+                                    android:fontFamily="@font/gilroy_regular"
+                                    android:lines="1"
+                                    android:textColor="@color/white" />
+
+                                <SeekBar
+                                    android:id="@+id/seekbar"
+                                    style="?android:attr/progressBarStyleHorizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="35dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_toLeftOf="@+id/total_duration"
+                                    android:layout_toRightOf="@+id/current_duration"
+                                    android:maxHeight="@dimen/_3sdp"
+                                    android:progressDrawable="@drawable/seek_bar"
+                                    android:thumb="@drawable/pointer" />
+
+                                <TextView
+                                    android:id="@+id/total_duration"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginHorizontal="30px"
+                                    android:layout_marginLeft="30px"
+                                    android:layout_marginRight="30px"
+                                    android:fontFamily="@font/gilroy_regular"
+                                    android:lines="1"
+                                    android:textColor="@color/white" />
+                            </RelativeLayout>
                         </RelativeLayout>
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-            </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_alignParentBottom="true"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/footer"
 
-                android:id="@+id/footer"
-                android:layout_width="match_parent"
-                android:layout_height="280px"
-                android:layout_above="@id/Ad_Banner"
-                android:layout_below="@+id/mainRl">
+                    android:layout_width="match_parent"
+                    android:layout_height="280px"
+                    android:layout_above="@id/Ad_Banner"
+                    android:layout_below="@+id/mainRl"
+                    android:layout_alignParentBottom="true">
 
-                <ImageView
-                    android:id="@+id/wh"
-                    android:layout_width="160px"
-                    android:layout_height="160px"
-                    android:src="@drawable/whatsapp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/fb"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <ImageView
+                        android:id="@+id/wh"
+                        android:layout_width="160px"
+                        android:layout_height="160px"
+                        android:src="@drawable/whatsapp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/fb"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/fb"
-                    android:layout_width="160px"
-                    android:layout_height="160px"
-                    android:src="@drawable/facebook"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/insta"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/wh"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <ImageView
+                        android:id="@+id/fb"
+                        android:layout_width="160px"
+                        android:layout_height="160px"
+                        android:src="@drawable/facebook"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/insta"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/wh"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/insta"
-                    android:layout_width="160px"
-                    android:layout_height="160px"
-                    android:src="@drawable/instagram"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/more"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/fb"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <ImageView
+                        android:id="@+id/insta"
+                        android:layout_width="160px"
+                        android:layout_height="160px"
+                        android:src="@drawable/instagram"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/more"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/fb"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/more"
-                    android:layout_width="160px"
-                    android:layout_height="160px"
-                    android:src="@drawable/menu"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/insta"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <ImageView
+                        android:id="@+id/more"
+                        android:layout_width="160px"
+                        android:layout_height="160px"
+                        android:src="@drawable/menu"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/insta"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <FrameLayout
-                android:id="@+id/Ad_Banner"
-                style="@style/small_attr" />
+                <FrameLayout
+                    android:id="@+id/Ad_Banner"
+                    style="@style/small_attr" />
+            </com.fom.rapid.views.RapidRelativeLayout>
         </com.fom.rapid.views.RapidRelativeLayout>
-    </com.fom.rapid.views.RapidRelativeLayout>
+
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/composeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </LinearLayout>
+
 </layout>

@@ -54,12 +54,15 @@ import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.adapter.MyPagerAdapter;
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
+import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.Common;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityCameraBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
@@ -158,7 +161,7 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
 
 
     @Override
-    
+
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(CameraActivity.this, SharedHelper.getString(CameraActivity.this, "lang_key", ""));
         super.onCreate(bundle);
@@ -173,7 +176,14 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
         initSocketConnection(this, true, true);
 
         setData();
+
+        ComposeBannerKt.setBannerContent(binding.composeView,
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -199,19 +209,19 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
             this.binding.flash.setVisibility(4);
         }
         this.binding.flip.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 CameraActivity.this.m68xaa3ffec1(view);
             }
         });
         this.binding.flash.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 CameraActivity.this.m69x372d15e0(view);
             }
         });
         this.binding.capture.setOnClickListener(new View.OnClickListener() {
-            @Override 
+            @Override
             public final void onClick(View view) {
                 CameraActivity.this.m70xc41a2cff(view);
             }
@@ -230,7 +240,7 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
     }
 
 
-    public  void m68xaa3ffec1(View view) {
+    public void m68xaa3ffec1(View view) {
         if (this.binding.camera.getFacing() == Facing.BACK) {
             this.binding.camera.setFacing(Facing.FRONT);
             this.binding.flash.setVisibility(4);
@@ -241,7 +251,7 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
         this.binding.flash.setImageDrawable(getResources().getDrawable(R.drawable.effect_flash_off));
     }
 
-    public  void m69x372d15e0(View view) {
+    public void m69x372d15e0(View view) {
         if (this.flash) {
             this.flash = false;
             this.binding.camera.setFlash(Flash.OFF);
@@ -253,7 +263,7 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
         this.binding.flash.setImageDrawable(getResources().getDrawable(R.drawable.effect_flash_on));
     }
 
-    public  void m70xc41a2cff(View view) {
+    public void m70xc41a2cff(View view) {
         if (SystemClock.elapsedRealtime() - this.mLastClickTime < 1000) {
             return;
         }
@@ -264,11 +274,11 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
         this.binding.capture.setEnabled(false);
     }
 
-    public  void m71x5107441e(View view) {
+    public void m71x5107441e(View view) {
         onBackPressed();
     }
 
-    @Override 
+    @Override
     public void onLocationChanged(Location location) {
         setMapData(location);
     }
@@ -284,7 +294,7 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
             this.bitmap = bitmap;
         }
 
-        @Override 
+        @Override
         protected void onPreExecute() {
             super.onPreExecute();
             this.binding1 = ProcessDialogLayoutBinding.inflate(CameraActivity.this.getLayoutInflater());
@@ -295,7 +305,7 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
             this.dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
             this.dialog.setCanceledOnTouchOutside(false);
             this.dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
-                @Override 
+                @Override
                 public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
                     return true;
                 }
@@ -304,8 +314,8 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
             this.dialog.show();
         }
 
-        
-        @Override 
+
+        @Override
         public String doInBackground(String[] strArr) {
             this.path = StorageUtils.create_folder(CameraActivity.this.getResources().getString(R.string.app_name));
             String str = "Image_" + String.valueOf(System.currentTimeMillis()) + ".jpg";
@@ -319,12 +329,12 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
             }
         }
 
-        
-        @Override 
+
+        @Override
         public void onPostExecute(final String str) {
             try {
                 new Handler().postDelayed(new Runnable() {
-                    @Override 
+                    @Override
                     public final void run() {
                         CameraActivity.ProcessAsyncTask.this.m74xbd093aff(str);
                     }
@@ -334,7 +344,7 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
             }
         }
 
-        public  void m74xbd093aff(String str) {
+        public void m74xbd093aff(String str) {
             this.dialog.dismiss();
             if (str != null) {
                 CameraActivity.this.startActivity(new Intent(CameraActivity.this, PreviewActivity.class).setFlags(536870912).putExtra("Path", str));
@@ -342,7 +352,7 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
         }
     }
 
-    @Override 
+    @Override
     public void onMapReady(GoogleMap googleMap) {
         this.mMap = googleMap;
         if (ActivityCompat.checkSelfPermission(this, "android.permission.ACCESS_FINE_LOCATION") == 0 || ActivityCompat.checkSelfPermission(this, "android.permission.ACCESS_COARSE_LOCATION") == 0) {
@@ -429,7 +439,7 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
                 Common.lonTemplate = Common.formatNumber(this.longitude);
                 Common.addressTemplate = addressLine;
                 new Handler().postDelayed(new Runnable() {
-                    @Override 
+                    @Override
                     public final void run() {
                         CameraActivity.this.m72x393ef1eb();
                     }
@@ -439,9 +449,9 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
         }
     }
 
-    public  void m72x393ef1eb() {
+    public void m72x393ef1eb() {
         this.mMap.snapshot(new GoogleMap.SnapshotReadyCallback() {
-            @Override 
+            @Override
             public void onSnapshotReady(Bitmap bitmap) {
                 Common.locationDataModel.setMapImage(bitmap);
                 Common.mapTemplate = bitmap;
@@ -471,15 +481,15 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
             this.longitude = str2;
         }
 
-        @Override 
+        @Override
         protected void onPreExecute() {
             super.onPreExecute();
             this.API_URL = "https://api.openweathermap.org/data/2.5/weather?units=metric&lat=" + this.latitude + "&lon=" + this.longitude + "&appid=" + this.API_KEY;
             Log.d("TAG", "onPreExecute:  " + this.API_URL);
         }
 
-        
-        @Override 
+
+        @Override
         public String doInBackground(Void... voidArr) {
             try {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(((HttpURLConnection) new URL(this.API_URL).openConnection()).getInputStream()));
@@ -498,8 +508,8 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
             }
         }
 
-        
-        @Override 
+
+        @Override
         public void onPostExecute(String str) {
             if (str != null) {
                 try {

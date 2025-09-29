@@ -52,6 +52,8 @@ import java.util.List;
 import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
+import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
@@ -59,6 +61,7 @@ import chin.pswm.gps.photo.location.map.utils.Common;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityAdvanceCameraBinding;
 
@@ -175,6 +178,12 @@ public class AdvanceCameraActivity extends BaseActivity implements OnMapReadyCal
         this.binding.mapView.onResume();
         initSocketConnection(this, true, true);
         setData();
+
+        ComposeBannerKt.setBannerContent(binding.composeView,
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
     }
 
     @Override

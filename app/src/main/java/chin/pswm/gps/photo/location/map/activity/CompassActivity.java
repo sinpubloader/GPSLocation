@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.compose.ui.platform.ComposeView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
@@ -28,11 +29,14 @@ import com.google.android.gms.location.LocationServices;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.adapter.ViewPagerAdapter;
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
+import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.fragment.CameraFragment;
 import chin.pswm.gps.photo.location.map.fragment.CompassFragment;
 import chin.pswm.gps.photo.location.map.fragment.MapFragment;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
+import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 
 public class CompassActivity extends AppCompatActivity implements SensorEventListener {
@@ -42,9 +46,11 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
     private TextView tvDirection, tvLat, tvLong;
     private float currentDegree = 0f;
     private ViewPager viewPager;
-    private TextView tvCamera, tvCompass, tvMap,tv_change_style_;
+    private ComposeView composeView;
+    private TextView tvCamera, tvCompass, tvMap, tv_change_style_;
     private FusedLocationProviderClient fusedLocationClient;
-    private ImageView ivBaseImg, ivCompass,iv_back;
+    private ImageView ivBaseImg, ivCompass, iv_back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         LanguageManager.setLocale(CompassActivity.this, SharedHelper.getString(CompassActivity.this, "lang_key", ""));
@@ -61,8 +67,9 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         tvLat = findViewById(R.id.tv_lat);
         tvLong = findViewById(R.id.tv_long);
         ivBaseImg = findViewById(R.id.iv_base_img);
+        composeView = findViewById(R.id.composeView);
         ivCompass = findViewById(R.id.iv_compass);
-        tv_change_style_=findViewById(R.id.tv_change_style_);
+        tv_change_style_ = findViewById(R.id.tv_change_style_);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         initSocketConnection(this, true, true);
 
@@ -73,7 +80,7 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         tv_change_style_.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(CompassActivity.this, CompassStyleActivity.class);
+                Intent intent = new Intent(CompassActivity.this, CompassStyleActivity.class);
                 startActivityForResult(intent, 100); // Start activity with request code
             }
         });
@@ -114,11 +121,19 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
             }
 
             @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) {}
+            public void onPageScrolled(int arg0, float arg1, int arg2) {
+            }
 
             @Override
-            public void onPageScrollStateChanged(int arg0) {}
+            public void onPageScrollStateChanged(int arg0) {
+            }
         });
+
+        ComposeBannerKt.setBannerContent(composeView,
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
     }
 
 
@@ -136,6 +151,7 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         }
         return true;
     }
+
     private void updateTabBackground(TextView selectedTab) {
         tvCamera.setBackgroundResource(R.drawable.compass_tool_bar_rounded);
         tvCompass.setBackgroundResource(R.drawable.compass_tool_bar_rounded);
@@ -148,6 +164,7 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         selectedTab.setBackgroundResource(R.drawable.theme_rounded);
         selectedTab.setTextColor(getColor(R.color.white));
     }
+
     private void setupViewPager() {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new CameraFragment(), "Camera");
@@ -245,6 +262,7 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
             applySavedCompassStyle(); // Load and apply the saved compass style
         }
     }
+
     private void applySavedCompassStyle() {
         SharedPreferences sharedPreferences = getSharedPreferences("CompassPrefs", MODE_PRIVATE);
         int selectedStyle = sharedPreferences.getInt("selected_style", R.drawable.ic_compass_style_1);

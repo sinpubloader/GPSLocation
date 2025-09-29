@@ -1,160 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <com.fom.rapid.views.RapidRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/b_bg"
-        app:measureMargin="true"
-        app:measureWith="-1"
-        app:resizeChildren="true"
-        android:fitsSystemWindows="true">
+        android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/header"
-            android:layout_width="1080px"
-            android:layout_height="180px">
-
-            <RelativeLayout
-                android:id="@+id/back"
-                android:layout_width="105px"
-                android:layout_height="105px"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginHorizontal="50px"
-                android:layout_marginLeft="50px"
-                android:layout_marginRight="50px">
-
-                <ImageView
-                    android:layout_width="63px"
-                    android:layout_height="47px"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/effect_back_w" />
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginRight="50px"
-                android:layout_toRightOf="@+id/back"
-                android:fontFamily="@font/gilroy_semi_bold"
-                android:gravity="center_vertical"
-                android:lines="1"
-                android:text="@string/gpl27"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_15sdp" />
-        </RelativeLayout>
-
-        <RelativeLayout
+        <com.fom.rapid.views.RapidRelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/header">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/b_bg"
+            android:fitsSystemWindows="true"
+            app:measureMargin="true"
+            app:measureWith="-1"
+            app:resizeChildren="true">
 
             <RelativeLayout
-                android:id="@+id/mapRl"
-                android:layout_width="300px"
-                android:layout_height="400px"
-                android:layout_alignParentLeft="true">
+                android:id="@+id/header"
+                android:layout_width="1080px"
+                android:layout_height="180px">
 
-                <com.google.android.gms.maps.MapView
-                    android:id="@+id/mapView"
+                <RelativeLayout
+                    android:id="@+id/back"
+                    android:layout_width="105px"
+                    android:layout_height="105px"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginHorizontal="50px"
+                    android:layout_marginLeft="50px"
+                    android:layout_marginRight="50px">
+
+                    <ImageView
+                        android:layout_width="63px"
+                        android:layout_height="47px"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/effect_back_w" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/text"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="50px"
+                    android:layout_toRightOf="@+id/back"
+                    android:fontFamily="@font/gilroy_semi_bold"
+                    android:gravity="center_vertical"
+                    android:lines="1"
+                    android:text="@string/gpl27"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_15sdp" />
             </RelativeLayout>
 
-            <com.otaliastudios.cameraview.CameraView
-                android:id="@+id/camera"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_above="@+id/footer"
-                android:keepScreenOn="true"
-                app:cameraEngine="camera2"
-                app:cameraMode="picture"
-                app:cameraPlaySounds="true"
-                app:cameraPreview="glSurface">
+                android:layout_below="@+id/header">
 
                 <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:layout_drawOnPictureSnapshot="true"
-                    app:layout_drawOnPreview="true"
-                    app:layout_drawOnVideoSnapshot="true">
-
-                    <RelativeLayout
-                        android:id="@+id/layoutRl"
-                        android:layout_width="1080px"
-                        android:layout_height="580px"
-                        android:layout_alignParentBottom="true"
-                        app:layout_drawOnPictureSnapshot="true"
-                        app:layout_drawOnPreview="true">
-
-                        <androidx.viewpager.widget.ViewPager
-                            android:id="@+id/viewPager"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_centerInParent="true"
-                            app:layout_drawOnPictureSnapshot="true"
-                            app:layout_drawOnPreview="true" />
-                    </RelativeLayout>
-                </RelativeLayout>
-            </com.otaliastudios.cameraview.CameraView>
-
-            <RelativeLayout
-                android:layout_alignParentBottom="true"
-                android:id="@+id/footer"
-                android:layout_width="1080px"
-                android:layout_height="260px"
-                android:layout_above="@id/Ad_Banner"
-                android:background="@drawable/capture_bg"
-                app:layout_drawOnPreview="true">
-
-                <RelativeLayout
-                    android:layout_width="360px"
-                    android:layout_height="260px"
+                    android:id="@+id/mapRl"
+                    android:layout_width="300px"
+                    android:layout_height="400px"
                     android:layout_alignParentLeft="true">
 
-                    <ImageView
-                        android:id="@+id/flash"
-                        android:layout_width="140px"
-                        android:layout_height="140px"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/effect_flash_off" />
+                    <com.google.android.gms.maps.MapView
+                        android:id="@+id/mapView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
                 </RelativeLayout>
+
+                <com.otaliastudios.cameraview.CameraView
+                    android:id="@+id/camera"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/footer"
+                    android:keepScreenOn="true"
+                    app:cameraEngine="camera2"
+                    app:cameraMode="picture"
+                    app:cameraPlaySounds="true"
+                    app:cameraPreview="glSurface">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_drawOnPictureSnapshot="true"
+                        app:layout_drawOnPreview="true"
+                        app:layout_drawOnVideoSnapshot="true">
+
+                        <RelativeLayout
+                            android:id="@+id/layoutRl"
+                            android:layout_width="1080px"
+                            android:layout_height="580px"
+                            android:layout_alignParentBottom="true"
+                            app:layout_drawOnPictureSnapshot="true"
+                            app:layout_drawOnPreview="true">
+
+                            <androidx.viewpager.widget.ViewPager
+                                android:id="@+id/viewPager"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                app:layout_drawOnPictureSnapshot="true"
+                                app:layout_drawOnPreview="true" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </com.otaliastudios.cameraview.CameraView>
 
                 <RelativeLayout
-                    android:layout_width="360px"
+                    android:id="@+id/footer"
+                    android:layout_width="1080px"
                     android:layout_height="260px"
-                    android:layout_centerInParent="true">
+                    android:layout_above="@id/Ad_Banner"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/capture_bg"
+                    app:layout_drawOnPreview="true">
 
-                    <ImageView
-                        android:id="@+id/capture"
-                        android:layout_width="170px"
-                        android:layout_height="170px"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/effect_capture" />
+                    <RelativeLayout
+                        android:layout_width="360px"
+                        android:layout_height="260px"
+                        android:layout_alignParentLeft="true">
+
+                        <ImageView
+                            android:id="@+id/flash"
+                            android:layout_width="140px"
+                            android:layout_height="140px"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/effect_flash_off" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="360px"
+                        android:layout_height="260px"
+                        android:layout_centerInParent="true">
+
+                        <ImageView
+                            android:id="@+id/capture"
+                            android:layout_width="170px"
+                            android:layout_height="170px"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/effect_capture" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="360px"
+                        android:layout_height="260px"
+                        android:layout_alignParentRight="true">
+
+                        <ImageView
+                            android:id="@+id/flip"
+                            android:layout_width="90px"
+                            android:layout_height="90px"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/camera" />
+                    </RelativeLayout>
                 </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="360px"
-                    android:layout_height="260px"
-                    android:layout_alignParentRight="true">
 
-                    <ImageView
-                        android:id="@+id/flip"
-                        android:layout_width="90px"
-                        android:layout_height="90px"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/camera" />
-                </RelativeLayout>
+                <FrameLayout
+                    android:id="@+id/Ad_Banner"
+                    style="@style/small_attr" />
             </RelativeLayout>
+        </com.fom.rapid.views.RapidRelativeLayout>
 
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/composeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </LinearLayout>
 
-            <FrameLayout
-                android:id="@+id/Ad_Banner"
-                style="@style/small_attr" />
-        </RelativeLayout>
-    </com.fom.rapid.views.RapidRelativeLayout>
 </layout>

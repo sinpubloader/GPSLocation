@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -194,9 +194,11 @@
                             android:visibility="gone" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <FrameLayout
                     android:id="@+id/Ad_Banner"
-                    style="@style/small_attr"/>
+                    style="@style/small_attr" />
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -227,4 +229,9 @@
         </RelativeLayout>
     </RelativeLayout>
 
+
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/composeView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

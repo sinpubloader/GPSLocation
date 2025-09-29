@@ -25,6 +25,8 @@ import java.util.List;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.adapter.MyCreationAdapter;
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
+import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.interfaces.OnClickGallery;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
@@ -32,6 +34,7 @@ import chin.pswm.gps.photo.location.map.model.PlaceData;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityMyCreationBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
@@ -65,6 +68,13 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
         initSocketConnection(this, true, true);
 
         setData();
+
+        ComposeBannerKt.setBannerContent(
+                binding.composeView,
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
     }
 
     @Override
@@ -111,7 +121,7 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
 
     @Override
     public void onClickItem(String str) {
-        Toast.makeText(this, ""+str, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "" + str, Toast.LENGTH_SHORT).show();
         if (str.toLowerCase().endsWith(".mp4")) {
             startActivity(
                     new Intent(this, VideoPreviewActivity.class)
@@ -131,6 +141,7 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
     public class ProcessAsyncTask extends AsyncTask<String, Void, String> {
         ProcessDialogLayoutBinding binding1;
         Dialog dialog;
+
         ProcessAsyncTask() {
         }
 
