@@ -11,19 +11,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivityPreviewBinding;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivitySettingBinding;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.New_first_languagesselect;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
+import chin.pswm.gps.photo.location.map_debug.R;
+import chin.pswm.gps.photo.location.map_debug.databinding.ActivitySettingBinding;
 
 public class settingActivity extends AppCompatActivity {
     ActivitySettingBinding binding;

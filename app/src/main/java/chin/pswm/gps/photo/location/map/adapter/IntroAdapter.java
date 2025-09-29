@@ -2,11 +2,14 @@ package chin.pswm.gps.photo.location.map.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
 import androidx.recyclerview.widget.RecyclerView;
-import chin.pswm.gps.photo.location.map_debug.databinding.IntroRowBinding;
+
+import java.util.List;
+
 import chin.pswm.gps.photo.location.map.model.IntroModel;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
-import java.util.List;
+import chin.pswm.gps.photo.location.map_debug.databinding.IntroRowBinding;
 
 
 public class IntroAdapter extends RecyclerView.Adapter<IntroAdapter.IntroViewHolder> {

@@ -1,8 +1,7 @@
     package chin.pswm.gps.photo.location.map.photoGrid.activity;
 
-import android.content.DialogInterface;
-import android.view.KeyEvent;
-import chin.pswm.gps.photo.location.map.photoGrid.activity.PG_CollageActivity;
+    import android.content.DialogInterface;
+    import android.view.KeyEvent;
 
 public final  class PG_CollageActivity$ProcessAsyncTask$$ExternalSyntheticLambda0 implements DialogInterface.OnKeyListener {
     public final boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {

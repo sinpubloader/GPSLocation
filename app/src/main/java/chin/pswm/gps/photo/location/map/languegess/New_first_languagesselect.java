@@ -1,7 +1,6 @@
 package chin.pswm.gps.photo.location.map.languegess;
 
 
-
 import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
 
 import android.annotation.SuppressLint;
@@ -17,8 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,8 +24,8 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity;
-import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map.activity.StartActivity;
+import chin.pswm.gps.photo.location.map_debug.R;
 
 
 public class New_first_languagesselect extends AppCompatActivity {

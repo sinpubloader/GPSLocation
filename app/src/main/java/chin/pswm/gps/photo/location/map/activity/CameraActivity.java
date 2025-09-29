@@ -3,12 +3,9 @@ package chin.pswm.gps.photo.location.map.activity;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.showUserInterDataBack;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.graphics.drawable.ColorDrawable;
@@ -23,26 +20,11 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
-
-import chin.pswm.gps.photo.location.map.AllKeyHub;
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map.activity.CameraActivity;
-import chin.pswm.gps.photo.location.map.adapter.MyPagerAdapter;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivityCameraBinding;
-import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
-import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
-import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
-import chin.pswm.gps.photo.location.map.utils.BaseActivity;
-import chin.pswm.gps.photo.location.map.utils.Common;
-import chin.pswm.gps.photo.location.map.utils.Resizer;
-import chin.pswm.gps.photo.location.map.utils.SpManager;
-import chin.pswm.gps.photo.location.map.utils.StorageUtils;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -60,6 +42,8 @@ import com.otaliastudios.cameraview.controls.Facing;
 import com.otaliastudios.cameraview.controls.Flash;
 import com.otaliastudios.cameraview.controls.Preview;
 
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -68,7 +52,17 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import org.json.JSONObject;
+import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.adapter.MyPagerAdapter;
+import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
+import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
+import chin.pswm.gps.photo.location.map.utils.Common;
+import chin.pswm.gps.photo.location.map.utils.Resizer;
+import chin.pswm.gps.photo.location.map.utils.SpManager;
+import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+import chin.pswm.gps.photo.location.map_debug.R;
+import chin.pswm.gps.photo.location.map_debug.databinding.ActivityCameraBinding;
+import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
 
 
 public class CameraActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener {

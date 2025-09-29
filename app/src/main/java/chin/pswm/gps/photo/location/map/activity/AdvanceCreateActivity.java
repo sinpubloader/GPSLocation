@@ -19,7 +19,6 @@ import android.os.SystemClock;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Advanceable;
 import android.widget.ImageView;
 
 import androidx.activity.result.ActivityResult;
@@ -29,21 +28,6 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentActivity;
 
-import chin.pswm.gps.photo.location.map.AllKeyHub;
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map.activity.AdvanceCreateActivity;
-import chin.pswm.gps.photo.location.map.adapter.MyPagerAdapter;
-import chin.pswm.gps.photo.location.map.ads.AdsVariable;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivityAdvanceCreateBinding;
-import chin.pswm.gps.photo.location.map_debug.databinding.BackDialogLayoutBinding;
-import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
-import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
-import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
-import chin.pswm.gps.photo.location.map.utils.BaseActivity;
-import chin.pswm.gps.photo.location.map.utils.Common;
-import chin.pswm.gps.photo.location.map.utils.Resizer;
-import chin.pswm.gps.photo.location.map.utils.StorageUtils;
-
 import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -52,6 +36,19 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
+
+import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.adapter.MyPagerAdapter;
+import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
+import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
+import chin.pswm.gps.photo.location.map.utils.BaseActivity;
+import chin.pswm.gps.photo.location.map.utils.Common;
+import chin.pswm.gps.photo.location.map.utils.Resizer;
+import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+import chin.pswm.gps.photo.location.map_debug.R;
+import chin.pswm.gps.photo.location.map_debug.databinding.ActivityAdvanceCreateBinding;
+import chin.pswm.gps.photo.location.map_debug.databinding.BackDialogLayoutBinding;
+import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
 
 @SuppressWarnings("all")
 

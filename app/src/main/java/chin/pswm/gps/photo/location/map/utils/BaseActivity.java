@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.Locale;
 import java.util.TimeZone;
 

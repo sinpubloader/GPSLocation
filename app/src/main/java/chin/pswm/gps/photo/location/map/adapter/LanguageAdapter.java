@@ -5,14 +5,18 @@ import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.recyclerview.widget.RecyclerView;
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map_debug.databinding.LanguageLayoutBinding;
-import chin.pswm.gps.photo.location.map.model.LanguageModel;
-import chin.pswm.gps.photo.location.map.utils.SpManager;
+
 import com.bumptech.glide.Glide;
 import com.fom.rapid.assistant.HeyMoon;
+
 import java.util.ArrayList;
+
+import chin.pswm.gps.photo.location.map.model.LanguageModel;
+import chin.pswm.gps.photo.location.map.utils.SpManager;
+import chin.pswm.gps.photo.location.map_debug.R;
+import chin.pswm.gps.photo.location.map_debug.databinding.LanguageLayoutBinding;
 
 
 public class LanguageAdapter extends RecyclerView.Adapter<LanguageAdapter.MyViewHolder> {

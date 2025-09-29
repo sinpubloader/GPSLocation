@@ -1,6 +1,5 @@
 package chin.pswm.gps.photo.location.map.activity;
 
-import static java.security.AccessController.getContext;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.showDynamicNativeData;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.showUserInterDataBack;
@@ -26,15 +25,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -51,9 +45,9 @@ import java.util.List;
 import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
-import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
+import chin.pswm.gps.photo.location.map_debug.R;
 
 public class RoutePlanerActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;

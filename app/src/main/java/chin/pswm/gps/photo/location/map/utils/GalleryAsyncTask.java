@@ -4,10 +4,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
+
+import java.util.ArrayList;
+
 import chin.pswm.gps.photo.location.map.interfaces.OnProgressUpdate;
 import chin.pswm.gps.photo.location.map.model.GalleryModel;
-import com.fom.rapid.app.Media;
-import java.util.ArrayList;
 
 
 public class GalleryAsyncTask extends AsyncTask<Void, Void, Void> {

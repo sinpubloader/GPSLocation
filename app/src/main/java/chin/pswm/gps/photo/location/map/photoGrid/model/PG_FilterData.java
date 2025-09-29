@@ -1,6 +1,7 @@
 package chin.pswm.gps.photo.location.map.photoGrid.model;
 
 import com.google.gson.annotations.SerializedName;
+
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 

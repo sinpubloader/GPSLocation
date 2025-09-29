@@ -4,16 +4,20 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+
 import androidx.core.content.ContextCompat;
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map.model.LocationDataModel;
+
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
+
+import chin.pswm.gps.photo.location.map.model.LocationDataModel;
+import chin.pswm.gps.photo.location.map_debug.R;
 
 
 public class Common {

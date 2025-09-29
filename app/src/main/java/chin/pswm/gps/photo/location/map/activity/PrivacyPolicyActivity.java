@@ -3,9 +3,10 @@ package chin.pswm.gps.photo.location.map.activity;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
+
+import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityPrivacyPolicyBinding;
-import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 
 
 public class PrivacyPolicyActivity extends BaseActivity {

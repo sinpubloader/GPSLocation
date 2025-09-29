@@ -13,9 +13,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
 import chin.pswm.gps.photo.location.map.ui.theme.colorBlack
+import chin.pswm.gps.photo.location.map_debug.R
 
 //import com.example.gps.ui.theme.colorBlack
 

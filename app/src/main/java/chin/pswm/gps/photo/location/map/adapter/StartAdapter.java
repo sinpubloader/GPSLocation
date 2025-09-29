@@ -5,12 +5,16 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.recyclerview.widget.RecyclerView;
-import chin.pswm.gps.photo.location.map_debug.databinding.StartAdapterLayoutBinding;
+
+import com.bumptech.glide.Glide;
+
+import java.util.List;
+
 import chin.pswm.gps.photo.location.map.interfaces.OnClickGallery;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
-import com.bumptech.glide.Glide;
-import java.util.List;
+import chin.pswm.gps.photo.location.map_debug.databinding.StartAdapterLayoutBinding;
 
 
 public class StartAdapter extends RecyclerView.Adapter<StartAdapter.MyViewHolder> {

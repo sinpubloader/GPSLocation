@@ -1,34 +1,24 @@
 package chin.pswm.gps.photo.location.map.New_intro;
 
 
-
-import static chin.pswm.gps.photo.location.map.AllKeyHub.showDynamicNativeData;
-import static chin.pswm.gps.photo.location.map.AllKeyHub.showIntroAddData;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map.activity.PermissionActivity;
-import chin.pswm.gps.photo.location.map.activity.StartActivity;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
+import chin.pswm.gps.photo.location.map_debug.R;
 
 
 public class New_IntroActivity extends AppCompatActivity {

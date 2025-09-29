@@ -27,23 +27,6 @@ import android.widget.RelativeLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map.activity.PreviewActivity;
-import chin.pswm.gps.photo.location.map.ads.AdsVariable;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivityCollageBinding;
-import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
-import chin.pswm.gps.photo.location.map.photoGrid.adapter.PG_BackgroundAdapter;
-import chin.pswm.gps.photo.location.map.photoGrid.adapter.PG_FrameAdapter;
-import chin.pswm.gps.photo.location.map.photoGrid.frame.PG_FramePhotoLayout;
-import chin.pswm.gps.photo.location.map.photoGrid.model.PG_TemplatePGItem;
-import chin.pswm.gps.photo.location.map.photoGrid.multitouch.PG_PhotoView;
-import chin.pswm.gps.photo.location.map.photoGrid.template.PG_PhotoItem;
-import chin.pswm.gps.photo.location.map.photoGrid.util.PG_FrameImageUtils;
-import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageUtils;
-import chin.pswm.gps.photo.location.map.utils.BaseActivity;
-import chin.pswm.gps.photo.location.map.utils.Resizer;
-import chin.pswm.gps.photo.location.map.utils.StorageUtils;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestBuilder;
 
@@ -55,6 +38,21 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import chin.pswm.gps.photo.location.map.activity.PreviewActivity;
+import chin.pswm.gps.photo.location.map.photoGrid.adapter.PG_BackgroundAdapter;
+import chin.pswm.gps.photo.location.map.photoGrid.adapter.PG_FrameAdapter;
+import chin.pswm.gps.photo.location.map.photoGrid.frame.PG_FramePhotoLayout;
+import chin.pswm.gps.photo.location.map.photoGrid.model.PG_TemplatePGItem;
+import chin.pswm.gps.photo.location.map.photoGrid.multitouch.PG_PhotoView;
+import chin.pswm.gps.photo.location.map.photoGrid.template.PG_PhotoItem;
+import chin.pswm.gps.photo.location.map.photoGrid.util.PG_FrameImageUtils;
+import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageUtils;
+import chin.pswm.gps.photo.location.map.utils.BaseActivity;
+import chin.pswm.gps.photo.location.map.utils.Resizer;
+import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+import chin.pswm.gps.photo.location.map_debug.R;
+import chin.pswm.gps.photo.location.map_debug.databinding.ActivityCollageBinding;
+import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 

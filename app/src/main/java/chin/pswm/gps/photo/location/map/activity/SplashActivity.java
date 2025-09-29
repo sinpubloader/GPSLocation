@@ -6,22 +6,17 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.DisplayMetrics;
-import android.util.Log;
 
 import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity;
-import chin.pswm.gps.photo.location.map.activity.SplashActivity;
-import chin.pswm.gps.photo.location.map.ads.AdsSplashUtils;
-import chin.pswm.gps.photo.location.map.ads.AdsVariable;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivitySplashBinding;
 import chin.pswm.gps.photo.location.map.languegess.ActivityPrivacyPolicy_New;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.New_first_languagesselect;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
-import chin.pswm.gps.photo.location.map.utils.SpManager;
+import chin.pswm.gps.photo.location.map_debug.databinding.ActivitySplashBinding;
 
 
 public class SplashActivity extends BaseActivity {

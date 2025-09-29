@@ -33,9 +33,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.compose.ui.viewinterop.AndroidViewBinding
 import androidx.lifecycle.compose.LifecycleStartEffect
-import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerAdUnit
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType
+import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.ads.ext.AppUtils
 import chin.pswm.gps.photo.location.map.ads.ext.requestLayoutWithDelay
 import chin.pswm.gps.photo.location.map.ads.ext.tryWithoutCatch

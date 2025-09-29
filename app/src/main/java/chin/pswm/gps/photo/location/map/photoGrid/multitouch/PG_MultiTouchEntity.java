@@ -8,9 +8,10 @@ import android.graphics.PointF;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.DisplayMetrics;
-import chin.pswm.gps.photo.location.map.photoGrid.multitouch.PG_MultiTouchController;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import kotlin.Deprecated;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;

@@ -14,19 +14,18 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import chin.pswm.gps.photo.location.map.photoGrid.model.PG_ImageTemplate;
-import chin.pswm.gps.photo.location.map.photoGrid.template.PG_ItemImageView;
-import chin.pswm.gps.photo.location.map.photoGrid.template.PG_PhotoLayout;
-import chin.pswm.gps.photo.location.map.photoGrid.template.PG_TransitionImageView;
-import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageDecoder;
-import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageUtils;
-import chin.pswm.gps.photo.location.map.photoGrid.util.PG_PhotoUtils;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+
+import chin.pswm.gps.photo.location.map.photoGrid.model.PG_ImageTemplate;
+import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageDecoder;
+import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageUtils;
+import chin.pswm.gps.photo.location.map.photoGrid.util.PG_PhotoUtils;
 import kotlin.Metadata;
 import kotlin.collections.CollectionsKt;
 import kotlin.jvm.functions.Function2;

@@ -19,15 +19,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map.activity.MyCreationActivity;
-import chin.pswm.gps.photo.location.map.activity.PreviewActivity;
-import chin.pswm.gps.photo.location.map.activity.StartActivity;
-import chin.pswm.gps.photo.location.map_debug.databinding.FragmentStartBinding;
-import chin.pswm.gps.photo.location.map.model.PlaceData;
-import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -39,7 +34,16 @@ import com.google.maps.android.clustering.Cluster;
 import com.google.maps.android.clustering.ClusterManager;
 import com.google.maps.android.clustering.view.DefaultClusterRenderer;
 import com.google.maps.android.ui.IconGenerator;
+
 import java.util.Iterator;
+
+import chin.pswm.gps.photo.location.map.activity.MyCreationActivity;
+import chin.pswm.gps.photo.location.map.activity.PreviewActivity;
+import chin.pswm.gps.photo.location.map.activity.StartActivity;
+import chin.pswm.gps.photo.location.map.model.PlaceData;
+import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+import chin.pswm.gps.photo.location.map_debug.R;
+import chin.pswm.gps.photo.location.map_debug.databinding.FragmentStartBinding;
 @SuppressWarnings("all")
 
 

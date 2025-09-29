@@ -27,14 +27,13 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
-import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map.adapter.ViewPagerAdapter;
 import chin.pswm.gps.photo.location.map.fragment.CameraFragment;
 import chin.pswm.gps.photo.location.map.fragment.CompassFragment;
 import chin.pswm.gps.photo.location.map.fragment.MapFragment;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
-import chin.pswm.gps.photo.location.map.model.CompassStyle;
+import chin.pswm.gps.photo.location.map_debug.R;
 
 public class CompassActivity extends AppCompatActivity implements SensorEventListener {
 

@@ -3,26 +3,24 @@ package chin.pswm.gps.photo.location.map.activity;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.showUserInterDataBack;
 
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivityLocationBinding;
 import chin.pswm.gps.photo.location.map.fragment.CurrentLocationFragment;
 import chin.pswm.gps.photo.location.map.fragment.ManualLocationFragment;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
+import chin.pswm.gps.photo.location.map_debug.R;
+import chin.pswm.gps.photo.location.map_debug.databinding.ActivityLocationBinding;
 @SuppressWarnings("all")
 
 public class LocationActivity extends BaseActivity {

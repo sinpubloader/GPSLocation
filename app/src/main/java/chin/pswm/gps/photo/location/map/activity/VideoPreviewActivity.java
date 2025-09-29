@@ -21,20 +21,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.Toast;
+
 import androidx.core.content.FileProvider;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import chin.pswm.gps.photo.location.map.AllKeyHub;
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map.ads.AdsVariable;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivityVideoPreviewBinding;
-import chin.pswm.gps.photo.location.map_debug.databinding.DeleteDialogLayoutBinding;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.Common;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import chin.pswm.gps.photo.location.map_debug.R;
+import chin.pswm.gps.photo.location.map_debug.databinding.ActivityVideoPreviewBinding;
+import chin.pswm.gps.photo.location.map_debug.databinding.DeleteDialogLayoutBinding;
 @SuppressWarnings("all")
 
 public class VideoPreviewActivity extends BaseActivity {

@@ -2,10 +2,8 @@ package chin.pswm.gps.photo.location.map;
 
 import android.app.Activity;
 import android.content.Context;
-
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-
 
 import chin.pswm.gps.photo.location.map_debug.R;
 

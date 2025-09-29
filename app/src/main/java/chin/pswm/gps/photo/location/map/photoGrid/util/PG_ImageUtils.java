@@ -18,15 +18,19 @@ import android.net.Uri;
 import android.os.Environment;
 import android.view.View;
 import android.widget.ImageView;
+
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
+
 import com.bumptech.glide.Glide;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import kotlin.Deprecated;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;

@@ -2,7 +2,9 @@ package chin.pswm.gps.photo.location.map.photoGrid.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import androidx.core.app.NotificationCompat;
+
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;

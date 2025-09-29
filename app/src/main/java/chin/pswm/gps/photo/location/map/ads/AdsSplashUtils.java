@@ -7,15 +7,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.CountDownTimer;
 import android.util.Log;
-import chin.pswm.gps.photo.location.map.MyApplication;
-import chin.pswm.gps.photo.location.map_debug.R;
 
 import com.google.android.ump.ConsentForm;
 import com.google.android.ump.ConsentInformation;
 import com.google.android.ump.ConsentRequestParameters;
 import com.google.android.ump.FormError;
 import com.google.android.ump.UserMessagingPlatform;
+
 import java.io.IOException;
+
+import chin.pswm.gps.photo.location.map.MyApplication;
+import chin.pswm.gps.photo.location.map_debug.R;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Headers;

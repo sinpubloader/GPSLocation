@@ -4,20 +4,23 @@ import android.app.ActivityManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.widget.ViewPager2;
-import chin.pswm.gps.photo.location.map_debug.R;
+
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import chin.pswm.gps.photo.location.map.adapter.IntroAdapter;
-import chin.pswm.gps.photo.location.map.ads.AdsVariable;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivityIntroBinding;
 import chin.pswm.gps.photo.location.map.model.IntroModel;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
-import com.bumptech.glide.Glide;
-import java.util.ArrayList;
-import java.util.List;
+import chin.pswm.gps.photo.location.map_debug.R;
+import chin.pswm.gps.photo.location.map_debug.databinding.ActivityIntroBinding;
 @SuppressWarnings("all")
 
 public class IntroActivity extends BaseActivity {

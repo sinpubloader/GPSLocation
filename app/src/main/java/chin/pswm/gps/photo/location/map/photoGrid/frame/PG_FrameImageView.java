@@ -20,15 +20,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.ViewCompat;
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map.photoGrid.multitouch.PG_MultiTouchHandler;
-import chin.pswm.gps.photo.location.map.photoGrid.template.PG_PhotoItem;
-import chin.pswm.gps.photo.location.map.photoGrid.util.PG_GeometryUtils;
-import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageDecoder;
-import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageUtils;
-import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ResultContainer;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -36,6 +31,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import chin.pswm.gps.photo.location.map.photoGrid.multitouch.PG_MultiTouchHandler;
+import chin.pswm.gps.photo.location.map.photoGrid.template.PG_PhotoItem;
+import chin.pswm.gps.photo.location.map.photoGrid.util.PG_GeometryUtils;
+import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageDecoder;
+import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageUtils;
+import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ResultContainer;
+import chin.pswm.gps.photo.location.map_debug.R;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;

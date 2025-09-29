@@ -17,21 +17,10 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 
-import chin.pswm.gps.photo.location.map.AllKeyHub;
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map.activity.VideoActivity;
-import chin.pswm.gps.photo.location.map.adapter.MyPagerAdapter;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivityVideoBinding;
-import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
-import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
-import chin.pswm.gps.photo.location.map.utils.BaseActivity;
-import chin.pswm.gps.photo.location.map.utils.Common;
-import chin.pswm.gps.photo.location.map.utils.Resizer;
-import chin.pswm.gps.photo.location.map.utils.SpManager;
-import chin.pswm.gps.photo.location.map.utils.StorageUtils;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -44,6 +33,9 @@ import com.otaliastudios.cameraview.PictureResult;
 import com.otaliastudios.cameraview.VideoResult;
 import com.otaliastudios.cameraview.controls.Facing;
 import com.otaliastudios.cameraview.controls.Flash;
+
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -52,7 +44,18 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
-import org.json.JSONObject;
+
+import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.adapter.MyPagerAdapter;
+import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
+import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
+import chin.pswm.gps.photo.location.map.utils.BaseActivity;
+import chin.pswm.gps.photo.location.map.utils.Common;
+import chin.pswm.gps.photo.location.map.utils.Resizer;
+import chin.pswm.gps.photo.location.map.utils.SpManager;
+import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+import chin.pswm.gps.photo.location.map_debug.R;
+import chin.pswm.gps.photo.location.map_debug.databinding.ActivityVideoBinding;
 @SuppressWarnings("all")
 
 public class VideoActivity extends BaseActivity implements OnMapReadyCallback, LocationListener {

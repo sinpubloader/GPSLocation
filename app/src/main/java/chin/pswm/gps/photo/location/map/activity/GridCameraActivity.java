@@ -18,21 +18,10 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.view.KeyEvent;
 import android.view.View;
+
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
-import chin.pswm.gps.photo.location.map.AllKeyHub;
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map.activity.GridCameraActivity;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivityGridCameraBinding;
-import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
-import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
-import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
-import chin.pswm.gps.photo.location.map.photoGrid.activity.PG_CollageActivity;
-import chin.pswm.gps.photo.location.map.utils.BaseActivity;
-import chin.pswm.gps.photo.location.map.utils.Common;
-import chin.pswm.gps.photo.location.map.utils.SpManager;
-import chin.pswm.gps.photo.location.map.utils.StorageUtils;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -48,7 +37,20 @@ import com.otaliastudios.cameraview.VideoResult;
 import com.otaliastudios.cameraview.controls.Facing;
 import com.otaliastudios.cameraview.controls.Flash;
 import com.otaliastudios.cameraview.controls.Preview;
+
 import java.util.ArrayList;
+
+import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
+import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
+import chin.pswm.gps.photo.location.map.photoGrid.activity.PG_CollageActivity;
+import chin.pswm.gps.photo.location.map.utils.BaseActivity;
+import chin.pswm.gps.photo.location.map.utils.Common;
+import chin.pswm.gps.photo.location.map.utils.SpManager;
+import chin.pswm.gps.photo.location.map.utils.StorageUtils;
+import chin.pswm.gps.photo.location.map_debug.R;
+import chin.pswm.gps.photo.location.map_debug.databinding.ActivityGridCameraBinding;
+import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
 @SuppressWarnings("all")
 
 

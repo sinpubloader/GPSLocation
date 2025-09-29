@@ -10,10 +10,11 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.widget.Toast;
-import chin.pswm.gps.photo.location.map_debug.R;
-import com.fom.rapid.app.Media;
+
 import java.io.IOException;
 import java.io.InputStream;
+
+import chin.pswm.gps.photo.location.map_debug.R;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 

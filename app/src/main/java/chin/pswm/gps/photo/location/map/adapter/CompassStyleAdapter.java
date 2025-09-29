@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map.model.CompassStyle;
+import chin.pswm.gps.photo.location.map_debug.R;
 
 public class CompassStyleAdapter extends RecyclerView.Adapter<CompassStyleAdapter.ViewHolder> {
 

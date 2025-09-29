@@ -15,10 +15,10 @@ import androidx.core.content.getSystemService
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ProcessLifecycleOwner
+import chin.pswm.gps.photo.location.map.ads.AdsConfig
 import chin.pswm.gps.photo.location.map.ads.ext.AppUtils
 import chin.pswm.gps.photo.location.map.ads.ext.ITag
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
-import chin.pswm.gps.photo.location.map.ads.AdsConfig
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
 import com.google.android.gms.ads.initialization.InitializationStatus

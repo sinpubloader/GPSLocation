@@ -12,7 +12,9 @@ import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
 import androidx.core.app.NotificationCompat;
+
 import chin.pswm.gps.photo.location.map.photoGrid.multitouch.PG_MultiTouchHandler;
 import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageDecoder;
 import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageUtils;

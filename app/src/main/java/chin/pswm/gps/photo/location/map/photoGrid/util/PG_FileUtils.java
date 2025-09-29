@@ -14,7 +14,6 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 
-import com.fom.rapid.app.Media;
 import com.google.android.gms.common.internal.ImagesContract;
 
 import java.io.BufferedInputStream;

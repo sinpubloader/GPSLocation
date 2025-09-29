@@ -2,9 +2,9 @@ package chin.pswm.gps.photo.location.map.ads.adunit.banner
 
 import android.app.Activity
 import android.os.Bundle
-import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.ads.adunit.AdDataConfig
 import chin.pswm.gps.photo.location.map.ads.adunit.AdUnit
+import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.ads.adunit.decodeAdUnit
 import chin.pswm.gps.photo.location.map.ads.ext.AppUtils
 import chin.pswm.gps.photo.location.map.ads.ext.Tracking

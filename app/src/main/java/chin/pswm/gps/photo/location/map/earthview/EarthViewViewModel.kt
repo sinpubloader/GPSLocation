@@ -15,7 +15,6 @@ package chin.pswm.gps.photo.location.map.earthview
 import android.app.Activity
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import chin.pswm.gps.photo.location.map.earthview.custom.MarkLocation
 import chin.pswm.gps.photo.location.map.earthview.state.EarthViewScreenState

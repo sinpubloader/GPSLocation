@@ -1,6 +1,5 @@
 package chin.pswm.gps.photo.location.map.activity;
 
-import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.showDynamicNativeData;
 
 import android.Manifest;
@@ -16,7 +15,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -29,17 +27,17 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.net.MailTo;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import chin.pswm.gps.photo.location.map.earthview.EarthViewActivity;
-import chin.pswm.gps.photo.location.map_debug.R;
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import chin.pswm.gps.photo.location.map.adapter.StartAdapter;
 import chin.pswm.gps.photo.location.map.ads.AdsVariable;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivityStartBinding;
-import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
-import chin.pswm.gps.photo.location.map_debug.databinding.RateDialogBinding;
+import chin.pswm.gps.photo.location.map.earthview.EarthViewActivity;
 import chin.pswm.gps.photo.location.map.fragment.StartFragment;
 import chin.pswm.gps.photo.location.map.interfaces.OnClickGallery;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
@@ -48,14 +46,12 @@ import chin.pswm.gps.photo.location.map.model.PlaceData;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.GPSUtils;
 import chin.pswm.gps.photo.location.map.utils.ImageLocationExtractor;
-import chin.pswm.gps.photo.location.map.utils.Resizer;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
-
-import com.bumptech.glide.Glide;
-
-import java.util.ArrayList;
-import java.util.List;
+import chin.pswm.gps.photo.location.map_debug.R;
+import chin.pswm.gps.photo.location.map_debug.databinding.ActivityStartBinding;
+import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
+import chin.pswm.gps.photo.location.map_debug.databinding.RateDialogBinding;
 
 @SuppressWarnings("all")
 

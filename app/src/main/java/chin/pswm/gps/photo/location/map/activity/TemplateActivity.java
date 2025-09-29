@@ -7,16 +7,16 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 
+import java.util.ArrayList;
+
 import chin.pswm.gps.photo.location.map.AllKeyHub;
-import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map.adapter.TemplateAdapter;
-import chin.pswm.gps.photo.location.map.ads.AdsVariable;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivityTemplateBinding;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
-import java.util.ArrayList;
+import chin.pswm.gps.photo.location.map_debug.R;
+import chin.pswm.gps.photo.location.map_debug.databinding.ActivityTemplateBinding;
 @SuppressWarnings("all")
 
 public class TemplateActivity extends BaseActivity implements TemplateAdapter.OnClickTemplate {

@@ -4,12 +4,16 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.recyclerview.widget.RecyclerView;
-import chin.pswm.gps.photo.location.map_debug.databinding.TemplateAdapterBinding;
-import chin.pswm.gps.photo.location.map.utils.SpManager;
+
 import com.bumptech.glide.Glide;
 import com.fom.rapid.assistant.HeyMoon;
+
 import java.util.ArrayList;
+
+import chin.pswm.gps.photo.location.map.utils.SpManager;
+import chin.pswm.gps.photo.location.map_debug.databinding.TemplateAdapterBinding;
 
 
 public class TemplateAdapter extends RecyclerView.Adapter<TemplateAdapter.MyViewHolder> {

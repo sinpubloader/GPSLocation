@@ -16,16 +16,19 @@ import android.media.ExifInterface;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.widget.ImageView;
+
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.signature.ObjectKey;
-import com.fom.rapid.app.Media;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+
 import kotlin.Deprecated;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;

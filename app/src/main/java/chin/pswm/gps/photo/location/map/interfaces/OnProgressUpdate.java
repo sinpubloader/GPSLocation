@@ -1,7 +1,8 @@
 package chin.pswm.gps.photo.location.map.interfaces;
 
-import chin.pswm.gps.photo.location.map.model.GalleryModel;
 import java.util.ArrayList;
+
+import chin.pswm.gps.photo.location.map.model.GalleryModel;
 
 
 public interface OnProgressUpdate {

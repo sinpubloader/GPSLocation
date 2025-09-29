@@ -9,8 +9,10 @@ import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.exifinterface.media.ExifInterface;
+
 import chin.pswm.gps.photo.location.map.MyApplication;
 import chin.pswm.gps.photo.location.map_debug.R;
 

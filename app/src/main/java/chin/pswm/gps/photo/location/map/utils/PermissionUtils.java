@@ -3,6 +3,7 @@ package chin.pswm.gps.photo.location.map.utils;
 import android.app.Activity;
 import android.os.Build;
 import android.util.Log;
+
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 @SuppressWarnings("all")

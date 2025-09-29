@@ -13,16 +13,19 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
+
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map.photoGrid.frame.PG_FrameTouch;
-import chin.pswm.gps.photo.location.map.photoGrid.frame.PG_OnFrameTouchListener;
-import chin.pswm.gps.photo.location.map.photoGrid.multitouch.PG_MultiTouchController;
-import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageDecoder;
+
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
+
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import chin.pswm.gps.photo.location.map.photoGrid.frame.PG_FrameTouch;
+import chin.pswm.gps.photo.location.map.photoGrid.frame.PG_OnFrameTouchListener;
+import chin.pswm.gps.photo.location.map.photoGrid.util.PG_ImageDecoder;
+import chin.pswm.gps.photo.location.map_debug.R;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;

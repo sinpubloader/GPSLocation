@@ -1,8 +1,6 @@
    package chin.pswm.gps.photo.location.map.photoGrid.activity;
 
-import chin.pswm.gps.photo.location.map.photoGrid.activity.PG_CollageActivity;
-
-public final  class PG_CollageActivity$ProcessAsyncTask$$ExternalSyntheticLambda1 implements Runnable {
+   public final  class PG_CollageActivity$ProcessAsyncTask$$ExternalSyntheticLambda1 implements Runnable {
     public final  PG_CollageActivity.ProcessAsyncTask f$0;
     public final  String f$1;
 
