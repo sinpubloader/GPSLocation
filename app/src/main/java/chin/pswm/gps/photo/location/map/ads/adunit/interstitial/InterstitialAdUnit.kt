@@ -123,6 +123,7 @@ class InterstitialAdUnit(
 
                     override fun onAdDismissedFullScreenContent() {
                         super.onAdDismissedFullScreenContent()
+                        Timber.tag(TAG).d("onAdDismissedFullScreenContent: ")
                         onAdClosed()
                         adsManager.isShowingAds = false
                     }

@@ -1,8 +1,6 @@
 package chin.pswm.gps.photo.location.map.languegess;
 
 
-
-
 import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
 
 import android.content.Intent;
@@ -23,19 +21,24 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.compose.ui.platform.ComposeView;
+import androidx.compose.ui.platform.ViewCompositionStrategy;
 
+import chin.pswm.gps.photo.location.map.compose.privacy.ComposePrivacyKt;
+import chin.pswm.gps.photo.location.map.compose.privacy.ComposePrivacyState;
 import chin.pswm.gps.photo.location.map_debug.R;
 
 
 public class ActivityPrivacyPolicy_New extends AppCompatActivity {
 
     CheckBox check_privacy;
-    TextView start, tv_privacy_policy,tv_getstarted;
+    ComposeView composeView;
+    TextView start, tv_privacy_policy, tv_getstarted;
     WebView webView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        LanguageManager.setLocale(ActivityPrivacyPolicy_New.this, SharedHelper.getString(ActivityPrivacyPolicy_New.this, "lang_key",""));
+        LanguageManager.setLocale(ActivityPrivacyPolicy_New.this, SharedHelper.getString(ActivityPrivacyPolicy_New.this, "lang_key", ""));
         super.onCreate(savedInstanceState);
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -47,6 +50,7 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
         start = findViewById(R.id.tv_getstarted);
         tv_privacy_policy = findViewById(R.id.tv_privacy_policy);
         tv_getstarted = findViewById(R.id.tv_getstarted);
+        composeView = findViewById(R.id.composeView);
 
         String privacyPolicyText = "By checking the box you agree to our Privacy Policy and Terms of Conditions.";
         SpannableString spannableString = new SpannableString(privacyPolicyText);
@@ -85,7 +89,7 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
                 if (check_privacy.isChecked()) {
                     start.setBackgroundResource(R.drawable.rect_round_main_blue);
                     tv_getstarted.setTextColor(getResources().getColor(R.color.white));
-                }else {
+                } else {
                     start.setBackgroundResource(R.drawable.rect_round_main_sky);
                     tv_getstarted.setTextColor(getResources().getColor(R.color.black));
                 }
@@ -94,7 +98,7 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
         if (check_privacy.isChecked()) {
             start.setBackgroundResource(R.drawable.rect_round_main_blue);
             tv_getstarted.setTextColor(getResources().getColor(R.color.white));
-        }else {
+        } else {
             start.setBackgroundResource(R.drawable.rect_round_main_sky);
             tv_getstarted.setTextColor(getResources().getColor(R.color.black));
         }
@@ -102,14 +106,17 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (check_privacy.isChecked()) {
-                    start.setBackgroundResource(R.drawable.rect_round_main_blue);
-                    startActivity(new Intent(ActivityPrivacyPolicy_New.this, New_first_languagesselect.class));
-                    finish();
+                    ComposePrivacyState.INSTANCE.getClickedAgree().setValue(true);
                 } else {
                     Toast.makeText(ActivityPrivacyPolicy_New.this, "Check Policy First", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-    }
 
+        if (composeView != null) {
+            // Set the ViewCompositionStrategy for proper lifecycle management
+            composeView.setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed.INSTANCE);
+            ComposePrivacyKt.setMyContent(composeView);
+        }
+    }
 }

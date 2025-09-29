@@ -4,15 +4,15 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.DisplayMetrics;
 
 import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity;
+import chin.pswm.gps.photo.location.map.compose.splash.ComposeSplashKt;
+import chin.pswm.gps.photo.location.map.compose.splash.ComposeSplashState;
 import chin.pswm.gps.photo.location.map.languegess.ActivityPrivacyPolicy_New;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
-import chin.pswm.gps.photo.location.map.languegess.New_first_languagesselect;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
@@ -23,7 +23,7 @@ public class SplashActivity extends BaseActivity {
     ActivitySplashBinding binding;
     PermissionUtils permissionUtils;
 
-    @Override 
+    @Override
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(SplashActivity.this, SharedHelper.getString(SplashActivity.this, "lang_key", ""));
 
@@ -31,18 +31,15 @@ public class SplashActivity extends BaseActivity {
         ActivitySplashBinding inflate = ActivitySplashBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
+        ComposeSplashKt.setMyContent(binding.composeView);
         this.permissionUtils = new PermissionUtils(this);
         boolean privacyScreenShown = SharedHelper.getBoolean(getApplicationContext(), "privacy_screen_shown", false);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public final void run() {
-                if (!privacyScreenShown) {
-                    showPrivacyScreen();
-                } else {
-                    checkMain();
-                }
-            }
-        }, 2000L);
+
+        if (!privacyScreenShown) {
+            showPrivacyScreen();
+        } else {
+            checkMain();
+        }
     }
 
 
@@ -58,14 +55,15 @@ public class SplashActivity extends BaseActivity {
         if (!selectedLanguage.isEmpty() && displayIntroEveryTime) {
             setLanguage(selectedLanguage);
             gotoLoginActivity();
+            finish();
         } else {
             if (selectedLanguage.isEmpty()) {
-                startActivity(new Intent(SplashActivity.this, New_first_languagesselect.class));
+                ComposeSplashState.INSTANCE.getClickedAgree().setValue(true);
             } else {
                 startActivity(new Intent(SplashActivity.this, New_IntroActivity.class));
+                finish();
             }
         }
-        finish();
     }
 
     private void gotoLoginActivity() {
