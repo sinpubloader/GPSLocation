@@ -52,6 +52,7 @@ import java.util.List;
 import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
@@ -64,6 +65,8 @@ import chin.pswm.gps.photo.location.map.utils.StorageUtils;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityAdvanceCameraBinding;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 
 @SuppressWarnings("all")
 
@@ -184,6 +187,7 @@ public class AdvanceCameraActivity extends BaseActivity implements OnMapReadyCal
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE
         );
+
     }
 
     @Override
@@ -199,11 +203,6 @@ public class AdvanceCameraActivity extends BaseActivity implements OnMapReadyCal
             return super.onKeyDown(keyCode, event);
         }
         return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 
     private void setData() {
@@ -255,7 +254,16 @@ public class AdvanceCameraActivity extends BaseActivity implements OnMapReadyCal
 
 
     public void m49x2f46b069(View view) {
-        onBackPressed();
+        AdsManager.INSTANCE.showInterInApp(
+                AdvanceCameraActivity.this,
+                new Function0<Unit>() {
+                    @Override
+                    public Unit invoke() {
+                        AdvanceCameraActivity.super.onBackPressed();
+                        return null;
+                    }
+                }
+        );
     }
 
 

@@ -44,6 +44,7 @@ import java.util.Locale;
 import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.adapter.FolderAdapter;
 import chin.pswm.gps.photo.location.map.adapter.ItemAdapter;
+import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.interfaces.OnClickGallery;
@@ -61,6 +62,8 @@ import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityGalleryBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 
 @SuppressWarnings("all")
 
@@ -164,8 +167,16 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
                 showUserInterDataBack(GalleryActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
                     public void onDataClose() {
-                        GalleryActivity.this.m78x27a3b0b4(view);
-
+                        AdsManager.INSTANCE.showInterInApp(
+                                GalleryActivity.this,
+                                new Function0<Unit>() {
+                                    @Override
+                                    public Unit invoke() {
+                                        GalleryActivity.this.m78x27a3b0b4(view);
+                                        return null;
+                                    }
+                                }
+                        );
                     }
                 });
             }

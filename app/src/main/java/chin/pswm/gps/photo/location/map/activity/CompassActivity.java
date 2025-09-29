@@ -29,6 +29,7 @@ import com.google.android.gms.location.LocationServices;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.adapter.ViewPagerAdapter;
+import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.fragment.CameraFragment;
@@ -38,6 +39,8 @@ import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 
 public class CompassActivity extends AppCompatActivity implements SensorEventListener {
 
@@ -90,7 +93,16 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
                 showUserInterDataBack(CompassActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
                     public void onDataClose() {
-                        onBackPressed();
+                        AdsManager.INSTANCE.showInterInApp(
+                                CompassActivity.this,
+                                new Function0<Unit>() {
+                                    @Override
+                                    public Unit invoke() {
+                                        CompassActivity.super.onBackPressed();
+                                        return null;
+                                    }
+                                }
+                        );
                     }
                 });
             }

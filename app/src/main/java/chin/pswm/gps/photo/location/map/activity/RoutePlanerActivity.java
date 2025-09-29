@@ -46,12 +46,15 @@ import java.util.List;
 import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 
 public class RoutePlanerActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
@@ -94,7 +97,16 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
                 showUserInterDataBack(RoutePlanerActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
                     public void onDataClose() {
-                        onBackPressed();
+                        AdsManager.INSTANCE.showInterInApp(
+                                RoutePlanerActivity.this,
+                                new Function0<Unit>() {
+                                    @Override
+                                    public Unit invoke() {
+                                        RoutePlanerActivity.super.onBackPressed();
+                                        return null;
+                                    }
+                                }
+                        );
                     }
                 });
             }

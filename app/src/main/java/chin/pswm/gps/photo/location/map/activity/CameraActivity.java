@@ -54,6 +54,7 @@ import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.adapter.MyPagerAdapter;
+import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
@@ -66,6 +67,8 @@ import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityCameraBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 
 
 public class CameraActivity extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
@@ -232,7 +235,16 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
                 showUserInterDataBack(CameraActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
                     public void onDataClose() {
-                        CameraActivity.this.m71x5107441e(view);
+                        AdsManager.INSTANCE.showInterInApp(
+                                CameraActivity.this,
+                                new Function0<Unit>() {
+                                    @Override
+                                    public Unit invoke() {
+                                        CameraActivity.this.m71x5107441e(view);
+                                        return null;
+                                    }
+                                }
+                        );
                     }
                 });
             }

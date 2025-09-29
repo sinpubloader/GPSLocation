@@ -56,7 +56,7 @@ class AdsManager(
     fun showInterInApp(activity: Activity, onNextAction: () -> Unit) {
         Timber.tag(TAG).d("showInterInApp: ")
         var reset = false
-        if (canShowInterInApp) {
+        if (canShowInterInApp && interInApp.canShowAd()) {
             reset = true
         }
         interInApp.forceShow(

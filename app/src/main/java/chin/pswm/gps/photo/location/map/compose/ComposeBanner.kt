@@ -2,6 +2,8 @@ package chin.pswm.gps.photo.location.map.compose
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.ComposeView
+import androidx.lifecycle.compose.LifecycleResumeEffect
+import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.view.BannerView
 
@@ -18,7 +20,12 @@ fun setBannerContent(
 
 @Composable
 private fun ComposeBanner(adUnit: String, adUnitName: String, bannerType: BannerType) {
+    LifecycleResumeEffect(Unit) {
+        AdsManager.INSTANCE.loadInterInApp()
+        onPauseOrDispose {
 
+        }
+    }
     BannerView(
         adUnit = adUnit,
         adUnitName = adUnitName,

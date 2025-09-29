@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.fragment.CurrentLocationFragment;
@@ -24,6 +25,8 @@ import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityLocationBinding;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 
 @SuppressWarnings("all")
 
@@ -47,7 +50,16 @@ public class LocationActivity extends BaseActivity {
                 showUserInterDataBack(LocationActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
                     public void onDataClose() {
-                        onBackPressed();
+                        AdsManager.INSTANCE.showInterInApp(
+                                LocationActivity.this,
+                                new Function0<Unit>() {
+                                    @Override
+                                    public Unit invoke() {
+                                        onBackPressed();
+                                        return null;
+                                    }
+                                }
+                        );
                     }
                 });
             }

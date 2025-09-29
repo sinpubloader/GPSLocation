@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.adapter.TemplateAdapter;
+import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
@@ -20,6 +21,8 @@ import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityTemplateBinding;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 
 @SuppressWarnings("all")
 
@@ -54,7 +57,16 @@ public class TemplateActivity extends BaseActivity implements TemplateAdapter.On
                 showUserInterDataBack(TemplateActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
                     public void onDataClose() {
-                        onBackPressed();
+                        AdsManager.INSTANCE.showInterInApp(
+                                TemplateActivity.this,
+                                new Function0<Unit>() {
+                                    @Override
+                                    public Unit invoke() {
+                                        TemplateActivity.super.onBackPressed();
+                                        return null;
+                                    }
+                                }
+                        );
                     }
                 });
             }

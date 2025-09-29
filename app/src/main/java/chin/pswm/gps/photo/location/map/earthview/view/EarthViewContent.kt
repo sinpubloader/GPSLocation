@@ -76,17 +76,14 @@ import kotlinx.coroutines.launch
 @Composable
 fun EarthViewContent(
     state: EarthViewScreenState,
-    searchState: SearchState
+    searchState: SearchState,
+    onBack: ()-> Unit
 ) {
     val preview = LocalInspectionMode.current
     val context = LocalContext.current
     BaseScreen(
         topBar = {
-            EarthTopBarView(
-                onBack = {
-                    state.onBack(context as Activity)
-                },
-            )
+            EarthTopBarView(onBack = onBack)
         },
         bottomBar = {
             BannerView(

@@ -55,7 +55,7 @@ fun ComposePrivacy(composeView: ComposeView) {
                             SharedHelper.putBoolean(context, "privacy_screen_shown", true)
                             context.startActivity(Intent(context, New_first_languagesselect::class.java))
                             context.finish()
-                        }
+                        },
                     )
                 }
 

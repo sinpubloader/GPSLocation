@@ -25,6 +25,7 @@ import java.util.List;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.adapter.MyCreationAdapter;
+import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.interfaces.OnClickGallery;
@@ -38,6 +39,8 @@ import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityMyCreationBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
 
 @SuppressWarnings("all")
 
@@ -101,7 +104,16 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
                 showUserInterDataBack(MyCreationActivity.this, new AllKeyHub.onCrashDataClose() {
                     @Override
                     public void onDataClose() {
-                        onBackPressed();
+                        AdsManager.INSTANCE.showInterInApp(
+                                MyCreationActivity.this,
+                                new Function0<Unit>() {
+                                    @Override
+                                    public Unit invoke() {
+                                        MyCreationActivity.super.onBackPressed();
+                                        return null;
+                                    }
+                                }
+                        );
                     }
                 });
             }
