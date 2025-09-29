@@ -31,7 +31,7 @@ public class SplashActivity extends BaseActivity {
         ActivitySplashBinding inflate = ActivitySplashBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
-        ComposeSplashKt.setMyContent(binding.composeView);
+        ComposeSplashKt.setMyContent(binding.composeView, binding.composeViewBanner);
         this.permissionUtils = new PermissionUtils(this);
         boolean privacyScreenShown = SharedHelper.getBoolean(getApplicationContext(), "privacy_screen_shown", false);
 

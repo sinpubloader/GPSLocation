@@ -71,7 +71,9 @@ fun BannerView(
 ) {
     val inspectionMode = LocalInspectionMode.current
     if (inspectionMode) return
-    val prefs: Prefs = koinInject()
+    val prefs: Prefs = remember {
+        Prefs.INSTANCE
+    }
 
     val bannerTypeUse = remember {
         val positionConfig = prefs.getString(position, "")
