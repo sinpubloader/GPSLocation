@@ -22,4 +22,9 @@
     <color name="status">#F9F9F9</color>
     <color name="main">#5085F7</color>
     <color name="seleted_color">#5085F7</color>
+    <color name="colorShimmerBG">#0DFFFFFF</color>
+    <color name="colorShimmerItem">#EDEDED</color>
+    <color name="nativeBG">#33CCCCCC</color>
+    <color name="colorMeta">#3083FF</color>
+    <color name="colorAds">#45ACFA</color>
 </resources>

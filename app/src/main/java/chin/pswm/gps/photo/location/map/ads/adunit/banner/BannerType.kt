@@ -1,0 +1,11 @@
+package chin.pswm.gps.photo.location.map.ads.adunit.banner
+
+enum class BannerType {
+    BANNER_ADAPTIVE,
+    BANNER_INLINE_ADAPTIVE,
+    BANNER_INLINE_ADAPTIVE_50,
+    BANNER_INLINE_ADAPTIVE_90,
+    BANNER_INLINE_ADAPTIVE_120,
+    BANNER_INLINE_LANDSCAPE_ADAPTIVE,
+    BANNER_COLLAPSIBLE
+}

@@ -209,6 +209,9 @@
             android:exported="true"
             android:launchMode="singleTask" />
 
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-4432670726333720~8696777196" />
 
     </application>
 
