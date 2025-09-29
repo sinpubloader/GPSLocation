@@ -2,7 +2,6 @@ package chin.pswm.gps.photo.location.map.earthview.view
 
 
 import android.app.Activity
-import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,8 +17,6 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Switch
-import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -54,7 +51,6 @@ import chin.pswm.gps.photo.location.map.earthview.custom.BaseScreen
 import chin.pswm.gps.photo.location.map.earthview.custom.CenterBox
 import chin.pswm.gps.photo.location.map.earthview.custom.CenterColumn
 import chin.pswm.gps.photo.location.map.earthview.custom.CenterRow
-import chin.pswm.gps.photo.location.map.earthview.custom.circle
 import chin.pswm.gps.photo.location.map.earthview.custom.onClick
 import chin.pswm.gps.photo.location.map.earthview.custom.onClickNotRipple
 import chin.pswm.gps.photo.location.map.earthview.custom.round
@@ -68,14 +64,6 @@ import chin.pswm.gps.photo.location.map.ui.theme.neutral50
 import chin.pswm.gps.photo.location.map.ui.theme.neutral700
 import chin.pswm.gps.photo.location.map.ui.theme.primaryColor
 import chin.pswm.gps.photo.location.map_debug.R
-import com.google.android.gms.maps.model.LatLng
-import com.google.maps.android.compose.GoogleMap
-import com.google.maps.android.compose.MapProperties
-import com.google.maps.android.compose.MapUiSettings
-import com.google.maps.android.compose.Marker
-import com.google.maps.android.compose.rememberUpdatedMarkerState
-import earth.worldwind.geom.Angle.Companion.degrees
-import earth.worldwind.geom.Location
 import earth.worldwind.globe.projection.MercatorProjection
 import earth.worldwind.globe.projection.Wgs84Projection
 import earth.worldwind.layer.BackgroundLayer
@@ -94,51 +82,19 @@ fun EarthViewContent(
     BaseScreen(
         topBar = {
             EarthTopBarView(
-                is2DMode = state.is2DMode,
                 onBack = {
                     state.onBack(context as Activity)
                 },
-                onCheckChange = {
-                    state.is2DMode = it
-                }
             )
         },
     ) {
         Box(Modifier.fillMaxSize()) {
             if (!preview) {
-                AnimatedContent(state.is2DMode) { is2DMode ->
-                    if (!is2DMode) {
-                        AndroidView(
-                            factory = {
-                                state.wwd
-                            }, modifier = Modifier.fillMaxSize()
-                        )
-                    } else {
-
-                        GoogleMap(
-                            modifier = Modifier.fillMaxSize(),
-                            cameraPositionState = state.cameraPositionState,
-                            properties = MapProperties(
-                                mapType = state.mapType.type
-                            ),
-                            uiSettings = MapUiSettings(
-                                myLocationButtonEnabled = false,
-                                zoomControlsEnabled = false,
-                            )
-                        ) {
-                            state.markLocation?.let { markLocation ->
-                                val markLocationLatLng = remember {
-                                    LatLng(markLocation.latitude, markLocation.longitude)
-                                }
-                                val singaporeMarkerState = rememberUpdatedMarkerState(position = markLocationLatLng)
-                                Marker(
-                                    state = singaporeMarkerState,
-                                    title = markLocation.name,
-                                )
-                            }
-                        }
-                    }
-                }
+                AndroidView(
+                    factory = {
+                        state.wwd
+                    }, modifier = Modifier.fillMaxSize()
+                )
             }
 
             Row(
@@ -191,37 +147,6 @@ fun EarthViewContent(
                             }
                     )
                 }
-
-                CenterColumn(
-                    modifier = Modifier
-                        .padding(bottom = 24.dp, end = 16.dp), itemSpacing = 12.dp
-                ) {
-                    if (state.is2DMode) {
-                        AppIcon(
-                            res = R.drawable.ic_map,
-                            color = colorWhite,
-                            modifier = Modifier
-                                .size(40.dp)
-                                .circle()
-                                .background(primaryColor)
-                                .onClick("map_type") {
-                                    state.onMapType()
-                                }
-                                .padding(8.dp))
-                    }
-
-                    AppIcon(
-                        res = R.drawable.iuc_gps,
-                        color = colorWhite,
-                        modifier = Modifier
-                            .size(40.dp)
-                            .circle()
-                            .background(primaryColor)
-                            .onClick("gps") {
-                                state.onMyLocation()
-                            }
-                            .padding(8.dp))
-                }
             }
 
             SearchView(
@@ -231,7 +156,7 @@ fun EarthViewContent(
     }
 
     LaunchedEffect(Unit) {
-        state.wwd.engine.globe.projection = if (!state.is2DMode) MercatorProjection() else Wgs84Projection()
+        state.wwd.engine.globe.projection = Wgs84Projection()
         state.wwd.requestRedraw()
 
         state.wwd.engine.layers.apply {
@@ -248,13 +173,6 @@ fun EarthViewContent(
             addLayer(AtmosphereLayer())
             addLayer(state.placeLayer)
         }
-
-        state.wwd.engine.goToAnimator.goTo(
-            position = Location(
-                state.defaultLatLng.latitude.degrees, state.defaultLatLng.longitude.degrees
-            ), completionCallback = {
-
-            })
     }
 
     LifecycleStartEffect(Unit) {
@@ -389,9 +307,7 @@ private fun SearchView(
 
 @Composable
 private fun EarthTopBarView(
-    is2DMode: Boolean = false,
     onBack: () -> Unit = {},
-    onCheckChange: (Boolean) -> Unit = {},
 ) {
     CenterBox(
         modifier = Modifier
@@ -410,32 +326,12 @@ private fun EarthTopBarView(
                 })
 
         Text(
-            stringResource(if (is2DMode) R.string.map_2d else R.string.map_3d),
+            stringResource(R.string.earth_view),
             style = appFont(700, 18),
             textAlign = TextAlign.Center,
             color = colorWhite,
             modifier = Modifier.align(Alignment.Center)
         )
-
-        CenterRow(
-            Modifier.align(Alignment.CenterEnd), itemSpacing = 8.dp
-        ) {
-            Text(
-                stringResource(R.string._2d), style = appFont(600, 14), color = colorWhite
-            )
-
-            Switch(
-                checked = is2DMode, colors = SwitchDefaults.colors(
-                    checkedThumbColor = primaryColor,
-                    checkedTrackColor = colorWhite,
-                    uncheckedBorderColor = Color(0xFFAFB1B6),
-                    uncheckedTrackColor = Color(0xFFAFB1B6),
-                    uncheckedThumbColor = colorWhite
-                ), onCheckedChange = {
-                    onCheckChange(!is2DMode)
-                }, modifier = Modifier
-            )
-        }
     }
 }
 

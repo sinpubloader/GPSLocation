@@ -13,6 +13,9 @@ import chin.pswm.gps.photo.location.map.activity.PrivacyPolicyActivity;
 import chin.pswm.gps.photo.location.map.activity.SplashActivity;
 import chin.pswm.gps.photo.location.map.ads.adjust.AdjustManager;
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs;
+import timber.log.Timber;
+import static timber.log.Timber.DebugTree;
+
 
 
 public class MyApplication extends Application {
@@ -31,6 +34,7 @@ public class MyApplication extends Application {
         // init some for ads
         AdjustManager adjustManager = new AdjustManager();
         Prefs prefs = new Prefs(this);
+        Timber.plant(new DebugTree());
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
