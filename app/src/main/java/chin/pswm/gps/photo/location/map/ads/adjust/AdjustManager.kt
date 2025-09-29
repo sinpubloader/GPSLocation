@@ -28,7 +28,7 @@ class AdjustManager() : ITag {
         val environment = if (BuildConfig.DEBUG) AdjustConfig.ENVIRONMENT_SANDBOX
         else AdjustConfig.ENVIRONMENT_PRODUCTION
 
-        val config = AdjustConfig(MyApplication.instance, "9s9hcn9x01ds", environment)
+        val config = AdjustConfig(MyApplication.instance, "5e73pcy05ce8", environment)
 
         // Change the log level.
         config.setLogLevel(if (BuildConfig.DEBUG) LogLevel.DEBUG else LogLevel.VERBOSE)
