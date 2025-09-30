@@ -67,6 +67,7 @@ public class MapViewActivity extends BaseActivity {
                     public void onDataClose() {
                         AdsManager.INSTANCE.showInterInApp(
                                 MapViewActivity.this,
+                                false,
                                 new Function0<Unit>() {
                                     @Override
                                     public Unit invoke() {

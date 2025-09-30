@@ -242,6 +242,7 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
                     public void onDataClose() {
                         AdsManager.INSTANCE.showInterInApp(
                                 CameraActivity.this,
+                                false,
                                 new Function0<Unit>() {
                                     @Override
                                     public Unit invoke() {

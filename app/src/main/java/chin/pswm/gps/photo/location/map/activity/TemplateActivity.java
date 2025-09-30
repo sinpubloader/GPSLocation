@@ -64,6 +64,7 @@ public class TemplateActivity extends BaseActivity implements TemplateAdapter.On
                     public void onDataClose() {
                         AdsManager.INSTANCE.showInterInApp(
                                 TemplateActivity.this,
+                                false,
                                 new Function0<Unit>() {
                                     @Override
                                     public Unit invoke() {

@@ -174,6 +174,7 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
                     public void onDataClose() {
                         AdsManager.INSTANCE.showInterInApp(
                                 GalleryActivity.this,
+                                false,
                                 new Function0<Unit>() {
                                     @Override
                                     public Unit invoke() {

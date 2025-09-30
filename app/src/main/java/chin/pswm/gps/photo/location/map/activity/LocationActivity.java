@@ -56,6 +56,7 @@ public class LocationActivity extends BaseActivity {
                     public void onDataClose() {
                         AdsManager.INSTANCE.showInterInApp(
                                 LocationActivity.this,
+                                false,
                                 new Function0<Unit>() {
                                     @Override
                                     public Unit invoke() {

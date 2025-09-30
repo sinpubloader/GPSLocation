@@ -78,6 +78,7 @@ public class VideoPreviewActivity extends BaseActivity {
                     public void onDataClose() {
                         AdsManager.INSTANCE.showInterInApp(
                                 VideoPreviewActivity.this,
+                                false,
                                 new Function0<Unit>() {
                                     @Override
                                     public Unit invoke() {

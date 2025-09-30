@@ -161,6 +161,7 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
                     public void onDataClose() {
                         AdsManager.INSTANCE.showInterInApp(
                                 VideoActivity.this,
+                                false,
                                 new Function0<Unit>() {
                                     @Override
                                     public Unit invoke() {

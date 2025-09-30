@@ -199,6 +199,7 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
                     public void onDataClose() {
                         AdsManager.INSTANCE.showInterInApp(
                                 GridCameraActivity.this,
+                                false,
                                 new Function0<Unit>() {
                                     @Override
                                     public Unit invoke() {

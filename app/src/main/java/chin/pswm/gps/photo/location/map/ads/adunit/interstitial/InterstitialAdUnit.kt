@@ -2,8 +2,11 @@ package chin.pswm.gps.photo.location.map.ads.adunit.interstitial
 
 import android.app.Activity
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.Lifecycle
+import chin.pswm.gps.photo.location.map.ads.LoadingAdsDialog
 import chin.pswm.gps.photo.location.map.ads.adunit.AdDataConfig
 import chin.pswm.gps.photo.location.map.ads.adunit.AdUnit
 import chin.pswm.gps.photo.location.map.ads.adunit.common.AdErrorCode
@@ -12,6 +15,7 @@ import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.ads.adunit.decodeAdUnit
 import chin.pswm.gps.photo.location.map.ads.ext.AppUtils
 import chin.pswm.gps.photo.location.map.ads.ext.Tracking
+import chin.pswm.gps.photo.location.map.compose.dialog.LoadingDialog
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdValue
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -27,6 +31,7 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
 import timber.log.Timber
+import kotlin.code
 import kotlin.coroutines.resume
 
 class InterstitialAdUnit(
@@ -86,6 +91,7 @@ class InterstitialAdUnit(
     fun show(
         activity: Activity,
         condition: Boolean = true,
+        showLoading: Boolean = false,
         onNextAction: () -> Unit = {},
         onAdFailedToShow: (adError: AdLoadError?) -> Unit = {},
         onInterstitialShow: () -> Unit = {},
@@ -150,23 +156,48 @@ class InterstitialAdUnit(
                     }
                 }
 
-                adsManager.isShowingAds = true
+                if (showLoading) {
+                    LoadingAdsDialog.showLoading(activity)
+                    adsManager.isShowingAds = true
 
-                if (activity is ComponentActivity && activity.lifecycle.currentState.isAtLeast(
-                        Lifecycle.State.RESUMED
-                    )
-                ) {
-                    adData?.ad?.show(activity)
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        if (activity is ComponentActivity && activity.lifecycle.currentState.isAtLeast(
+                                Lifecycle.State.RESUMED
+                            )
+                        ) {
+                            adData?.ad?.show(activity)
+                        } else {
+                            LoadingAdsDialog.hideLoading()
+                            Timber.tag(TAG).d("showAds: cannot show ad in background")
+                            onAdFailedToShow(
+                                AdLoadError(
+                                    AdErrorCode.ERROR_CODE_SHOW_IN_BACKGROUND.code,
+                                    "cannot show ads in background"
+                                )
+                            )
+                            adsManager.isShowingAds = false
+                        }
+                    }, 500)
                 } else {
-                    Timber.tag(TAG).d("showAds: cannot show ad in background")
-                    onAdFailedToShow(
-                        AdLoadError(
-                            AdErrorCode.ERROR_CODE_SHOW_IN_BACKGROUND.code,
-                            "cannot show ads in background"
+                    adsManager.isShowingAds = true
+
+                    if (activity is ComponentActivity && activity.lifecycle.currentState.isAtLeast(
+                            Lifecycle.State.RESUMED
                         )
-                    )
-                    adsManager.isShowingAds = false
+                    ) {
+                        adData?.ad?.show(activity)
+                    } else {
+                        Timber.tag(TAG).d("showAds: cannot show ad in background")
+                        onAdFailedToShow(
+                            AdLoadError(
+                                AdErrorCode.ERROR_CODE_SHOW_IN_BACKGROUND.code,
+                                "cannot show ads in background"
+                            )
+                        )
+                        adsManager.isShowingAds = false
+                    }
                 }
+
             }
         }
     }

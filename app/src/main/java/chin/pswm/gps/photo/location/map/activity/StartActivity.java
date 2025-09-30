@@ -39,6 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chin.pswm.gps.photo.location.map.adapter.StartAdapter;
+import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.AdsVariable;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
@@ -132,14 +133,20 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.compass.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                StartActivity.this.m116xd0e95e84(view);
+                AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
+                    StartActivity.this.m116xd0e95e84(view);
+                    return null;
+                });
             }
         });
         binding.rlEathView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), EarthViewActivity.class);
-                startActivity(intent);
+                AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
+                    Intent intent = new Intent(getApplicationContext(), EarthViewActivity.class);
+                    startActivity(intent);
+                    return null;
+                });
             }
         });
         binding.setting.setOnClickListener(new View.OnClickListener() {
@@ -152,67 +159,100 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.routePlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                StartActivity.this.m117xf67d6785(view);
+                AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
+                    StartActivity.this.m117xf67d6785(view);
+                    return null;
+                });
             }
         });
         this.binding.advanceCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                StartActivity.this.m120x1c117086(view);
+                AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
+                    StartActivity.this.m120x1c117086(view);
+                    return null;
+                });
             }
         });
         this.binding.max.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                StartActivity.this.m121x41a57987(view);
+                AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
+                    StartActivity.this.m121x41a57987(view);
+                    return null;
+                });
             }
         });
         this.binding.photoGrid.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                StartActivity.this.m122x67398288(view);
+                AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
+                    StartActivity.this.m122x67398288(view);
+                    return null;
+                });
             }
         });
         this.binding.camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                StartActivity.this.m123x8ccd8b89(view);
+                AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
+                    StartActivity.this.m123x8ccd8b89(view);
+                    return null;
+                });
             }
         });
         this.binding.gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                StartActivity.this.m124xb261948a(view);
+                AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
+                    StartActivity.this.m124xb261948a(view);
+                    return null;
+                });
             }
         });
         this.binding.location.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                StartActivity.this.m125xd7f59d8b(view);
+                AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
+                    StartActivity.this.m125xd7f59d8b(view);
+                    return null;
+                });
             }
         });
         this.binding.template.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                StartActivity.this.m126xfd89a68c(view);
+                AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
+                    StartActivity.this.m126xfd89a68c(view);
+                    return null;
+                });
             }
         });
         this.binding.albumVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                StartActivity.this.m127x231daf8d(view);
+                AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
+                    StartActivity.this.m127x231daf8d(view);
+                    return null;
+                });
             }
         });
         this.binding.album.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                StartActivity.this.m118xb296b2fd(view);
+                AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
+                    StartActivity.this.m118xb296b2fd(view);
+                    return null;
+                });
             }
         });
         this.binding.videoCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                StartActivity.this.m119xd82abbfe(view);
+                AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
+                    StartActivity.this.m119xd82abbfe(view);
+                    return null;
+                });
             }
         });
     }

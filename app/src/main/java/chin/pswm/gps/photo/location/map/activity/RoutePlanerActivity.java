@@ -104,6 +104,7 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
                     public void onDataClose() {
                         AdsManager.INSTANCE.showInterInApp(
                                 RoutePlanerActivity.this,
+                                false,
                                 new Function0<Unit>() {
                                     @Override
                                     public Unit invoke() {

@@ -73,6 +73,7 @@ public class PreviewActivity extends BaseActivity {
                     public void onDataClose() {
                         AdsManager.INSTANCE.showInterInApp(
                                 PreviewActivity.this,
+                                false,
                                 new Function0<Unit>() {
                                     @Override
                                     public Unit invoke() {

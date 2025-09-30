@@ -111,6 +111,7 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
                     public void onDataClose() {
                         AdsManager.INSTANCE.showInterInApp(
                                 MyCreationActivity.this,
+                                false,
                                 new Function0<Unit>() {
                                     @Override
                                     public Unit invoke() {

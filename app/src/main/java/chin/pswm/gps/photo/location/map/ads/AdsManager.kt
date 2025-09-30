@@ -53,19 +53,38 @@ class AdsManager(
     }
 
 
-    fun showInterInApp(activity: Activity, onNextAction: () -> Unit) {
+    fun showInterInApp(activity: Activity, showLoading: Boolean, onNextAction: () -> Unit) {
         Timber.tag(TAG).d("showInterInApp: ")
         var reset = false
         if (canShowInterInApp && interInApp.canShowAd()) {
             reset = true
         }
-        interInApp.forceShow(
-            activity = activity,
-            condition = canShowInterInApp,
-            onNextAction = {
-                onNextAction()
-            }
-        )
+        if (!showLoading) {
+            interInApp.forceShow(
+                activity = activity,
+                condition = canShowInterInApp,
+                onNextAction = {
+                    onNextAction()
+                }
+            )
+        } else {
+            interInApp.show(
+                activity = activity,
+                showLoading = true,
+                onAdClosed = {
+                    onNextAction()
+                    LoadingAdsDialog.hideLoading()
+                },
+                onAdFailedToShow = {
+                    onNextAction()
+                    LoadingAdsDialog.hideLoading()
+                },
+                onNextAction = {
+                    onNextAction()
+                    LoadingAdsDialog.hideLoading()
+                }
+            )
+        }
         if (reset) AppScreenState.screenCreated = 0
     }
 

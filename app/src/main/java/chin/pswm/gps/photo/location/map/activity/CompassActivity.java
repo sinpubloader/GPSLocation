@@ -99,6 +99,7 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
                     public void onDataClose() {
                         AdsManager.INSTANCE.showInterInApp(
                                 CompassActivity.this,
+                                false,
                                 new Function0<Unit>() {
                                     @Override
                                     public Unit invoke() {
