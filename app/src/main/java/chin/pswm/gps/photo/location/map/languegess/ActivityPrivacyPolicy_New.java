@@ -22,8 +22,10 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.compose.ui.platform.ComposeView;
+import androidx.compose.ui.platform.ViewCompositionStrategy;
 
-import chin.pswm.gps.photo.location.map.activity.StartActivity;
+import chin.pswm.gps.photo.location.map.compose.privacy.ComposePrivacyKt;
+import chin.pswm.gps.photo.location.map.compose.privacy.ComposePrivacyState;
 import chin.pswm.gps.photo.location.map_debug.R;
 
 
@@ -31,8 +33,7 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
 
     CheckBox check_privacy;
     ComposeView composeView;
-    TextView start, tv_privacy_policy, tv_getstarted;
-    WebView webView;
+    TextView start, tv_privacy_policy;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,24 +48,21 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
         check_privacy = findViewById(R.id.check_box);
         start = findViewById(R.id.tv_getstarted);
         tv_privacy_policy = findViewById(R.id.tv_privacy_policy);
-        tv_getstarted = findViewById(R.id.tv_getstarted);
         composeView = findViewById(R.id.composeView);
 
-        String privacyPolicyText = "By checking the box you agree to our Privacy Policy and Terms of Conditions.";
+        String privacyPolicyText = "By press the Agree button below, you agree to our Privacy Policy and Terms of Conditions.";
         SpannableString spannableString = new SpannableString(privacyPolicyText);
 
         ClickableSpan privacyPolicySpan = new ClickableSpan() {
             @Override
             public void onClick(View view) {
-
-                startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://www.google.co.in/")));
+                startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://wandaapps.blogspot.com/2025/09/privacy-policy.html")));
             }
         };
         ClickableSpan termsConditionsSpan = new ClickableSpan() {
             @Override
             public void onClick(View view) {
-
-                startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://www.google.co.in/")));
+                startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://wandaapps.blogspot.com/2025/09/privacy-policy.html")));
             }
         };
         int privacyPolicyStart = privacyPolicyText.indexOf("Privacy Policy");
@@ -81,36 +79,40 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
         tv_privacy_policy.setText(spannableString);
         tv_privacy_policy.setMovementMethod(LinkMovementMethod.getInstance());
 
-        check_privacy.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (check_privacy.isChecked()) {
-                    start.setBackgroundResource(R.drawable.rect_round_main_blue);
-                    tv_getstarted.setTextColor(getResources().getColor(R.color.white));
-                } else {
-                    start.setBackgroundResource(R.drawable.rect_round_main_sky);
-                    tv_getstarted.setTextColor(getResources().getColor(R.color.black));
-                }
-            }
-        });
-        if (check_privacy.isChecked()) {
-            start.setBackgroundResource(R.drawable.rect_round_main_blue);
-            tv_getstarted.setTextColor(getResources().getColor(R.color.white));
-        } else {
-            start.setBackgroundResource(R.drawable.rect_round_main_sky);
-            tv_getstarted.setTextColor(getResources().getColor(R.color.black));
-        }
+//        check_privacy.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if (check_privacy.isChecked()) {
+//                    start.setBackgroundResource(R.drawable.rect_round_main_blue);
+//                    start.setTextColor(getResources().getColor(R.color.white));
+//                } else {
+//                    start.setBackgroundResource(R.drawable.rect_round_main_sky);
+//                    start.setTextColor(getResources().getColor(R.color.black));
+//                }
+//            }
+//        });
+//        if (check_privacy.isChecked()) {
+//            start.setBackgroundResource(R.drawable.rect_round_main_blue);
+//            start.setTextColor(getResources().getColor(R.color.white));
+//        } else {
+//            start.setBackgroundResource(R.drawable.rect_round_main_sky);
+//            start.setTextColor(getResources().getColor(R.color.black));
+//        }
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (check_privacy.isChecked()) {
-                    SharedHelper.putBoolean(getApplicationContext(), "privacy_screen_shown", true);
-                    startActivity(new Intent(ActivityPrivacyPolicy_New.this, StartActivity.class));
-                    finish();
-                } else {
-                    Toast.makeText(ActivityPrivacyPolicy_New.this, "Check Policy First", Toast.LENGTH_SHORT).show();
-                }
+//                if (check_privacy.isChecked()) {
+                    ComposePrivacyState.INSTANCE.getClickedAgree().setValue(true);
+//                } else {
+//                    Toast.makeText(ActivityPrivacyPolicy_New.this, "Check Policy First", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
+
+        if (composeView != null) {
+            // Set the ViewCompositionStrategy for proper lifecycle management
+            composeView.setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed.INSTANCE);
+            ComposePrivacyKt.setMyContent(composeView);
+        }
     }
 }

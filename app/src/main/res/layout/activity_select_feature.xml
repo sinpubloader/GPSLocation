@@ -100,7 +100,7 @@
     <TextView
         android:id="@+id/start"
         android:layout_width="807px"
-        android:layout_height="@dimen/_40sdp"
+        android:layout_height="@dimen/_38sdp"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:layout_marginBottom="@dimen/_10sdp"

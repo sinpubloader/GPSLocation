@@ -16,6 +16,7 @@ import chin.pswm.gps.photo.location.map.activity.PermissionActivity;
 import chin.pswm.gps.photo.location.map.activity.StartActivity;
 import chin.pswm.gps.photo.location.map.compose.select.ComposeSelectKt;
 import chin.pswm.gps.photo.location.map.compose.select.ComposeSelectState;
+import chin.pswm.gps.photo.location.map.languegess.ActivityPrivacyPolicy_New;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
@@ -77,17 +78,26 @@ public class ActivitySelectFeature extends AppCompatActivity {
     }
 
     public final void startMainActivity() {
+        boolean privacyScreenShown = SharedHelper.getBoolean(getApplicationContext(), "privacy_screen_shown", false);
         SharedHelper.putBoolean(getApplicationContext(), "finis_fo", true);
         if (ComposeSelectState.INSTANCE.isSelected()) {
-            PermissionUtils permissionUtils = this.permissionUtils;
-            if (permissionUtils.checkPermission(permissionUtils.allPermissions)) {
-                Intent intent = new Intent(this, StartActivity.class);
-                intent.setFlags(268435456);
-                startActivity(intent);
+
+            if (privacyScreenShown) {
+                PermissionUtils permissionUtils = this.permissionUtils;
+                if (permissionUtils.checkPermission(permissionUtils.allPermissions)) {
+                    Intent intent = new Intent(this, StartActivity.class);
+                    intent.setFlags(268435456);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+                Intent intent2 = new Intent(this, PermissionActivity.class);
+                intent2.setFlags(268435456);
+                startActivity(intent2);
                 finish();
                 return;
             }
-            Intent intent2 = new Intent(this, PermissionActivity.class);
+            Intent intent2 = new Intent(this, ActivityPrivacyPolicy_New.class);
             intent2.setFlags(268435456);
             startActivity(intent2);
             finish();
