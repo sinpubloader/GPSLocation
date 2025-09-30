@@ -24,19 +24,27 @@ import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity;
 import chin.pswm.gps.photo.location.map.activity.StartActivity;
 import chin.pswm.gps.photo.location.map.compose.language.ComposeLanguageKt;
 import chin.pswm.gps.photo.location.map.compose.language.ComposeLanguageState;
+import chin.pswm.gps.photo.location.map.utils.LocaleUtils;
 import chin.pswm.gps.photo.location.map_debug.R;
 
 
 public class New_first_languagesselect extends AppCompatActivity {
-    static ArrayList<Lang_item> languesslist = new ArrayList<>();
+    public static final ArrayList<String> languesslist = new ArrayList<>(List.of(
+            "en", "fr", "in", "pt", "es", "hi", "it", "ms", "ja", "ko",
+            "de", "ar", "fa", "ru", "zh", "tr", "cs", "nl", "vi", "hu",
+            "ro", "pl", "bg", "el", "sk", "da", "iw", "hr", "sl", "sv",
+            "ca", "uk", "th", "no", "fi", "ms-BN", "ms-MY", "ms-SG", "ms-ID",
+            "ur-IN", "ur-PK", "bn", "km", "my", "az", "uz", "gu", "ta", "te",
+            "mr", "kn", "or", "ml", "sq"
+    ));
     String localeCode;
     int selectedPosition = -1;
     TextView btn_save;
@@ -56,53 +64,21 @@ public class New_first_languagesselect extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN
         );
         initSocketConnection(this, true, true);
-        languesslist.clear();
-        languesslist.add(new Lang_item("English", "en", "english", R.drawable.eng));
-        languesslist.add(new Lang_item("Deutsch", "de", "german", R.drawable.ger));
-        languesslist.add(new Lang_item("Français", "fr", "French", R.drawable.french));
-        languesslist.add(new Lang_item("हिंदी", "hi", "hindi", R.drawable.indi));
-        languesslist.add(new Lang_item("Italiano", "it", "Italian", R.drawable.italian));
-        languesslist.add(new Lang_item("Português", "pt", "Portuguese", R.drawable.portuguese));
-        languesslist.add(new Lang_item("Türkçe", "tr", "Turkish", R.drawable.turki));
-        languesslist.add(new Lang_item("Tiếng Việt", "vi", "Vietnamese", R.drawable.vietnam));
-        languesslist.add(new Lang_item("Arabic", "ar", "Arabic", R.drawable.arab));
+
+        languesslist.sort((code1, code2) -> {
+            String name1 = LocaleUtils.name(code1);
+            String name2 = LocaleUtils.name(code2);
+
+            return name1.compareToIgnoreCase(name2);
+        });
 
         selectedPosition = SharedHelper.getInt(getApplicationContext(), "Lastlang_poss", -1);
         if (selectedPosition >= 0 && selectedPosition < languesslist.size()) {
             languageSelected = true;
-            localeCode = languesslist.get(selectedPosition).getLag_code();
+            localeCode = languesslist.get(selectedPosition);
         }
-/*        LinearLayout languageContainer = findViewById(R.id.language_container);
-        for (int i = 0; i < languesslist.size(); i++) {
-            Lang_item langItem = languesslist.get(i);
-
-            View languageView = LayoutInflater.from(this).inflate(R.layout.language_item, languageContainer, false);
-
-            ImageView flagImage = languageView.findViewById(R.id.ivLanguageImage);
-            TextView languageName = languageView.findViewById(R.id.tvLanguageName);
-            ImageView radioButton = languageView.findViewById(R.id.radioButton);
-            languges_s = languageView.findViewById(R.id.languges_s);
-            Glide.with(this).load(langItem.getFlag_image()).into(flagImage);
-            languageName.setText(langItem.getLag_name());
-
-            radioButton.setVisibility(selectedPosition == i ? View.VISIBLE : View.GONE);
-            languges_s.setBackground(selectedPosition == i
-                    ? ContextCompat.getDrawable(this, R.drawable.bg_selected_gradient)
-                    : ContextCompat.getDrawable(this, R.drawable.bg_gray_gradient));
-            int finalI = i;
-            languageView.setOnClickListener(v -> {
-                selectedPosition = finalI;
-                localeCode = langItem.getLag_code();
-                SharedHelper.putInt(getApplicationContext(), "Lastlang_poss", selectedPosition);
-                SharedHelper.putString(getApplicationContext(), "lang_key", localeCode);
-                updateLanguageSelection(languageContainer);
-            });
-
-            languageContainer.addView(languageView);
-        }*/
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-//        recyclerView.setLayoutManager(new GridLayoutManager(this, 2, RecyclerView.VERTICAL, false));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         allbank_MyLangAdapter adapter = new allbank_MyLangAdapter(languesslist);
         recyclerView.setAdapter(adapter);
@@ -143,9 +119,9 @@ public class New_first_languagesselect extends AppCompatActivity {
     }
 
     public class allbank_MyLangAdapter extends RecyclerView.Adapter<allbank_MyLangAdapter.ViewHolder> {
-        private final ArrayList<Lang_item> listdata;
+        private final ArrayList<String> listdata;
 
-        public allbank_MyLangAdapter(ArrayList<Lang_item> l0) {
+        public allbank_MyLangAdapter(ArrayList<String> l0) {
             this.listdata = l0;
         }
 
@@ -158,7 +134,7 @@ public class New_first_languagesselect extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-            Lang_item langItem = listdata.get(position);
+            String langItem = listdata.get(position);
 
             if (selectedPosition == position) {
                 holder.language_layout.setBackgroundResource(R.drawable.bg_lang_select);
@@ -167,16 +143,15 @@ public class New_first_languagesselect extends AppCompatActivity {
                 holder.language_layout.setBackgroundResource(R.drawable.bg_lang);
                 holder.tv_language_item.setTextColor(getColor(R.color.black));
             }
-            Glide.with(getApplicationContext()).load(langItem.getFlag_image()).into(holder.flag_image);
 
-            holder.tv_language_item.setText(langItem.getLag_name());
+            holder.tv_language_item.setText(LocaleUtils.name(langItem));
             holder.language_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     selectedPosition = position;
                     notifyDataSetChanged();
                     btn_save.setVisibility(View.VISIBLE);
-                    localeCode = langItem.getLag_code();
+                    localeCode = langItem;
                     ComposeLanguageState.INSTANCE.setClickedLanguage(true);
                     SharedHelper.putInt(getApplicationContext(), "Lastlang_poss", selectedPosition);
                     SharedHelper.putString(getApplicationContext(), "lang_key", localeCode);
