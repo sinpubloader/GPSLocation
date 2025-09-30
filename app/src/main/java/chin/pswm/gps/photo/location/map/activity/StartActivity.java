@@ -27,6 +27,9 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -369,6 +372,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
     public void onResume() {
         super.onResume();
         new ProcessAsyncTask().execute(new String[0]);
+        hideSystemNavigationBar();
     }
 
     public void setFragment() {
@@ -695,6 +699,20 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         }
         for (ActivityManager.AppTask appTask : appTasks) {
             appTask.finishAndRemoveTask();
+        }
+    }
+
+    private void hideSystemNavigationBar() {
+        try {
+            Window window = this.getWindow();
+            WindowCompat.setDecorFitsSystemWindows(window, true);
+            WindowInsetsControllerCompat windowCompat = WindowCompat.getInsetsController(window, window.getDecorView());
+            windowCompat.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+            windowCompat.setAppearanceLightNavigationBars(false);
+            windowCompat.hide(WindowInsetsCompat.Type.navigationBars());
+
+        } catch (Exception e) {
+
         }
     }
 }

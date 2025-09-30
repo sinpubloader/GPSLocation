@@ -3,6 +3,11 @@ package chin.pswm.gps.photo.location.map.activity;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
+import android.view.Window;
+
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map_debug.R;
@@ -35,5 +40,25 @@ public class PrivacyPolicyActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        hideSystemNavigationBar();
+    }
+
+    private void hideSystemNavigationBar() {
+        try {
+            Window window = this.getWindow();
+            WindowCompat.setDecorFitsSystemWindows(window, true);
+            WindowInsetsControllerCompat windowCompat = WindowCompat.getInsetsController(window, window.getDecorView());
+            windowCompat.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+            windowCompat.setAppearanceLightNavigationBars(false);
+            windowCompat.hide(WindowInsetsCompat.Type.navigationBars());
+
+        } catch (Exception e) {
+
+        }
     }
 }

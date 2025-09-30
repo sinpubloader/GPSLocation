@@ -7,10 +7,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -95,5 +99,25 @@ public class CompassStyleActivity extends AppCompatActivity {
         compassStyles.add(new CompassStyle(R.drawable.ic_compass_style_4, R.drawable.ic_compass_base_4, R.drawable.ic_compass_fan_4, 4));
         compassStyles.add(new CompassStyle(R.drawable.ic_compass_style_5, R.drawable.ic_compass_base_5, R.drawable.ic_compass_fan_5, 5));
         compassStyles.add(new CompassStyle(R.drawable.ic_compass_style_6, R.drawable.ic_compass_base_6, R.drawable.ic_compass_fan_6, 6));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        hideSystemNavigationBar();
+    }
+
+    private void hideSystemNavigationBar() {
+        try {
+            Window window = this.getWindow();
+            WindowCompat.setDecorFitsSystemWindows(window, true);
+            WindowInsetsControllerCompat windowCompat = WindowCompat.getInsetsController(window, window.getDecorView());
+            windowCompat.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+            windowCompat.setAppearanceLightNavigationBars(false);
+            windowCompat.hide(WindowInsetsCompat.Type.navigationBars());
+
+        } catch (Exception e) {
+
+        }
     }
 }

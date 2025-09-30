@@ -15,7 +15,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
 
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.bumptech.glide.Glide;
@@ -226,5 +230,25 @@ public class GalleryPreviewMapActivity extends BaseActivity {
 
     public  void m84x696685fb(View view) {
         this.dialog.dismiss();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        hideSystemNavigationBar();
+    }
+
+    private void hideSystemNavigationBar() {
+        try {
+            Window window = this.getWindow();
+            WindowCompat.setDecorFitsSystemWindows(window, true);
+            WindowInsetsControllerCompat windowCompat = WindowCompat.getInsetsController(window, window.getDecorView());
+            windowCompat.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+            windowCompat.setAppearanceLightNavigationBars(false);
+            windowCompat.hide(WindowInsetsCompat.Type.navigationBars());
+
+        } catch (Exception e) {
+
+        }
     }
 }

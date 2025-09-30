@@ -12,8 +12,12 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.Toast;
 
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.bumptech.glide.Glide;
@@ -130,6 +134,7 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
     public void onResume() {
         super.onResume();
         new ProcessAsyncTask().execute(new String[0]);
+        hideSystemNavigationBar();
     }
 
     @Override
@@ -210,6 +215,20 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
             }
             MyCreationActivity.this.binding.recyclerview.setVisibility(8);
             MyCreationActivity.this.binding.noData.setVisibility(0);
+        }
+    }
+
+    private void hideSystemNavigationBar() {
+        try {
+            Window window = this.getWindow();
+            WindowCompat.setDecorFitsSystemWindows(window, true);
+            WindowInsetsControllerCompat windowCompat = WindowCompat.getInsetsController(window, window.getDecorView());
+            windowCompat.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+            windowCompat.setAppearanceLightNavigationBars(false);
+            windowCompat.hide(WindowInsetsCompat.Type.navigationBars());
+
+        } catch (Exception e) {
+
         }
     }
 }
