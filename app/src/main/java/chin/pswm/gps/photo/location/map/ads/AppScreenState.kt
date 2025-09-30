@@ -5,6 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 
 object AppScreenState {
-    var screenCreated = 4 // todo: Loc
+    var screenCreated = 0
     var lastScreen by mutableStateOf("")
 }
