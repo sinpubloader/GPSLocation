@@ -22,10 +22,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.compose.ui.platform.ComposeView;
-import androidx.compose.ui.platform.ViewCompositionStrategy;
 
-import chin.pswm.gps.photo.location.map.compose.privacy.ComposePrivacyKt;
-import chin.pswm.gps.photo.location.map.compose.privacy.ComposePrivacyState;
+import chin.pswm.gps.photo.location.map.activity.StartActivity;
 import chin.pswm.gps.photo.location.map_debug.R;
 
 
@@ -106,17 +104,13 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (check_privacy.isChecked()) {
-                    ComposePrivacyState.INSTANCE.getClickedAgree().setValue(true);
+                    SharedHelper.putBoolean(getApplicationContext(), "privacy_screen_shown", true);
+                    startActivity(new Intent(ActivityPrivacyPolicy_New.this, StartActivity.class));
+                    finish();
                 } else {
                     Toast.makeText(ActivityPrivacyPolicy_New.this, "Check Policy First", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-        if (composeView != null) {
-            // Set the ViewCompositionStrategy for proper lifecycle management
-            composeView.setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed.INSTANCE);
-            ComposePrivacyKt.setMyContent(composeView);
-        }
     }
 }

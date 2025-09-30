@@ -33,22 +33,11 @@ public class SplashActivity extends BaseActivity {
         setContentView(inflate.getRoot());
         ComposeSplashKt.setMyContent(binding.composeView, binding.composeViewBanner);
         this.permissionUtils = new PermissionUtils(this);
-        boolean privacyScreenShown = SharedHelper.getBoolean(getApplicationContext(), "privacy_screen_shown", false);
 
         AdsManager.INSTANCE.requestUMP(SplashActivity.this, true, true);
         AdsManager.INSTANCE.getConsentFinished().observe(this, finished -> {
-                    if (!privacyScreenShown) {
-                        showPrivacyScreen();
-                    } else {
-                        checkMain();
-                    }
-                }
-        );
-    }
-
-    private void showPrivacyScreen() {
-        startActivity(new Intent(SplashActivity.this, ActivityPrivacyPolicy_New.class));
-        finish();
+            checkMain();
+        });
     }
 
     public final void checkMain() {
@@ -60,6 +49,7 @@ public class SplashActivity extends BaseActivity {
             finish();
         } else {
             Boolean finishFO = SharedHelper.getBoolean(getApplicationContext(), "finis_fo", false);
+            boolean privacyScreenShown = SharedHelper.getBoolean(getApplicationContext(), "privacy_screen_shown", false);
             if (selectedLanguage.isEmpty()) {
                 AdsManager.INSTANCE.getNativeLanguage().loadAd(SplashActivity.this);
                 ComposeSplashState.INSTANCE.getClickedAgree().setValue(true);
@@ -67,6 +57,9 @@ public class SplashActivity extends BaseActivity {
                 AdsManager.INSTANCE.getNativeOnboard1().loadAd(SplashActivity.this);
                 AdsManager.INSTANCE.getNativeOnboard3().loadAd(SplashActivity.this);
                 ComposeSplashState.INSTANCE.getClickedOnboard().setValue(true);
+            } else if (!privacyScreenShown) {
+                startActivity(new Intent(SplashActivity.this, ActivityPrivacyPolicy_New.class));
+                finish();
             } else {
                 ComposeSplashState.INSTANCE.getClickedMain().setValue(true);
             }

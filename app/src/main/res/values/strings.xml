@@ -166,7 +166,7 @@
     <string name="intro_33">Capture images with the GPS Camera Photo Location app, automatically embedding precise details such as latitude, longitude</string>
     <string name="skip">Skip</string>
     <string name="check_internet">Please check internet connection and try again</string>
-    <string name="privacy_splash">By checking the box you agree to our Privacy Policy and Terms of Conditions.</string>
+    <string name="privacy_splash">By press the Agree button below, you agree to our Privacy Policy and Terms of Conditions.</string>
     <string name="agree">Agree</string>
     <string name="do_you_really_want_to_exit">Are You Sure Want to Exit?</string>
     <string name="language">Select Language</string>

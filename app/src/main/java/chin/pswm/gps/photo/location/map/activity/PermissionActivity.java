@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.languegess.ActivityPrivacyPolicy_New;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
@@ -131,7 +132,7 @@ public class PermissionActivity extends BaseActivity {
     public void m107x7120f767(View view) {
         PermissionUtils permissionUtils = this.permissionUtils;
         if (permissionUtils.checkPermission(permissionUtils.allPermissions)) {
-            startActivity(new Intent(this, StartActivity.class));
+            startActivity(new Intent(this, ActivityPrivacyPolicy_New.class));
             finish();
             return;
         }
