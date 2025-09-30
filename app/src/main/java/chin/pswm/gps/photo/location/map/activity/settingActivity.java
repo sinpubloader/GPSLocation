@@ -81,7 +81,7 @@ public class settingActivity extends AppCompatActivity {
         binding.privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://wandaapps.blogspot.com/2025/09/privacy-policy.html")));
             }
         });
 

@@ -47,8 +47,7 @@ public class SplashActivity extends BaseActivity {
 
     public final void checkMain() {
         String selectedLanguage = SharedHelper.getString(getApplicationContext(), "lang_key", "");
-        boolean displayIntroEveryTime = SharedHelper.getBoolean(getApplicationContext(), "display_intro_everytime", false);
-        if (!selectedLanguage.isEmpty() && displayIntroEveryTime) {
+        if (!selectedLanguage.isEmpty()) {
             setLanguage(selectedLanguage);
             gotoLoginActivity();
             finish();
@@ -73,10 +72,11 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void gotoLoginActivity() {
-        if (SplashActivity.this.permissionUtils.checkPermission(SplashActivity.this.permissionUtils.allPermissions)) {
-            startActivity(new Intent(this, PermissionActivity.class));
-        } else {
+        PermissionUtils permissionUtils = new PermissionUtils(this);
+        if (permissionUtils.checkPermission(permissionUtils.allPermissions)) {
             startActivity(new Intent(this, StartActivity.class));
+        } else {
+            startActivity(new Intent(this, PermissionActivity.class));
         }
         finish();
     }
