@@ -53,9 +53,7 @@ public class ViewAdapter extends PagerAdapter {
 
         imageView.setImageResource(images[position]);
         text01.setText(text1[position]);
-        if (position == 0 || position == 3) {
-            ComposeOnboardKt.setMyContent(composeView, position);
-        }
+
 //        text02.setText(text2[position]);
 
 

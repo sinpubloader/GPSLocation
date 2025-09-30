@@ -102,6 +102,13 @@ class AdsManager(
         )
     }
 
+    val nativeFSN by lazy {
+        NativeAdUnit(
+            "native_fsob_high" to BuildConfig.native_fsob_high,
+            "native_fsob" to BuildConfig.native_fsob,
+        )
+    }
+
     val nativeSelect by lazy {
         NativeAdUnit(
             "native_select_high" to BuildConfig.native_select_high,

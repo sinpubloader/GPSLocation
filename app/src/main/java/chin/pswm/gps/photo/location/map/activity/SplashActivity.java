@@ -60,6 +60,7 @@ public class SplashActivity extends BaseActivity {
                 ComposeSplashState.INSTANCE.getClickedAgree().setValue(true);
             } else if (!finishFO) {
                 AdsManager.INSTANCE.getNativeOnboard1().loadAd(SplashActivity.this);
+                AdsManager.INSTANCE.getNativeFSN().loadAd(SplashActivity.this);
                 AdsManager.INSTANCE.getNativeOnboard3().loadAd(SplashActivity.this);
                 ComposeSplashState.INSTANCE.getClickedOnboard().setValue(true);
             } else if (!privacyScreenShown) {

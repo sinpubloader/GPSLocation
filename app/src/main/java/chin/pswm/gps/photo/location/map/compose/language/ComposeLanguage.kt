@@ -36,6 +36,7 @@ fun ComposeLanguage(composeView: ComposeView) {
     LaunchedEffect(ComposeLanguageState.clickedLanguage) {
         AdsManager.INSTANCE.run {
             nativeOnboard1.loadAd(context)
+            nativeFSN.loadAd(context)
             nativeOnboard3.loadAd(context)
         }
     }
