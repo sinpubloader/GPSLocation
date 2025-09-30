@@ -4,11 +4,15 @@ package chin.pswm.gps.photo.location.map.New_intro;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Window;
 import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.compose.ui.platform.ComposeView;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
 import chin.pswm.gps.photo.location.map.compose.onboard.ComposeOnboardKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
@@ -49,18 +53,35 @@ public class New_IntroActivity extends AppCompatActivity {
     }
 
     public final void startMainActivity() {
-
         Intent intent2 = new Intent(this, ActivitySelectFeature.class);
         intent2.setFlags(268435456);
         startActivity(intent2);
         finish();
-
     }
 
     private void completeIntro() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("display_intro_everytime", true);
         editor.apply();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        hideSystemNavigationBar();
+    }
+
+    private void hideSystemNavigationBar() {
+        try {
+            Window window = this.getWindow();
+            WindowCompat.setDecorFitsSystemWindows(window, true);
+            WindowInsetsControllerCompat windowCompat = WindowCompat.getInsetsController(window, window.getDecorView());
+            windowCompat.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+            windowCompat.setAppearanceLightNavigationBars(false);
+            windowCompat.hide(WindowInsetsCompat.Type.navigationBars());
+        } catch (Exception e) {
+
+        }
     }
 }
 

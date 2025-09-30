@@ -13,19 +13,16 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.view.WindowManager;
-import android.webkit.WebView;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.compose.ui.platform.ComposeView;
-import androidx.compose.ui.platform.ViewCompositionStrategy;
 
-import chin.pswm.gps.photo.location.map.compose.privacy.ComposePrivacyKt;
-import chin.pswm.gps.photo.location.map.compose.privacy.ComposePrivacyState;
+import chin.pswm.gps.photo.location.map.activity.PermissionActivity;
+import chin.pswm.gps.photo.location.map.activity.StartActivity;
+import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map_debug.R;
 
 
@@ -98,21 +95,23 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
 //            start.setBackgroundResource(R.drawable.rect_round_main_sky);
 //            start.setTextColor(getResources().getColor(R.color.black));
 //        }
+
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (check_privacy.isChecked()) {
-                    ComposePrivacyState.INSTANCE.getClickedAgree().setValue(true);
-//                } else {
-//                    Toast.makeText(ActivityPrivacyPolicy_New.this, "Check Policy First", Toast.LENGTH_SHORT).show();
-//                }
+                PermissionUtils permissionUtils = new PermissionUtils(ActivityPrivacyPolicy_New.this);
+                if (permissionUtils.checkPermission(permissionUtils.allPermissions)) {
+                    Intent intent = new Intent(ActivityPrivacyPolicy_New.this, StartActivity.class);
+                    intent.setFlags(268435456);
+                    startActivity(intent);
+                    finish();
+                    return;
+                }
+                Intent intent2 = new Intent(ActivityPrivacyPolicy_New.this, PermissionActivity.class);
+                intent2.setFlags(268435456);
+                startActivity(intent2);
+                finish();
             }
         });
-
-        if (composeView != null) {
-            // Set the ViewCompositionStrategy for proper lifecycle management
-            composeView.setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed.INSTANCE);
-            ComposePrivacyKt.setMyContent(composeView);
-        }
     }
 }

@@ -16,6 +16,7 @@ import java.util.Locale;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.compose.splash.ComposeSplashKt;
 import chin.pswm.gps.photo.location.map.compose.splash.ComposeSplashState;
+import chin.pswm.gps.photo.location.map.languegess.ActivityPrivacyPolicy_New;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
