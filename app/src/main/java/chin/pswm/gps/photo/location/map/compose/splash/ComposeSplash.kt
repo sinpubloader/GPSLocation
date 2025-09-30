@@ -15,6 +15,7 @@ import chin.pswm.gps.photo.location.map.activity.StartActivity
 import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.view.BannerView
 import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
+import chin.pswm.gps.photo.location.map.languegess.ActivityPrivacyPolicy_New
 import chin.pswm.gps.photo.location.map.languegess.New_first_languagesselect
 import chin.pswm.gps.photo.location.map_debug.BuildConfig
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,6 +24,7 @@ object ComposeSplashState {
     val clickedAgree = MutableStateFlow(false)
     val clickedOnboard = MutableStateFlow(false)
     val clickedMain = MutableStateFlow(false)
+    val clickedPrivacy = MutableStateFlow(false)
 }
 
 fun setMyContent(composeView: ComposeView, composeViewBanner: ComposeView) {
@@ -134,6 +136,38 @@ fun ComposeSplash(composeView: ComposeView) {
 
                 AdsStatus.FAIL -> {
                     context.startActivity(Intent(context, StartActivity::class.java))
+                    (context as? SplashActivity)?.finish()
+                }
+
+                else -> Unit
+            }
+        }
+        onPauseOrDispose {
+
+        }
+    }
+
+    val clickedPrivacy = ComposeSplashState.clickedPrivacy.collectAsState().value
+    LifecycleResumeEffect(clickedPrivacy, adsStatus) {
+        if (clickedPrivacy) {
+            when (adsStatus) {
+                AdsStatus.SUCCESS -> {
+                    composeView.setBackgroundColor(Color.BLACK)
+                    AdsManager.INSTANCE.interSplash.show(
+                        activity = context as SplashActivity,
+                        onAdClosed = {
+                            context.startActivity(Intent(context, ActivityPrivacyPolicy_New::class.java))
+                            context.finish()
+                        },
+                        onAdFailedToShow = {
+                            context.startActivity(Intent(context, ActivityPrivacyPolicy_New::class.java))
+                            context.finish()
+                        }
+                    )
+                }
+
+                AdsStatus.FAIL -> {
+                    context.startActivity(Intent(context, ActivityPrivacyPolicy_New::class.java))
                     (context as? SplashActivity)?.finish()
                 }
 

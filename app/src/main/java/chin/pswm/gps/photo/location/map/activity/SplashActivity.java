@@ -47,38 +47,22 @@ public class SplashActivity extends BaseActivity {
 
     public final void checkMain() {
         String selectedLanguage = SharedHelper.getString(getApplicationContext(), "lang_key", "");
-        if (!selectedLanguage.isEmpty()) {
-            setLanguage(selectedLanguage);
-            gotoLoginActivity();
-            finish();
-        } else {
-            Boolean finishFO = SharedHelper.getBoolean(getApplicationContext(), "finis_fo", false);
-            boolean privacyScreenShown = SharedHelper.getBoolean(getApplicationContext(), "privacy_screen_shown", false);
-            if (selectedLanguage.isEmpty()) {
-                AdsManager.INSTANCE.getNativeLanguage().loadAd(SplashActivity.this);
-                ComposeSplashState.INSTANCE.getClickedAgree().setValue(true);
-            } else if (!finishFO) {
-                AdsManager.INSTANCE.getNativeOnboard1().loadAd(SplashActivity.this);
-                AdsManager.INSTANCE.getNativeFSN().loadAd(SplashActivity.this);
-                AdsManager.INSTANCE.getNativeOnboard3().loadAd(SplashActivity.this);
-                ComposeSplashState.INSTANCE.getClickedOnboard().setValue(true);
-            } else if (!privacyScreenShown) {
-                startActivity(new Intent(SplashActivity.this, ActivityPrivacyPolicy_New.class));
-                finish();
-            } else {
-                ComposeSplashState.INSTANCE.getClickedMain().setValue(true);
-            }
-        }
-    }
 
-    private void gotoLoginActivity() {
-        PermissionUtils permissionUtils = new PermissionUtils(this);
-        if (permissionUtils.checkPermission(permissionUtils.allPermissions)) {
-            startActivity(new Intent(this, StartActivity.class));
+        Boolean finishFO = SharedHelper.getBoolean(getApplicationContext(), "finis_fo", false);
+        boolean privacyScreenShown = SharedHelper.getBoolean(getApplicationContext(), "privacy_screen_shown", false);
+        if (selectedLanguage.isEmpty()) {
+            AdsManager.INSTANCE.getNativeLanguage().loadAd(SplashActivity.this);
+            ComposeSplashState.INSTANCE.getClickedAgree().setValue(true);
+        } else if (!finishFO) {
+            AdsManager.INSTANCE.getNativeOnboard1().loadAd(SplashActivity.this);
+            AdsManager.INSTANCE.getNativeFSN().loadAd(SplashActivity.this);
+            AdsManager.INSTANCE.getNativeOnboard3().loadAd(SplashActivity.this);
+            ComposeSplashState.INSTANCE.getClickedOnboard().setValue(true);
+        } else if (!privacyScreenShown) {
+            ComposeSplashState.INSTANCE.getClickedPrivacy().setValue(true);
         } else {
-            startActivity(new Intent(this, PermissionActivity.class));
+            ComposeSplashState.INSTANCE.getClickedMain().setValue(true);
         }
-        finish();
     }
 
     private void setLanguage(String localeCode) {
