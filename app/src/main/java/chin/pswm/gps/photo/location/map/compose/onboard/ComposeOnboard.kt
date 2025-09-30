@@ -117,7 +117,10 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
     LaunchedEffect(Unit) {
         snapshotFlow { pageState.currentPage }.collectLatest { page ->
             currentPage = page
-            onboardType = OnboardType.getEntries()[min(page, 3)]
+            onboardType = if (hasAds) {
+                if (page >= 2) OnboardType.getEntries()[min(page - 1, 3)]
+                else OnboardType.getEntries()[page]
+            } else OnboardType.getEntries()[min(page, 3)]
         }
     }
 
