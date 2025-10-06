@@ -87,10 +87,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/MAP_KEY" />
 
-        <activity
-            android:name="chin.pswm.gps.photo.location.map.activity.PrivacyPolicyActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
+<!--        <activity-->
+<!--            android:name="chin.pswm.gps.photo.location.map.activity.PrivacyPolicyActivity"-->
+<!--            android:exported="false"-->
+<!--            android:screenOrientation="portrait" />-->
         <activity
             android:name="chin.pswm.gps.photo.location.map.activity.VideoPreviewActivity"
             android:exported="false"

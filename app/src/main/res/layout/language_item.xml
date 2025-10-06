@@ -7,7 +7,7 @@
     android:layout_marginVertical="@dimen/_5sdp"
     android:layout_marginLeft="@dimen/_5sdp"
     android:layout_marginRight="@dimen/_5sdp"
-    android:background="@drawable/bg_lang"
+    android:background="@drawable/btn_global_card"
     android:orientation="horizontal">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,7 +35,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/rubik_meduim"
             android:text="English"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="14dp"
             android:layout_marginStart="@dimen/_20sdp"
             android:layout_marginVertical="@dimen/_12sdp"

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.fom.rapid.views.RapidRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/mainAcRl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/b_bg"
-        android:backgroundTint="@color/white"
+        android:background="@color/mainBg"
         app:measureMargin="true"
         app:measurePadding="true"
         app:measureWith="-1"
@@ -40,7 +38,8 @@
                         android:layout_width="63px"
                         android:layout_height="47px"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/effect_back" />
+                        android:src="@drawable/effect_back"
+                        app:tint="@color/white" />
                 </RelativeLayout>
 
                 <TextView
@@ -52,7 +51,7 @@
                     android:layout_marginHorizontal="50px"
                     android:layout_marginLeft="50px"
                     android:layout_marginRight="50px"
-                    android:background="@drawable/rectangle_bg3"
+                    android:background="@drawable/btn_global"
                     android:fontFamily="@font/gilroy_medium"
                     android:gravity="center"
                     android:text="@string/gps32"
@@ -70,7 +69,7 @@
                     android:gravity="center_vertical"
                     android:lines="1"
                     android:text="@string/gpl24"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp" />
             </RelativeLayout>
 
@@ -165,7 +164,7 @@
                 android:paddingHorizontal="50px"
                 android:paddingLeft="50px"
                 android:paddingRight="50px"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp"
                 android:visibility="gone" />
 
@@ -176,7 +175,8 @@
                 android:elevation="5dp"
                 android:layout_margin="7dp"
                 android:layout_centerInParent="true"
-                app:cardCornerRadius="@dimen/_15sdp">
+                app:cardCornerRadius="@dimen/_15sdp"
+                app:cardBackgroundColor="@color/cardColor">
 
                 <RelativeLayout
                     android:layout_width="match_parent"

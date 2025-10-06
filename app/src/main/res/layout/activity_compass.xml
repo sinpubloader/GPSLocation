@@ -2,21 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/mainBg"
     android:orientation="vertical"
     android:fitsSystemWindows="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
-        android:background="@color/white">
+        android:background="@color/mainBg">
 
         <ImageView
             android:id="@+id/iv_back"
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_40sdp"
             android:padding="@dimen/_10sdp"
-            android:src="@drawable/effect_back" />
+            android:src="@drawable/effect_back"
+            app:tint="@color/white" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,7 +27,7 @@
             android:fontFamily="@font/gilroy_semi_bold"
             android:includeFontPadding="false"
             android:text="@string/compass"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="@dimen/_14sdp" />
     </RelativeLayout>
 
@@ -46,13 +48,13 @@
                 android:layout_gravity="center"
                 android:layout_margin="7dp"
                 android:layout_weight="1"
-                android:background="@drawable/theme_rounded"
+                android:background="@drawable/btn_global_square2"
                 android:fontFamily="@font/gilroy_semi_bold"
                 android:gravity="center"
                 android:includeFontPadding="false"
                 android:singleLine="true"
                 android:text="@string/camera"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
@@ -67,7 +69,7 @@
                 android:includeFontPadding="false"
                 android:singleLine="true"
                 android:text="@string/compass"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
@@ -82,7 +84,7 @@
                 android:includeFontPadding="false"
                 android:singleLine="true"
                 android:text="@string/map"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp" />
         </LinearLayout>
     </LinearLayout>
@@ -192,7 +194,7 @@
                         android:layout_height="@dimen/_40sdp"
                         android:layout_marginLeft="@dimen/_20sdp"
                         android:layout_marginRight="@dimen/_20sdp"
-                        android:background="@drawable/theme_rounded"
+                        android:background="@drawable/btn_global"
                         android:fontFamily="@font/gilroy_semi_bold"
                         android:gravity="center"
                         android:includeFontPadding="false"

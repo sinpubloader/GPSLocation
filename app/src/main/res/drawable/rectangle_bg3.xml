@@ -3,9 +3,12 @@
     <item>
         <shape android:shape="rectangle">
 
-            <solid android:color="@color/seleted_color" />
+<!--            <solid android:color="@color/seleted_color" />-->
             <corners android:radius="22dp" />
-
+            <gradient
+                android:angle="0"
+                android:endColor="#A975EE"
+                android:startColor="#7353F6" />
         </shape>
     </item>
 </layer-list>

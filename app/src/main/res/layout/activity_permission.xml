@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg"
+        android:background="@color/mainBg"
         android:fitsSystemWindows="true"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -19,12 +19,12 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/gilroy_semi_bold"
             android:text="@string/gps68"
-            android:textColor="@color/txt_one"
+            android:textColor="@color/white"
             android:textSize="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_10sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/logo"
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvPermission"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/tvPermDetail"/>
+            app:layout_constraintBottom_toTopOf="@+id/tvPermDetail" />
 
         <TextView
             android:id="@+id/tvPermDetail"
@@ -53,7 +53,7 @@
             android:layout_marginBottom="@dimen/_6sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/llPermission"/>
+            app:layout_constraintBottom_toTopOf="@+id/llPermission" />
 
         <!--        <androidx.core.widget.NestedScrollView-->
         <!--            android:layout_width="match_parent"-->
@@ -91,7 +91,8 @@
                         android:layout_marginHorizontal="50px"
                         android:layout_marginLeft="30px"
                         android:layout_marginRight="30px"
-                        android:src="@drawable/permission_04" />
+                        android:src="@drawable/permission_04"
+                        app:tint="@color/colorPrimary1" />
 
                     <TextView
                         android:id="@+id/tt1"
@@ -104,7 +105,7 @@
                         android:gravity="center_vertical"
                         android:lines="1"
                         android:text="@string/gps70"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_13sdp" />
 
                     <ImageView
@@ -117,7 +118,7 @@
                         android:layout_marginLeft="50px"
                         android:layout_marginRight="50px"
                         android:src="@drawable/done_w"
-                        android:tint="@color/main" />
+                        app:tint="@color/colorPrimary1" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -136,7 +137,8 @@
                         android:layout_marginHorizontal="50px"
                         android:layout_marginLeft="30px"
                         android:layout_marginRight="30px"
-                        android:src="@drawable/permission_03" />
+                        android:src="@drawable/permission_03"
+                        app:tint="@color/colorPrimary1"  />
 
                     <TextView
                         android:id="@+id/tt2"
@@ -149,7 +151,7 @@
                         android:gravity="center_vertical"
                         android:lines="1"
                         android:text="@string/gps71"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_13sdp" />
 
                     <ImageView
@@ -162,7 +164,7 @@
                         android:layout_marginLeft="50px"
                         android:layout_marginRight="50px"
                         android:src="@drawable/done_w"
-                        android:tint="@color/main" />
+                        app:tint="@color/colorPrimary1"  />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -181,7 +183,8 @@
                         android:layout_marginHorizontal="50px"
                         android:layout_marginLeft="30px"
                         android:layout_marginRight="30px"
-                        android:src="@drawable/permission_02" />
+                        android:src="@drawable/permission_02"
+                        app:tint="@color/colorPrimary1"  />
 
                     <TextView
                         android:id="@+id/tt3"
@@ -194,7 +197,7 @@
                         android:gravity="center_vertical"
                         android:lines="1"
                         android:text="@string/gps72"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_13sdp" />
 
                     <ImageView
@@ -207,7 +210,7 @@
                         android:layout_marginLeft="50px"
                         android:layout_marginRight="50px"
                         android:src="@drawable/done_w"
-                        android:tint="@color/main" />
+                        app:tint="@color/colorPrimary1" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -226,7 +229,8 @@
                         android:layout_marginHorizontal="50px"
                         android:layout_marginLeft="30px"
                         android:layout_marginRight="30px"
-                        android:src="@drawable/permission_01" />
+                        android:src="@drawable/permission_01"
+                        app:tint="@color/colorPrimary1"  />
 
                     <TextView
                         android:id="@+id/tt4"
@@ -239,7 +243,7 @@
                         android:gravity="center_vertical"
                         android:lines="1"
                         android:text="@string/gps73"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_13sdp" />
 
                     <ImageView
@@ -252,7 +256,7 @@
                         android:layout_marginLeft="50px"
                         android:layout_marginRight="50px"
                         android:src="@drawable/done_w"
-                        android:tint="@color/main" />
+                        app:tint="@color/colorPrimary1"  />
                 </RelativeLayout>
             </LinearLayout>
 

@@ -11,8 +11,6 @@ import android.util.Log;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 
-import chin.pswm.gps.photo.location.map.activity.PrivacyPolicyActivity;
-import chin.pswm.gps.photo.location.map.activity.SplashActivity;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adjust.AdjustManager;
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs;
@@ -43,9 +41,9 @@ public class MyApplication extends Application {
     public void onMoveToForeground() {
         Log.d("TAG", "onMoveToForeground: ON_START ");
         Activity activity = currentActivity;
-        if ((activity instanceof SplashActivity) || (activity instanceof PrivacyPolicyActivity) || needToShow) {
-            return;
-        }
+//        if ((activity instanceof SplashActivity) || (activity instanceof PrivacyPolicyActivity) || needToShow) {
+//            return;
+//        }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)

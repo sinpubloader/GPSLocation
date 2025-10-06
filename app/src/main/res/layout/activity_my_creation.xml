@@ -12,13 +12,13 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@drawable/bg"
+            android:background="@color/mainBg"
             android:fitsSystemWindows="true">
 
             <com.fom.rapid.views.RapidRelativeLayout
                 android:id="@+id/header"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="?attr/actionBarSize"
                 android:layout_alignParentTop="true"
                 app:measureMargin="true"
                 app:measureWith="-1"
@@ -27,7 +27,7 @@
                 <RelativeLayout
                     android:id="@+id/rlOne"
                     android:layout_width="1080px"
-                    android:layout_height="180px">
+                    android:layout_height="match_parent">
 
                     <RelativeLayout
                         android:id="@+id/back"
@@ -43,7 +43,8 @@
                             android:layout_width="63px"
                             android:layout_height="47px"
                             android:layout_centerInParent="true"
-                            android:src="@drawable/effect_back" />
+                            android:src="@drawable/effect_back"
+                            app:tint="@color/white"/>
                     </RelativeLayout>
 
                     <TextView
@@ -57,7 +58,7 @@
                         android:gravity="center_vertical"
                         android:lines="1"
                         android:text="@string/gps66"
-                        android:textColor="@color/txt_one"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_15sdp" />
                 </RelativeLayout>
 

@@ -20,11 +20,16 @@
     <color name="tv_white">#ffffffff</color>
     <color name="tv_white_70">#a9a9a9</color>
     <color name="status">#F9F9F9</color>
-    <color name="main">#5085F7</color>
-    <color name="seleted_color">#5085F7</color>
+    <color name="main">#8c55ec</color>
+    <color name="seleted_color">#8c55ec</color>
     <color name="colorShimmerBG">#0DFFFFFF</color>
     <color name="colorShimmerItem">#EDEDED</color>
-    <color name="nativeBG">#33CCCCCC</color>
     <color name="colorMeta">#3083FF</color>
-    <color name="colorAds">#45ACFA</color>
+    <!--    <color name="colorAds">#45ACFA</color>-->
+    <color name="nativeBG">#24262B</color>
+    <color name="colorAds">#8c55ec</color>
+
+    <color name="mainBg">#191A1F</color>
+    <color name="colorPrimary1">#8c55ec</color>
+    <color name="cardColor">#24262B</color>
 </resources>

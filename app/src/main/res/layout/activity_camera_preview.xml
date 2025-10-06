@@ -5,8 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/b_bg"
-        android:backgroundTint="@color/white"
+        android:background="@color/mainBg"
         android:fitsSystemWindows="true">
 
         <com.fom.rapid.views.RapidRelativeLayout
@@ -36,7 +35,8 @@
                         android:layout_width="63px"
                         android:layout_height="47px"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/effect_back" />
+                        android:src="@drawable/effect_back"
+                        app:tint="@color/white" />
                 </RelativeLayout>
 
                 <TextView
@@ -50,7 +50,7 @@
                     android:gravity="center_vertical"
                     android:lines="1"
                     android:text="@string/gps33"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp" />
             </RelativeLayout>
 
@@ -65,13 +65,14 @@
                     android:layout_height="1500px"
                     android:elevation="5dp"
                     android:layout_centerInParent="true"
-                    app:cardCornerRadius="@dimen/_16sdp">
+                    app:cardCornerRadius="@dimen/_16sdp"
+                    android:background="@color/cardColor">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/image_bg"
-                        android:backgroundTint="@color/white">
+                        android:backgroundTint="@color/cardColor">
 
                         <ImageView
                             android:id="@+id/preview"

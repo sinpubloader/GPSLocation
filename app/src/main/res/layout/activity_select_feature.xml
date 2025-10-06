@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/mainBg"
     android:fitsSystemWindows="true"
     android:gravity="center"
     android:orientation="vertical">
@@ -17,7 +17,7 @@
         android:fontFamily="@font/rubik_semibold"
         android:gravity="center"
         android:text="@string/which_features_are_you_interested_in"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="26dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         android:layout_width="920px"
         android:layout_height="@dimen/_48sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:background="@drawable/permission_detail"
+        android:background="@drawable/btn_global_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle">
@@ -39,13 +39,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_16sdp"
             android:layout_toLeftOf="@+id/ivEarthview"
             android:fontFamily="@font/rubik_semibold"
             android:gravity="center_vertical"
             android:lines="1"
             android:text="@string/earth_view"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="@dimen/_13sdp" />
 
         <ImageView
@@ -66,7 +66,7 @@
         android:layout_width="920px"
         android:layout_height="@dimen/_48sdp"
         android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/permission_detail"
+        android:background="@drawable/btn_global_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/llEarthView">
@@ -76,13 +76,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_16sdp"
             android:layout_toLeftOf="@+id/ivTimeView"
             android:fontFamily="@font/rubik_semibold"
             android:gravity="center_vertical"
             android:lines="1"
             android:text="@string/timestamp_camera"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="@dimen/_13sdp" />
 
         <ImageView

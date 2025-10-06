@@ -181,15 +181,15 @@ public class LocationActivity extends BaseActivity {
         boolean isManual = fragment instanceof ManualLocationFragment;
 
         // Text color
-        binding.current.setTextColor(Color.parseColor(isCurrent ? "#ffffff" : "#000000"));
-        binding.manual.setTextColor(Color.parseColor(isManual ? "#ffffff" : "#000000"));
+//        binding.current.setTextColor(Color.parseColor(isCurrent ? "#ffffff" : "#000000"));
+//        binding.manual.setTextColor(Color.parseColor(isManual ? "#ffffff" : "#000000"));
 
         // Background drawable
         binding.current.setBackground(ContextCompat.getDrawable(this,
-                isCurrent ? R.drawable.bb : R.drawable.aa));
+                isCurrent ? R.drawable.btn_global_square2 : R.drawable.compass_tool_bar_rounded));
 
         binding.manual.setBackground(ContextCompat.getDrawable(this,
-                isManual ? R.drawable.bb : R.drawable.aa));
+                isManual ? R.drawable.btn_global_square2 : R.drawable.compass_tool_bar_rounded));
     }
 
     @Override

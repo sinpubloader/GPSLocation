@@ -11,6 +11,7 @@
             android:layout_width="465px"
             android:layout_height="600px"
             android:layout_centerInParent="true"
+            app:cardBackgroundColor="@color/cardColor"
             android:layout_margin="20px"
             android:outlineAmbientShadowColor="@color/black"
             app:cardCornerRadius="@dimen/_15sdp">

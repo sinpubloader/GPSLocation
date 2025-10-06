@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/mainBg">
     <!--    <View-->
     <!--        android:id="@+id/view11"-->
     <!--        android:layout_width="match_parent"-->
@@ -25,7 +25,7 @@
         android:fontFamily="@font/rubik_semibold"
         android:gravity="center"
         android:text="@string/intro_1"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="26dp"
         app:layout_constraintBottom_toTopOf="@id/composeView"
         app:layout_constraintEnd_toEndOf="parent"

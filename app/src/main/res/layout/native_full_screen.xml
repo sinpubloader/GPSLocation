@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/nativeBG">
+    android:background="@color/mainBg">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             android:layout_height="54dp"
             android:layout_marginStart="16dp"
             android:adjustViewBounds="true"
-            android:src="#FF67C6EB"
+            android:src="@color/colorPrimary1"
             app:layout_constraintBottom_toBottomOf="@id/ad_advertiser"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/ad_headline" />
@@ -57,7 +57,7 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:textAllCaps="true"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/ad_tag"

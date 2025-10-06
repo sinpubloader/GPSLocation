@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/nativeBG">
+    android:background="@color/mainBg">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:adjustViewBounds="true"
-            android:src="#FF67C6EB"
+            android:src="@color/colorPrimary1"
             app:layout_constraintBottom_toBottomOf="@id/ad_advertiser"
             app:layout_constraintEnd_toStartOf="@id/llTitle"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +66,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textAllCaps="true"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 tools:text="hellop .this ius dsa dsadsa " />
@@ -80,7 +80,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="2dp"
             android:ellipsize="end"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/ad_advertiser"
             app:layout_constraintEnd_toEndOf="parent"
@@ -97,7 +97,7 @@
             android:layout_weight="1"
             android:gravity="bottom"
             android:lines="1"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/ad_call_to_action"

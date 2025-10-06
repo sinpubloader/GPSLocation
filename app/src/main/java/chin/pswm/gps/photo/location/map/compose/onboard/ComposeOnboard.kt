@@ -53,6 +53,7 @@ import chin.pswm.gps.photo.location.map.earthview.custom.circle
 import chin.pswm.gps.photo.location.map.earthview.custom.onClickNotRipple
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
 import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
+import chin.pswm.gps.photo.location.map.ui.theme.mainBg
 import chin.pswm.gps.photo.location.map.ui.theme.primary
 import chin.pswm.gps.photo.location.map_debug.R
 import kotlinx.coroutines.flow.collectLatest
@@ -125,7 +126,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
     }
 
     BaseScreen(
-        backgroundColor = colorWhite,
+        backgroundColor = mainBg,
         bottomBar = {
             if (!(currentPage == 2 && hasAds)) {
                 BottomBar(
@@ -169,7 +170,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                             Text(
                                 stringResource(OnboardType.Onboard1.title),
                                 style = appFont(700, 24),
-                                color = Color.Black,
+                                color = Color.White,
                                 textAlign = TextAlign.Center,
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -200,7 +201,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                         Text(
                             stringResource(OnboardType.Onboard2.title),
                             style = appFont(700, 24),
-                            color = Color.Black,
+                            color = Color.White,
                             textAlign = TextAlign.Center,
                             modifier = Modifier
                                 .align(Alignment.BottomCenter)
@@ -252,7 +253,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                             Text(
                                 stringResource(OnboardType.Onboard3.title),
                                 style = appFont(700, 24),
-                                color = Color.Black,
+                                color = Color.White,
                                 textAlign = TextAlign.Center,
                                 modifier = Modifier
                                     .align(Alignment.BottomCenter)
@@ -276,7 +277,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                             Text(
                                 stringResource(OnboardType.Onboard3.title),
                                 style = appFont(700, 24),
-                                color = Color.Black,
+                                color = Color.White,
                                 textAlign = TextAlign.Center,
                                 modifier = Modifier
                                     .align(Alignment.BottomCenter)
@@ -301,7 +302,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                                 Text(
                                     stringResource(OnboardType.Onboard4.title),
                                     style = appFont(700, 24),
-                                    color = Color.Black,
+                                    color = Color.White,
                                     textAlign = TextAlign.Center,
                                     modifier = Modifier
                                         .fillMaxWidth()
@@ -337,7 +338,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                         Text(
                             stringResource(OnboardType.Onboard4.title),
                             style = appFont(700, 24),
-                            color = Color.Black,
+                            color = Color.White,
                             textAlign = TextAlign.Center,
                             modifier = Modifier
                                 .fillMaxWidth()

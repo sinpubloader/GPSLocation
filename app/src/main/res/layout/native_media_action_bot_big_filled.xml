@@ -6,7 +6,7 @@
         android:id="@+id/nativeAdView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/nativeBG">
+        android:background="@color/cardColor">
 
         <LinearLayout
             android:id="@+id/ad_unit_content"
@@ -79,7 +79,7 @@
                             android:ellipsize="end"
                             android:maxLines="2"
                             android:textAllCaps="true"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             tools:text="hellop .this ius dsa dsadsa " />
@@ -91,7 +91,7 @@
                             android:layout_weight="1"
                             android:ellipsize="end"
                             android:maxLines="2"
-                            android:textColor="@color/black"
+                            android:textColor="@color/white"
                             android:textSize="12sp"
                             android:textStyle="normal"
                             app:layout_constraintTop_toBottomOf="@+id/llTop"

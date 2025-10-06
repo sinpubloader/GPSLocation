@@ -14,13 +14,13 @@
         <RelativeLayout
             android:id="@+id/header"
             android:layout_width="1080px"
-            android:layout_height="180px"
+            android:layout_height="?attr/actionBarSize"
             android:layout_alignParentTop="true">
 
             <RelativeLayout
                 android:id="@+id/back"
                 android:layout_width="105px"
-                android:layout_height="105px"
+                android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:layout_marginHorizontal="50px"

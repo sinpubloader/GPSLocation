@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <com.fom.rapid.views.RapidRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/white"
+            android:background="@color/mainBg"
             android:fitsSystemWindows="true">
 
             <com.fom.rapid.views.RapidRelativeLayout
@@ -26,13 +24,13 @@
                 <RelativeLayout
                     android:id="@+id/header"
                     android:layout_width="1080px"
-                    android:layout_height="180px"
+                    android:layout_height="?attr/actionBarSize"
                     android:layout_alignParentTop="true">
 
                     <RelativeLayout
                         android:id="@+id/back"
                         android:layout_width="105px"
-                        android:layout_height="105px"
+                        android:layout_height="match_parent"
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
                         android:layout_marginHorizontal="50px"
@@ -43,7 +41,8 @@
                             android:layout_width="63px"
                             android:layout_height="47px"
                             android:layout_centerInParent="true"
-                            android:src="@drawable/effect_back" />
+                            android:src="@drawable/effect_back"
+                            app:tint="@color/white" />
                     </RelativeLayout>
 
                     <TextView
@@ -57,20 +56,21 @@
                         android:gravity="center_vertical"
                         android:lines="1"
                         android:text="@string/gps33"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_15sdp" />
 
                     <ImageView
                         android:id="@+id/delete"
                         android:layout_width="79px"
                         android:layout_height="79px"
+                        android:padding="@dimen/_2sdp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginHorizontal="30px"
                         android:layout_marginLeft="30px"
                         android:layout_marginRight="30px"
                         android:src="@drawable/effect_delete_w"
-                        android:tint="@color/black" />
+                        app:tint="@color/white" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -84,7 +84,8 @@
                         android:layout_width="846px"
                         android:layout_height="1300px"
                         android:layout_centerInParent="true"
-                        app:cardCornerRadius="@dimen/_20sdp">
+                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardBackgroundColor="@color/cardColor">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -197,7 +198,12 @@
                         android:id="@+id/more"
                         android:layout_width="160px"
                         android:layout_height="160px"
-                        android:src="@drawable/menu"
+                        android:src="@drawable/icon_menu"
+                        android:padding="@dimen/_14sdp"
+                        android:backgroundTint="@color/cardColor"
+                        android:background="@drawable/arabic"
+                        app:tint="@color/white"
+                        android:rotation="90"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"

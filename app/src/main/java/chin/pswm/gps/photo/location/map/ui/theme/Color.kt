@@ -7,10 +7,10 @@ import androidx.compose.ui.graphics.Color
 //import androidx.compose.ui.graphics.Color
 
 @Stable
-val primary = Color(0xFF5085F7)
+val primary = Color(0xFF8c55ec)
 
 @Stable
-val primaryColor = Color(0xFF5085F7)
+val primaryColor = Color(0xFF8c55ec)
 
 @Stable
 val secondary = Color(0xFFFCEECA)
@@ -23,6 +23,9 @@ val colorBlack = Color.Black
 
 @Stable
 val neutral50 = Color(0xFFD9D9DB)
+
+@Stable
+val mainBg = Color(0xFF191A1F)
 
 @Stable
 val neutral400 = Color(0xFF919EB7)

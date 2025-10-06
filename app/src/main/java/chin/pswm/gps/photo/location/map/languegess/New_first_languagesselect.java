@@ -137,11 +137,13 @@ public class New_first_languagesselect extends AppCompatActivity {
             String langItem = listdata.get(position);
 
             if (selectedPosition == position) {
-                holder.language_layout.setBackgroundResource(R.drawable.bg_lang_select);
-                holder.tv_language_item.setTextColor(getColor(R.color.white));
+//                holder.language_layout.setBackgroundResource(R.drawable.btn_global_square1);
+                holder.language_layout.setBackgroundResource(R.drawable.permission_detail_allow);
+//                holder.tv_language_item.setTextColor(getColor(R.color.white));
             } else {
-                holder.language_layout.setBackgroundResource(R.drawable.bg_lang);
-                holder.tv_language_item.setTextColor(getColor(R.color.black));
+//                holder.language_layout.setBackgroundResource(R.drawable.btn_global_card);
+                holder.language_layout.setBackgroundResource(R.drawable.permission_detail);
+//                holder.tv_language_item.setTextColor(getColor(R.color.black));
             }
 
             holder.tv_language_item.setText(LocaleUtils.name(langItem));

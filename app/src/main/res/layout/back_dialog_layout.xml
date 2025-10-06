@@ -14,6 +14,7 @@
             android:layout_width="965px"
             android:layout_height="550px"
             android:background="@drawable/create_more_popup"
+            android:backgroundTint="@color/cardColor"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -26,7 +27,7 @@
                 android:layout_marginRight="50px"
                 android:fontFamily="@font/gilroy_medium"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp" />
 
             <LinearLayout
@@ -42,10 +43,11 @@
                     android:layout_marginHorizontal="25px"
                     android:layout_marginLeft="25px"
                     android:layout_marginRight="25px"
-                    android:background="@drawable/effect_creat_no"
+                    android:background="@drawable/compass_tool_bar_rounded"
+                    android:backgroundTint="@color/black"
                     android:fontFamily="@font/gilroy_medium"
                     android:gravity="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp" />
 
                 <TextView
@@ -55,8 +57,7 @@
                     android:layout_marginHorizontal="25px"
                     android:layout_marginLeft="25px"
                     android:layout_marginRight="25px"
-                    android:background="@drawable/effect_create_yes"
-                    android:backgroundTint="@color/main"
+                    android:background="@drawable/btn_global_square2"
                     android:fontFamily="@font/gilroy_medium"
                     android:gravity="center"
                     android:textColor="@color/white"

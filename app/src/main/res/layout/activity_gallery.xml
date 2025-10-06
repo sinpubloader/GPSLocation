@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@drawable/bg"
+            android:background="@color/mainBg"
             android:fitsSystemWindows="true">
 
             <com.fom.rapid.views.RapidRelativeLayout
@@ -43,7 +43,8 @@
                             android:layout_width="63px"
                             android:layout_height="47px"
                             android:layout_centerInParent="true"
-                            android:src="@drawable/effect_back" />
+                            android:src="@drawable/effect_back"
+                            app:tint="@color/white"/>
                     </RelativeLayout>
 
                     <TextView
@@ -56,7 +57,7 @@
                         android:gravity="center"
                         android:lines="1"
                         android:text="@string/gpl28"
-                        android:textColor="@color/txt_one"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_15sdp" />
                 </RelativeLayout>
             </com.fom.rapid.views.RapidRelativeLayout>
@@ -81,7 +82,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg"
+                    android:background="@color/cardColor"
                     android:scaleType="centerCrop" />
             </RelativeLayout>
 

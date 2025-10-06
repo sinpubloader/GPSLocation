@@ -3,7 +3,8 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/mainBg">
 
         <ImageView
             android:id="@+id/info_img"
@@ -30,7 +31,7 @@
                 android:layout_marginRight="@dimen/_10sdp"
                 android:fontFamily="@font/gilroy_semi_bold"
                 android:gravity="center_vertical"
-                android:textColor="@color/txt_one"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_25sdp" />
 
             <TextView
@@ -42,7 +43,7 @@
                 android:layout_marginRight="@dimen/_10sdp"
                 android:fontFamily="@font/gilroy_medium"
                 android:gravity="center_vertical"
-                android:textColor="@color/txt_three"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_20sdp" />
         </LinearLayout>
     </RelativeLayout>

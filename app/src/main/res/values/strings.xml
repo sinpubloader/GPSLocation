@@ -22,7 +22,7 @@
     <string  translatable="false"   name="cameraview_filter_temperature">com.otaliastudios.cameraview.filters.TemperatureFilter</string>
     <string  translatable="false"   name="cameraview_filter_tint">com.otaliastudios.cameraview.filters.TintFilter</string>
     <string  translatable="false"   name="cameraview_filter_vignette">com.otaliastudios.cameraview.filters.VignetteFilter</string>
-    <string  translatable="false"   name="app_name">GPS Photo Location With Map</string>
+    <string  translatable="false"   name="app_name">GPS Camera with Time Stamp</string>
     <string  translatable="false"   name="MAP_KEY">AIzaSyDJhjZF35ImndGG0Ma6dpI9eLgoLGShkNA</string>
     <string  translatable="false"   name="androidx_startup">androidx.startup</string>
     <string  translatable="false"   name="bottomsheet_action_collapse">Collapse the bottom sheet</string>
@@ -194,7 +194,7 @@
     <string name="contin">Continue</string>
     <string name="timestamp_camera">Timestamp camera</string>
     <string name="gps_camera">GPS Camera</string>
-    <string name="pinpoint_every_moment_n_with_gps_accuracy">Pinpoint every moment \nwith GPS accuracy</string>
+    <string name="pinpoint_every_moment_n_with_gps_accuracy">Pinpoint every moment with \nGPS accuracy</string>
     <string name="capture_photo">Capture Photo</string>
     <string name="make_every_memory_part_of_n_the_earth_s_map">Make every memory part of \n the Earth’s map</string>
     <string name="photo_grid">Photo Grid</string>
@@ -214,6 +214,7 @@
     <string name="select_language_please">Please select at least one language!</string>
     <string name="select_select_please">Please select at least one feature to continue!</string>
     <string name="loading_ads">Loading ads...</string>
+    <string name="map_view">Map View</string>
 
 </resources>
 

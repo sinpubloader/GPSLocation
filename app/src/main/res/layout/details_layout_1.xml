@@ -29,7 +29,7 @@
             <LinearLayout
                 android:layout_width="450px"
                 android:layout_height="100px"
-                android:background="@drawable/date_time_bg_1"
+                android:background="@drawable/btn_global_square2"
                 android:backgroundTint="@color/main"
                 android:gravity="center"
                 android:orientation="horizontal">
@@ -80,10 +80,11 @@
                 android:textSize="@dimen/_12sdp" />
 
             <LinearLayout
-                android:layout_width="560px"
+                android:layout_width="580px"
                 android:layout_height="100px"
                 android:background="@drawable/lat_long_bg_1"
                 android:gravity="center"
+                android:paddingHorizontal="@dimen/_4sdp"
                 android:orientation="horizontal">
 
                 <TextView

@@ -103,6 +103,7 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SharedHelper.putBoolean(getApplicationContext(), "privacy_screen_shown", true);
                 PermissionUtils permissionUtils = new PermissionUtils(ActivityPrivacyPolicy_New.this);
                 if (permissionUtils.checkPermission(permissionUtils.allPermissions)) {
                     Intent intent = new Intent(ActivityPrivacyPolicy_New.this, StartActivity.class);

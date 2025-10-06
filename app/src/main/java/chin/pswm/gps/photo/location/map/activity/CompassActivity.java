@@ -174,13 +174,13 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         tvCamera.setBackgroundResource(R.drawable.compass_tool_bar_rounded);
         tvCompass.setBackgroundResource(R.drawable.compass_tool_bar_rounded);
         tvMap.setBackgroundResource(R.drawable.compass_tool_bar_rounded);
-        tvCamera.setTextColor(getColor(R.color.black));
-        tvCompass.setTextColor(getColor(R.color.black));
-        tvMap.setTextColor(getColor(R.color.black));
+//        tvCamera.setTextColor(getColor(R.color.black));
+//        tvCompass.setTextColor(getColor(R.color.black));
+//        tvMap.setTextColor(getColor(R.color.black));
 
 
-        selectedTab.setBackgroundResource(R.drawable.theme_rounded);
-        selectedTab.setTextColor(getColor(R.color.white));
+        selectedTab.setBackgroundResource(R.drawable.btn_global_square2);
+//        selectedTab.setTextColor(getColor(R.color.white));
     }
 
     private void setupViewPager() {

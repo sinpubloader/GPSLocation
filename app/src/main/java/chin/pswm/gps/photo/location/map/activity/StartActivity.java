@@ -31,7 +31,6 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 
@@ -44,7 +43,6 @@ import chin.pswm.gps.photo.location.map.ads.AdsVariable;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.earthview.EarthViewActivity;
-import chin.pswm.gps.photo.location.map.fragment.StartFragment;
 import chin.pswm.gps.photo.location.map.interfaces.OnClickGallery;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
@@ -56,7 +54,7 @@ import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
-import chin.pswm.gps.photo.location.map_debug.databinding.ActivityStartBinding;
+import chin.pswm.gps.photo.location.map_debug.databinding.ActivityStartNewBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.RateDialogBinding;
 
@@ -65,7 +63,7 @@ import chin.pswm.gps.photo.location.map_debug.databinding.RateDialogBinding;
 public class StartActivity extends BaseActivity implements OnClickGallery {
     public static ArrayList<PlaceData> placesArrayList = new ArrayList<>();
     public static int startFlag = 0;
-    ActivityStartBinding binding;
+    ActivityStartNewBinding binding;
     StartAdapter myCreationAdapter;
     public List<Uri> uriList = new ArrayList();
     public List<Uri> uriListVideo = new ArrayList();
@@ -94,7 +92,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         LanguageManager.setLocale(StartActivity.this, SharedHelper.getString(StartActivity.this, "lang_key", ""));
 
         super.onCreate(bundle);
-        ActivityStartBinding inflate = ActivityStartBinding.inflate(getLayoutInflater());
+        ActivityStartNewBinding inflate = ActivityStartNewBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {  // Android 13+
@@ -174,7 +172,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
                 });
             }
         });
-        this.binding.max.setOnClickListener(new View.OnClickListener() {
+        this.binding.mapViewCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
@@ -416,10 +414,10 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
     }
 
     public void setFragment() {
-        FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-        beginTransaction.replace(R.id.frameLayoutOne, new StartFragment(this));
-        beginTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        beginTransaction.commitAllowingStateLoss(); // Safe even after onSaveInstanceState
+//        FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
+//        beginTransaction.replace(R.id.frameLayoutOne, new StartFragment(this));
+//        beginTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+//        beginTransaction.commitAllowingStateLoss(); // Safe even after onSaveInstanceState
     }
 
 
@@ -446,7 +444,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
                 }
             });
             Glide.with((FragmentActivity) StartActivity.this).load(Integer.valueOf(R.drawable.loading)).into(this.binding1.gif);
-            this.dialog.show();
+//            this.dialog.show();
         }
 
 
@@ -461,7 +459,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
 
         public void onPostExecute(String str) {
             if (StartActivity.this.uriList == null || StartActivity.this.uriList.size() <= 0) {
-                this.dialog.dismiss();
+//                this.dialog.dismiss();
                 StartActivity.this.setFragment();
             } else {
                 StartActivity startActivity = StartActivity.this;
@@ -473,19 +471,19 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
                 }).start();
             }
             if (StartActivity.this.uriList == null || StartActivity.this.uriList.size() <= 0) {
-                StartActivity.this.binding.myCreation.setVisibility(8);
+//                StartActivity.this.binding.myCreation.setVisibility(8);
             } else {
-                StartActivity.this.binding.myCreation.setVisibility(0);
+//                StartActivity.this.binding.myCreation.setVisibility(0);
                 StartActivity startActivity2 = StartActivity.this;
                 StartActivity startActivity3 = StartActivity.this;
                 startActivity2.myCreationAdapter = new StartAdapter(startActivity3, startActivity3.uriList, StartActivity.this);
                 StartActivity.this.binding.recyclerview.setAdapter(StartActivity.this.myCreationAdapter);
             }
             if (StartActivity.this.uriListVideo == null || StartActivity.this.uriListVideo.size() <= 0) {
-                StartActivity.this.binding.myCreationVideo.setVisibility(8);
+//                StartActivity.this.binding.myCreationVideo.setVisibility(8);
                 return;
             }
-            StartActivity.this.binding.myCreationVideo.setVisibility(0);
+//            StartActivity.this.binding.myCreationVideo.setVisibility(0);
             StartActivity startActivity4 = StartActivity.this;
             StartActivity startActivity5 = StartActivity.this;
             startActivity4.myCreationAdapter = new StartAdapter(startActivity5, startActivity5.uriListVideo, StartActivity.this);
