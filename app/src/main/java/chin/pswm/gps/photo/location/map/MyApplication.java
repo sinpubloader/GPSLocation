@@ -34,6 +34,7 @@ public class MyApplication extends Application {
         AdjustManager adjustManager = new AdjustManager();
         Prefs prefs = new Prefs(this);
         AdsManager adsManager = new AdsManager(this, prefs);
+        AudienceNetworkInitializeHelper.initialize(this);
         Timber.Forest.plant(new DebugTree());
     }
 

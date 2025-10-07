@@ -5,8 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/mainBg">
+        android:orientation="vertical">
 
 
         <RelativeLayout
@@ -26,13 +25,13 @@
 
                 <RelativeLayout
                     android:id="@+id/rlOne"
-                    android:layout_width="1080px"
-                    android:layout_height="?attr/actionBarSize">
+                    android:layout_width="match_parent"
+                    android:layout_height="180px">
 
                     <RelativeLayout
                         android:id="@+id/back"
                         android:layout_width="105px"
-                        android:layout_height="match_parent"
+                        android:layout_height="105px"
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
                         android:layout_marginHorizontal="50px"
@@ -43,8 +42,7 @@
                             android:layout_width="63px"
                             android:layout_height="47px"
                             android:layout_centerInParent="true"
-                            android:src="@drawable/effect_back"
-                            app:tint="@color/white" />
+                            android:src="@drawable/effect_back" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -61,8 +59,7 @@
                             android:layout_width="50px"
                             android:layout_height="50px"
                             android:layout_centerInParent="true"
-                            android:src="@drawable/effect_done"
-                            app:tint="@color/white" />
+                            android:src="@drawable/effect_done" />
                     </RelativeLayout>
 
                     <TextView
@@ -76,7 +73,7 @@
                         android:gravity="center_vertical"
                         android:lines="1"
                         android:text="@string/gps61"
-                        android:textColor="@color/white"
+                        android:textColor="@color/txt_one"
                         android:textSize="@dimen/_15sdp" />
                 </RelativeLayout>
             </com.fom.rapid.views.RapidRelativeLayout>

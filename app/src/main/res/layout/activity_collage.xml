@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/mainBg"
+        android:background="@drawable/bg"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:fitsSystemWindows="true">
@@ -18,8 +18,8 @@
 
             <RelativeLayout
                 android:id="@+id/header"
-                android:layout_width="1080px"
-                android:layout_height="170px">
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
 
                 <RelativeLayout
                     android:id="@+id/back"
@@ -36,8 +36,7 @@
                         android:layout_width="63px"
                         android:layout_height="47px"
                         android:layout_centerInParent="true"
-                        android:src="@drawable/effect_back"
-                        app:tint="@color/white"/>
+                        android:src="@drawable/effect_back" />
                 </RelativeLayout>
 
                 <ImageView
@@ -49,8 +48,7 @@
                     android:layout_marginHorizontal="50px"
                     android:layout_marginLeft="50px"
                     android:layout_marginRight="50px"
-                    android:src="@drawable/effect_done"
-                    app:tint="@color/white"/>
+                    android:src="@drawable/effect_done" />
 
                 <TextView
                     android:id="@+id/text"
@@ -63,7 +61,7 @@
                     android:gravity="center_vertical"
                     android:lines="1"
                     android:text="@string/gpl26"
-                    android:textColor="@color/white"
+                    android:textColor="@color/txt_one"
                     android:textSize="@dimen/_15sdp" />
             </RelativeLayout>
 
@@ -85,24 +83,25 @@
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
                         android:adjustViewBounds="true"
-                        android:background="@color/cardColor"
+                        android:background="@color/white"
                         android:orientation="horizontal" />
                 </RelativeLayout>
 
                 <TextView
                     android:id="@+id/title1"
-                    android:layout_width="970px"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_semi_bold"
                     android:gravity="center_vertical"
                     android:text="@string/gps54"
-                    android:textColor="@color/white"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textColor="@color/txt_one"
                     android:textSize="@dimen/_18sdp" />
 
                 <RelativeLayout
                     android:id="@+id/rvRl"
-                    android:layout_width="1080px"
-                    android:layout_height="220px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="20px"
                     android:layout_marginBottom="20px">
 
@@ -120,12 +119,13 @@
 
                 <TextView
                     android:id="@+id/title2"
-                    android:layout_width="970px"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_semi_bold"
                     android:gravity="center_vertical"
                     android:text="@string/gps55"
-                    android:textColor="@color/white"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textColor="@color/txt_one"
                     android:textSize="@dimen/_18sdp" />
 
                 <LinearLayout
@@ -145,8 +145,8 @@
 
                         <TextView
                             android:id="@+id/white"
-                            android:layout_width="200px"
-                            android:layout_height="200px"
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_60sdp"
                             android:layout_marginHorizontal="20px"
                             android:layout_marginLeft="20px"
                             android:layout_marginRight="20px"
@@ -167,7 +167,7 @@
                             android:fontFamily="@font/gilroy_semi_bold"
                             android:gravity="center"
                             android:text="White"
-                            android:textColor="@color/white"
+                            android:textColor="@color/txt_one"
                             android:textSize="@dimen/_18sdp" />
                     </LinearLayout>
 
@@ -179,8 +179,8 @@
 
                         <TextView
                             android:id="@+id/black"
-                            android:layout_width="200px"
-                            android:layout_height="200px"
+                            android:layout_width="@dimen/_60sdp"
+                            android:layout_height="@dimen/_60sdp"
                             android:layout_marginHorizontal="20px"
                             android:layout_marginLeft="20px"
                             android:layout_marginRight="20px"
@@ -201,7 +201,7 @@
                             android:fontFamily="@font/gilroy_semi_bold"
                             android:gravity="center"
                             android:text="Black"
-                            android:textColor="@color/white"
+                            android:textColor="@color/txt_one"
                             android:textSize="@dimen/_18sdp" />
                     </LinearLayout>
                 </LinearLayout>

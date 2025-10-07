@@ -35,14 +35,14 @@ fun ComposeSelect() {
         if (ComposeSelectState.isSelected) {
             NativeView(
                 modifier = Modifier.fillMaxWidth(),
-                nativeAdUnit = AdsManager.INSTANCE.nativeSelect,
+                nativeAdUnit = AdsManager.INSTANCE.nativeSelectAlt,
                 layoutConfig = "layout_select_alt" to R.layout.native_media_ctr_bot_big_filled,
                 layoutFaceBookConfig = "layout_select_alt_meta" to R.layout.native_media_ctr_bot_big_filled,
             )
         } else {
             NativeView(
                 modifier = Modifier.fillMaxWidth(),
-                nativeAdUnit = AdsManager.INSTANCE.nativeSelectAlt,
+                nativeAdUnit = AdsManager.INSTANCE.nativeSelect,
                 layoutConfig = "layout_select" to R.layout.native_media_ctr_bot_big_filled,
                 layoutFaceBookConfig = "layout_select_meta" to R.layout.native_media_ctr_bot_big_filled,
             )

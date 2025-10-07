@@ -19,7 +19,7 @@
 
             <RelativeLayout
                 android:id="@+id/rlOne"
-                android:layout_width="1080px"
+                android:layout_width="match_parent"
                 android:layout_height="180px">
 
                 <RelativeLayout
@@ -87,7 +87,7 @@
 
                     <RelativeLayout
                         android:id="@+id/layoutRl"
-                        android:layout_width="1080px"
+                        android:layout_width="match_parent"
                         android:layout_height="580px"
                         android:layout_alignParentBottom="true"
                         app:layout_drawOnPictureSnapshot="true"
@@ -110,7 +110,7 @@
             style="@style/medium_attr"/>
         <RelativeLayout
             android:id="@+id/footer"
-            android:layout_width="1080px"
+            android:layout_width="match_parent"
             android:layout_height="200px"
             android:layout_alignParentBottom="true"
             android:gravity="center">

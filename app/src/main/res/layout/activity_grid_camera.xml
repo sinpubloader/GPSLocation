@@ -19,7 +19,7 @@
 
             <RelativeLayout
                 android:id="@+id/header"
-                android:layout_width="1080px"
+                android:layout_width="match_parent"
                 android:layout_height="180px"
                 android:layout_alignParentTop="true">
 
@@ -75,7 +75,7 @@
 
             <RelativeLayout
                 android:id="@+id/footer"
-                android:layout_width="1080px"
+                android:layout_width="match_parent"
                 android:layout_height="260px"
                 android:layout_above="@id/Ad_Banner"
                 android:background="@drawable/capture_bg">
