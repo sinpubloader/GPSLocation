@@ -192,29 +192,29 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
         );
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            showUserInterDataBack(this, new AllKeyHub.onCrashDataClose() {
-                @Override
-                public void onDataClose() {
-                    onBackPressed();
-                }
-            });
-        } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN || keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-            return super.onKeyDown(keyCode, event);
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            showUserInterDataBack(this, new AllKeyHub.onCrashDataClose() {
+//                @Override
+//                public void onDataClose() {
+//                    onBackPressed();
+//                }
+//            });
+//        } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN || keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+//            return super.onKeyDown(keyCode, event);
+//        }
+//        return true;
+//    }
 
     private void setData() {
         this.binding.camera.setLifecycleOwner(this);
         this.binding.camera.open();
         this.binding.camera.addCameraListener(this.cameraListener);
         if (this.binding.camera.getFacing() == Facing.BACK) {
-            this.binding.flash.setVisibility(0);
+            this.binding.flash.setVisibility(View.VISIBLE);
         } else {
-            this.binding.flash.setVisibility(4);
+            this.binding.flash.setVisibility(View.INVISIBLE);
         }
         this.binding.flip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -258,11 +258,11 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
     public void m68xaa3ffec1(View view) {
         if (this.binding.camera.getFacing() == Facing.BACK) {
             this.binding.camera.setFacing(Facing.FRONT);
-            this.binding.flash.setVisibility(4);
+            this.binding.flash.setVisibility(View.INVISIBLE);
             return;
         }
         this.binding.camera.setFacing(Facing.BACK);
-        this.binding.flash.setVisibility(0);
+        this.binding.flash.setVisibility(View.VISIBLE);
         this.binding.flash.setImageDrawable(getResources().getDrawable(R.drawable.effect_flash_off));
     }
 
@@ -470,7 +470,7 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
             public void onSnapshotReady(Bitmap bitmap) {
                 Common.locationDataModel.setMapImage(bitmap);
                 Common.mapTemplate = bitmap;
-                CameraActivity.this.binding.mapRl.setVisibility(8);
+                CameraActivity.this.binding.mapRl.setVisibility(View.GONE);
                 CameraActivity cameraActivity = CameraActivity.this;
                 CameraActivity.this.binding.viewPager.setAdapter(new MyPagerAdapter(cameraActivity, cameraActivity.layoutArrayList));
             }

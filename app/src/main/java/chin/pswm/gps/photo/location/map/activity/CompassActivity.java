@@ -152,20 +152,20 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
     }
 
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            showUserInterDataBack(this, new AllKeyHub.onCrashDataClose() {
-                @Override
-                public void onDataClose() {
-                    onBackPressed();
-                }
-            });
-        } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN || keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-            return super.onKeyDown(keyCode, event);
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            showUserInterDataBack(this, new AllKeyHub.onCrashDataClose() {
+//                @Override
+//                public void onDataClose() {
+//                    onBackPressed();
+//                }
+//            });
+//        } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN || keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+//            return super.onKeyDown(keyCode, event);
+//        }
+//        return true;
+//    }
 
     private void updateTabBackground(TextView selectedTab) {
         tvCamera.setBackgroundResource(R.drawable.compass_tool_bar_rounded);
