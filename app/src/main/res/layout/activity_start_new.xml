@@ -263,7 +263,7 @@
                         android:layout_marginBottom="@dimen/_8sdp"
                         android:fontFamily="@font/rubik_semibold"
                         android:lines="1"
-                        android:text="@string/map_view"
+                        android:text="@string/gpl7"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_15sdp"
                         app:layout_constraintBottom_toBottomOf="parent"

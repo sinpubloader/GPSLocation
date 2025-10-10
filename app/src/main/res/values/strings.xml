@@ -214,7 +214,9 @@
     <string name="select_language_please">Please select at least one language!</string>
     <string name="select_select_please">Please select at least one feature to continue!</string>
     <string name="loading_ads">Loading ads...</string>
-    <string name="map_view">Map View</string>
+
+    <string name="compass_not_suppor">Your device does not support a magnetic sensor, \nso this feature will not work on your device.</string>
+    <string name="okay">Okay</string>
 
 </resources>
 

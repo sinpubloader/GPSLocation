@@ -31,6 +31,8 @@
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/rubik_bold"
                 android:gravity="center_horizontal"
+                android:lineSpacingExtra="@dimen/_3sdp"
+                android:layout_marginHorizontal="@dimen/_20sdp"
                 android:text="@string/do_you_really_want_to_exit"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -39,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/text_dialog"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center_vertical|center_horizontal"
                 android:orientation="horizontal">
@@ -78,6 +80,7 @@
             <FrameLayout
                 android:id="@+id/Ad_Native"
                 style="@style/medium_attr"
+                android:visibility="gone"
                 android:layout_marginBottom="@dimen/_10sdp" />
         </LinearLayout>
 

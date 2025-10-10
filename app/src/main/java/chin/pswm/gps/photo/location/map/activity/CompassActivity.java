@@ -1,17 +1,23 @@
 package chin.pswm.gps.photo.location.map.activity;
 
 import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
+import static chin.pswm.gps.photo.location.map.AllKeyHub.showDynamicNativeData;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.showUserInterDataBack;
 
 import android.Manifest;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -149,8 +155,50 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE
         );
+
+        if (!hasMagneticFieldSensor()) {
+            notSupport();
+        }
     }
 
+    public boolean hasMagneticFieldSensor() {
+        if (sensorManager == null) {
+            sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        }
+        if (sensorManager != null) {
+            Sensor magneticFieldSensor = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+            return magneticFieldSensor != null;
+        }
+        return false;
+    }
+
+    public void notSupport() {
+        final Dialog dialog = new Dialog(CompassActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setContentView(R.layout.newdail);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+        ((TextView) dialog.findViewById(R.id.text_dialog)).setText(getResources().getString(R.string.compass_not_suppor));
+        ((TextView) dialog.findViewById(R.id.iv_yes)).setText(getResources().getString(R.string.okay));
+        ((TextView) dialog.findViewById(R.id.iv_yes)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                finish();
+            }
+        });
+        dialog.findViewById(R.id.iv_no).setVisibility(View.GONE);
+        ((TextView) dialog.findViewById(R.id.iv_no)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
 
 //    @Override
 //    public boolean onKeyDown(int keyCode, KeyEvent event) {

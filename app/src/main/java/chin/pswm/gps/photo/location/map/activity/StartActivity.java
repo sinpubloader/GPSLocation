@@ -513,8 +513,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         ((TextView) dialog.findViewById(R.id.iv_yes)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dialog.dismiss();
                 finishAffinity();
-
             }
         });
         ((TextView) dialog.findViewById(R.id.iv_no)).setOnClickListener(new View.OnClickListener() {
@@ -675,6 +675,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         int i = this.i;
         if (i == 0) {
             Toast.makeText(this, getResources().getString(R.string.gps80), 0).show();
+            return;
         } /*else if (i > 1 && i <= 3) {
             SpManager.setRate_Which(i);
             Intent intent = new Intent("android.intent.action.SENDTO");
