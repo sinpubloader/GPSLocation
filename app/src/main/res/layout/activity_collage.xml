@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg"
+        android:background="@color/mainBg"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:fitsSystemWindows="true">
@@ -36,10 +36,12 @@
                         android:layout_width="63px"
                         android:layout_height="47px"
                         android:layout_centerInParent="true"
+                        app:tint="@color/white"
                         android:src="@drawable/effect_back" />
                 </RelativeLayout>
 
                 <ImageView
+                    app:tint="@color/white"
                     android:id="@+id/btn_next"
                     android:layout_width="70px"
                     android:layout_height="70px"
@@ -61,7 +63,7 @@
                     android:gravity="center_vertical"
                     android:lines="1"
                     android:text="@string/gpl26"
-                    android:textColor="@color/txt_one"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/_15sdp" />
             </RelativeLayout>
 
@@ -78,12 +80,13 @@
                     android:layout_marginBottom="20px">
 
                     <ImageView
+
                         android:id="@+id/img_background"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_centerInParent="true"
                         android:adjustViewBounds="true"
-                        android:background="@color/white"
+                        android:background="@color/cardColor"
                         android:orientation="horizontal" />
                 </RelativeLayout>
 
@@ -95,8 +98,8 @@
                     android:gravity="center_vertical"
                     android:text="@string/gps54"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:textColor="@color/txt_one"
-                    android:textSize="@dimen/_18sdp" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16sdp" />
 
                 <RelativeLayout
                     android:id="@+id/rvRl"
@@ -125,8 +128,8 @@
                     android:gravity="center_vertical"
                     android:text="@string/gps55"
                     android:layout_marginStart="@dimen/_10sdp"
-                    android:textColor="@color/txt_one"
-                    android:textSize="@dimen/_18sdp" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16sdp" />
 
                 <LinearLayout
                     android:id="@+id/footer"
@@ -153,7 +156,7 @@
                             android:background="@drawable/white"
                             android:fontFamily="@font/gilroy_semi_bold"
                             android:gravity="center"
-                            android:textColor="@color/txt_one"
+                            android:textColor="@color/white"
                             android:textSize="@dimen/_18sdp" />
 
                         <TextView
@@ -167,8 +170,8 @@
                             android:fontFamily="@font/gilroy_semi_bold"
                             android:gravity="center"
                             android:text="White"
-                            android:textColor="@color/txt_one"
-                            android:textSize="@dimen/_18sdp" />
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_16sdp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -201,8 +204,8 @@
                             android:fontFamily="@font/gilroy_semi_bold"
                             android:gravity="center"
                             android:text="Black"
-                            android:textColor="@color/txt_one"
-                            android:textSize="@dimen/_18sdp" />
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_16sdp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
