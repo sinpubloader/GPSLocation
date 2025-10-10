@@ -363,6 +363,7 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
             this.dialog.dismiss();
             if (str != null) {
                 CameraActivity.this.startActivity(new Intent(CameraActivity.this, PreviewActivity.class).setFlags(536870912).putExtra("Path", str));
+                finish();
             }
         }
     }

@@ -121,6 +121,7 @@ public class AdvanceCameraActivity extends BaseActivity implements OnMapReadyCal
                     AdvanceCameraActivity.this.binding.camera.setPreview(Preview.GL_SURFACE);
                     Common.locationDataModel.setCameraImage(bitmap);
                     AdvanceCameraActivity.this.startActivity(new Intent(AdvanceCameraActivity.this, CameraPreviewActivity.class).setFlags(536870912).putExtra("TYPE", 1));
+                    finish();
                 }
             });
         }

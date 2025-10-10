@@ -427,6 +427,7 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
             intent.putExtra("latitude", GridCameraActivity.this.latitude);
             intent.putExtra("longitude", GridCameraActivity.this.longitude);
             GridCameraActivity.this.startActivity(intent);
+            finish();
         }
     }
 

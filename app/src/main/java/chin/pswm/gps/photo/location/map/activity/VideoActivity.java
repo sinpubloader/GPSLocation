@@ -286,6 +286,7 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
 
         public void m144x11ae0624(File file) {
             VideoActivity.this.startActivity(new Intent(VideoActivity.this, VideoPreviewActivity.class).setFlags(536870912).putExtra("Path", file.getAbsolutePath()));
+            finish();
         }
 
         @Override
