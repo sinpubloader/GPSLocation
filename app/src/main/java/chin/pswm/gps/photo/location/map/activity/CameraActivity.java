@@ -237,22 +237,19 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                showUserInterDataBack(CameraActivity.this, new AllKeyHub.onCrashDataClose() {
-                    @Override
-                    public void onDataClose() {
-                        AdsManager.INSTANCE.showInterInApp(
-                                CameraActivity.this,
-                                false,
-                                new Function0<Unit>() {
-                                    @Override
-                                    public Unit invoke() {
-                                        CameraActivity.this.m71x5107441e(view);
-                                        return null;
-                                    }
-                                }
-                        );
-                    }
-                });
+                onBackPressed();
+                //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
+//                AdsManager.INSTANCE.showInterInApp(
+//                        CameraActivity.this,
+//                        false,
+//                        new Function0<Unit>() {
+//                            @Override
+//                            public Unit invoke() {
+//                                CameraActivity.this.m71x5107441e(view);
+//                                return null;
+//                            }
+//                        }
+//                );
             }
         });
     }

@@ -24,13 +24,14 @@ fun EarthViewScreen(
         state = viewModel.screenState,
         searchState = viewModel.searchState,
         onBack = {
-            AdsManager.INSTANCE.showInterInApp(
-                activity = context as Activity,
-                showLoading = false,
-                onNextAction = {
-                    (context as? EarthViewActivity)?.finish()
-                }
-            )
+            (context as? EarthViewActivity)?.finish()
+//            AdsManager.INSTANCE.showInterInApp(
+//                activity = context as Activity,
+//                showLoading = false,
+//                onNextAction = {
+//                    (context as? EarthViewActivity)?.finish()
+//                }
+//            )
         }
     )
 }

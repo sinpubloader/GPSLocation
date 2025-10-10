@@ -99,22 +99,19 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showUserInterDataBack(RoutePlanerActivity.this, new AllKeyHub.onCrashDataClose() {
-                    @Override
-                    public void onDataClose() {
-                        AdsManager.INSTANCE.showInterInApp(
-                                RoutePlanerActivity.this,
-                                false,
-                                new Function0<Unit>() {
-                                    @Override
-                                    public Unit invoke() {
-                                        RoutePlanerActivity.super.onBackPressed();
-                                        return null;
-                                    }
-                                }
-                        );
-                    }
-                });
+                onBackPressed();
+                //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
+//                AdsManager.INSTANCE.showInterInApp(
+//                        RoutePlanerActivity.this,
+//                        false,
+//                        new Function0<Unit>() {
+//                            @Override
+//                            public Unit invoke() {
+//                                RoutePlanerActivity.super.onBackPressed();
+//                                return null;
+//                            }
+//                        }
+//                );
             }
         });
         initSocketConnection(this, true, true);

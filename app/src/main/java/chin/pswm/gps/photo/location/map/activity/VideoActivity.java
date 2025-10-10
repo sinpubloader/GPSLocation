@@ -156,22 +156,19 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                showUserInterDataBack(VideoActivity.this, new AllKeyHub.onCrashDataClose() {
-                    @Override
-                    public void onDataClose() {
-                        AdsManager.INSTANCE.showInterInApp(
-                                VideoActivity.this,
-                                false,
-                                new Function0<Unit>() {
-                                    @Override
-                                    public Unit invoke() {
-                                        VideoActivity.super.onBackPressed();
-                                        return null;
-                                    }
-                                }
-                        );
-                    }
-                });
+                onBackPressed();
+                //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
+//                AdsManager.INSTANCE.showInterInApp(
+//                        VideoActivity.this,
+//                        false,
+//                        new Function0<Unit>() {
+//                            @Override
+//                            public Unit invoke() {
+//                                VideoActivity.super.onBackPressed();
+//                                return null;
+//                            }
+//                        }
+//                );
             }
         });
     }

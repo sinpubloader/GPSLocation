@@ -73,22 +73,19 @@ public class VideoPreviewActivity extends BaseActivity {
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                showUserInterDataBack(VideoPreviewActivity.this, new AllKeyHub.onCrashDataClose() {
-                    @Override
-                    public void onDataClose() {
-                        AdsManager.INSTANCE.showInterInApp(
-                                VideoPreviewActivity.this,
-                                false,
-                                new Function0<Unit>() {
-                                    @Override
-                                    public Unit invoke() {
-                                        VideoPreviewActivity.super.onBackPressed();
-                                        return null;
-                                    }
-                                }
-                        );
-                    }
-                });
+                onBackPressed();
+                //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
+//                AdsManager.INSTANCE.showInterInApp(
+//                        VideoPreviewActivity.this,
+//                        false,
+//                        new Function0<Unit>() {
+//                            @Override
+//                            public Unit invoke() {
+//                                VideoPreviewActivity.super.onBackPressed();
+//                                return null;
+//                            }
+//                        }
+//                );
             }
         });
         this.binding.wh.setOnClickListener(new View.OnClickListener() {

@@ -59,22 +59,19 @@ public class TemplateActivity extends BaseActivity implements TemplateAdapter.On
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                showUserInterDataBack(TemplateActivity.this, new AllKeyHub.onCrashDataClose() {
-                    @Override
-                    public void onDataClose() {
-                        AdsManager.INSTANCE.showInterInApp(
-                                TemplateActivity.this,
-                                false,
-                                new Function0<Unit>() {
-                                    @Override
-                                    public Unit invoke() {
-                                        TemplateActivity.super.onBackPressed();
-                                        return null;
-                                    }
-                                }
-                        );
-                    }
-                });
+                onBackPressed();
+                //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
+//                AdsManager.INSTANCE.showInterInApp(
+//                        TemplateActivity.this,
+//                        false,
+//                        new Function0<Unit>() {
+//                            @Override
+//                            public Unit invoke() {
+//                                TemplateActivity.super.onBackPressed();
+//                                return null;
+//                            }
+//                        }
+//                );
             }
         });
         this.templateAdapter = new TemplateAdapter(this, this.arrayList, this);

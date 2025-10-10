@@ -194,22 +194,19 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                showUserInterDataBack(GridCameraActivity.this, new AllKeyHub.onCrashDataClose() {
-                    @Override
-                    public void onDataClose() {
-                        AdsManager.INSTANCE.showInterInApp(
-                                GridCameraActivity.this,
-                                false,
-                                new Function0<Unit>() {
-                                    @Override
-                                    public Unit invoke() {
-                                        onBackPressed();
-                                        return null;
-                                    }
-                                }
-                        );
-                    }
-                });
+                onBackPressed();
+                //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
+//                AdsManager.INSTANCE.showInterInApp(
+//                        GridCameraActivity.this,
+//                        false,
+//                        new Function0<Unit>() {
+//                            @Override
+//                            public Unit invoke() {
+//                                onBackPressed();
+//                                return null;
+//                            }
+//                        }
+//                );
             }
         });
         this.binding.flip.setOnClickListener(new View.OnClickListener() {

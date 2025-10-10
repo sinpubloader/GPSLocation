@@ -217,13 +217,7 @@ public class AdvanceCameraActivity extends BaseActivity implements OnMapReadyCal
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                showUserInterDataBack(AdvanceCameraActivity.this, new AllKeyHub.onCrashDataClose() {
-                    @Override
-                    public void onDataClose() {
-                        AdvanceCameraActivity.this.m49x2f46b069(view);
-                    }
-                });
-
+                AdvanceCameraActivity.this.m49x2f46b069(view);
             }
         });
         if (this.binding.camera.getFacing() == Facing.BACK) {
@@ -259,17 +253,19 @@ public class AdvanceCameraActivity extends BaseActivity implements OnMapReadyCal
 
 
     public void m49x2f46b069(View view) {
-        AdsManager.INSTANCE.showInterInApp(
-                AdvanceCameraActivity.this,
-                false,
-                new Function0<Unit>() {
-                    @Override
-                    public Unit invoke() {
-                        AdvanceCameraActivity.super.onBackPressed();
-                        return null;
-                    }
-                }
-        );
+//        AdsManager.INSTANCE.showInterInApp(
+//                AdvanceCameraActivity.this,
+//                false,
+//                new Function0<Unit>() {
+//                    @Override
+//                    public Unit invoke() {
+//                        AdvanceCameraActivity.super.onBackPressed();
+//                        return null;
+//                    }
+//                }
+//        );
+        //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
+        AdvanceCameraActivity.super.onBackPressed();
     }
 
 

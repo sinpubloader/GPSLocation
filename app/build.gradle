@@ -27,7 +27,7 @@ android {
 
         debug {
             minifyEnabled false
-            debuggable false
+            debuggable true
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -107,7 +107,11 @@ android {
     lintOptions {
         checkReleaseBuilds false
     }
-
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
     buildFeatures {
         compose true
         buildConfig true

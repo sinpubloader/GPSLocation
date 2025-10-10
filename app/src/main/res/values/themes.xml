@@ -54,12 +54,12 @@
     </style>
 
     <style name="ThemePanda.Ads" parent="@style/Theme.GPSPhotoLocationWithMap">
-        <item name="backgroundColor">@color/white</item>
+        <item name="backgroundColor">@color/mainBg</item>
         <item name="android:textSize">11.0sp</item>
-        <item name="android:textColor">#ffffff</item>
+        <item name="android:textColor">@color/colorPrimary1</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">left</item>
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@color/mainBg</item>
         <item name="android:paddingLeft">3.0dip</item>
         <item name="android:paddingRight">6.0dip</item>
         <item name="android:paddingBottom">1.0dip</item>
