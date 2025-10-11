@@ -1,11 +1,18 @@
 package chin.pswm.gps.photo.location.map.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.view.Window;
+import android.widget.TextView;
 
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -21,6 +28,7 @@ import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
+import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivitySplashBinding;
 
 
@@ -36,6 +44,14 @@ public class SplashActivity extends BaseActivity {
         ActivitySplashBinding inflate = ActivitySplashBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
+        if (!isNetworkConnected()) {
+            noNetworkDialog();
+            return;
+        }
+        setupData();
+    }
+
+    private void setupData() {
         ComposeSplashKt.setMyContent(binding.composeView, binding.composeViewBanner);
         this.permissionUtils = new PermissionUtils(this);
 
@@ -43,6 +59,41 @@ public class SplashActivity extends BaseActivity {
         AdsManager.INSTANCE.getConsentFinished().observe(this, finished -> {
             checkMain();
         });
+    }
+
+    public boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
+    }
+
+    public void noNetworkDialog() {
+        final Dialog dialog = new Dialog(SplashActivity.this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setContentView(R.layout.newdail);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+
+        ((TextView) dialog.findViewById(R.id.text_dialog)).setText(getResources().getString(R.string.no_internet));
+        ((TextView) dialog.findViewById(R.id.iv_yes)).setText(getResources().getString(R.string.try_again));
+        ((TextView) dialog.findViewById(R.id.iv_yes)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isNetworkConnected()) {
+                    dialog.dismiss();
+                    new Handler().postDelayed(() -> setupData(),2000);
+                }
+            }
+        });
+        dialog.findViewById(R.id.iv_no).setVisibility(View.GONE);
+        ((TextView) dialog.findViewById(R.id.iv_no)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
     public final void checkMain() {
