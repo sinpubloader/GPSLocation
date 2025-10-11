@@ -41,6 +41,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import chin.pswm.gps.photo.location.map.MyApplication
 import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
@@ -52,7 +53,6 @@ import chin.pswm.gps.photo.location.map.earthview.custom.CenterRow
 import chin.pswm.gps.photo.location.map.earthview.custom.circle
 import chin.pswm.gps.photo.location.map.earthview.custom.onClickNotRipple
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
-import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
 import chin.pswm.gps.photo.location.map.ui.theme.mainBg
 import chin.pswm.gps.photo.location.map.ui.theme.primary
 import chin.pswm.gps.photo.location.map_debug.R
@@ -100,6 +100,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
         }
     }
 
+    var finallPage = 0
     val scope = rememberCoroutineScope()
     var onboardType by remember { mutableStateOf(OnboardType.Onboard1) }
     var currentPage by remember { mutableIntStateOf(0) }
@@ -113,15 +114,25 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
             adsFSStatus != AdsStatus.NONE && adsFSStatus != AdsStatus.FAIL
         }
     }
-    val pageState = rememberPagerState(pageCount = { OnboardType.getEntries().size + if (hasAds) 1 else 0 })
+    val pageState =
+        rememberPagerState(pageCount = { OnboardType.getEntries().size + if (hasAds) 1 else 0 })
 
     LaunchedEffect(Unit) {
         snapshotFlow { pageState.currentPage }.collectLatest { page ->
             currentPage = page
             onboardType = if (hasAds) {
-                if (page >= 2) OnboardType.getEntries()[min(page - 1, 3)]
-                else OnboardType.getEntries()[page]
-            } else OnboardType.getEntries()[min(page, 3)]
+                if (page >= 2) {
+                    finallPage = min(page - 1, 3)
+                    OnboardType.getEntries()[min(page - 1, 3)]
+                } else {
+                    finallPage = page
+                    OnboardType.getEntries()[page]
+                }
+            } else {
+                finallPage = min(page, 3)
+                OnboardType.getEntries()[min(page, 3)]
+            }
+            MyApplication.sendEvent("Onboarde_Screen", "onboard_$finallPage")
         }
     }
 
@@ -186,6 +197,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                                 layoutFaceBookConfig = "layout_onboard_1_meta" to R.layout.native_media_ctr_bot_big_filled,
                             )
                         }
+//                        MyApplication.sendEvent("Onboarde_Screen", "onboard_0")
                     }
                 }
 
@@ -208,6 +220,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                                 .fillMaxWidth()
                                 .padding(16.dp)
                         )
+//                        MyApplication.sendEvent("Onboarde_Screen", "onboard_1")
                     }
                 }
 
@@ -262,6 +275,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                             )
                         }
                     }
+//                    MyApplication.sendEvent("Onboarde_Screen", "onboard_2")
                 }
 
                 3 -> {
@@ -320,6 +334,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                             }
                         }
                     }
+//                    MyApplication.sendEvent("Onboarde_Screen", "onboard_3")
                 }
 
                 else -> Box(Modifier.fillMaxSize()) {
@@ -354,6 +369,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                             layoutFaceBookConfig = "layout_onboard_4_meta" to R.layout.native_media_ctr_bot_big_filled,
                         )
                     }
+//                    MyApplication.sendEvent("Onboarde_Screen", "onboard_4")
                 }
             }
         }

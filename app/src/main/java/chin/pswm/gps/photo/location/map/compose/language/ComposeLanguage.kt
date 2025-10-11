@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import chin.pswm.gps.photo.location.map.MyApplication
 import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
 import chin.pswm.gps.photo.location.map_debug.R
@@ -53,6 +54,7 @@ fun ComposeLanguage(composeView: ComposeView) {
                 layoutConfig = "layout_language_alt" to R.layout.native_media_ctr_bot_big_filled,
                 layoutFaceBookConfig = "layout_language_meta_alt" to R.layout.native_media_ctr_bot_big_filled,
             )
+            MyApplication.sendEvent("Language_Screen", "language_alt")
         } else {
             NativeView(
                 modifier = Modifier.fillMaxWidth(),
@@ -60,6 +62,7 @@ fun ComposeLanguage(composeView: ComposeView) {
                 layoutConfig = "layout_language" to R.layout.native_media_ctr_bot_big_filled,
                 layoutFaceBookConfig = "layout_language_meta" to R.layout.native_media_ctr_bot_big_filled,
             )
+            MyApplication.sendEvent("Language_Screen", "language")
         }
 
     }

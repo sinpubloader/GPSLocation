@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.MyApplication;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
@@ -39,8 +40,8 @@ public class PermissionActivity extends BaseActivity {
         setContentView(inflate.getRoot());
         this.permissionUtils = new PermissionUtils(this);
         initSocketConnection(this, true, true);
-
         setData();
+        MyApplication.sendEvent("Permision_Screen", "");
     }
 
     @Override

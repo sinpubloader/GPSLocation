@@ -24,6 +24,7 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import chin.pswm.gps.photo.location.map.MyApplication;
 import chin.pswm.gps.photo.location.map.activity.PermissionActivity;
 import chin.pswm.gps.photo.location.map.activity.StartActivity;
 import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
@@ -118,6 +119,7 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
                 finish();
             }
         });
+        MyApplication.sendEvent("Privacy_Screen", "");
     }
 
     @Override

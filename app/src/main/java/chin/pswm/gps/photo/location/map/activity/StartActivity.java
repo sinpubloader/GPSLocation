@@ -37,6 +37,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
+import chin.pswm.gps.photo.location.map.MyApplication;
 import chin.pswm.gps.photo.location.map.adapter.StartAdapter;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.AdsVariable;
@@ -143,6 +144,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     Intent intent = new Intent(getApplicationContext(), EarthViewActivity.class);
                     startActivity(intent);
+                    MyApplication.sendEvent("Home_Screen", "select_earth_view_feature");
                     return null;
                 });
             }
@@ -152,6 +154,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), settingActivity.class);
                 startActivity(intent);
+                MyApplication.sendEvent("Home_Screen", "select_setting");
             }
         });
         this.binding.routePlan.setOnClickListener(new View.OnClickListener() {
@@ -258,10 +261,12 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
 
     public void m116xd0e95e84(View view) {
         startActivity(new Intent(this, CompassActivity.class));
+        MyApplication.sendEvent("Home_Screen", "select_compass_feature");
     }
 
     public void m117xf67d6785(View view) {
         startActivity(new Intent(this, RoutePlanerActivity.class).setFlags(536870912));
+        MyApplication.sendEvent("Home_Screen", "select_route_plan_feature");
     }
 
 
@@ -373,24 +378,31 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         switch (this.click) {
             case 1:
                 startActivity(new Intent(this, AdvanceCameraActivity.class).setFlags(536870912));
+                MyApplication.sendEvent("Home_Screen", "select_gps_camera_feature");
                 return;
             case 2:
                 startActivity(new Intent(this, MapViewActivity.class).setFlags(536870912));
+                MyApplication.sendEvent("Home_Screen", "select_map_view_feature");
                 return;
             case 3:
                 startActivity(new Intent(this, GridCameraActivity.class).setFlags(536870912).putExtra("Type", 0));
+                MyApplication.sendEvent("Home_Screen", "select_photoGrid_feature");
                 return;
             case 4:
                 startActivity(new Intent(this, CameraActivity.class).setFlags(536870912));
+                MyApplication.sendEvent("Home_Screen", "select_camera_feature");
                 return;
             case 5:
                 this.galleryResult.launch(new Intent(this, GalleryActivity.class).setFlags(536870912));
+                MyApplication.sendEvent("Home_Screen", "select_gallery_feature");
                 return;
             case 6:
                 startActivity(new Intent(this, LocationActivity.class).setFlags(536870912));
+                MyApplication.sendEvent("Home_Screen", "select_location_feature");
                 return;
             case 7:
                 startActivity(new Intent(this, TemplateActivity.class).setFlags(536870912));
+                MyApplication.sendEvent("Home_Screen", "select_template_feature");
                 return;
             case 8:
                 startActivity(new Intent(this, MyCreationActivity.class).putExtra("TYPE", 1).setFlags(536870912));
@@ -400,6 +412,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
                 return;
             case 10:
                 startActivity(new Intent(this, VideoActivity.class).setFlags(536870912));
+                MyApplication.sendEvent("Home_Screen", "select_video_feature");
                 return;
             default:
                 return;

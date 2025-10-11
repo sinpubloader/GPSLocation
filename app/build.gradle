@@ -182,5 +182,8 @@ dependencies {
     implementation("com.facebook.shimmer:shimmer:0.5.0")
 
     implementation 'com.google.ads.mediation:facebook:6.20.0.1'
+    implementation(platform("com.google.firebase:firebase-bom:34.4.0"))
+    implementation("com.google.firebase:firebase-analytics")
+
 
 }

@@ -22,7 +22,7 @@
     <string  translatable="false"   name="cameraview_filter_temperature">com.otaliastudios.cameraview.filters.TemperatureFilter</string>
     <string  translatable="false"   name="cameraview_filter_tint">com.otaliastudios.cameraview.filters.TintFilter</string>
     <string  translatable="false"   name="cameraview_filter_vignette">com.otaliastudios.cameraview.filters.VignetteFilter</string>
-    <string  translatable="false"   name="app_name">GPS Camera with Time Stamp</string>
+    <string  translatable="false"   name="app_name">Debug GPS Camera with Time Stamp</string>
     <string  translatable="false"   name="MAP_KEY">AIzaSyDJhjZF35ImndGG0Ma6dpI9eLgoLGShkNA</string>
     <string  translatable="false"   name="androidx_startup">androidx.startup</string>
     <string  translatable="false"   name="bottomsheet_action_collapse">Collapse the bottom sheet</string>

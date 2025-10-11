@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
+import chin.pswm.gps.photo.location.map.MyApplication;
 import chin.pswm.gps.photo.location.map.adapter.StartAdapter;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
@@ -112,6 +113,7 @@ public class settingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 AdsManager.INSTANCE.showInterInApp(settingActivity.this, true, () -> {
                     startActivity(new Intent(settingActivity.this, MyCreationActivity.class).putExtra("TYPE", 0).setFlags(536870912));
+                    MyApplication.sendEvent("Setting_Screen", "select_save_image_feature");
                     return null;
                 });
             }
@@ -122,6 +124,7 @@ public class settingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 AdsManager.INSTANCE.showInterInApp(settingActivity.this, true, () -> {
                     startActivity(new Intent(settingActivity.this, MyCreationActivity.class).putExtra("TYPE", 1).setFlags(536870912));
+                    MyApplication.sendEvent("Setting_Screen", "select_save_video_feature");
                     return null;
                 });
             }

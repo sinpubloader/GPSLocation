@@ -6,12 +6,14 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
 import android.media.projection.MediaProjectionManager;
+import android.os.Bundle;
 import android.util.Log;
 
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 
 import com.facebook.FacebookSdk;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adjust.AdjustManager;
@@ -26,6 +28,7 @@ public class MyApplication extends Application {
     private static MediaProjectionManager mMediaProjectionManager = null;
     public static boolean needToShow = false;
     private static int result;
+    private static FirebaseAnalytics mFirebaseAnalytics;
 
 
     @Override
@@ -36,6 +39,7 @@ public class MyApplication extends Application {
         AdjustManager adjustManager = new AdjustManager();
         Prefs prefs = new Prefs(this);
         AdsManager adsManager = new AdsManager(this, prefs);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 //        AudienceNetworkInitializeHelper.initialize(this);
         FacebookSdk.setApplicationId("1839024150025521");
         FacebookSdk.setClientToken("7e4fe4f80a01570be8f95bcd5da6fa26");
@@ -90,5 +94,13 @@ public class MyApplication extends Application {
         mMediaProjectionManager = mediaProjectionManager;
     }
 
+    public static void sendEvent(String screenName, String eventName) {
+        Bundle bundle = new Bundle();
+        bundle.putString("screenName", screenName);
+        bundle.putString("eventName", eventName);
+        if (mFirebaseAnalytics == null)
+            mFirebaseAnalytics = FirebaseAnalytics.getInstance(MyApplication.instance);
+        mFirebaseAnalytics.setDefaultEventParameters(bundle);
+    }
 
 }
