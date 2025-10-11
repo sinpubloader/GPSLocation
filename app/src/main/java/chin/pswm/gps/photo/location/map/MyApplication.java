@@ -11,6 +11,8 @@ import android.util.Log;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 
+import com.facebook.FacebookSdk;
+
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adjust.AdjustManager;
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs;
@@ -34,7 +36,11 @@ public class MyApplication extends Application {
         AdjustManager adjustManager = new AdjustManager();
         Prefs prefs = new Prefs(this);
         AdsManager adsManager = new AdsManager(this, prefs);
-        AudienceNetworkInitializeHelper.initialize(this);
+//        AudienceNetworkInitializeHelper.initialize(this);
+        FacebookSdk.setApplicationId("1839024150025521");
+        FacebookSdk.setClientToken("7e4fe4f80a01570be8f95bcd5da6fa26");
+        FacebookSdk.sdkInitialize(getApplicationContext());
+
         Timber.Forest.plant(new DebugTree());
     }
 
