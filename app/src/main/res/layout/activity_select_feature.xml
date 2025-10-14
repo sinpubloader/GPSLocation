@@ -25,9 +25,10 @@
 
     <RelativeLayout
         android:id="@+id/llEarthView"
-        android:layout_width="920px"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/_48sdp"
         android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
         android:background="@drawable/btn_global_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,9 +64,10 @@
 
     <RelativeLayout
         android:id="@+id/llTime"
-        android:layout_width="920px"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/_48sdp"
         android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginHorizontal="@dimen/_20sdp"
         android:background="@drawable/btn_global_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

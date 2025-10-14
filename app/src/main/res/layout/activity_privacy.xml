@@ -6,15 +6,33 @@
     android:background="@color/mainBg"
     android:fitsSystemWindows="true">
 
+    <TextView
+        android:id="@+id/tv_wel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_bold"
+        android:text="@string/app_name1"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:lineSpacingExtra="@dimen/_4sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="@dimen/_200sdp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:src="@drawable/frame_1"
+        android:padding="@dimen/_20sdp"
+        android:layout_margin="@dimen/_20sdp"
         app:layout_constraintBottom_toTopOf="@id/const_policy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_wel" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -73,19 +73,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/_24sdp"
                 android:orientation="vertical">
 
                 <RelativeLayout
                     android:id="@+id/cameraRl"
-                    android:layout_width="920px"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/_44sdp"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
                     android:background="@drawable/permission_detail">
 
                     <ImageView
                         android:id="@+id/p1"
-                        android:layout_width="79px"
-                        android:layout_height="79px"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
                         android:layout_marginHorizontal="50px"
@@ -123,15 +125,16 @@
 
                 <RelativeLayout
                     android:id="@+id/locationRl"
-                    android:layout_width="920px"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/_44sdp"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
                     android:background="@drawable/permission_detail">
 
                     <ImageView
                         android:id="@+id/p2"
-                        android:layout_width="79px"
-                        android:layout_height="79px"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
                         android:layout_marginHorizontal="50px"
@@ -156,8 +159,8 @@
 
                     <ImageView
                         android:id="@+id/locationSelect"
-                        android:layout_width="47px"
-                        android:layout_height="47px"
+                        android:layout_width="@dimen/_14sdp"
+                        android:layout_height="@dimen/_14sdp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginHorizontal="50px"
@@ -169,15 +172,16 @@
 
                 <RelativeLayout
                     android:id="@+id/photoVideoRl"
-                    android:layout_width="920px"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/_44sdp"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
                     android:background="@drawable/permission_detail">
 
                     <ImageView
                         android:id="@+id/p3"
-                        android:layout_width="79px"
-                        android:layout_height="79px"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
                         android:layout_marginHorizontal="50px"
@@ -215,15 +219,16 @@
 
                 <RelativeLayout
                     android:id="@+id/notificationRl"
-                    android:layout_width="920px"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/_44sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@drawable/permission_detail">
 
                     <ImageView
                         android:id="@+id/p4"
-                        android:layout_width="79px"
-                        android:layout_height="79px"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
                         android:layout_marginHorizontal="50px"
@@ -268,17 +273,17 @@
             <RelativeLayout
                 android:id="@+id/footer"
                 android:layout_width="match_parent"
-                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_14sdp"
                 android:gravity="center"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10sdp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/start"
-                    android:layout_width="807px"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_alignParentTop="true"
                     android:layout_centerInParent="true"
+                    android:layout_marginHorizontal="@dimen/_40sdp"
                     android:background="@drawable/btn_global"
                     android:fontFamily="@font/gilroy_semi_bold"
                     android:gravity="center"
