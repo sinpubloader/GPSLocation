@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.compose.ui.platform.ComposeView;
@@ -81,26 +82,6 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
         tv_privacy_policy.setText(spannableString);
         tv_privacy_policy.setMovementMethod(LinkMovementMethod.getInstance());
 
-//        check_privacy.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if (check_privacy.isChecked()) {
-//                    start.setBackgroundResource(R.drawable.rect_round_main_blue);
-//                    start.setTextColor(getResources().getColor(R.color.white));
-//                } else {
-//                    start.setBackgroundResource(R.drawable.rect_round_main_sky);
-//                    start.setTextColor(getResources().getColor(R.color.black));
-//                }
-//            }
-//        });
-//        if (check_privacy.isChecked()) {
-//            start.setBackgroundResource(R.drawable.rect_round_main_blue);
-//            start.setTextColor(getResources().getColor(R.color.white));
-//        } else {
-//            start.setBackgroundResource(R.drawable.rect_round_main_sky);
-//            start.setTextColor(getResources().getColor(R.color.black));
-//        }
-
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,6 +101,12 @@ public class ActivityPrivacyPolicy_New extends AppCompatActivity {
             }
         });
         MyApplication.sendEvent("Privacy_Screen", "");
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+            }
+        });
     }
 
     @Override

@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
@@ -49,6 +50,11 @@ public class SplashActivity extends BaseActivity {
             return;
         }
         setupData();
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+            }
+        });
     }
 
     private void setupData() {

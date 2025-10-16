@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
@@ -42,22 +43,13 @@ public class PermissionActivity extends BaseActivity {
         initSocketConnection(this, true, true);
         setData();
         MyApplication.sendEvent("Permision_Screen", "");
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+            }
+        });
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            showUserInterDataBack(this, new AllKeyHub.onCrashDataClose() {
-                @Override
-                public void onDataClose() {
-                    onBackPressed();
-                }
-            });
-        } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN || keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-            return super.onKeyDown(keyCode, event);
-        }
-        return true;
-    }
 
     private void setData() {
         setImgBg();

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.compose.ui.platform.ComposeView;
@@ -63,6 +64,11 @@ public class ActivitySelectFeature extends AppCompatActivity {
 
 //        updateFrameLayout(viewPager.getCurrentItem());
         ComposeSelectKt.setMyContent(composeView);
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+            }
+        });
     }
 
     private void setImgBg(int selectPos) {
@@ -109,11 +115,6 @@ public class ActivitySelectFeature extends AppCompatActivity {
             Toast toast = Toast.makeText(ActivitySelectFeature.this, R.string.select_select_please, Toast.LENGTH_SHORT);
             toast.show();
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 
     @Override

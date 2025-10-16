@@ -8,7 +8,9 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.annotation.DrawableRes
+import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.os.bundleOf
@@ -25,6 +27,7 @@ import timber.log.Timber
 import java.util.Calendar
 import chin.pswm.gps.photo.location.map_debug.R
 
+@RequiresApi(Build.VERSION_CODES.O)
 class NotificationManager(
     private val app: Application
 ) : ITag {

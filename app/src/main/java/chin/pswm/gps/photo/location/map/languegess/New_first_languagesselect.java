@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.compose.ui.platform.ComposeView;
 import androidx.core.view.WindowCompat;
@@ -95,7 +96,13 @@ public class New_first_languagesselect extends AppCompatActivity {
                 }
             }
         });
-
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (fromNavigationBar)
+                    finish();
+            }
+        });
         ComposeLanguageKt.setMyContent(composeView);
     }
 
@@ -201,4 +208,6 @@ public class New_first_languagesselect extends AppCompatActivity {
 
         }
     }
+
+
 }
