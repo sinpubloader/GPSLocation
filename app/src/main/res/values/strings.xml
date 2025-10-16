@@ -221,5 +221,66 @@
     <string name="no_internet">No Internet! \nPlease check internet connection.</string>
     <string name="try_again">try again</string>
 
+    <string name="knowledge_title_1">Did You Know? 🌍</string>
+    <string name="knowledge_desc_1">The Eiffel Tower can grow about 6 inches taller in summer due to heat expansion.</string>
+
+    <string name="knowledge_title_2">Brain Fact 🧠</string>
+    <string name="knowledge_desc_2">Your brain uses about 20% of your body\'s total energy, even when you’re resting.</string>
+
+    <string name="knowledge_title_3">Science Insight 🔬</string>
+    <string name="knowledge_desc_3">Bananas are naturally radioactive due to the presence of potassium-40, a stable isotope.</string>
+
+    <string name="knowledge_title_4">Space Wonder 🚀</string>
+    <string name="knowledge_desc_4">A day on Venus is longer than its entire year because it rotates so slowly.</string>
+
+    <string name="knowledge_title_5">Animal Fact 🦋</string>
+    <string name="knowledge_desc_5">Butterflies taste with their feet to find out whether a leaf is good for laying eggs.</string>
+
+    <string name="knowledge_title_6">Tech Trivia 💻</string>
+    <string name="knowledge_desc_6">The first computer mouse, invented in 1964, was made of wood!</string>
+
+    <string name="knowledge_title_7">Human Body 💪</string>
+    <string name="knowledge_desc_7">The human nose can detect over one trillion different scents.</string>
+
+    <string name="knowledge_title_8">Ocean Fact 🌊</string>
+    <string name="knowledge_desc_8">More than 80% of the ocean remains unexplored and unmapped by humans.</string>
+
+    <string name="knowledge_title_9">History Byte 📜</string>
+    <string name="knowledge_desc_9">The Great Pyramid of Giza was the tallest man-made structure for nearly 3,800 years.</string>
+
+    <string name="knowledge_title_10">Mind Tip 🧘</string>
+    <string name="knowledge_desc_10">Learning something new every day keeps your brain active and improves memory.</string>
+
+
+    <string name="knowledge_title_11">Earth Fact 🌎</string>
+    <string name="knowledge_desc_11">Mount Everest grows about 4 millimeters every year due to shifting tectonic plates.</string>
+
+    <string name="knowledge_title_12">History Insight 🏛️</string>
+    <string name="knowledge_desc_12">Cleopatra lived closer in time to the moon landing than to the building of the Great Pyramid.</string>
+
+    <string name="knowledge_title_13">Plant Wisdom 🌱</string>
+    <string name="knowledge_desc_13">Bamboo is the fastest-growing plant on Earth; it can grow up to 3 feet in one day.</string>
+
+    <string name="knowledge_title_14">Animal Wonder 🐙</string>
+    <string name="knowledge_desc_14">An octopus has three hearts and blue blood because it uses copper instead of iron to carry oxygen.</string>
+
+    <string name="knowledge_title_15">Physics Fun ⚡</string>
+    <string name="knowledge_desc_15">Lightning is five times hotter than the surface of the Sun.</string>
+
+    <string name="knowledge_title_16">Space Curiosity 🌌</string>
+    <string name="knowledge_desc_16">There are more stars in the universe than grains of sand on all the beaches on Earth.</string>
+
+    <string name="knowledge_title_17">Language Fact 📚</string>
+    <string name="knowledge_desc_17">The word “alphabet” comes from the first two Greek letters: alpha and beta.</string>
+
+    <string name="knowledge_title_18">Tech History 🖥️</string>
+    <string name="knowledge_desc_18">The first website ever created is still online — info.cern.ch, made by Tim Berners-Lee in 1991.</string>
+
+    <string name="knowledge_title_19">Body Mystery ❤️</string>
+    <string name="knowledge_desc_19">Your heart beats about 100,000 times a day, pumping nearly 7,500 liters of blood.</string>
+
+    <string name="knowledge_title_20">Universe Thought ✨</string>
+    <string name="knowledge_desc_20">Every atom in your body was once part of a star — you are literally made of stardust.</string>
+
 </resources>
 

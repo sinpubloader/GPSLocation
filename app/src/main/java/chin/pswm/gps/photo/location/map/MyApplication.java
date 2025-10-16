@@ -18,6 +18,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adjust.AdjustManager;
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs;
+import chin.pswm.gps.photo.location.map.notification.NotificationManager;
 import timber.log.Timber;
 
 
@@ -39,6 +40,7 @@ public class MyApplication extends Application {
         AdjustManager adjustManager = new AdjustManager();
         Prefs prefs = new Prefs(this);
         AdsManager adsManager = new AdsManager(this, prefs);
+        NotificationManager noti = new NotificationManager(this);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 //        AudienceNetworkInitializeHelper.initialize(this);
         FacebookSdk.setApplicationId("1839024150025521");

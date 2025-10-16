@@ -36,6 +36,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import chin.pswm.gps.photo.location.map.MyApplication;
 import chin.pswm.gps.photo.location.map.adapter.StartAdapter;
@@ -48,6 +49,8 @@ import chin.pswm.gps.photo.location.map.interfaces.OnClickGallery;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.model.PlaceData;
+import chin.pswm.gps.photo.location.map.notification.DailyNotificationType;
+import chin.pswm.gps.photo.location.map.notification.NotificationManager;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.GPSUtils;
 import chin.pswm.gps.photo.location.map.utils.ImageLocationExtractor;
@@ -70,9 +73,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
     public List<Uri> uriListVideo = new ArrayList();
     List<ImageLocationExtractor.LocationListener> locationListeners = new ArrayList();
     public int click = -1;
+    NotificationManager notificationManager;
     ActivityResultLauncher<Intent> galleryResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-
-
         @Override
         public void onActivityResult(ActivityResult activityResult) {
             Intent data;
@@ -91,11 +93,11 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
     @Override
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(StartActivity.this, SharedHelper.getString(StartActivity.this, "lang_key", ""));
-
         super.onCreate(bundle);
         ActivityStartNewBinding inflate = ActivityStartNewBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
+        notificationManager = new NotificationManager(MyApplication.instance);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {  // Android 13+
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES)
                     != PackageManager.PERMISSION_GRANTED) {
@@ -126,6 +128,9 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
                 "banner_home",
                 BannerType.BANNER_COLLAPSIBLE
         );
+
+        notificationManager.cancelNotification(NotificationManager.DAILY_NOTIFICATION);
+        notificationManager.cancelNotification(23647623);
     }
 
     private void setData() {
@@ -765,6 +770,22 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
 
         } catch (Exception e) {
 
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (!DailyNotificationType.values().equals(null) && DailyNotificationType.values().length > 0) {
+            DailyNotificationType[] values = DailyNotificationType.values();
+            DailyNotificationType itemRandom = values[new Random().nextInt(values.length)];
+            notificationManager.setNotification(
+                    23647623,
+                    5,
+                    getString(itemRandom.getTitle()),
+                    getString(itemRandom.getDescription()),
+                    R.drawable.img_camera
+            );
         }
     }
 }
