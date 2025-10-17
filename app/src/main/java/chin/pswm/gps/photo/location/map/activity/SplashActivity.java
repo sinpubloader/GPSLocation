@@ -2,6 +2,7 @@ package chin.pswm.gps.photo.location.map.activity;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
@@ -13,6 +14,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.core.view.WindowCompat;
@@ -49,7 +51,16 @@ public class SplashActivity extends BaseActivity {
             noNetworkDialog();
             return;
         }
-        setupData();
+        this.permissionUtils = new PermissionUtils(this);
+        if (permissionUtils.isNotificationRequired()) {
+            if (permissionUtils.checkPermission(permissionUtils.permissionsNotification)) {
+                setupData();
+            } else {
+                permissionUtils.callPermission(permissionUtils.permissionsNotification, this.permissionUtils.NOTIFICATION_PERMISSION);
+            }
+        } else {
+            setupData();
+        }
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -59,12 +70,24 @@ public class SplashActivity extends BaseActivity {
 
     private void setupData() {
         ComposeSplashKt.setMyContent(binding.composeView, binding.composeViewBanner);
-        this.permissionUtils = new PermissionUtils(this);
 
         AdsManager.INSTANCE.requestUMP(SplashActivity.this, true, true);
         AdsManager.INSTANCE.getConsentFinished().observe(this, finished -> {
             checkMain();
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(i, strArr, iArr);
+        if (i == permissionUtils.NOTIFICATION_PERMISSION) {
+            if (iArr.length > 0 && iArr[0] == PackageManager.PERMISSION_GRANTED) {
+                setupData();
+            } else {
+                setupData();
+                Toast.makeText(this, getString(R.string.noti_perm_required), Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     public boolean isNetworkConnected() {

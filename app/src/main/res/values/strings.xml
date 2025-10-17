@@ -22,7 +22,7 @@
     <string  translatable="false"   name="cameraview_filter_temperature">com.otaliastudios.cameraview.filters.TemperatureFilter</string>
     <string  translatable="false"   name="cameraview_filter_tint">com.otaliastudios.cameraview.filters.TintFilter</string>
     <string  translatable="false"   name="cameraview_filter_vignette">com.otaliastudios.cameraview.filters.VignetteFilter</string>
-    <string  translatable="false"   name="app_name">GPS Camera with Time Stamp</string>
+    <string  translatable="false"   name="app_name">Debug GPS Camera with Time Stamp</string>
     <string  translatable="false"   name="app_name1">GPS Camera \nwith Time Stamp</string>
     <string  translatable="false"   name="MAP_KEY">AIzaSyDJhjZF35ImndGG0Ma6dpI9eLgoLGShkNA</string>
     <string  translatable="false"   name="androidx_startup">androidx.startup</string>
@@ -281,6 +281,12 @@
 
     <string name="knowledge_title_20">Universe Thought ✨</string>
     <string name="knowledge_desc_20">Every atom in your body was once part of a star — you are literally made of stardust.</string>
+    <string name="notification_permission_require">Notification Permission Require</string>
+    <string name="noti_perm_detail">Please allow notifications so we can alert you about important updates.</string>
+    <string name="enable_notifications">Enable Notifications</string>
+    <string name="noti_perm_detail1">Notification permission is permanently denied.\nPlease enable it from app settings.</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="noti_perm_required">Notification Permission required!</string>
 
 </resources>
 

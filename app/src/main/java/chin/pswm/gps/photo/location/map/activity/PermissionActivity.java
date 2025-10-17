@@ -3,15 +3,22 @@ package chin.pswm.gps.photo.location.map.activity;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.showUserInterDataBack;
 
+import android.Manifest;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.core.app.ActivityCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
@@ -53,6 +60,7 @@ public class PermissionActivity extends BaseActivity {
 
     private void setData() {
         setImgBg();
+        this.binding.rlNotiView.setVisibility(this.permissionUtils.isNotificationRequired() && !permissionUtils.checkPermission(permissionUtils.permissionsNotification) ? 0 : 8);
         this.binding.cameraRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
@@ -71,7 +79,7 @@ public class PermissionActivity extends BaseActivity {
                 PermissionActivity.this.m105x48a41829(view);
             }
         });
-        this.binding.notificationRl.setOnClickListener(new View.OnClickListener() {
+        this.binding.rlNotiView.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
                 PermissionActivity.this.m106xdce287c8(view);
@@ -117,14 +125,42 @@ public class PermissionActivity extends BaseActivity {
 
 
     public void m106xdce287c8(View view) {
-        PermissionUtils permissionUtils = this.permissionUtils;
+        /*PermissionUtils permissionUtils = this.permissionUtils;
         if (permissionUtils.checkPermission(permissionUtils.permissionsNotification)) {
             return;
         }
         PermissionUtils permissionUtils2 = this.permissionUtils;
-        permissionUtils2.callPermission(permissionUtils2.permissionsNotification, this.permissionUtils.NOTIFICATION_PERMISSION);
+        permissionUtils2.callPermission(permissionUtils2.permissionsNotification, this.permissionUtils.NOTIFICATION_PERMISSION);*/
+        if (permissionUtils.checkPermission(permissionUtils.permissionsNotification)) {
+            return;
+        }
+        if (ActivityCompat.shouldShowRequestPermissionRationale(PermissionActivity.this, Manifest.permission.POST_NOTIFICATIONS)) {
+            new AlertDialog.Builder(PermissionActivity.this)
+                    .setTitle(getString(R.string.notification_permission_require))
+                    .setMessage(getString(R.string.noti_perm_detail))
+                    .setPositiveButton(getString(R.string.allow), (dialog, which) -> ActivityCompat.requestPermissions(
+                            PermissionActivity.this,
+                            new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                            permissionUtils.NOTIFICATION_PERMISSION
+                    ))
+                    .setNegativeButton(getString(R.string.cancel), null)
+                    .show();
+        } else {
+            new AlertDialog.Builder(PermissionActivity.this)
+                    .setTitle(getString(R.string.enable_notifications))
+                    .setMessage(getString(R.string.noti_perm_detail1))
+                    .setPositiveButton(getString(R.string.open_settings), (dialog, which) -> openAppSettings(PermissionActivity.this))
+                    .setNegativeButton(getString(R.string.cancel), null)
+                    .show();
+        }
     }
 
+    private void openAppSettings(Activity activity) {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", activity.getPackageName(), null);
+        intent.setData(uri);
+        activity.startActivity(intent);
+    }
 
     public void m107x7120f767(View view) {
         PermissionUtils permissionUtils = this.permissionUtils;
@@ -139,7 +175,6 @@ public class PermissionActivity extends BaseActivity {
     }
 
     private void setImgBg() {
-        this.binding.notificationRl.setVisibility(this.permissionUtils.isNotificationRequired() ? 0 : 8);
         PermissionUtils permissionUtils = this.permissionUtils;
         if (permissionUtils.checkPermission(permissionUtils.permissionsCamera)) {
             this.binding.cameraSelect.setVisibility(0);
@@ -174,24 +209,31 @@ public class PermissionActivity extends BaseActivity {
         if (permissionUtils4.checkPermission(permissionUtils4.permissionsNotification)) {
             this.binding.notificationSelect.setVisibility(0);
 //            this.binding.tt4.setTextColor(Color.parseColor("#000000"));
-            this.binding.notificationRl.setBackgroundResource(R.drawable.permission_detail_allow);
+            this.binding.rlNotiView.setBackgroundResource(R.drawable.permission_detail_allow);
             return;
         }
         this.binding.notificationSelect.setVisibility(4);
 //        this.binding.tt4.setTextColor(Color.parseColor("#000000"));
-        this.binding.notificationRl.setBackgroundResource(R.drawable.permission_detail);
+        this.binding.rlNotiView.setBackgroundResource(R.drawable.permission_detail);
     }
 
     @Override
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
         setImgBg();
+        if (i == permissionUtils.NOTIFICATION_PERMISSION) {
+            if (iArr.length > 0 && iArr[0] == PackageManager.PERMISSION_GRANTED) {
+            } else {
+                Toast.makeText(this, getString(R.string.noti_perm_required), Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         hideSystemNavigationBar();
+        setImgBg();
     }
 
     private void hideSystemNavigationBar() {
