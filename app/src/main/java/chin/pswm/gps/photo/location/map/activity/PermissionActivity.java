@@ -25,12 +25,19 @@ import androidx.core.view.WindowInsetsControllerCompat;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.MyApplication;
+import chin.pswm.gps.photo.location.map.ads.AdsManager;
+import chin.pswm.gps.photo.location.map.ads.adunit.common.AdLoadError;
+import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
+import chin.pswm.gps.photo.location.map.languegess.New_first_languagesselect;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityPermissionBinding;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.functions.Function1;
 
 @SuppressWarnings("all")
 
@@ -46,6 +53,7 @@ public class PermissionActivity extends BaseActivity {
         ActivityPermissionBinding inflate = ActivityPermissionBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
+        AdsManager.INSTANCE.getInterPermission().loadAd(PermissionActivity.this);
         this.permissionUtils = new PermissionUtils(this);
         initSocketConnection(this, true, true);
         setData();
@@ -165,13 +173,48 @@ public class PermissionActivity extends BaseActivity {
     public void m107x7120f767(View view) {
         PermissionUtils permissionUtils = this.permissionUtils;
         if (permissionUtils.checkPermission(permissionUtils.allPermissions)) {
-            startActivity(new Intent(this, StartActivity.class));
-            finish();
+            checkAdStatus();
             return;
         }
         permissionUtils.callPermission(permissionUtils.allPermissions, permissionUtils.ALL_PERMISSIONS_REQUEST_CODE);
+//        Toast.makeText(this, "Please Allow Permission", 0).show();
+    }
 
-        Toast.makeText(this, "Please Allow Permission", 0).show();
+    public void checkAdStatus() {
+        AdsStatus adsStatus = AdsManager.INSTANCE.getInterPermission().getStatusFlow().getValue();
+        if (adsStatus == AdsStatus.SUCCESS) {
+            AdsManager.INSTANCE.getInterPermission().show(PermissionActivity.this, true, false, new Function0<Unit>() {
+                @Override
+                public Unit invoke() {
+                    return null;
+                }
+            }, new Function1<AdLoadError, Unit>() {
+                @Override
+                public Unit invoke(AdLoadError adLoadError) {
+                    startMainActivity();
+                    return null;
+                }
+            }, new Function0<Unit>() {
+                @Override
+                public Unit invoke() {
+                    return null;
+                }
+            }, new Function0<Unit>() {
+                @Override
+                public Unit invoke() {
+                    startMainActivity();
+                    return null;
+                }
+            });
+        } else if (adsStatus == AdsStatus.FAIL) {
+            startMainActivity();
+        }
+
+    }
+
+    public void startMainActivity() {
+        startActivity(new Intent(this, StartActivity.class));
+        finish();
     }
 
     private void setImgBg() {

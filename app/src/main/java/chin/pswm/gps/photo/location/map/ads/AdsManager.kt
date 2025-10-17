@@ -39,6 +39,12 @@ class AdsManager(
         )
     }
 
+    val interPermission by lazy {
+        InterstitialAdUnit(
+            "inter_permission" to BuildConfig.inter_permission,
+        )
+    }
+
     val interInApp by lazy {
         InterstitialAdUnit(
             "inter_inapp" to BuildConfig.inter_inapp,
