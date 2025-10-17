@@ -4,8 +4,10 @@ import static chin.pswm.gps.photo.location.map.AllKeyHub.showDynamicNativeData;
 
 import android.Manifest;
 import android.app.ActivityManager;
+import android.app.AlarmManager;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,6 +17,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -25,6 +28,7 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.WindowCompat;
@@ -135,12 +139,50 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
 
         notificationManager.cancelNotification(NotificationManager.DAILY_NOTIFICATION);
         notificationManager.cancelNotification(23647623);
+        requestExactAlarmPermission();
     }
+
+    private static final int REQUEST_EXACT_ALARM = 1001;
+
+    private void requestExactAlarmPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+
+            if (!alarmManager.canScheduleExactAlarms()) {
+                Intent intent = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+                startActivityForResult(intent, REQUEST_EXACT_ALARM);
+            } else {
+                notificationManager.scheduleReminder();
+            }
+        } else {
+            notificationManager.scheduleReminder();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_EXACT_ALARM) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                if (alarmManager.canScheduleExactAlarms()) {
+                    notificationManager.scheduleReminder();
+                } else {
+                    Toast.makeText(this, getString(R.string.alarm_perm_required), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
+
 
     private void setData() {
         this.binding.compass.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
+                if (!checkPermissionStatus())
+                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m116xd0e95e84(view);
                     return null;

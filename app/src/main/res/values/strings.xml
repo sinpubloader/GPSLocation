@@ -290,6 +290,7 @@
     <string name="permission_require">Permission Require</string>
     <string name="perm_detail">Please allow Permission for better app experience.</string>
     <string name="perm_detail1">Permission is permanently denied.\nPlease enable it from app settings.</string>
+    <string name="alarm_perm_required">Exact alarm permission is required to alert you about important updates.</string>
 
 </resources>
 

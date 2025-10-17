@@ -25,7 +25,7 @@
                 android:layout_marginStart="@dimen/_20sdp"
                 android:fontFamily="@font/rubik_meduim"
                 android:gravity="center|start"
-                android:lines="1"
+                android:singleLine="true"
                 android:text="@string/gpl22"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp"
@@ -111,13 +111,23 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.565"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/tvGpsCam"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_12sdp"
                         android:fontFamily="@font/rubik_semibold"
-                        android:lines="1"
+                        android:singleLine="true"
                         android:text="@string/gps_camera"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_15sdp"
@@ -127,7 +137,7 @@
 
                     <TextView
                         android:id="@+id/tvpinpoint"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_6sdp"
                         android:fontFamily="@font/rubik_meduim"
@@ -135,7 +145,8 @@
                         android:textColor="#DADCDE"
                         android:textSize="@dimen/_10sdp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvGpsCam" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvGpsCam"
+                        app:layout_constraintEnd_toEndOf="@+id/view2"/>
 
                     <TextView
                         android:id="@+id/tvCapture"
@@ -149,8 +160,10 @@
                         android:paddingHorizontal="@dimen/_10sdp"
                         android:paddingVertical="@dimen/_6sdp"
                         android:text="@string/capture_photo"
+                        android:singleLine="true"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sdp"
+                        android:maxWidth="@dimen/_100sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvpinpoint" />
@@ -212,7 +225,7 @@
                         android:layout_marginStart="@dimen/_16sdp"
                         android:layout_marginBottom="@dimen/_8sdp"
                         android:fontFamily="@font/rubik_semibold"
-                        android:lines="1"
+                        android:singleLine="true"
                         android:text="@string/earth_view"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_15sdp"
@@ -262,7 +275,7 @@
                         android:layout_marginStart="@dimen/_16sdp"
                         android:layout_marginBottom="@dimen/_8sdp"
                         android:fontFamily="@font/rubik_semibold"
-                        android:lines="1"
+                        android:singleLine="true"
                         android:text="@string/gpl7"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_15sdp"
@@ -289,7 +302,7 @@
                     android:id="@+id/camera"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_12sdp"
                     android:background="@drawable/btn_global_square1"
                     android:backgroundTint="#24262B"
                     android:layout_marginTop="@dimen/_16sdp"
@@ -303,6 +316,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:paddingVertical="@dimen/_8sdp"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
                         android:background="@drawable/btn_global_square2"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -319,15 +333,17 @@
                     </LinearLayout>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:layout_marginBottom="@dimen/_6sdp"
                         android:fontFamily="@font/rubik_semibold"
-                        android:lines="1"
+                        android:singleLine="true"
                         android:text="@string/camera"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12sdp"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="@dimen/_2sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -339,7 +355,7 @@
                     android:id="@+id/videoCamera"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_12sdp"
                     android:background="@drawable/btn_global_square1"
                     android:backgroundTint="#24262B"
                     app:layout_constraintEnd_toStartOf="@+id/gallery"
@@ -353,6 +369,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:paddingVertical="@dimen/_8sdp"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
                         android:background="@drawable/btn_global_square2"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -369,15 +386,17 @@
                     </LinearLayout>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:layout_marginBottom="@dimen/_6sdp"
                         android:fontFamily="@font/rubik_semibold"
-                        android:lines="1"
+                        android:singleLine="true"
                         android:text="@string/video"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12sdp"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="@dimen/_2sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -389,7 +408,7 @@
                     android:id="@+id/gallery"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_12sdp"
                     android:background="@drawable/btn_global_square1"
                     android:backgroundTint="#24262B"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -403,6 +422,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:paddingVertical="@dimen/_8sdp"
+                        android:layout_marginHorizontal="@dimen/_12sdp"
                         android:background="@drawable/btn_global_square2"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -419,15 +439,17 @@
                     </LinearLayout>
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:layout_marginBottom="@dimen/_6sdp"
                         android:fontFamily="@font/rubik_semibold"
-                        android:lines="1"
+                        android:singleLine="true"
                         android:text="@string/gallery"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12sdp"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="@dimen/_2sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -457,14 +479,15 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_4sdp"
                         android:fontFamily="@font/rubik_semibold"
-                        android:lines="1"
+                        android:singleLine="true"
                         android:text="@string/photo_grid"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sdp"
+                        android:layout_marginEnd="@dimen/_18sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ivMapView"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -494,14 +517,15 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_4sdp"
                         android:fontFamily="@font/rubik_semibold"
-                        android:lines="1"
+                        android:singleLine="true"
                         android:text="@string/template"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sdp"
+                        android:layout_marginEnd="@dimen/_18sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ivMapView"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -530,14 +554,15 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_2sdp"
                         android:fontFamily="@font/rubik_semibold"
-                        android:lines="1"
+                        android:singleLine="true"
                         android:text="@string/route_planner"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sdp"
+                        android:layout_marginEnd="@dimen/_18sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ivMapView"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -567,14 +592,15 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_4sdp"
                         android:fontFamily="@font/rubik_semibold"
-                        android:lines="1"
+                        android:singleLine="true"
                         android:text="@string/location"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sdp"
+                        android:layout_marginEnd="@dimen/_18sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ivMapView"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -609,7 +635,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/rubik_semibold"
-                                android:lines="1"
+                                android:singleLine="true"
                                 android:text="@string/gpl29"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/_15sdp" />
@@ -622,7 +648,7 @@
                                 android:layout_centerVertical="true"
                                 android:layout_marginEnd="@dimen/_6sdp"
                                 android:fontFamily="@font/rubik_regular"
-                                android:lines="1"
+                                android:singleLine="true"
                                 android:text="@string/gpl30"
                                 android:textColor="@drawable/txt_selector"
                                 android:textSize="@dimen/_11sdp" />
@@ -666,7 +692,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/rubik_semibold"
-                                android:lines="1"
+                                android:singleLine="true"
                                 android:text="@string/gps75"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/_15sdp" />
@@ -679,7 +705,7 @@
                                 android:layout_centerVertical="true"
                                 android:layout_marginEnd="@dimen/_6sdp"
                                 android:fontFamily="@font/rubik_regular"
-                                android:lines="1"
+                                android:singleLine="true"
                                 android:text="@string/gpl30"
                                 android:textColor="@drawable/txt_selector"
                                 android:textSize="@dimen/_11sdp" />

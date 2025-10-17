@@ -33,6 +33,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_APP_BADGE" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 <!--    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />-->
 
     <queries>
@@ -274,7 +275,8 @@
         <receiver
             android:name="chin.pswm.gps.photo.location.map.notification.NotificationReceiver"
             android:enabled="true"
-            android:exported="false" />
+            android:exported="true" />
+
 
     </application>
 
