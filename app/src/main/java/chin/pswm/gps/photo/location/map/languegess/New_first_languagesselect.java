@@ -6,6 +6,7 @@ import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity;
 import chin.pswm.gps.photo.location.map.activity.StartActivity;
@@ -73,6 +75,8 @@ public class New_first_languagesselect extends AppCompatActivity {
             return name1.compareToIgnoreCase(name2);
         });
 
+        setDefaultLanguageFirst();
+
         selectedPosition = SharedHelper.getInt(getApplicationContext(), "Lastlang_poss", -1);
         if (selectedPosition >= 0 && selectedPosition < languesslist.size()) {
             languageSelected = true;
@@ -104,6 +108,27 @@ public class New_first_languagesselect extends AppCompatActivity {
             }
         });
         ComposeLanguageKt.setMyContent(composeView);
+    }
+
+    public static void setDefaultLanguageFirst() {
+        // Get device default language code
+        String deviceLang = Locale.getDefault().getLanguage(); // e.g. "en"
+        String deviceCountry = Locale.getDefault().getCountry(); // e.g. "US"
+
+        String fullCode = deviceLang + "-" + deviceCountry;
+
+        int index = -1;
+
+        if (languesslist.contains(fullCode)) {
+            index = languesslist.indexOf(fullCode);
+        } else if (languesslist.contains(deviceLang)) {
+            index = languesslist.indexOf(deviceLang);
+        }
+
+        if (index > 0) {
+            String lang = languesslist.remove(index);
+            languesslist.add(0, lang);
+        }
     }
 
 

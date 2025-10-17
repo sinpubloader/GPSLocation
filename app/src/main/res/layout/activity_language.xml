@@ -46,7 +46,6 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/_15sdp"
             android:layout_marginBottom="@dimen/_5sdp"
-            android:background="@drawable/btn_global_square2"
             android:fontFamily="@font/rubik_meduim"
             android:gravity="center"
             android:text="@string/done"
