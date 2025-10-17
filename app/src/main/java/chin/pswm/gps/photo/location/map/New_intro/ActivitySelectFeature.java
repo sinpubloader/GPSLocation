@@ -88,28 +88,10 @@ public class ActivitySelectFeature extends AppCompatActivity {
     }
 
     public final void startMainActivity() {
-        boolean privacyScreenShown = SharedHelper.getBoolean(getApplicationContext(), "privacy_screen_shown", false);
         SharedHelper.putBoolean(getApplicationContext(), "finis_fo", true);
         if (ComposeSelectState.INSTANCE.isSelected()) {
-
-            if (privacyScreenShown) {
-                PermissionUtils permissionUtils = this.permissionUtils;
-                if (permissionUtils.checkPermission(permissionUtils.allPermissions)) {
-                    Intent intent = new Intent(this, StartActivity.class);
-                    intent.setFlags(268435456);
-                    startActivity(intent);
-                    finish();
-                    return;
-                }
-                Intent intent2 = new Intent(this, PermissionActivity.class);
-                intent2.setFlags(268435456);
-                startActivity(intent2);
-                finish();
-                return;
-            }
-            Intent intent2 = new Intent(this, ActivityPrivacyPolicy_New.class);
-            intent2.setFlags(268435456);
-            startActivity(intent2);
+            Intent intent = new Intent(this, New_IntroActivity.class);
+            startActivity(intent);
             finish();
         } else {
             Toast toast = Toast.makeText(ActivitySelectFeature.this, R.string.select_select_please, Toast.LENGTH_SHORT);

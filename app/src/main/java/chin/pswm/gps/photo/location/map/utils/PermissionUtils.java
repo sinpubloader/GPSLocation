@@ -1,11 +1,19 @@
 package chin.pswm.gps.photo.location.map.utils;
 
+import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
+import android.provider.Settings;
 import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import chin.pswm.gps.photo.location.map_debug.R;
+
 @SuppressWarnings("all")
 
 public class PermissionUtils {
@@ -45,6 +53,45 @@ public class PermissionUtils {
             }
         }
         return true;
+    }
+
+    public boolean checkPermissionn(Activity context, String[] strArr) {
+        boolean isAnyPermNotALlow = false;
+        for (String str : strArr) {
+            if (ContextCompat.checkSelfPermission(this.activity, str) != 0) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(context, Manifest.permission.POST_NOTIFICATIONS)) {
+                    new AlertDialog.Builder(context)
+                            .setTitle(context.getString(R.string.permission_require))
+                            .setMessage(context.getString(R.string.perm_detail))
+                            .setPositiveButton(context.getString(R.string.allow), (dialog, which) -> ActivityCompat.requestPermissions(
+                                    context,
+                                    new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                                    NOTIFICATION_PERMISSION
+                            ))
+                            .setNegativeButton(context.getString(R.string.cancel), null)
+                            .show();
+                } else {
+                    new AlertDialog.Builder(context)
+                            .setTitle(context.getString(R.string.permission_require))
+                            .setMessage(context.getString(R.string.perm_detail1))
+                            .setPositiveButton(context.getString(R.string.open_settings), (dialog, which) -> openAppSettings(context))
+                            .setNegativeButton(context.getString(R.string.cancel), null)
+                            .show();
+                }
+                isAnyPermNotALlow = true;
+                return false;
+            }
+            if (isAnyPermNotALlow)
+                break;
+        }
+        return true;
+    }
+
+    private void openAppSettings(Activity activity) {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", activity.getPackageName(), null);
+        intent.setData(uri);
+        activity.startActivity(intent);
     }
 
     public void callPermission(String[] strArr, int i) {

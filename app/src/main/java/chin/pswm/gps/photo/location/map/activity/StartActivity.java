@@ -54,6 +54,7 @@ import chin.pswm.gps.photo.location.map.notification.NotificationManager;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.GPSUtils;
 import chin.pswm.gps.photo.location.map.utils.ImageLocationExtractor;
+import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
@@ -90,6 +91,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
     public void onClickFolder(int i) {
     }
 
+    PermissionUtils permissionUtils;
+
     @Override
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(StartActivity.this, SharedHelper.getString(StartActivity.this, "lang_key", ""));
@@ -97,6 +100,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         ActivityStartNewBinding inflate = ActivityStartNewBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
+        this.permissionUtils = new PermissionUtils(this);
         notificationManager = new NotificationManager(MyApplication.instance);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {  // Android 13+
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES)
@@ -165,6 +169,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.routePlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
+                if (!checkPermissionStatus())
+                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m117xf67d6785(view);
                     return null;
@@ -174,6 +180,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.advanceCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
+                if (!checkPermissionStatus())
+                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m120x1c117086(view);
                     return null;
@@ -192,6 +200,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.photoGrid.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
+                if (!checkPermissionStatus())
+                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m122x67398288(view);
                     return null;
@@ -201,6 +211,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
+                if (!checkPermissionStatus())
+                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m123x8ccd8b89(view);
                     return null;
@@ -210,6 +222,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
+                if (!checkPermissionStatus())
+                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m124xb261948a(view);
                     return null;
@@ -255,6 +269,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.videoCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
+                if (!checkPermissionStatus())
+                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m119xd82abbfe(view);
                     return null;
@@ -787,5 +803,14 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
                     R.drawable.img_camera
             );
         }
+    }
+
+    public boolean checkPermissionStatus() {
+        PermissionUtils permissionUtils = this.permissionUtils;
+        if (permissionUtils.checkPermissionn(StartActivity.this, permissionUtils.allPermissions)) {
+            return true;
+        }
+        permissionUtils.callPermission(permissionUtils.allPermissions, permissionUtils.ALL_PERMISSIONS_REQUEST_CODE);
+        return false;
     }
 }

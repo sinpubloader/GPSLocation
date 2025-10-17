@@ -287,6 +287,9 @@
     <string name="noti_perm_detail1">Notification permission is permanently denied.\nPlease enable it from app settings.</string>
     <string name="open_settings">Open Settings</string>
     <string name="noti_perm_required">Notification Permission required!</string>
+    <string name="permission_require">Permission Require</string>
+    <string name="perm_detail">Please allow Permission for better app experience.</string>
+    <string name="perm_detail1">Permission is permanently denied.\nPlease enable it from app settings.</string>
 
 </resources>
 

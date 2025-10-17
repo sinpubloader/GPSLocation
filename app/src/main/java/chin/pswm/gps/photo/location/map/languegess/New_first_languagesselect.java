@@ -31,6 +31,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
+import chin.pswm.gps.photo.location.map.New_intro.ActivitySelectFeature;
 import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity;
 import chin.pswm.gps.photo.location.map.activity.StartActivity;
 import chin.pswm.gps.photo.location.map.compose.language.ComposeLanguageKt;
@@ -142,7 +143,7 @@ public class New_first_languagesselect extends AppCompatActivity {
             if (fromNavigationBar) {
                 intent = new Intent(getApplicationContext(), StartActivity.class);
             } else {
-                intent = new Intent(getApplicationContext(), New_IntroActivity.class);
+                intent = new Intent(getApplicationContext(), ActivitySelectFeature.class);
             }
             intent.putExtra("selectedLocale", localeCode);
             startActivity(intent);

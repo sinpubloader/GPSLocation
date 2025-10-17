@@ -15,7 +15,10 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import chin.pswm.gps.photo.location.map.activity.PermissionActivity;
+import chin.pswm.gps.photo.location.map.activity.StartActivity;
 import chin.pswm.gps.photo.location.map.compose.onboard.ComposeOnboardKt;
+import chin.pswm.gps.photo.location.map.languegess.ActivityPrivacyPolicy_New;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
@@ -59,12 +62,37 @@ public class New_IntroActivity extends AppCompatActivity {
         startMainActivity();
     }
 
+//    public final void startMainActivity() {
+//        Intent intent2 = new Intent(this, ActivitySelectFeature.class);
+//        intent2.setFlags(268435456);
+//        startActivity(intent2);
+//        finish();
+//    }
+
     public final void startMainActivity() {
-        Intent intent2 = new Intent(this, ActivitySelectFeature.class);
+        boolean privacyScreenShown = SharedHelper.getBoolean(getApplicationContext(), "privacy_screen_shown", false);
+        SharedHelper.putBoolean(getApplicationContext(), "finis_fo", true);
+        if (privacyScreenShown) {
+            PermissionUtils permissionUtils = this.permissionUtils;
+            if (permissionUtils.checkPermission(permissionUtils.allPermissions)) {
+                Intent intent = new Intent(this, StartActivity.class);
+                intent.setFlags(268435456);
+                startActivity(intent);
+                finish();
+                return;
+            }
+            Intent intent2 = new Intent(this, PermissionActivity.class);
+            intent2.setFlags(268435456);
+            startActivity(intent2);
+            finish();
+            return;
+        }
+        Intent intent2 = new Intent(this, ActivityPrivacyPolicy_New.class);
         intent2.setFlags(268435456);
         startActivity(intent2);
         finish();
     }
+
 
     private void completeIntro() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
