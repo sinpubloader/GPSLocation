@@ -31,12 +31,12 @@ fun setMyContent(composeView: ComposeView, composeViewBanner: ComposeView) {
     composeView.setContent {
         ComposeSplash(composeView)
     }
-    composeViewBanner.setContent {
-        BannerView(
-            adUnit = BuildConfig.banner_splash,
-            adUnitName = BuildConfig.banner_splash
-        )
-    }
+//    composeViewBanner.setContent {
+//        BannerView(
+//            adUnit = BuildConfig.banner_splash,
+//            adUnitName = BuildConfig.banner_splash
+//        )
+//    }
 }
 
 @Composable

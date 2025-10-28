@@ -75,6 +75,7 @@ public class settingActivity extends AppCompatActivity {
         binding.lang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                AdsManager.INSTANCE.getNativeLanguage().loadAd(settingActivity.this);
                 Intent intent = new Intent(settingActivity.this, New_first_languagesselect.class);
                 intent.putExtra("fromNavigationBar", true);
                 startActivity(intent);

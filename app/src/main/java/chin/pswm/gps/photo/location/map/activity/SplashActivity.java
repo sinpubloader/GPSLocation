@@ -52,7 +52,7 @@ public class SplashActivity extends BaseActivity {
             return;
         }
         this.permissionUtils = new PermissionUtils(this);
-        if (permissionUtils.isNotificationRequired()) {
+        /*if (permissionUtils.isNotificationRequired()) {
             if (permissionUtils.checkPermission(permissionUtils.permissionsNotification)) {
                 setupData();
             } else {
@@ -60,7 +60,8 @@ public class SplashActivity extends BaseActivity {
             }
         } else {
             setupData();
-        }
+        }*/
+        setupData();
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {

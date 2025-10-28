@@ -18,7 +18,9 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
 import chin.pswm.gps.photo.location.map.activity.PermissionActivity;
+import chin.pswm.gps.photo.location.map.activity.SplashActivity;
 import chin.pswm.gps.photo.location.map.activity.StartActivity;
+import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.compose.select.ComposeSelectKt;
 import chin.pswm.gps.photo.location.map.compose.select.ComposeSelectState;
 import chin.pswm.gps.photo.location.map.languegess.ActivityPrivacyPolicy_New;

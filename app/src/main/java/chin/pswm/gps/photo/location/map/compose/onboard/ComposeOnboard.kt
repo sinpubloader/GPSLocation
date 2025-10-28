@@ -94,10 +94,10 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
     val context = LocalContext.current
     val preview = LocalInspectionMode.current
     LaunchedEffect(Unit) {
-        AdsManager.INSTANCE.run {
-            nativeSelect.loadAd(context)
-            nativeSelectAlt.loadAd(context)
-        }
+//        AdsManager.INSTANCE.run {
+////            nativeSelect.loadAd(context)
+////            nativeSelectAlt.loadAd(context)
+//        }
     }
 
     var finallPage = 0

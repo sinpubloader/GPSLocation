@@ -33,7 +33,9 @@ import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.New_intro.ActivitySelectFeature;
 import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity;
+import chin.pswm.gps.photo.location.map.activity.SplashActivity;
 import chin.pswm.gps.photo.location.map.activity.StartActivity;
+import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.compose.language.ComposeLanguageKt;
 import chin.pswm.gps.photo.location.map.compose.language.ComposeLanguageState;
 import chin.pswm.gps.photo.location.map.utils.LocaleUtils;

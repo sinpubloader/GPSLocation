@@ -1,18 +1,15 @@
 package chin.pswm.gps.photo.location.map.activity;
 
 import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
-import static chin.pswm.gps.photo.location.map.AllKeyHub.showUserInterDataBack;
 
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
@@ -23,13 +20,11 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
-import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.MyApplication;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adunit.common.AdLoadError;
 import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
-import chin.pswm.gps.photo.location.map.languegess.New_first_languagesselect;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.PermissionUtils;

@@ -30,15 +30,16 @@ fun setMyContent(composeView: ComposeView) {
 @Composable
 fun ComposeLanguage(composeView: ComposeView) {
     val context = LocalContext.current
-    LaunchedEffect(Unit) {
-        AdsManager.INSTANCE.nativeLanguageAlt.loadAd(context)
-    }
+//    LaunchedEffect(Unit) {
+//        AdsManager.INSTANCE.nativeLanguageAlt.loadAd(context)
+//    }
 
     LaunchedEffect(ComposeLanguageState.clickedLanguage) {
         AdsManager.INSTANCE.run {
-            nativeOnboard1.loadAd(context)
-            nativeFSN.loadAd(context)
-            nativeOnboard3.loadAd(context)
+            nativeSelect.loadAd(context)
+//            nativeOnboard1.loadAd(context)
+//            nativeFSN.loadAd(context)
+//            nativeOnboard3.loadAd(context)
         }
     }
 
@@ -47,15 +48,15 @@ fun ComposeLanguage(composeView: ComposeView) {
             .fillMaxWidth()
             .padding(6.dp)
     ) {
-        if (ComposeLanguageState.clickedLanguage) {
-            NativeView(
-                modifier = Modifier.fillMaxWidth(),
-                nativeAdUnit = AdsManager.INSTANCE.nativeLanguageAlt,
-                layoutConfig = "layout_language_alt" to R.layout.native_media_ctr_bot_big_filled,
-                layoutFaceBookConfig = "layout_language_meta_alt" to R.layout.native_media_ctr_bot_big_filled,
-            )
-            MyApplication.sendEvent("Language_Screen", "language_alt")
-        } else {
+//        if (ComposeLanguageState.clickedLanguage) {
+//            NativeView(
+//                modifier = Modifier.fillMaxWidth(),
+//                nativeAdUnit = AdsManager.INSTANCE.nativeLanguageAlt,
+//                layoutConfig = "layout_language_alt" to R.layout.native_media_ctr_bot_big_filled,
+//                layoutFaceBookConfig = "layout_language_meta_alt" to R.layout.native_media_ctr_bot_big_filled,
+//            )
+//            MyApplication.sendEvent("Language_Screen", "language_alt")
+//        } else {
             NativeView(
                 modifier = Modifier.fillMaxWidth(),
                 nativeAdUnit = AdsManager.INSTANCE.nativeLanguage,
@@ -63,7 +64,7 @@ fun ComposeLanguage(composeView: ComposeView) {
                 layoutFaceBookConfig = "layout_language_meta" to R.layout.native_media_ctr_bot_big_filled,
             )
             MyApplication.sendEvent("Language_Screen", "language")
-        }
+//        }
 
     }
 }
