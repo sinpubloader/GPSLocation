@@ -3,6 +3,7 @@ package chin.pswm.gps.photo.location.map.compose.onboard
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -394,6 +396,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
 //    )
 }
 
+/*
 @Composable
 private fun BottomBar(
     onboardType: OnboardType,
@@ -436,5 +439,59 @@ private fun BottomBar(
                     onNext()
                 }
         )
+    }
+}*/
+
+@Composable
+private fun BottomBar(
+    onboardType: OnboardType,
+    onNext: () -> Unit
+) {
+    Box(
+        Modifier
+            .fillMaxWidth()
+            .padding(12.dp)
+    ) {
+        // Center indicators (dots)
+        CenterRow(
+            itemSpacing = 4.dp,
+            modifier = Modifier.align(Alignment.Center)
+        ) {
+            OnboardType.getEntries().forEach { type ->
+                val isSelected by remember(onboardType) {
+                    derivedStateOf { onboardType == type }
+                }
+
+                Box(
+                    Modifier
+                        .height(8.dp)
+                        .width(if (isSelected) 32.dp else 8.dp)
+                        .circle()
+                        .background(primary.copy(if (isSelected) 1f else 0.4f))
+                )
+            }
+        }
+
+        Box(
+            modifier = Modifier
+                .align(Alignment.CenterEnd)
+                .clip(RoundedCornerShape(50))
+                .background(primary)
+                .clickable { onNext() }
+                .padding(horizontal = 24.dp, vertical = 10.dp)
+        ) {
+            Text(
+                text = stringResource(
+                    if (onboardType == OnboardType.Onboard4)
+                        R.string.get_start
+                    else
+                        R.string.next
+                ),
+                style = appFont(600, 18),
+                color = Color.White,              // white text like your image
+                textAlign = TextAlign.Center,
+                modifier = Modifier.align(Alignment.Center)
+            )
+        }
     }
 }

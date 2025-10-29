@@ -60,8 +60,8 @@ fun ComposeLanguage(composeView: ComposeView) {
             NativeView(
                 modifier = Modifier.fillMaxWidth(),
                 nativeAdUnit = AdsManager.INSTANCE.nativeLanguage,
-                layoutConfig = "layout_language" to R.layout.native_media_ctr_bot_big_filled,
-                layoutFaceBookConfig = "layout_language_meta" to R.layout.native_media_ctr_bot_big_filled,
+                layoutConfig = "layout_language" to R.layout.native_media_left_filled,
+                layoutFaceBookConfig = "layout_language_meta" to R.layout.native_media_left_filled,
             )
             MyApplication.sendEvent("Language_Screen", "language")
 //        }

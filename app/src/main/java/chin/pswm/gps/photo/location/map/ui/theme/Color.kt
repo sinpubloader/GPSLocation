@@ -13,6 +13,9 @@ val primary = Color(0xFF8c55ec)
 val primaryColor = Color(0xFF8c55ec)
 
 @Stable
+val colorMeta = Color(0xFF3083FF)
+
+@Stable
 val secondary = Color(0xFFFCEECA)
 
 @Stable
