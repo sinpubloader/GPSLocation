@@ -222,6 +222,12 @@ class AdsManager(
         )
     }
 
+    val nativeHome by lazy {
+        NativeAdUnit(
+            "native_home" to BuildConfig.native_home,
+        )
+    }
+
     // for config
     @Stable
     val reloadAdsLanguage: Boolean

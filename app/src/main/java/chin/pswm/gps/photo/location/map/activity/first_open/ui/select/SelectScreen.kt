@@ -39,7 +39,7 @@ fun SelectScreen(
     }
 
     SelectContent(
-        isAlt = true,
+        isAlt = false,
         onContinue = {
             showSelect = true
         },

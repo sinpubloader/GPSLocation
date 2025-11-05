@@ -127,13 +127,13 @@ fun SplashScreen(
                         }
 
                         Dest.Main -> {
-                            // todo: has native home?
+                            adsManager.nativeHome.loadAd(context)
                         }
 
                         else -> Unit
                     }
                 } else {
-                    // todo: has native home?
+                    adsManager.nativeHome.loadAd(context)
                 }
             }
         }

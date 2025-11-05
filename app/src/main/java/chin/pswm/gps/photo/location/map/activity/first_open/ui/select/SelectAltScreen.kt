@@ -48,7 +48,7 @@ fun SelectAltScreen(
     }
 
     SelectContent(
-        isAlt = false,
+        isAlt = true,
         onContinue = {
             onNext()
         }
@@ -66,7 +66,7 @@ fun SelectAltScreen(
             }
 
             Dest.Main -> {
-                // todo: has native home?
+                adsManager.nativeHome.loadAd(context)
             }
 
             else -> Unit

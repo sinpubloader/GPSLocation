@@ -5,7 +5,6 @@ import androidx.activity.BackEventCompat
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.PredictiveBackHandler
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -37,6 +36,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -54,6 +54,7 @@ import chin.pswm.gps.photo.location.map.earthview.custom.BaseScreen
 import chin.pswm.gps.photo.location.map.earthview.custom.CenterColumn
 import chin.pswm.gps.photo.location.map.earthview.custom.CenterRow
 import chin.pswm.gps.photo.location.map.earthview.custom.circle
+import chin.pswm.gps.photo.location.map.earthview.custom.onClick
 import chin.pswm.gps.photo.location.map.earthview.custom.onClickNotRipple
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
 import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
@@ -85,9 +86,8 @@ fun OnboardContent(onFinish: () -> Unit) {
         }
     }
     val pageState = rememberPagerState {
-        OnboardType.entries.count() + if (hasFsn) 1 else 0
+        OnboardType.entries.count()
     }
-    var currentPage by remember { mutableIntStateOf(0) }
 
     LaunchedEffect(Unit) {
         snapshotFlow { pageState.currentPage }.collectLatest { page ->
@@ -112,7 +112,7 @@ fun OnboardContent(onFinish: () -> Unit) {
                         if (adsManager.reloadAdsFSN) adsManager.nativeFSN.loadAd(context)
                         if (adsManager.reloadAdsOnboard) adsManager.nativeOnboard4.loadAd(context)
                     } else {
-                        // todo: has native home?
+                        adsManager.nativeHome.loadAd(context)
                     }
                 }
 
@@ -170,20 +170,6 @@ fun OnboardContent(onFinish: () -> Unit) {
 
     BaseScreen(
         backgroundColor = colorWhite,
-        bottomBar = {
-            BottomBar(
-                onboardType = OnboardType.Onboard1,
-                onNext = {
-                    if (pageState.currentPage == pageState.pageCount - 1) {
-                        onFinish()
-                    } else {
-                        scope.launch {
-                            pageState.animateScrollToPage(pageState.currentPage + 1)
-                        }
-                    }
-                }
-            )
-        }
     ) {
         HorizontalPager(
             state = pageState,
@@ -218,10 +204,19 @@ fun OnboardContent(onFinish: () -> Unit) {
                                     .padding(16.dp)
                             )
 
+                            BottomBar(
+                                onboardType = OnboardType.Onboard1,
+                                onNext = {
+                                    scope.launch {
+                                        pageState.animateScrollToPage(pageState.currentPage + 1)
+                                    }
+                                }
+                            )
+
                             NativeView(
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(10.dp),
+                                    .padding(vertical = 10.dp),
                                 nativeAdUnit = AdsManager.INSTANCE.nativeOnboard1,
                                 layoutConfig = "layout_onboard_1" to R.layout.native_media_ctr_bot_small_filled,
                                 layoutFaceBookConfig = "layout_onboard_1_meta" to R.layout.native_media_ctr_bot_small_filled,
@@ -239,16 +234,31 @@ fun OnboardContent(onFinish: () -> Unit) {
                             modifier = Modifier.fillMaxSize()
                         )
 
-                        Text(
-                            stringResource(OnboardType.Onboard2.title),
-                            style = appFont(700, 24),
-                            color = Color.Black,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier
+                        CenterColumn(
+                            Modifier
                                 .align(Alignment.BottomCenter)
                                 .fillMaxWidth()
-                                .padding(16.dp)
-                        )
+                        ) {
+                            Text(
+                                stringResource(OnboardType.Onboard2.title),
+                                style = appFont(700, 24),
+                                color = Color.Black,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp)
+                            )
+
+                            BottomBar(
+                                onboardType = OnboardType.Onboard2,
+                                onNext = {
+                                    scope.launch {
+                                        pageState.animateScrollToPage(pageState.currentPage + 1)
+                                    }
+                                }
+                            )
+                        }
+
                     }
                 }
 
@@ -262,7 +272,7 @@ fun OnboardContent(onFinish: () -> Unit) {
                                 modifier = Modifier.fillMaxSize(),
                                 nativeAdUnit = AdsManager.INSTANCE.nativeFSN,
                                 layoutConfig = "layoutFSOnboard" to R.layout.native_full_screen,
-                                layoutFaceBookConfig = "layoutFSOnboardMeta" to R.layout.native_full_screen,
+                                layoutFaceBookConfig = "layoutFSOnboardMeta" to R.layout.native_full_screen_meta,
                             )
 
                             AppIcon(
@@ -301,6 +311,15 @@ fun OnboardContent(onFinish: () -> Unit) {
                                     .fillMaxWidth()
                                     .padding(16.dp)
                             )
+
+                            BottomBar(
+                                onboardType = OnboardType.Onboard3,
+                                onNext = {
+                                    scope.launch {
+                                        pageState.animateScrollToPage(pageState.currentPage + 1)
+                                    }
+                                }
+                            )
                         }
                     }
                 }
@@ -328,10 +347,17 @@ fun OnboardContent(onFinish: () -> Unit) {
                                 .padding(16.dp)
                         )
 
+                        BottomBar(
+                            onboardType = OnboardType.Onboard4,
+                            onNext = {
+                                onFinish()
+                            }
+                        )
+
                         NativeView(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(10.dp),
+                                .padding(vertical = 10.dp),
                             nativeAdUnit = AdsManager.INSTANCE.nativeOnboard4,
                             layoutConfig = "layout_onboard_4" to R.layout.native_media_ctr_bot_small_filled,
                             layoutFaceBookConfig = "layout_onboard_4_meta" to R.layout.native_media_ctr_bot_small_filled,
@@ -397,15 +423,24 @@ private fun BottomBar(
     onboardType: OnboardType,
     onNext: () -> Unit
 ) {
+    val preview = LocalInspectionMode.current
     Box(
         Modifier
             .fillMaxWidth()
             .padding(12.dp)
     ) {
         // Center indicators (dots)
+
+        var isTextAction by remember { mutableStateOf(true) }
+        if (!preview) {
+            LaunchedEffect(Unit) {
+                isTextAction = Prefs.INSTANCE.getBoolean("select_screen_text_action", true)
+            }
+        }
         CenterRow(
             itemSpacing = 4.dp,
-            modifier = Modifier.align(Alignment.Center)
+            modifier = Modifier
+                .align(Alignment.CenterStart)
         ) {
             OnboardType.getEntries().forEach { type ->
                 val isSelected by remember(onboardType) {
@@ -422,14 +457,7 @@ private fun BottomBar(
             }
         }
 
-        Box(
-            modifier = Modifier
-                .align(Alignment.CenterEnd)
-                .clip(RoundedCornerShape(50))
-                .background(primary)
-                .clickable { onNext() }
-                .padding(horizontal = 24.dp, vertical = 10.dp)
-        ) {
+        if (isTextAction) {
             Text(
                 text = stringResource(
                     if (onboardType == OnboardType.Onboard4)
@@ -438,10 +466,35 @@ private fun BottomBar(
                         R.string.next
                 ),
                 style = appFont(600, 18),
-                color = Color.White,              // white text like your image
+                color = primary,
                 textAlign = TextAlign.Center,
-                modifier = Modifier.align(Alignment.Center)
+                modifier = Modifier
+                    .align(Alignment.CenterEnd)
+                    .padding(horizontal = 14.dp)
+                    .onClickNotRipple("next") { onNext() }
             )
+        } else {
+            Box(
+                modifier = Modifier
+                    .align(Alignment.CenterEnd)
+                    .clip(RoundedCornerShape(50))
+                    .background(primary)
+                    .onClick("next") { onNext() }
+                    .padding(horizontal = 24.dp, vertical = 10.dp)
+            ) {
+                Text(
+                    text = stringResource(
+                        if (onboardType == OnboardType.Onboard4)
+                            R.string.get_start
+                        else
+                            R.string.next
+                    ),
+                    style = appFont(600, 18),
+                    color = Color.White,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.align(Alignment.Center)
+                )
+            }
         }
     }
 }

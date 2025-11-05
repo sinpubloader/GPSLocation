@@ -86,7 +86,7 @@ fun LanguageAltScreen(
             }
 
             Dest.Main -> {
-                // todo: has native home?
+                adsManager.nativeHome.loadAd(context)
             }
 
             else -> Unit
