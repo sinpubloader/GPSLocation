@@ -46,7 +46,6 @@ import com.google.android.gms.ads.AdView
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.koin.compose.koinInject
 import timber.log.Timber
 
 @Immutable

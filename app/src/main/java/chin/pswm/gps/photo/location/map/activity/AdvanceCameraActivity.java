@@ -254,19 +254,17 @@ public class AdvanceCameraActivity extends BaseActivity implements OnMapReadyCal
 
 
     public void m49x2f46b069(View view) {
-//        AdsManager.INSTANCE.showInterInApp(
-//                AdvanceCameraActivity.this,
-//                false,
-//                new Function0<Unit>() {
-//                    @Override
-//                    public Unit invoke() {
-//                        AdvanceCameraActivity.super.onBackPressed();
-//                        return null;
-//                    }
-//                }
-//        );
-        //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
-        AdvanceCameraActivity.super.onBackPressed();
+        AdsManager.INSTANCE.showInterInApp(
+                AdvanceCameraActivity.this,
+                false,
+                new Function0<Unit>() {
+                    @Override
+                    public Unit invoke() {
+                        AdvanceCameraActivity.super.onBackPressed();
+                        return null;
+                    }
+                }
+        );
     }
 
 

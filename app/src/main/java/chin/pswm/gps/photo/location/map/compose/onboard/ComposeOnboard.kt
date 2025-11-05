@@ -47,13 +47,13 @@ import chin.pswm.gps.photo.location.map.MyApplication
 import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
-import chin.pswm.gps.photo.location.map.earthview.custom.AppIcon
-import chin.pswm.gps.photo.location.map.earthview.custom.AppImage
-import chin.pswm.gps.photo.location.map.earthview.custom.BaseScreen
-import chin.pswm.gps.photo.location.map.earthview.custom.CenterColumn
-import chin.pswm.gps.photo.location.map.earthview.custom.CenterRow
-import chin.pswm.gps.photo.location.map.earthview.custom.circle
-import chin.pswm.gps.photo.location.map.earthview.custom.onClickNotRipple
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.AppIcon
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.AppImage
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.BaseScreen
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.CenterColumn
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.CenterRow
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.circle
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.onClickNotRipple
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
 import chin.pswm.gps.photo.location.map.ui.theme.mainBg
 import chin.pswm.gps.photo.location.map.ui.theme.primary
@@ -329,7 +329,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .padding(10.dp),
-                                    nativeAdUnit = AdsManager.INSTANCE.nativeOnboard3,
+                                    nativeAdUnit = AdsManager.INSTANCE.nativeOnboard4,
                                     layoutConfig = "layout_onboard_4" to R.layout.native_media_ctr_bot_big_filled,
                                     layoutFaceBookConfig = "layout_onboard_4_meta" to R.layout.native_media_ctr_bot_big_filled,
                                 )
@@ -366,12 +366,11 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(10.dp),
-                            nativeAdUnit = AdsManager.INSTANCE.nativeOnboard3,
+                            nativeAdUnit = AdsManager.INSTANCE.nativeOnboard1,
                             layoutConfig = "layout_onboard_4" to R.layout.native_media_ctr_bot_big_filled,
                             layoutFaceBookConfig = "layout_onboard_4_meta" to R.layout.native_media_ctr_bot_big_filled,
                         )
                     }
-//                    MyApplication.sendEvent("Onboarde_Screen", "onboard_4")
                 }
             }
         }

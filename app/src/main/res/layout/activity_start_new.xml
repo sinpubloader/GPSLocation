@@ -12,8 +12,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:layout_alignParentTop="true"
-            android:gravity=""
             android:layout_marginTop="@dimen/_6sdp"
+            android:gravity=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -29,21 +29,21 @@
                 android:text="@string/gpl22"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/compass"
                 android:layout_width="@dimen/_30sdp"
                 android:layout_height="@dimen/_30sdp"
-                android:layout_toStartOf="@id/setting"
-                android:src="@drawable/icn_compass_new"
-                android:padding="@dimen/_2sdp"
                 android:layout_marginEnd="@dimen/_6sdp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_toStartOf="@id/setting"
+                android:padding="@dimen/_2sdp"
+                android:src="@drawable/icn_compass_new"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/setting"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/setting"
@@ -53,9 +53,9 @@
                 android:layout_marginEnd="@dimen/_8sdp"
                 android:padding="@dimen/_4sdp"
                 android:src="@drawable/icn_settings"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -75,8 +75,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
-                android:paddingBottom="@dimen/_10sdp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/_10sdp">
 
                 <!--                <androidx.cardview.widget.CardView-->
                 <!--                    android:id="@+id/advanceCamera"-->
@@ -94,9 +94,9 @@
                     android:id="@+id/advanceCamera"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
                     android:background="@drawable/icn_home_gps_bg"
                     android:paddingStart="@dimen/_16sdp"
-                    android:layout_marginHorizontal="@dimen/_10sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -144,9 +144,9 @@
                         android:text="@string/pinpoint_every_moment_n_with_gps_accuracy"
                         android:textColor="#DADCDE"
                         android:textSize="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="@+id/view2"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvGpsCam"
-                        app:layout_constraintEnd_toEndOf="@+id/view2"/>
+                        app:layout_constraintTop_toBottomOf="@+id/tvGpsCam" />
 
                     <TextView
                         android:id="@+id/tvCapture"
@@ -157,13 +157,13 @@
                         android:background="@drawable/btn_global_square"
                         android:elevation="@dimen/_4sdp"
                         android:fontFamily="@font/rubik_semibold"
+                        android:maxWidth="@dimen/_100sdp"
                         android:paddingHorizontal="@dimen/_10sdp"
                         android:paddingVertical="@dimen/_6sdp"
-                        android:text="@string/capture_photo"
                         android:singleLine="true"
+                        android:text="@string/capture_photo"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sdp"
-                        android:maxWidth="@dimen/_100sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvpinpoint" />
@@ -247,6 +247,15 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <androidx.compose.ui.platform.ComposeView
+                    android:id="@+id/composeNative"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rlEathView" />
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/mapViewCard"
                     android:layout_width="match_parent"
@@ -256,7 +265,7 @@
                     android:padding="@dimen/_14sdp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rlEathView">
+                    app:layout_constraintTop_toBottomOf="@+id/composeNative">
 
                     <ImageView
                         android:id="@+id/ivMapView"
@@ -287,12 +296,12 @@
                         android:id="@+id/frameLayoutOne"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:visibility="gone"
                         android:layout_marginEnd="@dimen/_60sdp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -302,10 +311,10 @@
                     android:id="@+id/camera"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:paddingVertical="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
                     android:background="@drawable/btn_global_square1"
                     android:backgroundTint="#24262B"
-                    android:layout_marginTop="@dimen/_16sdp"
+                    android:paddingVertical="@dimen/_12sdp"
                     app:layout_constraintEnd_toStartOf="@+id/videoCamera"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/mapViewCard">
@@ -314,13 +323,13 @@
                         android:id="@+id/llPhoto"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:paddingVertical="@dimen/_8sdp"
                         android:layout_marginHorizontal="@dimen/_12sdp"
                         android:background="@drawable/btn_global_square2"
+                        android:gravity="center"
+                        android:paddingVertical="@dimen/_8sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <ImageView
                             android:layout_width="@dimen/_36sdp"
@@ -335,18 +344,18 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_2sdp"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:layout_marginBottom="@dimen/_6sdp"
                         android:fontFamily="@font/rubik_semibold"
+                        android:gravity="center"
                         android:singleLine="true"
                         android:text="@string/camera"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12sdp"
-                        android:gravity="center"
-                        android:layout_marginHorizontal="@dimen/_2sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/llPhoto" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -355,11 +364,11 @@
                     android:id="@+id/videoCamera"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:paddingVertical="@dimen/_12sdp"
+                    android:layout_marginStart="@dimen/_12sdp"
                     android:background="@drawable/btn_global_square1"
                     android:backgroundTint="#24262B"
+                    android:paddingVertical="@dimen/_12sdp"
                     app:layout_constraintEnd_toStartOf="@+id/gallery"
-                    android:layout_marginStart="@dimen/_12sdp"
                     app:layout_constraintStart_toEndOf="@+id/camera"
                     app:layout_constraintTop_toTopOf="@+id/camera">
 
@@ -367,13 +376,13 @@
                         android:id="@+id/llCamera"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:paddingVertical="@dimen/_8sdp"
                         android:layout_marginHorizontal="@dimen/_12sdp"
                         android:background="@drawable/btn_global_square2"
+                        android:gravity="center"
+                        android:paddingVertical="@dimen/_8sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <ImageView
                             android:layout_width="@dimen/_36sdp"
@@ -388,18 +397,18 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_2sdp"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:layout_marginBottom="@dimen/_6sdp"
                         android:fontFamily="@font/rubik_semibold"
+                        android:gravity="center"
                         android:singleLine="true"
                         android:text="@string/video"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12sdp"
-                        android:gravity="center"
-                        android:layout_marginHorizontal="@dimen/_2sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/llCamera" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -408,11 +417,11 @@
                     android:id="@+id/gallery"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:paddingVertical="@dimen/_12sdp"
+                    android:layout_marginStart="@dimen/_12sdp"
                     android:background="@drawable/btn_global_square1"
                     android:backgroundTint="#24262B"
+                    android:paddingVertical="@dimen/_12sdp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginStart="@dimen/_12sdp"
                     app:layout_constraintStart_toEndOf="@+id/videoCamera"
                     app:layout_constraintTop_toTopOf="@+id/camera">
 
@@ -420,13 +429,13 @@
                         android:id="@+id/llgallery"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:paddingVertical="@dimen/_8sdp"
                         android:layout_marginHorizontal="@dimen/_12sdp"
                         android:background="@drawable/btn_global_square2"
+                        android:gravity="center"
+                        android:paddingVertical="@dimen/_8sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <ImageView
                             android:layout_width="@dimen/_36sdp"
@@ -441,39 +450,39 @@
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_2sdp"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:layout_marginBottom="@dimen/_6sdp"
                         android:fontFamily="@font/rubik_semibold"
+                        android:gravity="center"
                         android:singleLine="true"
                         android:text="@string/gallery"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_12sdp"
-                        android:gravity="center"
-                        android:layout_marginHorizontal="@dimen/_2sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/llgallery" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-                
+
                 <LinearLayout
                     android:id="@+id/photoGrid"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_42sdp"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:gravity="center|start"
                     android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:background="@drawable/ic_home_feature_bg2"
+                    android:gravity="center|start"
+                    app:layout_constraintEnd_toStartOf="@+id/template"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/camera"
-                    app:layout_constraintEnd_toStartOf="@+id/template">
+                    app:layout_constraintTop_toBottomOf="@id/camera">
 
                     <ImageView
                         android:layout_width="@dimen/_26sdp"
                         android:layout_height="@dimen/_26sdp"
-                        android:src="@drawable/icn_photo_grid"
                         android:layout_marginStart="@dimen/_8sdp"
+                        android:src="@drawable/icn_photo_grid"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -482,12 +491,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginEnd="@dimen/_18sdp"
                         android:fontFamily="@font/rubik_semibold"
                         android:singleLine="true"
                         android:text="@string/photo_grid"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sdp"
-                        android:layout_marginEnd="@dimen/_18sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ivMapView"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -498,20 +507,20 @@
                     android:id="@+id/template"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:gravity="center|start"
                     android:layout_marginStart="@dimen/_14sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
                     android:background="@drawable/ic_home_feature_bg2"
-                    app:layout_constraintStart_toEndOf="@+id/photoGrid"
-                    app:layout_constraintTop_toTopOf="@+id/photoGrid"
+                    android:gravity="center|start"
                     app:layout_constraintBottom_toBottomOf="@+id/photoGrid"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/photoGrid"
+                    app:layout_constraintTop_toTopOf="@+id/photoGrid">
 
                     <ImageView
                         android:layout_width="@dimen/_26sdp"
                         android:layout_height="@dimen/_26sdp"
-                        android:src="@drawable/icn_template"
                         android:layout_marginStart="@dimen/_6sdp"
+                        android:src="@drawable/icn_template"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -520,12 +529,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginEnd="@dimen/_18sdp"
                         android:fontFamily="@font/rubik_semibold"
                         android:singleLine="true"
                         android:text="@string/template"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sdp"
-                        android:layout_marginEnd="@dimen/_18sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ivMapView"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -536,19 +545,19 @@
                     android:id="@+id/route_plan"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_42sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:gravity="center|start"
                     android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
                     android:background="@drawable/ic_home_feature_bg2"
+                    android:gravity="center|start"
+                    app:layout_constraintEnd_toStartOf="@+id/location"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/photoGrid"
-                    app:layout_constraintEnd_toStartOf="@+id/location">
+                    app:layout_constraintTop_toBottomOf="@id/photoGrid">
 
                     <ImageView
                         android:layout_width="@dimen/_26sdp"
                         android:layout_height="@dimen/_26sdp"
-                        android:src="@drawable/icn_route_planner"
                         android:layout_marginStart="@dimen/_6sdp"
+                        android:src="@drawable/icn_route_planner"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -557,12 +566,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_2sdp"
+                        android:layout_marginEnd="@dimen/_18sdp"
                         android:fontFamily="@font/rubik_semibold"
                         android:singleLine="true"
                         android:text="@string/route_planner"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sdp"
-                        android:layout_marginEnd="@dimen/_18sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ivMapView"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -573,20 +582,20 @@
                     android:id="@+id/location"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:gravity="center|start"
                     android:layout_marginStart="@dimen/_14sdp"
                     android:layout_marginEnd="@dimen/_6sdp"
                     android:background="@drawable/ic_home_feature_bg2"
-                    app:layout_constraintStart_toEndOf="@+id/route_plan"
-                    app:layout_constraintTop_toTopOf="@+id/route_plan"
+                    android:gravity="center|start"
                     app:layout_constraintBottom_toBottomOf="@+id/route_plan"
-                    app:layout_constraintEnd_toEndOf="parent">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/route_plan"
+                    app:layout_constraintTop_toTopOf="@+id/route_plan">
 
                     <ImageView
                         android:layout_width="@dimen/_26sdp"
                         android:layout_height="@dimen/_26sdp"
-                        android:src="@drawable/icn_location"
                         android:layout_marginStart="@dimen/_8sdp"
+                        android:src="@drawable/icn_location"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -595,12 +604,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginEnd="@dimen/_18sdp"
                         android:fontFamily="@font/rubik_semibold"
                         android:singleLine="true"
                         android:text="@string/location"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_11sdp"
-                        android:layout_marginEnd="@dimen/_18sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ivMapView"
                         app:layout_constraintTop_toTopOf="parent" />

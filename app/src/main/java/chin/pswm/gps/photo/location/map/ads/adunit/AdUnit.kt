@@ -57,9 +57,19 @@ abstract class AdUnit<T>(
     val status: AdsStatus
         get() = statusFlow.value
 
+    private var disable: Boolean = false
+
     @Stable
     val enabled: Boolean
-        get() = listAdData.any { it.enable }
+        get() = listAdData.any { it.enable } && !disable
+
+    fun disable() {
+        disable = true
+    }
+
+    fun unDisable() {
+        disable = false
+    }
 
     fun impressionAtLeast(time: Long = 1000) = System.currentTimeMillis() - adImpressionTime >= time
 

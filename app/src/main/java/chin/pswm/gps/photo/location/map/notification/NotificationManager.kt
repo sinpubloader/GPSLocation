@@ -8,38 +8,40 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.os.Build
+import android.widget.RemoteViews
 import androidx.annotation.DrawableRes
-import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.os.bundleOf
 import chin.pswm.gps.photo.location.map.activity.StartActivity
+import chin.pswm.gps.photo.location.map.activity.first_open.FirstOpenActivity
+import chin.pswm.gps.photo.location.map.activity.first_open.common.Constants
 import chin.pswm.gps.photo.location.map.ads.ext.tryWithoutCatch
 import chin.pswm.gps.photo.location.map.ui.theme.PermissionManager.Companion.allowNotification
 import chin.pswm.gps.photo.location.map.utils.BitmapUtil
 import chin.pswm.gps.photo.location.map.utils.ITag
+import chin.pswm.gps.photo.location.map_debug.R
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.util.Calendar
-import chin.pswm.gps.photo.location.map_debug.R
 
-@RequiresApi(Build.VERSION_CODES.O)
 class NotificationManager(
     private val app: Application
 ) : ITag {
 
 
     companion object {
-        const val CHANNEL_PINNED = "recovery_channel_pinned"
         const val CHANNEL_KILL_APP = "recovery_channel_kill_app"
         const val CHANNEL_DAILY = "recovery_channel_daily"
 
-        const val DAILY_NOTIFICATION = 21051999
-        private const val CODE_REQUEST_DAILY = 123213
+        const val DAILY_NOTIFICATION = 234213423
+        const val PINNED_NOTIFICATION_ID = 445345
+        private const val CODE_REQUEST_DAILY = 12123213
+
+        lateinit var INSTANCE: chin.pswm.gps.photo.location.map.notification.NotificationManager
     }
 
     private val coroutineScope = CoroutineScope(Dispatchers.IO + CoroutineExceptionHandler { _, e ->
@@ -47,7 +49,7 @@ class NotificationManager(
     })
 
     init {
-        createNotificationChannel(CHANNEL_PINNED, NotificationManager.IMPORTANCE_HIGH)
+        INSTANCE = this@NotificationManager
         createNotificationChannel(CHANNEL_KILL_APP, NotificationManager.IMPORTANCE_LOW)
         createNotificationChannel(CHANNEL_DAILY, NotificationManager.IMPORTANCE_HIGH)
     }
@@ -153,6 +155,117 @@ class NotificationManager(
             with(NotificationManagerCompat.from(app)) {
                 notify(notificationId, notification)
             }
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    fun setReminderPinned(context: Context) {
+        if (!context.allowNotification) return
+        Timber.tag(TAG).d("setReminderPinned: ")
+        val pendingIntentNone = PendingIntent.getActivity(
+            context,
+            123123123,
+            Intent(context, FirstOpenActivity::class.java).apply {
+                action = Intent.ACTION_VIEW
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtras(
+                    bundleOf(
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                    )
+                )
+            },
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val pendingIntentEarthView = PendingIntent.getActivity(
+            context,
+            1231234,
+            Intent(context, FirstOpenActivity::class.java).apply {
+                action = Intent.ACTION_VIEW
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtras(
+                    bundleOf(
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                    )
+                )
+            },
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val pendingIntentCamera = PendingIntent.getActivity(
+            context,
+            1231253,
+            Intent(context, FirstOpenActivity::class.java).apply {
+                action = Intent.ACTION_VIEW
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtras(
+                    bundleOf(
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                    )
+                )
+            },
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val pendingIntentGrid = PendingIntent.getActivity(
+            context,
+            1231236,
+            Intent(context, FirstOpenActivity::class.java).apply {
+                action = Intent.ACTION_VIEW
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtras(
+                    bundleOf(
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                    )
+                )
+            },
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val pendingIntentRoute = PendingIntent.getActivity(
+            context,
+            1231237,
+            Intent(context, FirstOpenActivity::class.java).apply {
+                action = Intent.ACTION_VIEW
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtras(
+                    bundleOf(
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                    )
+                )
+            },
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val customView = RemoteViews(context.packageName, R.layout.layout_notification_pinned).apply {
+            setOnClickPendingIntent(R.id.llEarthView, pendingIntentEarthView)
+            setOnClickPendingIntent(R.id.llCamera, pendingIntentCamera)
+            setOnClickPendingIntent(R.id.llGrid, pendingIntentGrid)
+            setOnClickPendingIntent(R.id.llRoute, pendingIntentRoute)
+        }
+
+        val customBigView = RemoteViews(context.packageName, R.layout.layout_notification_pinned_expand).apply {
+            setOnClickPendingIntent(R.id.llEarthView, pendingIntentEarthView)
+            setOnClickPendingIntent(R.id.llCamera, pendingIntentCamera)
+            setOnClickPendingIntent(R.id.llGrid, pendingIntentGrid)
+            setOnClickPendingIntent(R.id.llRoute, pendingIntentRoute)
+        }
+
+
+        val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_DAILY)
+            .setSmallIcon(R.drawable.img_camera)
+            .setStyle(NotificationCompat.DecoratedCustomViewStyle())
+            .setCustomContentView(customView)
+            .setCustomBigContentView(customBigView)
+            .setContentIntent(pendingIntentNone)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
+            .setAutoCancel(false)
+            .setOngoing(true)
+            .setSilent(true)
+            .setGroup(context.packageName)
+
+        with(NotificationManagerCompat.from(context)) {
+            notify(PINNED_NOTIFICATION_ID, notificationBuilder.build())
         }
     }
 }

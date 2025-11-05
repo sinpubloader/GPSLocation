@@ -37,10 +37,6 @@ class NativeAdUnit(
 ) : AdUnit<NativeAdCustom>(listAdData = adIDs.filter { it.first.isNotEmpty() }
     .map { AdDataConfig(defaultId = it.second.decodeAdUnit, name = it.first.decodeAdUnit, defaultEnable = defaultEnable) }) {
 
-    init {
-        Timber.tag(TAG).d("createAds ${listAdData.map { it.name }}: ")
-    }
-
     var isClicked: Boolean = false
 
     fun addOnGoing() = enabled && status != AdsStatus.NONE && status != AdsStatus.FAIL

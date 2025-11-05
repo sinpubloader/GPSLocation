@@ -169,19 +169,17 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                onBackPressed();
-                //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
-//                AdsManager.INSTANCE.showInterInApp(
-//                        GalleryActivity.this,
-//                        false,
-//                        new Function0<Unit>() {
-//                            @Override
-//                            public Unit invoke() {
-//                                GalleryActivity.this.m78x27a3b0b4(view);
-//                                return null;
-//                            }
-//                        }
-//                );
+                AdsManager.INSTANCE.showInterInApp(
+                        GalleryActivity.this,
+                        false,
+                        new Function0<Unit>() {
+                            @Override
+                            public Unit invoke() {
+                                onBackPressed();
+                                return null;
+                            }
+                        }
+                );
             }
         });
     }

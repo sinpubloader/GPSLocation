@@ -77,7 +77,7 @@
                             android:layout_weight="1"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             tools:text="hellop .this ius dsa dsadsa " />
@@ -96,24 +96,24 @@
                             android:ellipsize="end"
                             android:gravity="bottom"
                             android:maxLines="1"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="12sp"
-                            android:textStyle="bold"
+                            android:textStyle="normal"
                             tools:text=" dá dsa dsa ds a dsads ad sad sa " />
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/ad_call_to_action"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_button_native_outline"
                     android:gravity="center"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
+                    android:textColor="@color/colorMeta"
                     android:textSize="12sp"
-                    android:textStyle="bold"
+                    android:textStyle="normal"
                     tools:text="Cài Đặt" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

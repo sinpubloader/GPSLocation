@@ -8,6 +8,7 @@ import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.AppScreenState
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.view.BannerView
+import timber.log.Timber
 
 fun setBannerContent(
     composeView: ComposeView,
@@ -27,14 +28,10 @@ private fun ComposeBanner(adUnit: String, adUnitName: String, bannerType: Banner
         if (screen != AppScreenState.lastScreen) {
             AppScreenState.lastScreen = screen
             AppScreenState.screenCreated++
+            Timber.tag(screen).d("TrackingScreen: $screen - screenCreated ${AppScreenState.screenCreated}")
+            AdsManager.INSTANCE.loadInterInApp()
         }
 
-        onPauseOrDispose {
-
-        }
-    }
-    LifecycleResumeEffect(Unit) {
-        AdsManager.INSTANCE.loadInterInApp()
         onPauseOrDispose {
 
         }

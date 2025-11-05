@@ -7,10 +7,10 @@ import androidx.compose.ui.graphics.Color
 //import androidx.compose.ui.graphics.Color
 
 @Stable
-val primary = Color(0xFF8c55ec)
+val primary = Color(0xFF8085F7)
 
 @Stable
-val primaryColor = Color(0xFF8c55ec)
+val primaryColor = Color(0xFF8085F7)
 
 @Stable
 val colorMeta = Color(0xFF3083FF)

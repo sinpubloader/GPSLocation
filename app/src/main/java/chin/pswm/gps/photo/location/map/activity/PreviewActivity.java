@@ -68,19 +68,17 @@ public class PreviewActivity extends BaseActivity {
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                onBackPressed();
-                //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
-//                AdsManager.INSTANCE.showInterInApp(
-//                        PreviewActivity.this,
-//                        false,
-//                        new Function0<Unit>() {
-//                            @Override
-//                            public Unit invoke() {
-//                                PreviewActivity.super.onBackPressed();
-//                                return null;
-//                            }
-//                        }
-//                );
+                AdsManager.INSTANCE.showInterInApp(
+                        PreviewActivity.this,
+                        false,
+                        new Function0<Unit>() {
+                            @Override
+                            public Unit invoke() {
+                                PreviewActivity.super.onBackPressed();
+                                return null;
+                            }
+                        }
+                );
             }
         });
         this.binding.wh.setOnClickListener(new View.OnClickListener() {

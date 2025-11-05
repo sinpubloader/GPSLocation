@@ -291,6 +291,32 @@
     <string name="perm_detail">Please allow Permission for better app experience.</string>
     <string name="perm_detail1">Permission is permanently denied.\nPlease enable it from app settings.</string>
     <string name="alarm_perm_required">Exact alarm permission is required to alert you about important updates.</string>
-
+    <string name="onboard_popup_title">Wait! Are you sure you want to leave?</string>
+    <string name="onboard_popup_content">We can help you get connected instantly. Don\'t miss out on watching your favorite content on the big screen!</string>
+    <string name="kill_app_notification_title">Initializing application</string>
+    <string name="kill_app_notification_content">App is repairing resource and config for feature working.</string>
+    <string name="no_internet_access">No internet access</string>
+    <string name="no_internet_access_content">It seem you\'re offline. Reconnect to enjoy the full app experience!</string>
+    <string name="enable_internet">Enable Internet</string>
+    <string name="something_went_wrong">Sorry, something wrong!</string>
+    <string name="help_you_choose_language">Help you choose language</string>
+    <string name="help_you_choose_language_1">1. First you need select a language</string>
+    <string name="help_you_choose_language_2">2. After that press \"Next\" to apply this language</string>
+    <string name="help_you_choose_language_3">This language use for optimize you experiment in app and feature.</string>
+    <string name="got_it">Got it!</string>
+    <string name="choose_language">Choose language</string>
+    <string name="select_feature">Select feature</string>
+    <string name="select_feature_content">You need to on at least one feature new to personalize your experience</string>
+    <string name="help_you_select_best_template">Help you select all features</string>
+    <string name="continue_viewing_how_the_app_works">(Continue viewing how the app works)</string>
+    <string name="explore_now">Explore Now</string>
+    <string name="which_features_do_you_like_the_most">Which features are you interested in?</string>
+    <string name="select_title_1">Earth view</string>
+    <string name="select_title_2">Timestamp camera</string>
+    <string name="select_title_3">Photo Grid</string>
+    <string name="select_title_4">Route Planner</string>
+    <string name="select_title_5">Compass</string>
+    <string name="select_title_6">Map view</string>
+    <string name="_continue">Continue</string>
 </resources>
 

@@ -1,7 +1,6 @@
 package chin.pswm.gps.photo.location.map.activity;
 
 import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
-import static chin.pswm.gps.photo.location.map.AllKeyHub.showUserInterDataBack;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -56,7 +55,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.adapter.MyPagerAdapter;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
@@ -237,19 +235,17 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                onBackPressed();
-                //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
-//                AdsManager.INSTANCE.showInterInApp(
-//                        CameraActivity.this,
-//                        false,
-//                        new Function0<Unit>() {
-//                            @Override
-//                            public Unit invoke() {
-//                                CameraActivity.this.m71x5107441e(view);
-//                                return null;
-//                            }
-//                        }
-//                );
+                AdsManager.INSTANCE.showInterInApp(
+                        CameraActivity.this,
+                        false,
+                        new Function0<Unit>() {
+                            @Override
+                            public Unit invoke() {
+                                onBackPressed();
+                                return null;
+                            }
+                        }
+                );
             }
         });
     }

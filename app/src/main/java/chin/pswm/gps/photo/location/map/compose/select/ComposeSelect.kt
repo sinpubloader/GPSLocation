@@ -35,7 +35,7 @@ fun ComposeSelect() {
         AdsManager.INSTANCE.run {
             nativeOnboard1.loadAd(context)
             nativeFSN.loadAd(context)
-            nativeOnboard3.loadAd(context)
+            nativeOnboard4.loadAd(context)
         }
     }
 

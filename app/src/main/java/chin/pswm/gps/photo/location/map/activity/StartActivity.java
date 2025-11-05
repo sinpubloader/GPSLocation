@@ -43,12 +43,13 @@ import java.util.List;
 import java.util.Random;
 
 import chin.pswm.gps.photo.location.map.MyApplication;
+import chin.pswm.gps.photo.location.map.activity.earthview.EarthViewActivity;
 import chin.pswm.gps.photo.location.map.adapter.StartAdapter;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.AdsVariable;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
-import chin.pswm.gps.photo.location.map.earthview.EarthViewActivity;
+import chin.pswm.gps.photo.location.map.compose.ComposeNativeKt;
 import chin.pswm.gps.photo.location.map.interfaces.OnClickGallery;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
@@ -66,6 +67,7 @@ import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityStartNewBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.RateDialogBinding;
+import kotlin.Pair;
 
 @SuppressWarnings("all")
 
@@ -134,11 +136,20 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
                 "StartActivity",
                 BuildConfig.banner_home,
                 "banner_home",
-                BannerType.BANNER_COLLAPSIBLE
+                BannerType.BANNER_ADAPTIVE
+        );
+
+        ComposeNativeKt.setNativeContent(
+                binding.composeNative,
+                AdsManager.INSTANCE.getNativeHome(),
+                new Pair("layout_native_home", R.layout.native_home),
+                new Pair("layout_native_home_meta", R.layout.native_home)
         );
 
         notificationManager.cancelNotification(NotificationManager.DAILY_NOTIFICATION);
         notificationManager.cancelNotification(23647623);
+
+        // todo: ?? why handle this?
         requestExactAlarmPermission();
     }
 
@@ -174,7 +185,6 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
             }
         }
     }
-
 
 
     private void setData() {
