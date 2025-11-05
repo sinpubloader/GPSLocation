@@ -10,6 +10,7 @@ import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.navigation.NavHostController
 import chin.pswm.gps.photo.location.map.activity.first_open.common.NavigationUtil.safeNavigate
 import chin.pswm.gps.photo.location.map.activity.first_open.cusom.SelectFeaturePopup
+import chin.pswm.gps.photo.location.map.activity.first_open.data.SelectType
 import chin.pswm.gps.photo.location.map.activity.first_open.nav.Dest
 import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.ext.Tracking
@@ -56,7 +57,7 @@ fun SelectScreen(
         },
         onSelectSome = {
             showSelect = false
-//            SelectType.selectedItems.addAll(SelectType.entries)
+            SelectType.selectedItems.addAll(SelectType.entries)
             nextScreen()
         }
     )

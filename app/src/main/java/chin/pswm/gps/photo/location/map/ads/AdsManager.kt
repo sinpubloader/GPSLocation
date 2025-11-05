@@ -33,6 +33,9 @@ class AdsManager(
 
     var lastShowInterstitial by mutableLongStateOf(0L)
 
+    override val canShowAds: Boolean
+        get() = false
+
     val intervalInterInApp: Long
         get() = prefs.intervalInterInapp
     val canShowInterInApp: Boolean

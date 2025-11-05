@@ -310,5 +310,13 @@
     <string name="help_you_select_best_template">Help you select all features</string>
     <string name="continue_viewing_how_the_app_works">(Continue viewing how the app works)</string>
     <string name="explore_now">Explore Now</string>
+    <string name="which_features_do_you_like_the_most">Which features are you interested in?</string>
+    <string name="select_title_1">Earth view</string>
+    <string name="select_title_2">Timestamp camera</string>
+    <string name="select_title_3">Photo Grid</string>
+    <string name="select_title_4">Route Planner</string>
+    <string name="select_title_5">Compass</string>
+    <string name="select_title_6">Map view</string>
+    <string name="_continue">Continue</string>
 </resources>
 
