@@ -62,12 +62,6 @@ public class New_IntroActivity extends AppCompatActivity {
         startMainActivity();
     }
 
-//    public final void startMainActivity() {
-//        Intent intent2 = new Intent(this, ActivitySelectFeature.class);
-//        intent2.setFlags(268435456);
-//        startActivity(intent2);
-//        finish();
-//    }
 
     public final void startMainActivity() {
         boolean privacyScreenShown = SharedHelper.getBoolean(getApplicationContext(), "privacy_screen_shown", false);
