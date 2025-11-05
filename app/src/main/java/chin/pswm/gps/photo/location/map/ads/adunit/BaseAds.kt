@@ -32,7 +32,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -64,7 +66,8 @@ open class BaseAds(
         UserMessagingPlatform.getConsentInformation(application)
     }
 
-    val consentFinished = MutableLiveData(false)
+    private var _consentFinished = MutableStateFlow(false)
+    val initFinished = _consentFinished.asStateFlow()
 
     private val connectivityManager = application.getSystemService<ConnectivityManager>()
     val isConnectedFlow: Flow<Boolean>
@@ -132,13 +135,13 @@ open class BaseAds(
         isMobileAdsInitializeCalled = true
         CoroutineScope(Dispatchers.IO + CoroutineExceptionHandler { _, e ->
             Timber.tag(TAG).e("initMobileAds: error ${e.message}")
-            consentFinished.value = true
+            _consentFinished.value = true
         }).launch {
             MobileAds.setRequestConfiguration(
                 RequestConfiguration.Builder().setTestDeviceIds(AdsConfig.listDeviceTest).build()
             )
             MobileAds.initialize(application) { initializationStatus: InitializationStatus ->
-                consentFinished.value = true
+                _consentFinished.value = true
                 val statusMap = initializationStatus.adapterStatusMap
                 for (adapterClass in statusMap.keys) {
                     val status = statusMap[adapterClass]

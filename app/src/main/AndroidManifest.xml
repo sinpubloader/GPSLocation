@@ -34,7 +34,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_APP_BADGE" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-<!--    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />-->
+    <!--    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />-->
 
     <queries>
         <package android:name="com.google.android.apps.maps" />
@@ -88,10 +88,10 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/MAP_KEY" />
 
-<!--        <activity-->
-<!--            android:name="chin.pswm.gps.photo.location.map.activity.PrivacyPolicyActivity"-->
-<!--            android:exported="false"-->
-<!--            android:screenOrientation="portrait" />-->
+        <!--        <activity-->
+        <!--            android:name="chin.pswm.gps.photo.location.map.activity.PrivacyPolicyActivity"-->
+        <!--            android:exported="false"-->
+        <!--            android:screenOrientation="portrait" />-->
         <activity
             android:name="chin.pswm.gps.photo.location.map.activity.VideoPreviewActivity"
             android:exported="false"
@@ -184,8 +184,9 @@
             android:name="chin.pswm.gps.photo.location.map.languegess.ActivityPrivacyPolicy_New"
             android:exported="false"
             android:screenOrientation="portrait" />
+
         <activity
-            android:name="chin.pswm.gps.photo.location.map.activity.SplashActivity"
+            android:name="chin.pswm.gps.photo.location.map.activity.first_open.FirstOpenActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -194,17 +195,28 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="image/*" />
             </intent-filter>
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="video/*" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name="chin.pswm.gps.photo.location.map.activity.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+
         </activity>
 
         <provider
@@ -255,6 +267,7 @@
         <meta-data
             android:name="google_analytics_default_allow_ad_personalization_signals"
             android:value="true" />
+
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:theme="@style/AdTheme"
@@ -276,7 +289,10 @@
             android:name="chin.pswm.gps.photo.location.map.notification.NotificationReceiver"
             android:enabled="true"
             android:exported="true" />
-
+        <service
+            android:name="chin.pswm.gps.photo.location.map.activity.first_open.service.KillAppService"
+            android:exported="true"
+            android:foregroundServiceType="shortService" />
 
     </application>
 
