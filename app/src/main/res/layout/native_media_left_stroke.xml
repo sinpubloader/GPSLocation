@@ -97,7 +97,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/llTop"
                     tools:text=" dá dsa dsa ds a dsads ad sad sa " />
 
-                <androidx.appcompat.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/ad_call_to_action"
                     android:layout_width="match_parent"
                     android:layout_height="44dp"

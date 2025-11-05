@@ -56,7 +56,7 @@ import chin.pswm.gps.photo.location.map.earthview.custom.CenterRow
 import chin.pswm.gps.photo.location.map.earthview.custom.circle
 import chin.pswm.gps.photo.location.map.earthview.custom.onClickNotRipple
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
-import chin.pswm.gps.photo.location.map.ui.theme.mainBg
+import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
 import chin.pswm.gps.photo.location.map.ui.theme.primary
 import chin.pswm.gps.photo.location.map.utils.LocalScreenTAG
 import chin.pswm.gps.photo.location.map_debug.R
@@ -169,7 +169,7 @@ fun OnboardContent(onFinish: () -> Unit) {
 
 
     BaseScreen(
-        backgroundColor = mainBg,
+        backgroundColor = colorWhite,
         bottomBar = {
             BottomBar(
                 onboardType = OnboardType.Onboard1,
@@ -211,7 +211,7 @@ fun OnboardContent(onFinish: () -> Unit) {
                             Text(
                                 stringResource(OnboardType.Onboard1.title),
                                 style = appFont(700, 24),
-                                color = Color.White,
+                                color = Color.Black,
                                 textAlign = TextAlign.Center,
                                 modifier = Modifier
                                     .fillMaxWidth()
@@ -223,8 +223,8 @@ fun OnboardContent(onFinish: () -> Unit) {
                                     .fillMaxWidth()
                                     .padding(10.dp),
                                 nativeAdUnit = AdsManager.INSTANCE.nativeOnboard1,
-                                layoutConfig = "layout_onboard_1" to R.layout.native_media_ctr_bot_big_filled,
-                                layoutFaceBookConfig = "layout_onboard_1_meta" to R.layout.native_media_ctr_bot_big_filled,
+                                layoutConfig = "layout_onboard_1" to R.layout.native_media_ctr_bot_small_filled,
+                                layoutFaceBookConfig = "layout_onboard_1_meta" to R.layout.native_media_ctr_bot_small_filled,
                             )
                         }
                     }
@@ -242,14 +242,13 @@ fun OnboardContent(onFinish: () -> Unit) {
                         Text(
                             stringResource(OnboardType.Onboard2.title),
                             style = appFont(700, 24),
-                            color = Color.White,
+                            color = Color.Black,
                             textAlign = TextAlign.Center,
                             modifier = Modifier
                                 .align(Alignment.BottomCenter)
                                 .fillMaxWidth()
                                 .padding(16.dp)
                         )
-//                        MyApplication.sendEvent("Onboarde_Screen", "onboard_1")
                     }
                 }
 
@@ -295,7 +294,7 @@ fun OnboardContent(onFinish: () -> Unit) {
                             Text(
                                 stringResource(OnboardType.Onboard3.title),
                                 style = appFont(700, 24),
-                                color = Color.White,
+                                color = Color.Black,
                                 textAlign = TextAlign.Center,
                                 modifier = Modifier
                                     .align(Alignment.BottomCenter)
@@ -304,7 +303,6 @@ fun OnboardContent(onFinish: () -> Unit) {
                             )
                         }
                     }
-//                    MyApplication.sendEvent("Onboarde_Screen", "onboard_2")
                 }
 
                 else -> Box(Modifier.fillMaxSize()) {
@@ -323,7 +321,7 @@ fun OnboardContent(onFinish: () -> Unit) {
                         Text(
                             stringResource(OnboardType.Onboard4.title),
                             style = appFont(700, 24),
-                            color = Color.White,
+                            color = Color.Black,
                             textAlign = TextAlign.Center,
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -335,11 +333,10 @@ fun OnboardContent(onFinish: () -> Unit) {
                                 .fillMaxWidth()
                                 .padding(10.dp),
                             nativeAdUnit = AdsManager.INSTANCE.nativeOnboard4,
-                            layoutConfig = "layout_onboard_4" to R.layout.native_media_ctr_bot_big_filled,
-                            layoutFaceBookConfig = "layout_onboard_4_meta" to R.layout.native_media_ctr_bot_big_filled,
+                            layoutConfig = "layout_onboard_4" to R.layout.native_media_ctr_bot_small_filled,
+                            layoutFaceBookConfig = "layout_onboard_4_meta" to R.layout.native_media_ctr_bot_small_filled,
                         )
                     }
-//                    MyApplication.sendEvent("Onboarde_Screen", "onboard_4")
                 }
             }
         }

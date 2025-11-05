@@ -131,7 +131,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/ad_call_to_action"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
                     android:background="@drawable/bg_button_native_outline"
                     android:gravity="center"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
+                    android:textColor="@color/colorMeta"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     tools:text="Cài Đặt" />
