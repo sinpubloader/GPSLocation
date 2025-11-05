@@ -7,6 +7,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
+import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.AppScreenState
 import chin.pswm.gps.photo.location.map.ads.ext.ITag
 import chin.pswm.gps.photo.location.map.ads.ext.Tracking
@@ -20,11 +21,12 @@ class EarthViewActivity : ComponentActivity(), ITag {
             EarthViewScreen(viewModel)
         }
 
-        if (AppScreenState.lastScreen != TAG ) {
+        if (AppScreenState.lastScreen != TAG) {
             Tracking.logEvent(TAG)
             AppScreenState.lastScreen = TAG
             AppScreenState.screenCreated += 1
             Timber.tag(TAG).d("TrackingScreen: $TAG - screenCreated ${AppScreenState.screenCreated}")
+            AdsManager.INSTANCE.loadInterInApp()
         }
     }
 

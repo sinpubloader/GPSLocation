@@ -29,14 +29,9 @@ private fun ComposeBanner(adUnit: String, adUnitName: String, bannerType: Banner
             AppScreenState.lastScreen = screen
             AppScreenState.screenCreated++
             Timber.tag(screen).d("TrackingScreen: $screen - screenCreated ${AppScreenState.screenCreated}")
+            AdsManager.INSTANCE.loadInterInApp()
         }
 
-        onPauseOrDispose {
-
-        }
-    }
-    LifecycleResumeEffect(Unit) {
-        AdsManager.INSTANCE.loadInterInApp()
         onPauseOrDispose {
 
         }

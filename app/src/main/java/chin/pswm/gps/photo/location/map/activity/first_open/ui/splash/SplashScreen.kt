@@ -15,6 +15,7 @@ import chin.pswm.gps.photo.location.map.activity.first_open.common.CommonUtils
 import chin.pswm.gps.photo.location.map.activity.first_open.common.NavigationUtil.safeNavigate
 import chin.pswm.gps.photo.location.map.activity.first_open.cusom.shotcuts.ShortcutManager
 import chin.pswm.gps.photo.location.map.activity.first_open.nav.Dest
+import chin.pswm.gps.photo.location.map.activity.first_open.ui.splash.view.SplashContent
 import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.AppScreenState
 import chin.pswm.gps.photo.location.map.ads.adunit.common.AdErrorCode
@@ -27,7 +28,6 @@ import chin.pswm.gps.photo.location.map.languegess.LanguageState
 import chin.pswm.gps.photo.location.map.notification.NotificationManager
 import chin.pswm.gps.photo.location.map.ui.theme.PermissionManager.Companion.allowNotification
 import chin.pswm.gps.photo.location.map.utils.LocalScreenTAG
-import chin.pswm.gps.photo.location.map.activity.first_open.ui.splash.view.SplashContent
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 import kotlinx.coroutines.Dispatchers
@@ -143,7 +143,6 @@ fun SplashScreen(
         adsManager.interSplash.apply {
             onImpression = {
                 AppScreenState.screenCreated = 0
-                adsManager.lastShowInterstitial = System.currentTimeMillis()
                 if (adsManager.nextSplash != Dest.Main) {
                     goNextScreen()
                 }

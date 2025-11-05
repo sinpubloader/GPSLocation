@@ -16,10 +16,6 @@ fun EarthViewScreen(
 ) {
     val context = LocalContext.current
 
-    LaunchedEffect(Unit) {
-        AdsManager.INSTANCE.loadInterInApp()
-    }
-
     EarthViewContent(
         state = viewModel.screenState,
         searchState = viewModel.searchState,

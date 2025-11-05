@@ -36,6 +36,7 @@ fun TrackingScreen(screen: String) {
             AppScreenState.lastScreen = screen
             AppScreenState.screenCreated += 1
             Timber.tag(screen).d("TrackingScreen: $screen - screenCreated ${AppScreenState.screenCreated}")
+            AdsManager.INSTANCE.loadInterInApp()
         }
         onPauseOrDispose {
 
