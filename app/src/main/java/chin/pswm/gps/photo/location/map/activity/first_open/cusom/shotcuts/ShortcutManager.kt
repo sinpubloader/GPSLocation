@@ -37,9 +37,9 @@ class ShortcutManager(
 
         return arrayListOf(
             buildShortcut(
-                id = "4234",
-                shortLabel = app.getString(R.string.app_name),
-                longLabel = app.getString(R.string.app_name),
+                id = "123123",
+                shortLabel = app.getString(R.string.earth_view),
+                longLabel = app.getString(R.string.earth_view),
                 intent = Intent(app, FirstOpenActivity::class.java).apply {
                     action = Intent.ACTION_VIEW
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -49,12 +49,12 @@ class ShortcutManager(
                         )
                     )
                 },
-                shortcutIcon = R.drawable.ic_checked
+                shortcutIcon = R.drawable.icn_earth
             ),
             buildShortcut(
-                id = "464562",
-                shortLabel = app.getString(R.string.app_name),
-                longLabel = app.getString(R.string.app_name),
+                id = "123124",
+                shortLabel = app.getString(R.string.gps_camera),
+                longLabel = app.getString(R.string.gps_camera),
                 intent = Intent(app, FirstOpenActivity::class.java).apply {
                     action = Intent.ACTION_VIEW
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -64,12 +64,12 @@ class ShortcutManager(
                         )
                     )
                 },
-                shortcutIcon = R.drawable.ic_checked
+                shortcutIcon = R.drawable.img_cameraa
             ),
             buildShortcut(
-                id = "12123",
-                shortLabel = app.getString(R.string.app_name),
-                longLabel = app.getString(R.string.app_name),
+                id = "sdfsa",
+                shortLabel = app.getString(R.string.photo_grid),
+                longLabel = app.getString(R.string.photo_grid),
                 intent = Intent(app, FirstOpenActivity::class.java).apply {
                     action = Intent.ACTION_VIEW
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -79,7 +79,22 @@ class ShortcutManager(
                         )
                     )
                 },
-                shortcutIcon = R.drawable.ic_checked
+                shortcutIcon = R.drawable.photo_grid
+            ),
+            buildShortcut(
+                id = "sdfsa",
+                shortLabel = app.getString(R.string.route_planner),
+                longLabel = app.getString(R.string.route_planner),
+                intent = Intent(app, FirstOpenActivity::class.java).apply {
+                    action = Intent.ACTION_VIEW
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    putExtras(
+                        bundleOf(
+                            Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_SHORTCUT
+                        )
+                    )
+                },
+                shortcutIcon = R.drawable.icn_route_planner
             )
         )
     }
