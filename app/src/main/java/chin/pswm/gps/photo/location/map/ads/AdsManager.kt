@@ -20,7 +20,6 @@ import chin.pswm.gps.photo.location.map.ads.ext.tryWithoutCatch
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
 import chin.pswm.gps.photo.location.map_debug.BuildConfig
 import chin.pswm.gps.photo.location.map_debug.R
-import org.koin.compose.koinInject
 import timber.log.Timber
 
 class AdsManager(
@@ -315,7 +314,9 @@ class AdsManager(
         fun layoutNative(name: String, @LayoutRes default: Int): Int {
             val preview = LocalInspectionMode.current
             if (preview) return default
-            val prefs: Prefs = koinInject()
+            val prefs: Prefs = remember {
+                Prefs.INSTANCE
+            }
             val configLayout = remember {
                 prefs.getString(name, "")
             }

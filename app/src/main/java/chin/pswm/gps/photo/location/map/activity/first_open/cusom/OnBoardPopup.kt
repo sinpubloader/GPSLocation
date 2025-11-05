@@ -56,7 +56,7 @@ fun OnboardPopup(
                 )
 
                 Text(
-                    stringResource(R.string.continue_casting),
+                    stringResource(R.string.explore_now),
                     style = appFont(600, 14),
                     color = Color.White,
                     textAlign = TextAlign.Center,

@@ -73,9 +73,9 @@ public class SplashActivity extends BaseActivity {
         ComposeSplashKt.setMyContent(binding.composeView, binding.composeViewBanner);
 
         AdsManager.INSTANCE.requestUMP(SplashActivity.this, true, true);
-        AdsManager.INSTANCE.getConsentFinished().observe(this, finished -> {
-            checkMain();
-        });
+//        AdsManager.INSTANCE.getInitFinished().observe(this, finished -> {
+//            checkMain();
+//        });
     }
 
     @Override
@@ -137,7 +137,7 @@ public class SplashActivity extends BaseActivity {
         } else if (!finishFO) {
             AdsManager.INSTANCE.getNativeOnboard1().loadAd(SplashActivity.this);
             AdsManager.INSTANCE.getNativeFSN().loadAd(SplashActivity.this);
-            AdsManager.INSTANCE.getNativeOnboard3().loadAd(SplashActivity.this);
+//            AdsManager.INSTANCE.getNativeOnboard3().loadAd(SplashActivity.this);
             ComposeSplashState.INSTANCE.getClickedOnboard().setValue(true);
         } else if (!privacyScreenShown) {
             ComposeSplashState.INSTANCE.getClickedPrivacy().setValue(true);

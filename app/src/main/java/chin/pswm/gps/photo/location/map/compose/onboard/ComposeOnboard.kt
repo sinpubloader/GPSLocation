@@ -329,7 +329,7 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .padding(10.dp),
-                                    nativeAdUnit = AdsManager.INSTANCE.nativeOnboard3,
+                                    nativeAdUnit = AdsManager.INSTANCE.nativeOnboard4,
                                     layoutConfig = "layout_onboard_4" to R.layout.native_media_ctr_bot_big_filled,
                                     layoutFaceBookConfig = "layout_onboard_4_meta" to R.layout.native_media_ctr_bot_big_filled,
                                 )
@@ -366,12 +366,11 @@ fun ComposeOnboard(onFinish: () -> Unit = {}) {
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(10.dp),
-                            nativeAdUnit = AdsManager.INSTANCE.nativeOnboard3,
+                            nativeAdUnit = AdsManager.INSTANCE.nativeOnboard1,
                             layoutConfig = "layout_onboard_4" to R.layout.native_media_ctr_bot_big_filled,
                             layoutFaceBookConfig = "layout_onboard_4_meta" to R.layout.native_media_ctr_bot_big_filled,
                         )
                     }
-//                    MyApplication.sendEvent("Onboarde_Screen", "onboard_4")
                 }
             }
         }

@@ -23,6 +23,7 @@ class RemoteConfigManager(
     val fetchedStateFlow = _fetchedFlow.asStateFlow()
 
     init {
+        INSTANCE = this
         fetchRemoteConfig()
     }
 

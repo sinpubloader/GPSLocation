@@ -13,11 +13,9 @@ import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity
 import chin.pswm.gps.photo.location.map.activity.SplashActivity
 import chin.pswm.gps.photo.location.map.activity.StartActivity
 import chin.pswm.gps.photo.location.map.ads.AdsManager
-import chin.pswm.gps.photo.location.map.ads.adunit.banner.view.BannerView
 import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.languegess.ActivityPrivacyPolicy_New
 import chin.pswm.gps.photo.location.map.languegess.New_first_languagesselect
-import chin.pswm.gps.photo.location.map_debug.BuildConfig
 import kotlinx.coroutines.flow.MutableStateFlow
 
 object ComposeSplashState {
@@ -43,8 +41,7 @@ fun setMyContent(composeView: ComposeView, composeViewBanner: ComposeView) {
 fun ComposeSplash(composeView: ComposeView) {
     val context = LocalContext.current
 
-
-    val initFinished = AdsManager.INSTANCE.consentFinished.asFlow().collectAsState(false).value
+    val initFinished = AdsManager.INSTANCE.initFinished.collectAsState(false).value
     val adsStatus = AdsManager.INSTANCE.interSplash.statusFlow.collectAsState().value
     val clickedAgree = ComposeSplashState.clickedAgree.collectAsState().value
 

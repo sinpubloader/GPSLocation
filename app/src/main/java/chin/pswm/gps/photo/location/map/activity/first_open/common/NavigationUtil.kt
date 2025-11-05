@@ -1,12 +1,8 @@
 package chin.pswm.gps.photo.location.map.activity.first_open.common
 
-import androidx.compose.runtime.Composable
-import androidx.lifecycle.ViewModel
-import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.navOptions
 import chin.pswm.gps.photo.location.map.activity.first_open.nav.Dest
-import org.koin.androidx.compose.koinViewModel
 import timber.log.Timber
 
 object NavigationUtil {
@@ -89,26 +85,4 @@ object NavigationUtil {
             }
         }
     }
-}
-
-fun <T : Dest> getNavGraphBackStackEntry(
-    navController: NavController, route: T
-): NavBackStackEntry? {
-    return try {
-        navController.getBackStackEntry(route)
-    } catch (_: Exception) {
-        try {
-            navController.currentBackStackEntry
-        } catch (_: Exception) {
-            null
-        }
-    }
-}
-
-@Composable
-inline fun <reified T : ViewModel, T2 : Dest> sharedViewModel(
-    navController: NavController, route: T2
-): T {
-    val navGraphRoute = getNavGraphBackStackEntry(navController, route) ?: return koinViewModel()
-    return koinViewModel(viewModelStoreOwner = navGraphRoute)
 }

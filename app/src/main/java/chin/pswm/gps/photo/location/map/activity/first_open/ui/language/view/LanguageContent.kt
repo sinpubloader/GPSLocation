@@ -55,7 +55,6 @@ import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
 import chin.pswm.gps.photo.location.map.ui.theme.primary
 import chin.pswm.gps.photo.location.map_debug.BuildConfig
 import chin.pswm.gps.photo.location.map_debug.R
-import org.koin.compose.koinInject
 import java.util.Locale
 
 @Composable

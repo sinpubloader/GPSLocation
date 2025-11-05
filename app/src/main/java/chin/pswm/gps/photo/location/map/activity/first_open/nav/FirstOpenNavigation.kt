@@ -18,9 +18,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.lifecycle.ViewModel
 import androidx.navigation.NavBackStackEntry
-import androidx.navigation.NavController
 import androidx.navigation.NavDeepLink
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
@@ -41,8 +39,6 @@ import chin.pswm.gps.photo.location.map.ads.TrackingScreen
 import chin.pswm.gps.photo.location.map.utils.LocalScreenTAG
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.json.Json
-import org.koin.androidx.compose.koinViewModel
-import org.koin.compose.koinInject
 import kotlin.reflect.KClass
 import kotlin.reflect.KType
 
@@ -202,28 +198,6 @@ inline fun <reified T : Dest> NavGraphBuilder.composableWithTag(
             }
         }
     )
-}
-
-fun <T : Any> getNavGraphBackStackEntry(
-    navController: NavController, route: T
-): NavBackStackEntry? {
-    return try {
-        navController.getBackStackEntry(route)
-    } catch (_: Exception) {
-        try {
-            navController.currentBackStackEntry
-        } catch (_: Exception) {
-            null
-        }
-    }
-}
-
-@Composable
-inline fun <reified T : ViewModel, T2 : Dest> sharedViewModel(
-    navController: NavController, route: T2
-): T {
-    val navGraphRoute = getNavGraphBackStackEntry(navController, route) ?: return koinInject()
-    return koinViewModel(viewModelStoreOwner = navGraphRoute)
 }
 
 class CustomEnumNavType<T : Enum<T>>(
