@@ -142,6 +142,7 @@ fun SplashScreen(
     fun showSplash() {
         adsManager.interSplash.apply {
             onImpression = {
+                AppScreenState.screenCreated = 0
                 adsManager.lastShowInterstitial = System.currentTimeMillis()
                 if (adsManager.nextSplash != Dest.Main) {
                     goNextScreen()

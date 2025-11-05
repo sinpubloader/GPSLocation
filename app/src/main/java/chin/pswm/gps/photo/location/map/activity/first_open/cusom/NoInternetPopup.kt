@@ -14,11 +14,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import chin.pswm.gps.photo.location.map.earthview.custom.AppLottie
-import chin.pswm.gps.photo.location.map.earthview.custom.CenterColumn
-import chin.pswm.gps.photo.location.map.earthview.custom.circle
-import chin.pswm.gps.photo.location.map.earthview.custom.onClick
-import chin.pswm.gps.photo.location.map.earthview.custom.round
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.AppLottie
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.CenterColumn
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.circle
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.onClick
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.round
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
 import chin.pswm.gps.photo.location.map.ui.theme.primary
 import chin.pswm.gps.photo.location.map_debug.R

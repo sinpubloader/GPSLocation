@@ -1,4 +1,4 @@
-package chin.pswm.gps.photo.location.map.earthview.state
+package chin.pswm.gps.photo.location.map.activity.earthview.state
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.derivedStateOf
@@ -6,7 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import chin.pswm.gps.photo.location.map.earthview.custom.MarkLocation
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.MarkLocation
 
 @Immutable
 open class SearchState {

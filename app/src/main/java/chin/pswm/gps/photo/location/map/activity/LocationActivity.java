@@ -3,7 +3,6 @@ package chin.pswm.gps.photo.location.map.activity;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.showUserInterDataBack;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -51,19 +50,17 @@ public class LocationActivity extends BaseActivity {
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                onBackPressed();
-                //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
-//                AdsManager.INSTANCE.showInterInApp(
-//                        LocationActivity.this,
-//                        false,
-//                        new Function0<Unit>() {
-//                            @Override
-//                            public Unit invoke() {
-//                                onBackPressed();
-//                                return null;
-//                            }
-//                        }
-//                );
+                AdsManager.INSTANCE.showInterInApp(
+                        LocationActivity.this,
+                        false,
+                        new Function0<Unit>() {
+                            @Override
+                            public Unit invoke() {
+                                onBackPressed();
+                                return null;
+                            }
+                        }
+                );
             }
         });
         setFragment();

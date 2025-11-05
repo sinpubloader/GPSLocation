@@ -62,19 +62,17 @@ public class MapViewActivity extends BaseActivity {
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                onBackPressed();
-                //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
-//                AdsManager.INSTANCE.showInterInApp(
-//                        MapViewActivity.this,
-//                        false,
-//                        new Function0<Unit>() {
-//                            @Override
-//                            public Unit invoke() {
-//                                MapViewActivity.super.onBackPressed();
-//                                return null;
-//                            }
-//                        }
-//                );
+                AdsManager.INSTANCE.showInterInApp(
+                        MapViewActivity.this,
+                        false,
+                        new Function0<Unit>() {
+                            @Override
+                            public Unit invoke() {
+                                MapViewActivity.super.onBackPressed();
+                                return null;
+                            }
+                        }
+                );
             }
         });
 

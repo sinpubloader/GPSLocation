@@ -1,4 +1,4 @@
-package chin.pswm.gps.photo.location.map.earthview.state
+package chin.pswm.gps.photo.location.map.activity.earthview.state
 
 import android.app.Activity
 import android.content.Context

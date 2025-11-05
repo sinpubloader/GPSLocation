@@ -106,19 +106,17 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                onBackPressed();
-                //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
-//                AdsManager.INSTANCE.showInterInApp(
-//                        MyCreationActivity.this,
-//                        false,
-//                        new Function0<Unit>() {
-//                            @Override
-//                            public Unit invoke() {
-//                                MyCreationActivity.super.onBackPressed();
-//                                return null;
-//                            }
-//                        }
-//                );
+                AdsManager.INSTANCE.showInterInApp(
+                        MyCreationActivity.this,
+                        false,
+                        new Function0<Unit>() {
+                            @Override
+                            public Unit invoke() {
+                                MyCreationActivity.super.onBackPressed();
+                                return null;
+                            }
+                        }
+                );
             }
         });
     }

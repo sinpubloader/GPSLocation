@@ -1,13 +1,13 @@
-package chin.pswm.gps.photo.location.map.earthview
+package chin.pswm.gps.photo.location.map.activity.earthview
 
 import android.app.Activity
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import chin.pswm.gps.photo.location.map.earthview.custom.MarkLocation
-import chin.pswm.gps.photo.location.map.earthview.state.EarthViewScreenState
-import chin.pswm.gps.photo.location.map.earthview.state.SearchState
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.MarkLocation
+import chin.pswm.gps.photo.location.map.activity.earthview.state.EarthViewScreenState
+import chin.pswm.gps.photo.location.map.activity.earthview.state.SearchState
 import chin.pswm.gps.photo.location.map.ui.theme.PlacesResponseGson
 import chin.pswm.gps.photo.location.map_debug.R
 import com.google.gson.Gson
@@ -132,7 +132,7 @@ class EarthViewViewModel(
 
                     return try {
                         val gson = Gson()
-                        val itemType = object : TypeToken<List<MarkLocation>>() {}.type
+                        val itemType = object : com.google.gson.reflect.TypeToken<List<MarkLocation>>() {}.type
                         gson.fromJson(jsonString, itemType)
                     } catch (_: Exception) {
                         listOf()

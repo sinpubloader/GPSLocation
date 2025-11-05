@@ -1,4 +1,4 @@
-package chin.pswm.gps.photo.location.map.earthview.custom
+package chin.pswm.gps.photo.location.map.activity.earthview.custom
 
 import android.graphics.Bitmap
 import androidx.annotation.DrawableRes

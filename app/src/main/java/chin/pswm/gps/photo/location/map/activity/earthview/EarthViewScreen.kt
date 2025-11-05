@@ -1,11 +1,11 @@
-package chin.pswm.gps.photo.location.map.earthview
+package chin.pswm.gps.photo.location.map.activity.earthview
 
 import android.app.Activity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
 import chin.pswm.gps.photo.location.map.ads.AdsManager
-import chin.pswm.gps.photo.location.map.earthview.view.EarthViewContent
+import chin.pswm.gps.photo.location.map.activity.earthview.view.EarthViewContent
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 
 
@@ -25,13 +25,13 @@ fun EarthViewScreen(
         searchState = viewModel.searchState,
         onBack = {
             (context as? EarthViewActivity)?.finish()
-//            AdsManager.INSTANCE.showInterInApp(
-//                activity = context as Activity,
-//                showLoading = false,
-//                onNextAction = {
-//                    (context as? EarthViewActivity)?.finish()
-//                }
-//            )
+            AdsManager.INSTANCE.showInterInApp(
+                activity = context as Activity,
+                showLoading = false,
+                onNextAction = {
+                    (context as? EarthViewActivity)?.finish()
+                }
+            )
         }
     )
 }

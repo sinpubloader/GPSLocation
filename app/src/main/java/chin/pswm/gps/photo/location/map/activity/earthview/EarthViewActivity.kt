@@ -1,4 +1,4 @@
-package chin.pswm.gps.photo.location.map.earthview
+package chin.pswm.gps.photo.location.map.activity.earthview
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,13 +7,24 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
+import chin.pswm.gps.photo.location.map.ads.AppScreenState
+import chin.pswm.gps.photo.location.map.ads.ext.ITag
+import chin.pswm.gps.photo.location.map.ads.ext.Tracking
+import timber.log.Timber
 
-class EarthViewActivity : ComponentActivity() {
+class EarthViewActivity : ComponentActivity(), ITag {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             val viewModel: EarthViewViewModel = viewModel()
             EarthViewScreen(viewModel)
+        }
+
+        if (AppScreenState.lastScreen != TAG ) {
+            Tracking.logEvent(TAG)
+            AppScreenState.lastScreen = TAG
+            AppScreenState.screenCreated += 1
+            Timber.tag(TAG).d("TrackingScreen: $TAG - screenCreated ${AppScreenState.screenCreated}")
         }
     }
 

@@ -1,4 +1,4 @@
-package chin.pswm.gps.photo.location.map.earthview.custom
+package chin.pswm.gps.photo.location.map.activity.earthview.custom
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

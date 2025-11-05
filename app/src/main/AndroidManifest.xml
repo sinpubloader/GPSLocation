@@ -165,7 +165,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name="chin.pswm.gps.photo.location.map.earthview.EarthViewActivity"
+            android:name="chin.pswm.gps.photo.location.map.activity.earthview.EarthViewActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

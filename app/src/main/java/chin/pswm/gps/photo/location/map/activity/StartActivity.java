@@ -48,7 +48,7 @@ import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.AdsVariable;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
-import chin.pswm.gps.photo.location.map.earthview.EarthViewActivity;
+import chin.pswm.gps.photo.location.map.activity.earthview.EarthViewActivity;
 import chin.pswm.gps.photo.location.map.interfaces.OnClickGallery;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
@@ -134,7 +134,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
                 "StartActivity",
                 BuildConfig.banner_home,
                 "banner_home",
-                BannerType.BANNER_COLLAPSIBLE
+                BannerType.BANNER_ADAPTIVE
         );
 
         notificationManager.cancelNotification(NotificationManager.DAILY_NOTIFICATION);

@@ -62,6 +62,7 @@ class AdsManager(
     fun loadInterInApp() {
         Timber.tag(TAG).d("loadInterInApp: ${AppScreenState.screenCreated}")
         if (canShowInterInApp) {
+            Timber.tag(TAG).d("loadInterInApp: start load inter in app")
             interInApp.loadAd(application)
         }
     }
@@ -99,7 +100,10 @@ class AdsManager(
                 }
             )
         }
-        if (reset) AppScreenState.screenCreated = 0
+        if (reset) {
+            Timber.tag(TAG).d("showInterInApp: reset screen = 0")
+            AppScreenState.screenCreated = 0
+        }
     }
 
     fun resetState() {

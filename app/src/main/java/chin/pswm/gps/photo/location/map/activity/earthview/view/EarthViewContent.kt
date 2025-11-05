@@ -1,4 +1,4 @@
-package chin.pswm.gps.photo.location.map.earthview.view
+package chin.pswm.gps.photo.location.map.activity.earthview.view
 
 
 import android.app.Activity
@@ -46,18 +46,18 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.compose.LifecycleStartEffect
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.view.BannerView
-import chin.pswm.gps.photo.location.map.earthview.custom.AppIcon
-import chin.pswm.gps.photo.location.map.earthview.custom.AppImage
-import chin.pswm.gps.photo.location.map.earthview.custom.BaseScreen
-import chin.pswm.gps.photo.location.map.earthview.custom.CenterBox
-import chin.pswm.gps.photo.location.map.earthview.custom.CenterColumn
-import chin.pswm.gps.photo.location.map.earthview.custom.CenterRow
-import chin.pswm.gps.photo.location.map.earthview.custom.onClick
-import chin.pswm.gps.photo.location.map.earthview.custom.onClickNotRipple
-import chin.pswm.gps.photo.location.map.earthview.custom.round
-import chin.pswm.gps.photo.location.map.earthview.custom.rounded
-import chin.pswm.gps.photo.location.map.earthview.state.EarthViewScreenState
-import chin.pswm.gps.photo.location.map.earthview.state.SearchState
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.AppIcon
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.AppImage
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.BaseScreen
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.CenterBox
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.CenterColumn
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.CenterRow
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.onClick
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.onClickNotRipple
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.round
+import chin.pswm.gps.photo.location.map.activity.earthview.custom.rounded
+import chin.pswm.gps.photo.location.map.activity.earthview.state.EarthViewScreenState
+import chin.pswm.gps.photo.location.map.activity.earthview.state.SearchState
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
 import chin.pswm.gps.photo.location.map.ui.theme.brushMain
 import chin.pswm.gps.photo.location.map.ui.theme.colorWhite

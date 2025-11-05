@@ -100,19 +100,17 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CompassActivity.super.onBackPressed();
-                //TODO COMMENT FOR NOW CHANGE ADS SHOW LOGIC...
-//                AdsManager.INSTANCE.showInterInApp(
-//                        CompassActivity.this,
-//                        false,
-//                        new Function0<Unit>() {
-//                            @Override
-//                            public Unit invoke() {
-//                                CompassActivity.super.onBackPressed();
-//                                return null;
-//                            }
-//                        }
-//                );
+                AdsManager.INSTANCE.showInterInApp(
+                        CompassActivity.this,
+                        false,
+                        new Function0<Unit>() {
+                            @Override
+                            public Unit invoke() {
+                                CompassActivity.super.onBackPressed();
+                                return null;
+                            }
+                        }
+                );
             }
         });
         tvCamera.setOnClickListener(v -> {
