@@ -15,6 +15,7 @@ import androidx.core.app.NotificationManagerCompat
 import androidx.core.os.bundleOf
 import chin.pswm.gps.photo.location.map.activity.StartActivity
 import chin.pswm.gps.photo.location.map.activity.first_open.FirstOpenActivity
+import chin.pswm.gps.photo.location.map.activity.first_open.common.Constants
 import chin.pswm.gps.photo.location.map.ads.ext.tryWithoutCatch
 import chin.pswm.gps.photo.location.map.ui.theme.PermissionManager.Companion.allowNotification
 import chin.pswm.gps.photo.location.map.utils.BitmapUtil
@@ -33,7 +34,6 @@ class NotificationManager(
 
 
     companion object {
-        const val CHANNEL_PINNED = "recovery_channel_pinned"
         const val CHANNEL_KILL_APP = "recovery_channel_kill_app"
         const val CHANNEL_DAILY = "recovery_channel_daily"
 
@@ -50,7 +50,6 @@ class NotificationManager(
 
     init {
         INSTANCE = this@NotificationManager
-        createNotificationChannel(CHANNEL_PINNED, NotificationManager.IMPORTANCE_HIGH)
         createNotificationChannel(CHANNEL_KILL_APP, NotificationManager.IMPORTANCE_LOW)
         createNotificationChannel(CHANNEL_DAILY, NotificationManager.IMPORTANCE_HIGH)
     }
@@ -162,36 +161,104 @@ class NotificationManager(
     @SuppressLint("MissingPermission")
     fun setReminderPinned(context: Context) {
         if (!context.allowNotification) return
-        val pendingIntentSample = PendingIntent.getActivity(
+        Timber.tag(TAG).d("setReminderPinned: ")
+        val pendingIntentNone = PendingIntent.getActivity(
             context,
-            119992,
+            123123123,
             Intent(context, FirstOpenActivity::class.java).apply {
                 action = Intent.ACTION_VIEW
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtras(
+                    bundleOf(
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                    )
+                )
             },
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
         )
 
-        // <!--  TODO: MUST_IMPLEMENT change to real layout pinned notification -->
+        val pendingIntentEarthView = PendingIntent.getActivity(
+            context,
+            1231234,
+            Intent(context, FirstOpenActivity::class.java).apply {
+                action = Intent.ACTION_VIEW
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtras(
+                    bundleOf(
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                    )
+                )
+            },
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
 
-        val customView =
-            RemoteViews(context.packageName, R.layout.layout_notification_pinned).apply {
-                setOnClickPendingIntent(R.id.llContent, pendingIntentSample)
-            }
+        val pendingIntentCamera = PendingIntent.getActivity(
+            context,
+            1231253,
+            Intent(context, FirstOpenActivity::class.java).apply {
+                action = Intent.ACTION_VIEW
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtras(
+                    bundleOf(
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                    )
+                )
+            },
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
 
-        val customBigView =
-            RemoteViews(context.packageName, R.layout.layout_notification_pinned_expand).apply {
-                setOnClickPendingIntent(R.id.llContent, pendingIntentSample)
-            }
+        val pendingIntentGrid = PendingIntent.getActivity(
+            context,
+            1231236,
+            Intent(context, FirstOpenActivity::class.java).apply {
+                action = Intent.ACTION_VIEW
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtras(
+                    bundleOf(
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                    )
+                )
+            },
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val pendingIntentRoute = PendingIntent.getActivity(
+            context,
+            1231237,
+            Intent(context, FirstOpenActivity::class.java).apply {
+                action = Intent.ACTION_VIEW
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtras(
+                    bundleOf(
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                    )
+                )
+            },
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val customView = RemoteViews(context.packageName, R.layout.layout_notification_pinned).apply {
+            setOnClickPendingIntent(R.id.llEarthView, pendingIntentEarthView)
+            setOnClickPendingIntent(R.id.llCamera, pendingIntentCamera)
+            setOnClickPendingIntent(R.id.llGrid, pendingIntentGrid)
+            setOnClickPendingIntent(R.id.llRoute, pendingIntentRoute)
+        }
+
+        val customBigView = RemoteViews(context.packageName, R.layout.layout_notification_pinned_expand).apply {
+            setOnClickPendingIntent(R.id.llEarthView, pendingIntentEarthView)
+            setOnClickPendingIntent(R.id.llCamera, pendingIntentCamera)
+            setOnClickPendingIntent(R.id.llGrid, pendingIntentGrid)
+            setOnClickPendingIntent(R.id.llRoute, pendingIntentRoute)
+        }
 
 
-        val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_PINNED)
+        val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_DAILY)
             .setSmallIcon(R.drawable.img_camera)
             .setStyle(NotificationCompat.DecoratedCustomViewStyle())
             .setCustomContentView(customView)
             .setCustomBigContentView(customBigView)
-            .setContentIntent(pendingIntentSample)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setContentIntent(pendingIntentNone)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
             .setAutoCancel(false)
             .setOngoing(true)
             .setSilent(true)
