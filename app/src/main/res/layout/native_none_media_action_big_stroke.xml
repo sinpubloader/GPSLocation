@@ -76,7 +76,7 @@
                             android:layout_weight="1"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             tools:text="hellop .this ius dsa dsadsa " />
@@ -95,7 +95,7 @@
                             android:ellipsize="end"
                             android:gravity="bottom"
                             android:maxLines="1"
-                            android:textColor="@color/white"
+                            android:textColor="@color/black"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             tools:text=" dá dsa dsa ds a dsads ad sad sa " />
@@ -121,7 +121,7 @@
                     android:background="@drawable/bg_button_native_outline"
                     android:gravity="center"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
+                    android:textColor="@color/colorMeta"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     tools:text="Cài Đặt" />

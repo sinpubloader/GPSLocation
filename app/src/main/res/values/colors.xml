@@ -26,7 +26,7 @@
     <color name="colorShimmerItem">#EDEDED</color>
     <color name="colorMeta">#3083FF</color>
     <!--    <color name="colorAds">#45ACFA</color>-->
-    <color name="nativeBG">#24262B</color>
+    <color name="nativeBG">#33CCCCCC</color>
     <color name="colorAds">#8c55ec</color>
 
     <color name="mainBg">#191A1F</color>

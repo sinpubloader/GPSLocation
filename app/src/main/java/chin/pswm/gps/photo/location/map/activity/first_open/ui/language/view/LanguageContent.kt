@@ -40,6 +40,7 @@ import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.view.BannerView
 import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
+import chin.pswm.gps.photo.location.map.earthview.custom.AppCard
 import chin.pswm.gps.photo.location.map.earthview.custom.AppIcon
 import chin.pswm.gps.photo.location.map.earthview.custom.AppImage
 import chin.pswm.gps.photo.location.map.earthview.custom.BaseScreen
@@ -47,6 +48,7 @@ import chin.pswm.gps.photo.location.map.earthview.custom.CenterRow
 import chin.pswm.gps.photo.location.map.earthview.custom.HeaderView
 import chin.pswm.gps.photo.location.map.earthview.custom.onClick
 import chin.pswm.gps.photo.location.map.earthview.custom.onClickNotRipple
+import chin.pswm.gps.photo.location.map.earthview.custom.round
 import chin.pswm.gps.photo.location.map.earthview.custom.rounded
 import chin.pswm.gps.photo.location.map.languegess.LanguageState
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
@@ -69,6 +71,7 @@ fun LanguageContent(
 ) {
     val preview = LocalInspectionMode.current
     BaseScreen(
+        backgroundColor = colorWhite,
         topBar = {
             when (languageType) {
                 LanguageType.Normal, LanguageType.Alt -> {
@@ -131,97 +134,105 @@ fun LanguageContent(
             state = state,
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(12.dp),
-            contentPadding = PaddingValues(horizontal = 16.dp)
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 2.dp)
         ) {
             itemsIndexed(items = LanguageState.codes) { index, code ->
 
-                Box(
-                    Modifier
-                        .fillMaxWidth()
-                        .rounded(16.dp)
-                        .background(colorWhite)
-                        .onClick("choose_$code") {
-                            onLanguageChange(code)
-                        }
-                        .padding(horizontal = 16.dp)
+                AppCard(
+                    modifier = Modifier.fillMaxWidth(),
+                    cardColor = colorWhite,
+                    shape = round(16.dp),
+                    elevation = 1.dp
                 ) {
-                    val isSelected by remember(language) {
-                        derivedStateOf {
-                            code == language
+
+                    Box(
+                        Modifier
+                            .fillMaxWidth()
+                            .rounded(16.dp)
+                            .background(colorWhite)
+                            .onClick("choose_$code") {
+                                onLanguageChange(code)
+                            }
+                            .padding(horizontal = 16.dp)
+                    ) {
+                        val isSelected by remember(language) {
+                            derivedStateOf {
+                                code == language
+                            }
                         }
-                    }
 
-                    val name by remember {
-                        derivedStateOf {
-                            Locale.forLanguageTag(code).displayLanguage
+                        val name by remember {
+                            derivedStateOf {
+                                Locale.forLanguageTag(code).displayLanguage
+                            }
                         }
-                    }
-                    val nameBase by remember {
-                        derivedStateOf {
-                            Locale.forLanguageTag(code).getDisplayLanguage(Locale.forLanguageTag(code))
+                        val nameBase by remember {
+                            derivedStateOf {
+                                Locale.forLanguageTag(code).getDisplayLanguage(Locale.forLanguageTag(code))
+                            }
                         }
-                    }
 
-                    CenterRow(Modifier.fillMaxWidth()) {
+                        CenterRow(Modifier.fillMaxWidth()) {
 
-                        Text(
-                            buildAnnotatedString {
-                                append(name)
-                                withStyle(
-                                    appFont(
-                                        fontWeight = 400,
-                                        fontSize = 14,
-                                        color = Color.DarkGray.copy(0.7f)
-                                    ).toSpanStyle()
-                                ) {
-                                    append(" ($nameBase)")
-                                }
-                            },
-                            style = appFont(500, 16),
-                            color = colorBlack,
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(vertical = 18.dp)
-                        )
-
-                        if (!isSelected) {
-                            AppImage(
-                                res = R.drawable.ic_uncheck,
-                                modifier = Modifier.size(24.dp),
+                            Text(
+                                buildAnnotatedString {
+                                    append(name)
+                                    withStyle(
+                                        appFont(
+                                            fontWeight = 400,
+                                            fontSize = 14,
+                                            color = Color.DarkGray.copy(0.7f)
+                                        ).toSpanStyle()
+                                    ) {
+                                        append(" ($nameBase)")
+                                    }
+                                },
+                                style = appFont(500, 16),
+                                color = colorBlack,
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .padding(vertical = 18.dp)
                             )
-                        } else {
+
+                            if (!isSelected) {
+                                AppImage(
+                                    res = R.drawable.ic_uncheck,
+                                    modifier = Modifier.size(24.dp),
+                                )
+                            } else {
+                                AppImage(
+                                    res = R.drawable.ic_checked,
+                                    modifier = Modifier.size(24.dp),
+                                )
+                            }
+                        }
+
+                        if (index == 0 && showPoint) {
+
+                            val infiniteTransition =
+                                rememberInfiniteTransition(label = "infinite transition")
+                            val scale by infiniteTransition.animateFloat(
+                                initialValue = 0.9f,
+                                targetValue = 1.1f,
+                                animationSpec = infiniteRepeatable(
+                                    animation = tween(durationMillis = 1500),
+                                    repeatMode = RepeatMode.Reverse
+                                ),
+                                label = "scale"
+                            )
+
                             AppImage(
-                                res = R.drawable.ic_checked,
-                                modifier = Modifier.size(24.dp),
+                                res = R.drawable.ic_touch,
+                                modifier = Modifier
+                                    .align(Alignment.CenterEnd)
+                                    .padding(end = 40.dp)
+                                    .size(32.dp)
+                                    .graphicsLayer {
+                                        scaleX = scale
+                                        scaleY = scale
+                                    }
                             )
                         }
-                    }
-
-                    if (index == 0 && showPoint) {
-
-                        val infiniteTransition =
-                            rememberInfiniteTransition(label = "infinite transition")
-                        val scale by infiniteTransition.animateFloat(
-                            initialValue = 0.9f,
-                            targetValue = 1.1f,
-                            animationSpec = infiniteRepeatable(
-                                animation = tween(durationMillis = 1500),
-                                repeatMode = RepeatMode.Reverse
-                            ),
-                            label = "scale"
-                        )
-
-                        AppImage(
-                            res = R.drawable.ic_touch,
-                            modifier = Modifier
-                                .align(Alignment.CenterEnd)
-                                .padding(end = 40.dp)
-                                .size(32.dp)
-                                .graphicsLayer {
-                                    scaleX = scale
-                                    scaleY = scale
-                                }
-                        )
                     }
                 }
             }
