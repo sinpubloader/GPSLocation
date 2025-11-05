@@ -1,7 +1,6 @@
 package chin.pswm.gps.photo.location.map.ads.ext
 
 import android.os.Bundle
-import chin.pswm.gps.photo.location.map.ads.AdsConfig
 import com.google.firebase.Firebase
 import com.google.firebase.analytics.analytics
 import timber.log.Timber
@@ -15,12 +14,10 @@ class Tracking {
 
         fun logEvent(name: String, bundle: Bundle? = null) {
             Timber.tag(TAG).d("logEvent: $name - $bundle")
-            if (AdsConfig.canInitGa4) {
-                try {
-                    Firebase.analytics.logEvent(name, bundle)
-                } catch (e: Exception) {
-                    Timber.tag(TAG).e("logEvent: ${e.message}")
-                }
+            try {
+                Firebase.analytics.logEvent(name, bundle)
+            } catch (e: Exception) {
+                Timber.tag(TAG).e("logEvent: ${e.message}")
             }
         }
 

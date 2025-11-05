@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "866683501409",
+    "project_id": "gps-c01f1",
+    "storage_bucket": "gps-c01f1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866683501409:android:a0e33023c7d49ed1836320",
+        "android_client_info": {
+          "package_name": "com.geotag.camera.location.mapgps"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC9091nKPNZxe038vJt5Ey09gLTh7lM8k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      },
+      "admob_app_id": "ca-app-pub-4432670726333720~8696777196"
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -26,7 +26,7 @@ fun TrackingScreen(screen: String) {
     val localInspectionMode = LocalInspectionMode.current
 
     LifecycleResumeEffect(Unit) {
-        if (!localInspectionMode && AdsConfig.canInitGa4) {
+        if (!localInspectionMode) {
             Firebase.analytics.logEvent(FirebaseAnalytics.Event.SCREEN_VIEW) {
                 param(FirebaseAnalytics.Param.SCREEN_NAME, screen)
             }

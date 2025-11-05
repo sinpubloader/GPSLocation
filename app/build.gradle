@@ -10,7 +10,7 @@ android {
     compileSdk 36
 
     defaultConfig {
-        applicationId "chin.pswm.gps.photo.location.map_debug"
+        applicationId "com.geotag.camera.location.mapgps"
         minSdk 26
         targetSdk 36
         versionCode 1
@@ -198,6 +198,7 @@ dependencies {
     releaseImplementation("com.google.ads.mediation:facebook:6.20.0.1")
     implementation(platform("com.google.firebase:firebase-bom:34.4.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-config")
     implementation(libs.navigation.compose)
     implementation(libs.gson)
     implementation(libs.json)
