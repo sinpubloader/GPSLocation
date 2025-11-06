@@ -48,7 +48,8 @@ class FirstOpenActivity : AppCompatActivity(), ITag {
             FirstOpenNavigation(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(colorWhite)
+                    .background(colorWhite),
+                intent = intent
             )
         }
     }

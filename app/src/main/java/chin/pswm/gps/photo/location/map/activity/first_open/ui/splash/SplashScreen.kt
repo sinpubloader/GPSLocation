@@ -2,6 +2,7 @@ package chin.pswm.gps.photo.location.map.activity.first_open.ui.splash
 
 import android.Manifest.permission.POST_NOTIFICATIONS
 import android.app.Activity
+import android.content.Intent
 import android.os.Build
 import android.util.Log
 import androidx.compose.runtime.Composable
@@ -9,10 +10,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
+import androidx.core.os.bundleOf
 import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.navigation.NavHostController
+import chin.pswm.gps.photo.location.map.activity.StartActivity
 import chin.pswm.gps.photo.location.map.activity.first_open.FirstOpenActivity
 import chin.pswm.gps.photo.location.map.activity.first_open.common.CommonUtils
+import chin.pswm.gps.photo.location.map.activity.first_open.common.Constants
 import chin.pswm.gps.photo.location.map.activity.first_open.common.NavigationUtil.safeNavigate
 import chin.pswm.gps.photo.location.map.activity.first_open.cusom.shotcuts.ShortcutManager
 import chin.pswm.gps.photo.location.map.activity.first_open.nav.Dest
@@ -44,6 +48,7 @@ import java.util.Locale
 @Composable
 fun SplashScreen(
     navController: NavHostController,
+    intent: Intent,
 ) {
 
     val context = LocalContext.current
@@ -63,15 +68,25 @@ fun SplashScreen(
     }
 
     fun goNextScreen() {
+        val extras = intent.extras
         when {
             prefs.firstOpen -> {
-                Log.d("START_ISSUE"," firstOpen → 68 ");
                 navController.safeNavigate(Dest.Splash, adsManager.nextSplash, Dest.Splash)
             }
-
             else -> {
-                Log.d("START_ISSUE"," firstOpen else → 73 ");
-                CommonUtils.openToMainScreen(context)
+                if (extras != null) {
+                    val openFrom =
+                        extras.getInt(Constants.KEY_OPEN_FROM, Constants.OPEN_FROM_DEFAULT)
+                    context.startActivity(
+                        Intent(context, StartActivity::class.java).putExtras(
+                            bundleOf(
+                                Constants.KEY_OPEN_FROM to openFrom
+                            )
+                        )
+                    )
+                } else {
+                    CommonUtils.openToMainScreen(context)
+                }
             }
         }
     }
@@ -205,7 +220,11 @@ fun SplashScreen(
     LaunchedEffect(Unit) {
         ShortcutManager(context).updateShortcuts()
         notificationManager.scheduleReminder()
-        adsManager.requestUMP(activity = context as FirstOpenActivity, enableDebug = true, resetData = false)
+        adsManager.requestUMP(
+            activity = context as FirstOpenActivity,
+            enableDebug = true,
+            resetData = false
+        )
     }
 
     LaunchedEffect(Unit) {

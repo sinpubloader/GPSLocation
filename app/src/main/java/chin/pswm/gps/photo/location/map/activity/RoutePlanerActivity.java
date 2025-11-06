@@ -106,6 +106,7 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
             }
         });
 
+        composeView = findViewById(R.id.composeView);
         ComposeBannerKt.setBannerContent(composeView,
                 "RoutePlanerActivity",
                 BuildConfig.banner_inapp,
@@ -123,7 +124,7 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
     }
 
     private void setupData() {
-        composeView = findViewById(R.id.composeView);
+
         txtCurrentLocation = findViewById(R.id.txtCurrentLocation);
         txtDestinationLocation = findViewById(R.id.txtDestinationLocation);
         ivCurrentLocation = findViewById(R.id.iv_current_location);

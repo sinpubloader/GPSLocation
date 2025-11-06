@@ -13,9 +13,13 @@ object Constants {
     const val KEY_OPEN_FROM = "KEY_OPEN_FROM"
     const val OPEN_FROM_DEFAULT = 0
     const val OPEN_FROM_NOTIFY_DAILY = 1
-    const val OPEN_FROM_SHORTCUT = 2
     const val OPEN_FROM_NOTIFY = 3
     const val OPEN_FROM_NOTIFY_PINNED = 4
     const val OPEN_FROM_NOTIFY_KILL = 5
     const val OPEN_FROM_WIDGET = 6
+    const val OPEN_FROM_SHORTCUT = 2
+    const val OPEN_FROM_EARTH_SHORTCUT = 7
+    const val OPEN_FROM_GPS_SHORTCUT = 8
+    const val OPEN_FROM_ROUTE_SHORTCUT = 9
+    const val OPEN_FROM_GRID_SHORTCUT = 10
 }

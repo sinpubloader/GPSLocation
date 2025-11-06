@@ -44,10 +44,12 @@ import java.util.Random;
 
 import chin.pswm.gps.photo.location.map.MyApplication;
 import chin.pswm.gps.photo.location.map.activity.earthview.EarthViewActivity;
+import chin.pswm.gps.photo.location.map.activity.first_open.common.Constants;
 import chin.pswm.gps.photo.location.map.adapter.StartAdapter;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.AdsVariable;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
+import chin.pswm.gps.photo.location.map.ads.ext.Tracking;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.compose.ComposeNativeKt;
 import chin.pswm.gps.photo.location.map.interfaces.OnClickGallery;
@@ -130,6 +132,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         }
 
         setData();
+        initArgs();
 
         ComposeBannerKt.setBannerContent(binding.composeView,
                 "StartActivity",
@@ -151,6 +154,39 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
 
         requestExactAlarmPermission();
     }
+
+    private void initArgs() {
+
+        Bundle extras = getIntent().getExtras();
+        if (extras == null) {
+            return;
+        }
+
+        int openFrom = extras.getInt(Constants.KEY_OPEN_FROM, Constants.OPEN_FROM_DEFAULT);
+        switch (openFrom) {
+            case Constants.OPEN_FROM_EARTH_SHORTCUT:
+                Intent intent = new Intent(getApplicationContext(), EarthViewActivity.class);
+                startActivity(intent);
+                Tracking.Companion.logEvent("open_from_earth_shortcut", null);
+                break;
+
+            case Constants.OPEN_FROM_GPS_SHORTCUT:
+                startActivity(new Intent(this, AdvanceCameraActivity.class).setFlags(536870912));
+                Tracking.Companion.logEvent("open_from_gps_shortcut", null);
+                break;
+
+            case Constants.OPEN_FROM_ROUTE_SHORTCUT:
+                startActivity(new Intent(this, RoutePlanerActivity.class).setFlags(536870912));
+                Tracking.Companion.logEvent("open_from_rout_planner_shortcut", null);
+                break;
+
+            case Constants.OPEN_FROM_GRID_SHORTCUT:
+                startActivity(new Intent(this, GridCameraActivity.class).setFlags(536870912).putExtra("Type", 0));
+                Tracking.Companion.logEvent("open_from_grid_shortcut", null);
+                break;
+        }
+    }
+
 
     private static final int REQUEST_EXACT_ALARM = 1001;
 

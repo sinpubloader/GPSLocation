@@ -1,5 +1,6 @@
 package chin.pswm.gps.photo.location.map.activity.first_open.nav
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
@@ -40,7 +41,7 @@ import kotlin.reflect.KClass
 import kotlin.reflect.KType
 
 @Composable
-fun FirstOpenNavigation(modifier: Modifier = Modifier) {
+fun FirstOpenNavigation(modifier: Modifier = Modifier, intent: Intent) {
     val context = LocalContext.current
     val navController = rememberNavController()
     val adsManager: AdsManager = remember {
@@ -63,7 +64,7 @@ fun FirstOpenNavigation(modifier: Modifier = Modifier) {
             popEnterTransition = { fadeIn() },
             popExitTransition = { fadeOut() },
         ) {
-            SplashScreen(navController)
+            SplashScreen(navController, intent)
         }
 
         composableWithTag<Dest.Language>(

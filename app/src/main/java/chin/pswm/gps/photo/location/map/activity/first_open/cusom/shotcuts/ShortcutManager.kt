@@ -45,7 +45,7 @@ class ShortcutManager(
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     putExtras(
                         bundleOf(
-                            Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_SHORTCUT
+                            Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_EARTH_SHORTCUT
                         )
                     )
                 },
@@ -60,7 +60,7 @@ class ShortcutManager(
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     putExtras(
                         bundleOf(
-                            Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_SHORTCUT
+                            Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_GPS_SHORTCUT
                         )
                     )
                 },
@@ -75,7 +75,7 @@ class ShortcutManager(
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     putExtras(
                         bundleOf(
-                            Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_SHORTCUT
+                            Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_GRID_SHORTCUT
                         )
                     )
                 },
@@ -90,7 +90,7 @@ class ShortcutManager(
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     putExtras(
                         bundleOf(
-                            Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_SHORTCUT
+                            Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_ROUTE_SHORTCUT
                         )
                     )
                 },
