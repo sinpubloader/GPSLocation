@@ -67,6 +67,7 @@ import chin.pswm.gps.photo.location.map.utils.StorageUtils;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivityStartNewBinding;
+import chin.pswm.gps.photo.location.map_debug.databinding.BackDialogLayoutBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
 import chin.pswm.gps.photo.location.map_debug.databinding.RateDialogBinding;
 import kotlin.Pair;
@@ -195,14 +196,47 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
             AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
             if (!alarmManager.canScheduleExactAlarms()) {
-                Intent intent = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
-                startActivityForResult(intent, REQUEST_EXACT_ALARM);
+                showAlarmPermissionDialog();
             } else {
                 notificationManager.scheduleReminder();
             }
         } else {
             notificationManager.scheduleReminder();
         }
+    }
+
+    private void showAlarmPermissionDialog(){
+        BackDialogLayoutBinding binding1 = BackDialogLayoutBinding.inflate(getLayoutInflater());
+        Dialog dialog = new Dialog(this);
+        dialog.getWindow().requestFeature(1);
+        dialog.setContentView(binding1.getRoot());
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+                return true;
+            }
+        });
+        binding1.title.setText(getResources().getString(R.string.alarm_perm_required));
+        binding1.no.setText(getResources().getString(R.string.gps37));
+        binding1.yes.setText(getResources().getString(R.string.allow));
+        dialog.show();
+
+        binding1.no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public final void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        binding1.yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public final void onClick(View view) {
+                dialog.dismiss();
+                Intent intent = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+                startActivityForResult(intent, REQUEST_EXACT_ALARM);
+            }
+        });
     }
 
     @Override
