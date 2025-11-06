@@ -16,6 +16,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -24,6 +25,7 @@ import android.view.Window;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.compose.ui.platform.ComposeView;
@@ -47,6 +49,7 @@ import chin.pswm.gps.photo.location.map.fragment.CompassFragment;
 import chin.pswm.gps.photo.location.map.fragment.MapFragment;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
+import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import kotlin.Unit;
@@ -62,29 +65,74 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
     private ComposeView composeView;
     private TextView tvCamera, tvCompass, tvMap, tv_change_style_;
     private FusedLocationProviderClient fusedLocationClient;
-    private ImageView ivBaseImg, ivCompass, iv_back;
+    private ImageView ivBaseImg, ivCompass;
+    PermissionUtils permissionUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         LanguageManager.setLocale(CompassActivity.this, SharedHelper.getString(CompassActivity.this, "lang_key", ""));
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_compass); // Your XML layout
+        setContentView(R.layout.activity_compass);
+
+        findViewById(R.id.iv_back).setOnClickListener(view -> AdsManager.INSTANCE.showInterInApp(
+                CompassActivity.this,
+                false,
+                new Function0<>() {
+                    @Override
+                    public Unit invoke() {
+                        CompassActivity.super.onBackPressed();
+                        return null;
+                    }
+                }
+        ));
+        composeView = findViewById(R.id.composeView);
+        ComposeBannerKt.setBannerContent(composeView,
+                "CompassActivity",
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
+
+        this.permissionUtils = new PermissionUtils(this);
+        if (!checkPermissionStatus(false)) {
+            permissionUtils.callPermission(permissionUtils.permissionsLocation, 444);
+            return;
+        }
+
+        setupData();
+    }
+
+    public boolean checkPermissionStatus(boolean isShowDialog) {
+        PermissionUtils permissionUtils = this.permissionUtils;
+        return permissionUtils.checkPermissionn(CompassActivity.this, permissionUtils.permissionsLocation, isShowDialog);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(requestCode, strArr, iArr);
+        if (requestCode == 444) {
+            if (!checkPermissionStatus(true)) {
+                Toast.makeText(this, getString(R.string.perm_detail), Toast.LENGTH_SHORT).show();
+            } else {
+                setupData();
+            }
+        }
+    }
+
+    private void setupData() {
         viewPager = findViewById(R.id.viewPager);
         tvCamera = findViewById(R.id.tv_camera);
         tvCompass = findViewById(R.id.tv_compass);
-        iv_back = findViewById(R.id.iv_back);
         tvMap = findViewById(R.id.tv_map);
         compassImage = findViewById(R.id.iv_compass);
         tvDirection = findViewById(R.id.tv_direct);
         tvLat = findViewById(R.id.tv_lat);
         tvLong = findViewById(R.id.tv_long);
         ivBaseImg = findViewById(R.id.iv_base_img);
-        composeView = findViewById(R.id.composeView);
         ivCompass = findViewById(R.id.iv_compass);
         tv_change_style_ = findViewById(R.id.tv_change_style_);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        initSocketConnection(this, true, true);
 
         setupViewPager();
         getCurrentLocation();
@@ -97,22 +145,7 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
                 startActivityForResult(intent, 100); // Start activity with request code
             }
         });
-        iv_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AdsManager.INSTANCE.showInterInApp(
-                        CompassActivity.this,
-                        false,
-                        new Function0<Unit>() {
-                            @Override
-                            public Unit invoke() {
-                                CompassActivity.super.onBackPressed();
-                                return null;
-                            }
-                        }
-                );
-            }
-        });
+
         tvCamera.setOnClickListener(v -> {
             viewPager.setCurrentItem(0);
             updateTabBackground(tvCamera);
@@ -147,12 +180,7 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
             }
         });
 
-        ComposeBannerKt.setBannerContent(composeView,
-                "CompassActivity",
-                BuildConfig.banner_inapp,
-                "banner_inapp",
-                BannerType.BANNER_ADAPTIVE
-        );
+
 
         if (!hasMagneticFieldSensor()) {
             notSupport();

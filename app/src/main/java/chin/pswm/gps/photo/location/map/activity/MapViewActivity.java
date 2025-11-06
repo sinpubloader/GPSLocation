@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -33,6 +34,7 @@ import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.ImageLocationExtractor;
+import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
@@ -47,7 +49,7 @@ public class MapViewActivity extends BaseActivity {
     ActivityMapViewBinding binding;
     public List<Uri> uriList = new ArrayList();
     List<ImageLocationExtractor.LocationListener> locationListeners = new ArrayList();
-
+    PermissionUtils permissionUtils;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -57,8 +59,7 @@ public class MapViewActivity extends BaseActivity {
         ActivityMapViewBinding inflate = ActivityMapViewBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
-        initSocketConnection(this, true, true);
-
+        this.permissionUtils = new PermissionUtils(this);
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
@@ -107,8 +108,29 @@ public class MapViewActivity extends BaseActivity {
     @Override
     public void onResume() {
         super.onResume();
-        new ProcessAsyncTask().execute(new String[0]);
         hideSystemNavigationBar();
+        if (!checkPermissionStatus(false)) {
+            permissionUtils.callPermission(permissionUtils.permissionsLocation, 444);
+            return;
+        }
+        new ProcessAsyncTask().execute(new String[0]);
+    }
+
+    public boolean checkPermissionStatus(boolean isShowDialog) {
+        PermissionUtils permissionUtils = this.permissionUtils;
+        return permissionUtils.checkPermissionn(MapViewActivity.this, permissionUtils.permissionsLocation, isShowDialog);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(requestCode, strArr, iArr);
+        if (requestCode == 444) {
+            if (!checkPermissionStatus(true)) {
+                Toast.makeText(this, getString(R.string.perm_detail), Toast.LENGTH_SHORT).show();
+            } else {
+                new ProcessAsyncTask().execute(new String[0]);
+            }
+        }
     }
 
 

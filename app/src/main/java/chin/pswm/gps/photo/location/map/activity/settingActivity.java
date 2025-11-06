@@ -2,14 +2,10 @@ package chin.pswm.gps.photo.location.map.activity;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.showUserInterDataBack;
 
-import android.app.Dialog;
 import android.content.ActivityNotFoundException;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,25 +18,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
-import androidx.fragment.app.FragmentActivity;
-
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.MyApplication;
-import chin.pswm.gps.photo.location.map.adapter.StartAdapter;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.New_first_languagesselect;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
-import chin.pswm.gps.photo.location.map.utils.ImageLocationExtractor;
+import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
 import chin.pswm.gps.photo.location.map_debug.R;
 import chin.pswm.gps.photo.location.map_debug.databinding.ActivitySettingBinding;
-import chin.pswm.gps.photo.location.map_debug.databinding.ProcessDialogLayoutBinding;
 
 public class settingActivity extends AppCompatActivity {
     ActivitySettingBinding binding;
@@ -48,6 +39,7 @@ public class settingActivity extends AppCompatActivity {
     public boolean isImgShow = false, isVideoShow = false;
     public List<Uri> uriList = new ArrayList();
     public List<Uri> uriListVideo = new ArrayList();
+    PermissionUtils permissionUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +49,9 @@ public class settingActivity extends AppCompatActivity {
         ActivitySettingBinding inflate = ActivitySettingBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
-        initSocketConnection(this, true, true);
-        binding.cl1.setVisibility(GONE);
-        binding.view1.setVisibility(GONE);
+        this.permissionUtils = new PermissionUtils(this);
+//        binding.cl1.setVisibility(GONE);
+//        binding.view1.setVisibility(GONE);
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -166,14 +158,14 @@ public class settingActivity extends AppCompatActivity {
             setupFinallView();
         }
     }
-    
+
     public void hideShowImageView(boolean isHide) {
         isImgShow = !isHide;
         binding.ivPhoto.setVisibility(isHide ? GONE : VISIBLE);
         binding.tvPhoto.setVisibility(isHide ? GONE : VISIBLE);
         binding.ivImgArrow.setVisibility(isHide ? GONE : VISIBLE);
     }
-    
+
     public void hideShowVideoView(boolean isHide) {
         isVideoShow = !isHide;
         binding.ivVideo.setVisibility(isHide ? GONE : VISIBLE);
@@ -185,8 +177,16 @@ public class settingActivity extends AppCompatActivity {
         if (isImgShow || isVideoShow)
             binding.cl1.setVisibility(VISIBLE);
         binding.view1.setVisibility(isImgShow && isVideoShow ? VISIBLE : GONE);
+        if (!checkPermissionStatus(false)) {
+            binding.cl1.setVisibility(VISIBLE);
+        }
     }
-    
+
+    public boolean checkPermissionStatus(boolean isShowDialog) {
+        PermissionUtils permissionUtils = this.permissionUtils;
+        return permissionUtils.checkPermissionn(settingActivity.this, permissionUtils.permStorage, isShowDialog);
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -205,7 +205,7 @@ public class settingActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        new ProcessAsyncTask().execute(new String[0]);
+//        new ProcessAsyncTask().execute(new String[0]);
         hideSystemNavigationBar();
     }
 

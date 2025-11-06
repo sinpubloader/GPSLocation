@@ -73,7 +73,6 @@ import kotlin.Pair;
 
 public class StartActivity extends BaseActivity implements OnClickGallery {
     public static ArrayList<PlaceData> placesArrayList = new ArrayList<>();
-    public static int startFlag = 0;
     ActivityStartNewBinding binding;
     StartAdapter myCreationAdapter;
     public List<Uri> uriList = new ArrayList();
@@ -108,19 +107,19 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         setContentView(inflate.getRoot());
         this.permissionUtils = new PermissionUtils(this);
         notificationManager = new NotificationManager(MyApplication.instance);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {  // Android 13+
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES)
-                    != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.READ_MEDIA_IMAGES}, 100);
-            }
-        } else {  // Android 12 and below
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                    != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
-            }
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {  // Android 13+
+//            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_MEDIA_IMAGES)
+//                    != PackageManager.PERMISSION_GRANTED) {
+//                ActivityCompat.requestPermissions(this,
+//                        new String[]{Manifest.permission.READ_MEDIA_IMAGES}, 100);
+//            }
+//        } else {  // Android 12 and below
+//            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+//                    != PackageManager.PERMISSION_GRANTED) {
+//                ActivityCompat.requestPermissions(this,
+//                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
+//            }
+//        }
 //        initSocketConnection(this, true, true);
 //        showDynamicNativeData(StartActivity.this, binding.AdNative1, null, true);
 
@@ -149,7 +148,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         notificationManager.cancelNotification(NotificationManager.DAILY_NOTIFICATION);
         notificationManager.cancelNotification(23647623);
 
-        // todo: ?? why handle this?
+
         requestExactAlarmPermission();
     }
 
@@ -191,8 +190,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.compass.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                if (!checkPermissionStatus())
-                    return;
+//                if (!checkPermissionStatus())
+//                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m116xd0e95e84(view);
                     return null;
@@ -221,8 +220,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.routePlan.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                if (!checkPermissionStatus())
-                    return;
+//                if (!checkPermissionStatus())
+//                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m117xf67d6785(view);
                     return null;
@@ -232,8 +231,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.advanceCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                if (!checkPermissionStatus())
-                    return;
+//                if (!checkPermissionStatus())
+//                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m120x1c117086(view);
                     return null;
@@ -252,8 +251,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.photoGrid.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                if (!checkPermissionStatus())
-                    return;
+//                if (!checkPermissionStatus())
+//                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m122x67398288(view);
                     return null;
@@ -263,8 +262,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                if (!checkPermissionStatus())
-                    return;
+//                if (!checkPermissionStatus())
+//                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m123x8ccd8b89(view);
                     return null;
@@ -274,8 +273,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                if (!checkPermissionStatus())
-                    return;
+//                if (!checkPermissionStatus())
+//                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m124xb261948a(view);
                     return null;
@@ -321,8 +320,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         this.binding.videoCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
-                if (!checkPermissionStatus())
-                    return;
+//                if (!checkPermissionStatus())
+//                    return;
                 AdsManager.INSTANCE.showInterInApp(StartActivity.this, true, () -> {
                     StartActivity.this.m119xd82abbfe(view);
                     return null;
@@ -348,7 +347,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         if (!GPSUtils.isGPSEnabled(this)) {
             GPSUtils.showGPSDialog(this);
         } else {
-            callAds();
+            nextCall();
         }
     }
 
@@ -358,7 +357,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         if (!GPSUtils.isGPSEnabled(this)) {
             GPSUtils.showGPSDialog(this);
         } else {
-            callAds();
+            nextCall();
         }
     }
 
@@ -368,7 +367,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         if (!GPSUtils.isGPSEnabled(this)) {
             GPSUtils.showGPSDialog(this);
         } else {
-            callAds();
+            nextCall();
         }
     }
 
@@ -378,7 +377,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         if (!GPSUtils.isGPSEnabled(this)) {
             GPSUtils.showGPSDialog(this);
         } else {
-            callAds();
+            nextCall();
         }
     }
 
@@ -388,7 +387,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         if (!GPSUtils.isGPSEnabled(this)) {
             GPSUtils.showGPSDialog(this);
         } else {
-            callAds();
+            nextCall();
         }
     }
 
@@ -398,7 +397,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         if (!GPSUtils.isGPSEnabled(this)) {
             GPSUtils.showGPSDialog(this);
         } else {
-            callAds();
+            nextCall();
         }
     }
 
@@ -407,7 +406,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         if (!GPSUtils.isGPSEnabled(this)) {
             GPSUtils.showGPSDialog(this);
         } else {
-            callAds();
+            nextCall();
         }
     }
 
@@ -415,14 +414,14 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
     public void m127x231daf8d(View view) {
         this.click = 8;
         MyCreationActivity.cluster = null;
-        callAds();
+        nextCall();
     }
 
 
     public void m118xb296b2fd(View view) {
         this.click = 9;
         MyCreationActivity.cluster = null;
-        callAds();
+        nextCall();
     }
 
 
@@ -431,20 +430,8 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         if (!GPSUtils.isGPSEnabled(this)) {
             GPSUtils.showGPSDialog(this);
         } else {
-            callAds();
-        }
-    }
-
-    public void callAds() {
-        if (AdsVariable.startFlagOnline.equalsIgnoreCase("0")) {
-            startFlag = 0;
-        }
-        if (startFlag % 2 == 0) {
-            StartActivity.this.nextCall();
-        } else {
             nextCall();
         }
-        startFlag++;
     }
 
     public void nextCall() {
@@ -859,7 +846,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
 
     public boolean checkPermissionStatus() {
         PermissionUtils permissionUtils = this.permissionUtils;
-        if (permissionUtils.checkPermissionn(StartActivity.this, permissionUtils.allPermissions)) {
+        if (permissionUtils.checkPermissionn(StartActivity.this, permissionUtils.allPermissions, false)) {
             return true;
         }
         permissionUtils.callPermission(permissionUtils.allPermissions, permissionUtils.ALL_PERMISSIONS_REQUEST_CODE);

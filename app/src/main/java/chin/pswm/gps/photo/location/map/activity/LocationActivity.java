@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.core.view.WindowCompat;
@@ -24,6 +25,7 @@ import chin.pswm.gps.photo.location.map.fragment.ManualLocationFragment;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
+import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
@@ -36,6 +38,7 @@ import kotlin.jvm.functions.Function0;
 public class LocationActivity extends BaseActivity {
     ActivityLocationBinding binding;
     int currentFragment = 0;
+    PermissionUtils permissionUtils;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -45,7 +48,6 @@ public class LocationActivity extends BaseActivity {
         ActivityLocationBinding inflate = ActivityLocationBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
-        initSocketConnection(this, true, true);
 
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +65,41 @@ public class LocationActivity extends BaseActivity {
                 );
             }
         });
+        ComposeBannerKt.setBannerContent(binding.composeView,
+                "LocationActivity",
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
+
+        this.permissionUtils = new PermissionUtils(this);
+        if (!checkPermissionStatus(false)) {
+            permissionUtils.callPermission(permissionUtils.permissionsLocation, 444);
+            return;
+        }
+
+        setupData();
+
+    }
+
+    public boolean checkPermissionStatus(boolean isShowDialog) {
+        PermissionUtils permissionUtils = this.permissionUtils;
+        return permissionUtils.checkPermissionn(LocationActivity.this, permissionUtils.permissionsLocation, isShowDialog);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(requestCode, strArr, iArr);
+        if (requestCode == 444) {
+            if (!checkPermissionStatus(true)) {
+                Toast.makeText(this, getString(R.string.perm_detail), Toast.LENGTH_SHORT).show();
+            } else {
+                setupData();
+            }
+        }
+    }
+
+    private void setupData() {
         setFragment();
         this.binding.current.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,13 +119,6 @@ public class LocationActivity extends BaseActivity {
                 LocationActivity.this.m100x9db83225(view);
             }
         });
-
-        ComposeBannerKt.setBannerContent(binding.composeView,
-                "LocationActivity",
-                BuildConfig.banner_inapp,
-                "banner_inapp",
-                BannerType.BANNER_ADAPTIVE
-        );
     }
 
     @Override

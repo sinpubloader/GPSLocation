@@ -37,6 +37,7 @@ import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.model.PlaceData;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
+import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
@@ -54,6 +55,7 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
     MyCreationAdapter myCreationAdapter;
     int type;
     List<Uri> uriList = new ArrayList();
+    PermissionUtils permissionUtils;
 
     @Override
     public void onClickFolder(int i) {
@@ -68,11 +70,11 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
         this.binding = inflate;
         setContentView(inflate.getRoot());
         Resizer.getheightandwidth(this);
-        Resizer.setSize(this.binding.noData, 500, 339, true);
+//        Resizer.setSize(this.binding.noData, 500, 339, true);
         if (cluster == null) {
             this.type = getIntent().getIntExtra("TYPE", 0);
         }
-        initSocketConnection(this, true, true);
+        this.permissionUtils = new PermissionUtils(this);
 
         setData();
 
@@ -129,8 +131,32 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
     @Override
     public void onResume() {
         super.onResume();
-        new ProcessAsyncTask().execute(new String[0]);
         hideSystemNavigationBar();
+        if (!checkPermissionStatus(false)) {
+            permissionUtils.callPermission(permissionUtils.permOnlyStorage, 444);
+            return;
+        }
+        new ProcessAsyncTask().execute(new String[0]);
+    }
+
+    public boolean checkPermissionStatus(boolean isShowDialog) {
+        PermissionUtils permissionUtils = this.permissionUtils;
+        if (permissionUtils.checkPermissionn(MyCreationActivity.this, permissionUtils.permOnlyStorage, isShowDialog)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(requestCode, strArr, iArr);
+        if (requestCode == 444) {
+            if (!checkPermissionStatus(true)) {
+                Toast.makeText(this, getString(R.string.perm_detail), Toast.LENGTH_SHORT).show();
+            } else {
+                new ProcessAsyncTask().execute(new String[0]);
+            }
+        }
     }
 
     @Override
@@ -205,12 +231,14 @@ public class MyCreationActivity extends BaseActivity implements OnClickGallery {
             this.dialog.dismiss();
             if (MyCreationActivity.this.uriList != null && MyCreationActivity.this.uriList.size() > 0) {
                 MyCreationActivity.this.binding.noData.setVisibility(8);
+                MyCreationActivity.this.binding.tvNoData.setVisibility(8);
                 MyCreationActivity.this.binding.recyclerview.setVisibility(0);
                 MyCreationActivity.this.myCreationAdapter.updateAdapter(MyCreationActivity.this.uriList);
                 return;
             }
             MyCreationActivity.this.binding.recyclerview.setVisibility(8);
             MyCreationActivity.this.binding.noData.setVisibility(0);
+            MyCreationActivity.this.binding.tvNoData.setVisibility(0);
         }
     }
 

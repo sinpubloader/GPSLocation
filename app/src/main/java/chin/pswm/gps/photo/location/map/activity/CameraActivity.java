@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -62,6 +63,7 @@ import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.Common;
+import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
@@ -164,9 +166,10 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
         }
     };
 
+    Bundle mBundle = null;
+    PermissionUtils permissionUtils;
 
     @Override
-
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(CameraActivity.this, SharedHelper.getString(CameraActivity.this, "lang_key", ""));
         super.onCreate(bundle);
@@ -174,20 +177,65 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
         this.binding = inflate;
         setContentView(inflate.getRoot());
 
-        this.locationManager = (LocationManager) getSystemService("location");
-        this.binding.mapView.onCreate(bundle);
-        this.binding.mapView.getMapAsync(this);
-        this.binding.mapView.onResume();
-        initSocketConnection(this, true, true);
-
-        setData();
-
+        this.binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public final void onClick(View view) {
+                AdsManager.INSTANCE.showInterInApp(
+                        CameraActivity.this,
+                        false,
+                        new Function0<Unit>() {
+                            @Override
+                            public Unit invoke() {
+                                onBackPressed();
+                                return null;
+                            }
+                        }
+                );
+            }
+        });
         ComposeBannerKt.setBannerContent(binding.composeView,
                 "CameraActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE
         );
+
+        this.permissionUtils = new PermissionUtils(this);
+        if (!checkPermissionStatus(false)) {
+            permissionUtils.callPermission(permissionUtils.permCamera, 444);
+            return;
+        }
+
+        setupData();
+    }
+
+    public boolean checkPermissionStatus(boolean isShowDialog) {
+        PermissionUtils permissionUtils = this.permissionUtils;
+        if (permissionUtils.checkPermissionn(CameraActivity.this, permissionUtils.permCamera, isShowDialog)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(requestCode, strArr, iArr);
+        if (requestCode == 444) {
+            if (!checkPermissionStatus(true)) {
+                Toast.makeText(this, getString(R.string.perm_detail), Toast.LENGTH_SHORT).show();
+//                finish();
+            } else {
+                setupData();
+            }
+        }
+    }
+
+    private void setupData() {
+        this.locationManager = (LocationManager) getSystemService("location");
+        this.binding.mapView.onCreate(mBundle);
+        this.binding.mapView.getMapAsync(this);
+        this.binding.mapView.onResume();
+        setData();
     }
 
 //    @Override
@@ -230,22 +278,6 @@ public class CameraActivity extends AppCompatActivity implements OnMapReadyCallb
             @Override
             public final void onClick(View view) {
                 CameraActivity.this.m70xc41a2cff(view);
-            }
-        });
-        this.binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public final void onClick(View view) {
-                AdsManager.INSTANCE.showInterInApp(
-                        CameraActivity.this,
-                        false,
-                        new Function0<Unit>() {
-                            @Override
-                            public Unit invoke() {
-                                onBackPressed();
-                                return null;
-                            }
-                        }
-                );
             }
         });
     }

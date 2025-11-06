@@ -19,6 +19,7 @@ import android.os.SystemClock;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.WindowCompat;
@@ -53,6 +54,7 @@ import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.photoGrid.activity.PG_CollageActivity;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.Common;
+import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
@@ -158,6 +160,9 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
         }
     };
 
+    Bundle mBundle = null;
+    PermissionUtils permissionUtils;
+
     @Override
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(GridCameraActivity.this, SharedHelper.getString(GridCameraActivity.this, "lang_key", ""));
@@ -166,31 +171,7 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
         ActivityGridCameraBinding inflate = ActivityGridCameraBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
-        this.locationManager = (LocationManager) getSystemService("location");
-        this.binding.mapView.onCreate(bundle);
-        this.binding.mapView.getMapAsync(this);
-        this.binding.mapView.onResume();
-        initSocketConnection(this, true, true);
 
-        setData();
-
-        ComposeBannerKt.setBannerContent(binding.composeView,
-                "GridCameraActivity",
-                BuildConfig.banner_inapp,
-                "banner_inapp",
-                BannerType.BANNER_ADAPTIVE
-        );
-    }
-
-    private void setData() {
-        this.binding.camera.setLifecycleOwner(this);
-        this.binding.camera.open();
-        this.binding.camera.addCameraListener(this.cameraListener);
-        if (this.binding.camera.getFacing() == Facing.BACK) {
-            this.binding.flash.setEnabled(true);
-        } else {
-            this.binding.flash.setEnabled(false);
-        }
         this.binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {
@@ -207,6 +188,62 @@ public class GridCameraActivity extends BaseActivity implements OnMapReadyCallba
                 );
             }
         });
+
+        ComposeBannerKt.setBannerContent(binding.composeView,
+                "GridCameraActivity",
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
+
+        this.permissionUtils = new PermissionUtils(this);
+        mBundle = bundle;
+        if (!checkPermissionStatus(false)) {
+            permissionUtils.callPermission(permissionUtils.permCamera, 444);
+            return;
+        }
+
+        setupData();
+
+    }
+
+    private void setupData() {
+        this.locationManager = (LocationManager) getSystemService("location");
+        this.binding.mapView.onCreate(mBundle);
+        this.binding.mapView.getMapAsync(this);
+        this.binding.mapView.onResume();
+        initSocketConnection(this, true, true);
+
+        setData();
+    }
+
+    public boolean checkPermissionStatus(boolean isShowDialog) {
+        PermissionUtils permissionUtils = this.permissionUtils;
+        return permissionUtils.checkPermissionn(GridCameraActivity.this, permissionUtils.permCamera, isShowDialog);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(requestCode, strArr, iArr);
+        if (requestCode == 444) {
+            if (!checkPermissionStatus(true)) {
+                Toast.makeText(this, getString(R.string.perm_detail), Toast.LENGTH_SHORT).show();
+            } else {
+                setupData();
+            }
+        }
+    }
+
+    private void setData() {
+        this.binding.camera.setLifecycleOwner(this);
+        this.binding.camera.open();
+        this.binding.camera.addCameraListener(this.cameraListener);
+        if (this.binding.camera.getFacing() == Facing.BACK) {
+            this.binding.flash.setEnabled(true);
+        } else {
+            this.binding.flash.setEnabled(false);
+        }
+
         this.binding.flip.setOnClickListener(new View.OnClickListener() {
             @Override
             public final void onClick(View view) {

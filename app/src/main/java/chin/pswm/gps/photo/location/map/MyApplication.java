@@ -20,6 +20,7 @@ import chin.pswm.gps.photo.location.map.ads.adjust.AdjustManager;
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs;
 import chin.pswm.gps.photo.location.map.ads.remoteconfig.RemoteConfigManager;
 import chin.pswm.gps.photo.location.map.notification.NotificationManager;
+import chin.pswm.gps.photo.location.map.ads.ext.Tracking;
 import timber.log.Timber;
 
 
@@ -30,7 +31,7 @@ public class MyApplication extends Application {
     private static MediaProjectionManager mMediaProjectionManager = null;
     public static boolean needToShow = false;
     private static int result;
-    private static FirebaseAnalytics mFirebaseAnalytics;
+//    private static FirebaseAnalytics mFirebaseAnalytics;
 
 
     @Override
@@ -43,7 +44,7 @@ public class MyApplication extends Application {
         AdsManager adsManager = new AdsManager(this, prefs);
         NotificationManager noti = new NotificationManager(this);
         RemoteConfigManager remoteConfigManager = new RemoteConfigManager(prefs);
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+//        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 //        AudienceNetworkInitializeHelper.initialize(this);
         FacebookSdk.setApplicationId("1839024150025521");
         FacebookSdk.setClientToken("7e4fe4f80a01570be8f95bcd5da6fa26");
@@ -100,11 +101,12 @@ public class MyApplication extends Application {
 
     public static void sendEvent(String screenName, String eventName) {
         Bundle bundle = new Bundle();
-        bundle.putString("screenName", screenName);
+//        bundle.putString("screenName", screenName);
         bundle.putString("eventName", eventName);
-        if (mFirebaseAnalytics == null)
-            mFirebaseAnalytics = FirebaseAnalytics.getInstance(MyApplication.instance);
-        mFirebaseAnalytics.setDefaultEventParameters(bundle);
+        Tracking.Companion.logEvent(screenName,bundle);
+//        if (mFirebaseAnalytics == null)
+//            mFirebaseAnalytics = FirebaseAnalytics.getInstance(MyApplication.instance);
+//        mFirebaseAnalytics.setDefaultEventParameters(bundle);
     }
 
 }

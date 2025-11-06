@@ -1,6 +1,5 @@
 package chin.pswm.gps.photo.location.map.activity;
 
-import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
 import static chin.pswm.gps.photo.location.map.AllKeyHub.showUserInterDataBack;
 
 import android.content.Intent;
@@ -19,6 +18,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -63,6 +63,7 @@ import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.Common;
+import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
@@ -175,17 +176,11 @@ public class AdvanceCameraActivity extends BaseActivity implements OnMapReadyCal
     @Override
     public void onCreate(Bundle bundle) {
         LanguageManager.setLocale(AdvanceCameraActivity.this, SharedHelper.getString(AdvanceCameraActivity.this, "lang_key", ""));
-
         super.onCreate(bundle);
         ActivityAdvanceCameraBinding inflate = ActivityAdvanceCameraBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
-        this.locationManager = (LocationManager) getSystemService("location");
-        this.binding.mapView.onCreate(bundle);
-        this.binding.mapView.getMapAsync(this);
-        this.binding.mapView.onResume();
-        initSocketConnection(this, true, true);
-        setData();
+        mBundle = bundle;
 
         ComposeBannerKt.setBannerContent(binding.composeView,
                 "AdvanceCameraActivity",
@@ -194,6 +189,52 @@ public class AdvanceCameraActivity extends BaseActivity implements OnMapReadyCal
                 BannerType.BANNER_ADAPTIVE
         );
 
+        this.binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public final void onClick(View view) {
+                AdvanceCameraActivity.this.m49x2f46b069(view);
+            }
+        });
+
+        this.permissionUtils = new PermissionUtils(this);
+        if (!checkPermissionStatus(false)) {
+            permissionUtils.callPermission(permissionUtils.permCamera, 444);
+            return;
+        }
+
+        setupData();
+    }
+
+    private void setupData() {
+        this.locationManager = (LocationManager) getSystemService("location");
+        this.binding.mapView.onCreate(mBundle);
+        this.binding.mapView.getMapAsync(this);
+        this.binding.mapView.onResume();
+        setData();
+    }
+
+    Bundle mBundle = null;
+    PermissionUtils permissionUtils;
+
+    public boolean checkPermissionStatus(boolean isShowDialog) {
+        PermissionUtils permissionUtils = this.permissionUtils;
+        if (permissionUtils.checkPermissionn(AdvanceCameraActivity.this, permissionUtils.permCamera, isShowDialog)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(requestCode, strArr, iArr);
+        if (requestCode == 444) {
+            if (!checkPermissionStatus(true)) {
+                Toast.makeText(this, getString(R.string.perm_detail), Toast.LENGTH_SHORT).show();
+//                finish();
+            } else {
+                setupData();
+            }
+        }
     }
 
     @Override
@@ -215,12 +256,7 @@ public class AdvanceCameraActivity extends BaseActivity implements OnMapReadyCal
         this.binding.camera.setLifecycleOwner(this);
         this.binding.camera.open();
         this.binding.camera.addCameraListener(this.cameraListener);
-        this.binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public final void onClick(View view) {
-                AdvanceCameraActivity.this.m49x2f46b069(view);
-            }
-        });
+
         if (this.binding.camera.getFacing() == Facing.BACK) {
             this.binding.flash.setVisibility(0);
         } else {

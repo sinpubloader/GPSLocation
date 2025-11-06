@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.WindowCompat;
@@ -58,6 +59,7 @@ import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.Common;
+import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
@@ -108,20 +110,72 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
         ActivityVideoBinding inflate = ActivityVideoBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
-        this.locationManager = (LocationManager) getSystemService("location");
-        this.binding.mapView.onCreate(bundle);
-        this.binding.mapView.getMapAsync(this);
-        this.binding.mapView.onResume();
-        initSocketConnection(this, true, true);
+        mBundle = bundle;
 
-        setData();
-
+        this.binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public final void onClick(View view) {
+                AdsManager.INSTANCE.showInterInApp(
+                        VideoActivity.this,
+                        false,
+                        new Function0<Unit>() {
+                            @Override
+                            public Unit invoke() {
+                                VideoActivity.super.onBackPressed();
+                                return null;
+                            }
+                        }
+                );
+            }
+        });
         ComposeBannerKt.setBannerContent(binding.composeView,
                 "VideoActivity",
                 BuildConfig.banner_inapp,
                 "banner_inapp",
                 BannerType.BANNER_ADAPTIVE
         );
+
+        this.permissionUtils = new PermissionUtils(this);
+        if (!checkPermissionStatus(false)) {
+            permissionUtils.callPermission(permissionUtils.permCamera, 444);
+            return;
+        }
+
+        setupData();
+    }
+
+    Bundle mBundle = null;
+    PermissionUtils permissionUtils;
+
+    public boolean checkPermissionStatus(boolean isShowDialog) {
+        PermissionUtils permissionUtils = this.permissionUtils;
+        if (permissionUtils.checkPermissionn(VideoActivity.this, permissionUtils.permCamera, isShowDialog)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(requestCode, strArr, iArr);
+        if (requestCode == 444) {
+            if (!checkPermissionStatus(true)) {
+                Toast.makeText(this, getString(R.string.perm_detail), Toast.LENGTH_SHORT).show();
+//                finish();
+            } else {
+                setupData();
+            }
+        }
+    }
+
+    private void setupData() {
+        this.locationManager = (LocationManager) getSystemService("location");
+        this.binding.mapView.onCreate(mBundle);
+        this.binding.mapView.getMapAsync(this);
+        this.binding.mapView.onResume();
+        initSocketConnection(this, true, true);
+
+        setData();
     }
 
     private void setData() {
@@ -153,22 +207,7 @@ public class VideoActivity extends BaseActivity implements OnMapReadyCallback, L
                 VideoActivity.this.m141x495979f(view);
             }
         });
-        this.binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public final void onClick(View view) {
-                AdsManager.INSTANCE.showInterInApp(
-                        VideoActivity.this,
-                        false,
-                        new Function0<Unit>() {
-                            @Override
-                            public Unit invoke() {
-                                VideoActivity.super.onBackPressed();
-                                return null;
-                            }
-                        }
-                );
-            }
-        });
+
     }
 
     @Override

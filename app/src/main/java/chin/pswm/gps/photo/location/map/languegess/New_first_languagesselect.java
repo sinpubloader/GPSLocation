@@ -6,7 +6,6 @@ import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,15 +26,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
 import chin.pswm.gps.photo.location.map.New_intro.ActivitySelectFeature;
-import chin.pswm.gps.photo.location.map.New_intro.New_IntroActivity;
-import chin.pswm.gps.photo.location.map.activity.SplashActivity;
 import chin.pswm.gps.photo.location.map.activity.StartActivity;
-import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.compose.language.ComposeLanguageKt;
 import chin.pswm.gps.photo.location.map.compose.language.ComposeLanguageState;
 import chin.pswm.gps.photo.location.map.utils.LocaleUtils;

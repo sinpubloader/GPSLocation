@@ -19,6 +19,7 @@ import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.WindowCompat;
@@ -59,6 +60,7 @@ import chin.pswm.gps.photo.location.map.model.GalleryModel;
 import chin.pswm.gps.photo.location.map.utils.BaseActivity;
 import chin.pswm.gps.photo.location.map.utils.Common;
 import chin.pswm.gps.photo.location.map.utils.GalleryAsyncTask;
+import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map.utils.Resizer;
 import chin.pswm.gps.photo.location.map.utils.SpManager;
 import chin.pswm.gps.photo.location.map.utils.StorageUtils;
@@ -85,7 +87,8 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
     ArrayList<GalleryModel> arrayList = new ArrayList<>();
     public long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
     public long MIN_TIME_BW_UPDATES = 60000;
-
+    PermissionUtils permissionUtils;
+    Bundle mBundle = null;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -95,8 +98,44 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
         ActivityGalleryBinding inflate = ActivityGalleryBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
+        mBundle = bundle;
+
+        this.permissionUtils = new PermissionUtils(this);
+
+        this.binding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public final void onClick(View view) {
+                AdsManager.INSTANCE.showInterInApp(
+                        GalleryActivity.this,
+                        false,
+                        new Function0<Unit>() {
+                            @Override
+                            public Unit invoke() {
+                                onBackPressed();
+                                return null;
+                            }
+                        }
+                );
+            }
+        });
+
+        if (!checkPermissionStatus(false)) {
+            permissionUtils.callPermission(permissionUtils.permStorage, 444);
+            return;
+        }
+        setupData();
+
+        ComposeBannerKt.setBannerContent(binding.composeView,
+                "GalleryActivity",
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
+    }
+
+    private void setupData() {
         this.locationManager = (LocationManager) getSystemService("location");
-        this.binding.mapView.onCreate(bundle);
+        this.binding.mapView.onCreate(mBundle);
         this.binding.mapView.getMapAsync(this);
         this.binding.mapView.onResume();
         this.binding1 = ProcessDialogLayoutBinding.inflate(getLayoutInflater());
@@ -117,14 +156,28 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
         Glide.with((FragmentActivity) this).load(Integer.valueOf((int) R.drawable.loading)).into(this.binding1.gif);
         setSize();
         setData();
-
-        ComposeBannerKt.setBannerContent(binding.composeView,
-                "GalleryActivity",
-                BuildConfig.banner_inapp,
-                "banner_inapp",
-                BannerType.BANNER_ADAPTIVE
-        );
     }
+
+    public boolean checkPermissionStatus(boolean isShowDialog) {
+        PermissionUtils permissionUtils = this.permissionUtils;
+        if (permissionUtils.checkPermissionn(GalleryActivity.this, permissionUtils.permStorage, isShowDialog)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] strArr, int[] iArr) {
+        super.onRequestPermissionsResult(requestCode, strArr, iArr);
+        if (requestCode == 444) {
+            if (!checkPermissionStatus(true)) {
+                Toast.makeText(this, getString(R.string.perm_detail), Toast.LENGTH_SHORT).show();
+            } else {
+                setupData();
+            }
+        }
+    }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -166,22 +219,6 @@ public class GalleryActivity extends BaseActivity implements OnClickGallery, OnM
                 GalleryActivity.this.binding.noData.setVisibility(0);
             }
         }).execute(new Void[0]);
-        this.binding.back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public final void onClick(View view) {
-                AdsManager.INSTANCE.showInterInApp(
-                        GalleryActivity.this,
-                        false,
-                        new Function0<Unit>() {
-                            @Override
-                            public Unit invoke() {
-                                onBackPressed();
-                                return null;
-                            }
-                        }
-                );
-            }
-        });
     }
 
     public void m78x27a3b0b4(View view) {

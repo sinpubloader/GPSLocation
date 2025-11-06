@@ -45,7 +45,6 @@ public class TemplateActivity extends BaseActivity implements TemplateAdapter.On
         ActivityTemplateBinding inflate = ActivityTemplateBinding.inflate(getLayoutInflater());
         this.binding = inflate;
         setContentView(inflate.getRoot());
-        initSocketConnection(this, true, true);
 
         this.arrayList.add(Integer.valueOf((int) R.drawable.template_1));
         this.arrayList.add(Integer.valueOf((int) R.drawable.template_2));

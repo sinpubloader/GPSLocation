@@ -55,6 +55,7 @@ import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.languegess.LanguageManager;
 import chin.pswm.gps.photo.location.map.languegess.SharedHelper;
+import chin.pswm.gps.photo.location.map.utils.PermissionUtils;
 import chin.pswm.gps.photo.location.map_debug.BuildConfig;
 import chin.pswm.gps.photo.location.map_debug.R;
 import kotlin.Unit;
@@ -76,9 +77,10 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
     private static final int SEARCH_REQUEST_CODE = 101;
     private Dialog mapTypeDialog;
     private ComposeView composeView;
-    private ImageView ivNormal, ivSatellite, ivTerrain, ivHybrid, iv_back;
+    private ImageView ivNormal, ivSatellite, ivTerrain, ivHybrid;
     private int selectedMapType = GoogleMap.MAP_TYPE_NORMAL;
     private boolean isUpdatingLocation = false;
+    PermissionUtils permissionUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,16 +89,7 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_route_planer);
 
-        composeView = findViewById(R.id.composeView);
-        txtCurrentLocation = findViewById(R.id.txtCurrentLocation);
-        txtDestinationLocation = findViewById(R.id.txtDestinationLocation);
-        ivCurrentLocation = findViewById(R.id.iv_current_location);
-        ivDestination = findViewById(R.id.iv_destination);
-        tvOpenMap = findViewById(R.id.tv_OpenMap);
-        ivSwitch = findViewById(R.id.iv_switch);
-        llMapOption = findViewById(R.id.ll_map_option);
-        iv_back = findViewById(R.id.iv_back);
-        iv_back.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.iv_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AdsManager.INSTANCE.showInterInApp(
@@ -112,6 +105,33 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
                 );
             }
         });
+
+        ComposeBannerKt.setBannerContent(composeView,
+                "RoutePlanerActivity",
+                BuildConfig.banner_inapp,
+                "banner_inapp",
+                BannerType.BANNER_ADAPTIVE
+        );
+
+        this.permissionUtils = new PermissionUtils(this);
+        if (!checkPermissionStatus(false)) {
+            permissionUtils.callPermission(permissionUtils.permissionsLocation, 444);
+            return;
+        }
+
+        setupData();
+    }
+
+    private void setupData() {
+        composeView = findViewById(R.id.composeView);
+        txtCurrentLocation = findViewById(R.id.txtCurrentLocation);
+        txtDestinationLocation = findViewById(R.id.txtDestinationLocation);
+        ivCurrentLocation = findViewById(R.id.iv_current_location);
+        ivDestination = findViewById(R.id.iv_destination);
+        tvOpenMap = findViewById(R.id.tv_OpenMap);
+        ivSwitch = findViewById(R.id.iv_switch);
+        llMapOption = findViewById(R.id.ll_map_option);
+
         initSocketConnection(this, true, true);
 
         ivSwitch.setOnClickListener(view -> switchLocations());
@@ -143,13 +163,11 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
         txtDestinationLocation.addTextChangedListener(textWatcher);
 
         getCurrentLocation();
+    }
 
-        ComposeBannerKt.setBannerContent(composeView,
-                "RoutePlanerActivity",
-                BuildConfig.banner_inapp,
-                "banner_inapp",
-                BannerType.BANNER_ADAPTIVE
-        );
+    public boolean checkPermissionStatus(boolean isShowDialog) {
+        PermissionUtils permissionUtils = this.permissionUtils;
+        return permissionUtils.checkPermissionn(RoutePlanerActivity.this, permissionUtils.permissionsLocation, isShowDialog);
     }
 
     @Override
@@ -346,7 +364,13 @@ public class RoutePlanerActivity extends AppCompatActivity implements OnMapReady
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == LOCATION_PERMISSION_REQUEST) {
+        if (requestCode == 444) {
+            if (!checkPermissionStatus(true)) {
+                Toast.makeText(this, getString(R.string.perm_detail), Toast.LENGTH_SHORT).show();
+            } else {
+                setupData();
+            }
+        } else if (requestCode == LOCATION_PERMISSION_REQUEST) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 recreate();
             }

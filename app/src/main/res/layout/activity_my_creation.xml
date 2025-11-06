@@ -85,6 +85,20 @@
                 android:layout_centerInParent="true"
                 android:src="@drawable/no_data"
                 android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvNoData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No Data Foune"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_below="@id/noData"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                android:visibility="gone"
+                android:fontFamily="@font/rubik_semibold"/>
+
         </RelativeLayout>
 
         <androidx.compose.ui.platform.ComposeView
