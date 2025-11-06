@@ -20,6 +20,8 @@ import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.ext.Tracking
 import chin.pswm.gps.photo.location.map.ads.ext.tryWithoutCatch
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
+import chin.pswm.gps.photo.location.map.languegess.LanguageManager
+import chin.pswm.gps.photo.location.map.languegess.SharedHelper
 import chin.pswm.gps.photo.location.map.utils.LocalScreenTAG
 
 @Composable
@@ -35,7 +37,10 @@ fun SelectScreen(
     val prefs: Prefs = remember {
         Prefs.INSTANCE
     }
-
+    LanguageManager.setLocale(
+        context,
+        SharedHelper.getString(context, "lang_key", "")
+    )
     var showSelect by remember { mutableStateOf(false) }
     var isSelect by remember { mutableStateOf(false) }
 

@@ -9,12 +9,12 @@ import chin.pswm.gps.photo.location.map_debug.R
 enum class SelectType(
     @param:StringRes val title: Int
 ) {
-    Item1(R.string.select_title_1),
-    Item2(R.string.select_title_2),
-    Item3(R.string.select_title_3),
-    Item4(R.string.select_title_4),
-    Item5(R.string.select_title_5),
-    Item6(R.string.select_title_6);
+    Item1(R.string.earth_view),
+    Item2(R.string.timestamp_camera),
+    Item3(R.string.photo_grid),
+    Item4(R.string.route_planner),
+    Item5(R.string.compass),
+    Item6(R.string.gpl7);
 
     companion object {
         val selectedItems by lazy {

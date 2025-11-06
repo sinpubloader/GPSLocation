@@ -30,6 +30,6 @@ object LanguageState {
     }
 
     val codes by lazy {
-        mutableStateListOf("en", "fr", "in", "pt", "es", "hi", "it", "ms", "ja", "ko", "de", "ar", "fa", "ru", "zh", "tr", "cs", "nl", "vi", "hu", "ro", "pl", "bg", "el", "sk", "da", "iw", "hr", "sl", "sv", "ca", "uk", "th", "no", "fi", "ms-BN", "ms-MY", "ms-SG", "ms-ID", "ur-IN", "ur-PK", "bn", "km", "my", "az", "uz", "gu", "ta", "te", "mr", "kn", "or", "ml","sq","spi")
+        mutableStateListOf("en", "fr", "in", "pt", "es", "hi", "it", "ms", "ja", "ko", "de", "ar", "fa", "ru", "zh", "tr", "cs", "nl", "vi", "hu", "ro", "pl", "bg", "el", "sk", "da", "iw", "hr", "sl", "sv", "ca", "uk", "th", "no", "fi", /*"ms-BN", "ms-MY", "ms-SG", "ms-ID", "ur-IN", "ur-PK",*/ "bn", "km", "my", "az", "uz", "gu", "ta", "te", "mr", "kn", "or", "ml","sq"/*,"spi"*/)
     }
 }

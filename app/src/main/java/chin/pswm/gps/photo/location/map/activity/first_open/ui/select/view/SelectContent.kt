@@ -22,15 +22,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import chin.pswm.gps.photo.location.map.activity.first_open.data.SelectType
-import chin.pswm.gps.photo.location.map.ads.AdsManager
-import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
-import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.AppCard
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.AppImage
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.BaseScreen
@@ -40,6 +37,12 @@ import chin.pswm.gps.photo.location.map.activity.earthview.custom.onClick
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.onClickNotRipple
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.round
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.rounded
+import chin.pswm.gps.photo.location.map.activity.first_open.data.SelectType
+import chin.pswm.gps.photo.location.map.ads.AdsManager
+import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
+import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
+import chin.pswm.gps.photo.location.map.languegess.LanguageManager
+import chin.pswm.gps.photo.location.map.languegess.SharedHelper
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
 import chin.pswm.gps.photo.location.map.ui.theme.colorBlack
 import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
@@ -76,7 +79,7 @@ fun SelectContent(
                     .padding(top = 32.dp, bottom = 16.dp)
             ) {
                 Text(
-                    stringResource(R.string.which_features_do_you_like_the_most),
+                    stringResource(R.string.which_features_are_you_interested_in),
                     style = appFont(600, 24),
                     color = Color.Black,
                     modifier = Modifier
