@@ -92,7 +92,7 @@ fun SelectContent(
             Column {
                 if (!useText) {
                     Text(
-                        stringResource(R.string._continue),
+                        stringResource(R.string.contin),
                         style = appFont(600, 18),
                         color = Color.White,
                         textAlign = TextAlign.Center,
@@ -113,7 +113,7 @@ fun SelectContent(
                             .padding(vertical = 16.dp)
                     ) {
                         Text(
-                            stringResource(R.string._continue),
+                            stringResource(R.string.contin),
                             style = appFont(700, 16),
                             color = primary,
                             textAlign = TextAlign.Center,

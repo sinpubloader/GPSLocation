@@ -12,7 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import chin.pswm.gps.photo.location.map.MyApplication
+import chin.pswm.gps.photo.location.map.activity.first_open.ui.language.LanguageScreen
 import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
 import chin.pswm.gps.photo.location.map_debug.R
@@ -23,7 +25,8 @@ object ComposeLanguageState {
 
 fun setMyContent(composeView: ComposeView) {
     composeView.setContent {
-        ComposeLanguage(composeView)
+        LanguageScreen(rememberNavController(), false)
+//        ComposeLanguage(composeView)
     }
 }
 

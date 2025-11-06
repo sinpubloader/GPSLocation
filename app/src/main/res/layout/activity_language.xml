@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:id="@+id/rl_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
         android:layout_weight="1"
-        tools:listitem="@layout/language_item" />
+        tools:listitem="@layout/language_item" />-->
 
     <!--    <TextView-->
     <!--        android:id="@+id/done"-->
@@ -83,5 +83,5 @@
     <androidx.compose.ui.platform.ComposeView
         android:id="@+id/composeView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 </LinearLayout>

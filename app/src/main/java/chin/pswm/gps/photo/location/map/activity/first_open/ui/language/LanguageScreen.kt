@@ -1,5 +1,6 @@
 package chin.pswm.gps.photo.location.map.activity.first_open.ui.language
 
+import android.app.Activity
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -30,16 +31,20 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun LanguageScreen(
-    navController: NavHostController
+    navController: NavHostController,
+    isFromSplash: Boolean
 ) {
     val TAG = LocalScreenTAG.current
     val context = LocalContext.current
+    val langType = if (isFromSplash) LanguageType.Normal else LanguageType.Setting
     val adsManager: AdsManager = remember {
         AdsManager.INSTANCE
     }
     val prefs: Prefs = remember {
         Prefs.INSTANCE
     }
+
+    var languageCode = SharedHelper.getString(context, "lang_key", "")
 
     var showLanguageHelp by remember { mutableStateOf(false) }
     var language by remember { mutableStateOf("") }
@@ -52,12 +57,12 @@ fun LanguageScreen(
     }
 
     LanguageContent(
-        languageType = LanguageType.Normal,
+        languageType = langType,
         showPoint = adsManager.clickedLanguage,
-        language = "",
+        language = languageCode,
         state = LanguageState.state,
         onBack = {
-            // no need
+            (context as? Activity)?.finish()
         },
         onConfirm = {
             if (language.isEmpty()) {
@@ -66,19 +71,24 @@ fun LanguageScreen(
                     showLanguageHelp = true
                 }
             } else {
-                prefs.language = language
-                SharedHelper.putString(context, "lang_key", language)
-                LanguageManager.setLocale(context, language)
 
-                if (adsManager.nextLanguage == Dest.Main) {
-                    prefs.firstOpen = false
+                if (!isFromSplash) {
                     CommonUtils.openToMainScreen(context)
                 } else {
-                    navController.safeNavigate(
-                        currentRound = Dest.Language,
-                        destRoute = adsManager.nextLanguage,
-                        popUpTo = Dest.Language
-                    )
+                    prefs.language = language
+                    SharedHelper.putString(context, "lang_key", language)
+                    LanguageManager.setLocale(context, language)
+
+                    if (adsManager.nextLanguage == Dest.Main) {
+                        prefs.firstOpen = false
+                        CommonUtils.openToMainScreen(context)
+                    } else {
+                        navController.safeNavigate(
+                            currentRound = Dest.Language,
+                            destRoute = adsManager.nextLanguage,
+                            popUpTo = Dest.Language
+                        )
+                    }
                 }
             }
         },

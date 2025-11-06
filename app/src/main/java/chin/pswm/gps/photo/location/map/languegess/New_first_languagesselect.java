@@ -38,22 +38,22 @@ import chin.pswm.gps.photo.location.map_debug.R;
 
 
 public class New_first_languagesselect extends AppCompatActivity {
-    public static final ArrayList<String> languesslist = new ArrayList<>(List.of(
-            "en", "fr", "in", "pt", "es", "hi", "it", "ms", "ja", "ko",
-            "de", "ar", "fa", "ru", "zh", "tr", "cs", "nl", "vi", "hu",
-            "ro", "pl", "bg", "el", "sk", "da", "iw", "hr", "sl", "sv",
-            "ca", "uk", "th", "no", "fi", "ms-BN", "ms-MY", "ms-SG", "ms-ID",
-            "ur-IN", "ur-PK", "bn", "km", "my", "az", "uz", "gu", "ta", "te",
-            "mr", "kn", "or", "ml", "sq"
-    ));
-    String localeCode;
-    int selectedPosition = -1;
-    TextView btn_save;
+//    public static final ArrayList<String> languesslist = new ArrayList<>(List.of(
+//            "en", "fr", "in", "pt", "es", "hi", "it", "ms", "ja", "ko",
+//            "de", "ar", "fa", "ru", "zh", "tr", "cs", "nl", "vi", "hu",
+//            "ro", "pl", "bg", "el", "sk", "da", "iw", "hr", "sl", "sv",
+//            "ca", "uk", "th", "no", "fi", "ms-BN", "ms-MY", "ms-SG", "ms-ID",
+//            "ur-IN", "ur-PK", "bn", "km", "my", "az", "uz", "gu", "ta", "te",
+//            "mr", "kn", "or", "ml", "sq"
+//    ));
+//    String localeCode;
+//    int selectedPosition = -1;
+//    TextView btn_save;
     ComposeView composeView;
-    boolean languageSelected = false;
-    boolean fromSplash = false;
+//    boolean languageSelected = false;
+//    boolean fromSplash = false;
     boolean fromNavigationBar;
-    LinearLayout languges_s;
+//    LinearLayout languges_s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,86 +66,88 @@ public class New_first_languagesselect extends AppCompatActivity {
         );
         initSocketConnection(this, true, true);
 
-        languesslist.sort((code1, code2) -> {
-            String name1 = LocaleUtils.name(code1);
-            String name2 = LocaleUtils.name(code2);
+//        languesslist.sort((code1, code2) -> {
+//            String name1 = LocaleUtils.name(code1);
+//            String name2 = LocaleUtils.name(code2);
+//
+//            return name1.compareToIgnoreCase(name2);
+//        });
 
-            return name1.compareToIgnoreCase(name2);
-        });
+//        setDefaultLanguageFirst();
 
-        setDefaultLanguageFirst();
+//        selectedPosition = SharedHelper.getInt(getApplicationContext(), "Lastlang_poss", -1);
+//        if (selectedPosition >= 0 && selectedPosition < languesslist.size()) {
+//            languageSelected = true;
+//            localeCode = languesslist.get(selectedPosition);
+//        }
 
-        selectedPosition = SharedHelper.getInt(getApplicationContext(), "Lastlang_poss", -1);
-        if (selectedPosition >= 0 && selectedPosition < languesslist.size()) {
-            languageSelected = true;
-            localeCode = languesslist.get(selectedPosition);
-        }
+//        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        allbank_MyLangAdapter adapter = new allbank_MyLangAdapter(languesslist);
+//        recyclerView.setAdapter(adapter);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        allbank_MyLangAdapter adapter = new allbank_MyLangAdapter(languesslist);
-        recyclerView.setAdapter(adapter);
+//        btn_save = findViewById(R.id.done);
+//        btn_save.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (ComposeLanguageState.INSTANCE.getClickedLanguage()) {
+//                    nextScreen();
+//                } else {
+//                    Toast toast = Toast.makeText(New_first_languagesselect.this, R.string.select_language_please, Toast.LENGTH_SHORT);
+//                    toast.show();
+//                }
+//            }
+//        });
+//        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+//            @Override
+//            public void handleOnBackPressed() {
+//                if (fromNavigationBar)
+//                    finish();
+//            }
+//        });
+
         composeView = findViewById(R.id.composeView);
-        btn_save = findViewById(R.id.done);
-        btn_save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ComposeLanguageState.INSTANCE.getClickedLanguage()) {
-                    nextScreen();
-                } else {
-                    Toast toast = Toast.makeText(New_first_languagesselect.this, R.string.select_language_please, Toast.LENGTH_SHORT);
-                    toast.show();
-                }
-            }
-        });
-        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                if (fromNavigationBar)
-                    finish();
-            }
-        });
         ComposeLanguageKt.setMyContent(composeView);
     }
 
-    public static void setDefaultLanguageFirst() {
-        // Get device default language code
-        String deviceLang = Locale.getDefault().getLanguage(); // e.g. "en"
-        String deviceCountry = Locale.getDefault().getCountry(); // e.g. "US"
-
-        String fullCode = deviceLang + "-" + deviceCountry;
-
-        int index = -1;
-
-        if (languesslist.contains(fullCode)) {
-            index = languesslist.indexOf(fullCode);
-        } else if (languesslist.contains(deviceLang)) {
-            index = languesslist.indexOf(deviceLang);
-        }
-
-        if (index > 0) {
-            String lang = languesslist.remove(index);
-            languesslist.add(0, lang);
-        }
-    }
+//    public static void setDefaultLanguageFirst() {
+//        // Get device default language code
+//        String deviceLang = Locale.getDefault().getLanguage(); // e.g. "en"
+//        String deviceCountry = Locale.getDefault().getCountry(); // e.g. "US"
+//
+//        String fullCode = deviceLang + "-" + deviceCountry;
+//
+//        int index = -1;
+//
+//        if (languesslist.contains(fullCode)) {
+//            index = languesslist.indexOf(fullCode);
+//        } else if (languesslist.contains(deviceLang)) {
+//            index = languesslist.indexOf(deviceLang);
+//        }
+//
+//        if (index > 0) {
+//            String lang = languesslist.remove(index);
+//            languesslist.add(0, lang);
+//        }
+//    }
 
 
     Intent intent;
 
     private void nextScreen() {
-        if (localeCode == null) {
-            Toast.makeText(this, "Please Select A Language ", Toast.LENGTH_SHORT).show();
-        } else {
-            LanguageManager.setLocale(this, localeCode);
-            if (fromNavigationBar) {
-                intent = new Intent(getApplicationContext(), StartActivity.class);
-            } else {
-                intent = new Intent(getApplicationContext(), ActivitySelectFeature.class);
-            }
-            intent.putExtra("selectedLocale", localeCode);
-            startActivity(intent);
-            finish();
-        }
+//        if (localeCode == null) {
+//            Toast.makeText(this, "Please Select A Language ", Toast.LENGTH_SHORT).show();
+//        } else {
+//            LanguageManager.setLocale(this, localeCode);
+//            if (fromNavigationBar) {
+//                intent = new Intent(getApplicationContext(), StartActivity.class);
+//            } else {
+//                intent = new Intent(getApplicationContext(), ActivitySelectFeature.class);
+//            }
+//            intent.putExtra("selectedLocale", localeCode);
+//            startActivity(intent);
+//            finish();
+//        }
     }
 
     public class allbank_MyLangAdapter extends RecyclerView.Adapter<allbank_MyLangAdapter.ViewHolder> {
@@ -166,27 +168,27 @@ public class New_first_languagesselect extends AppCompatActivity {
         public void onBindViewHolder(ViewHolder holder, @SuppressLint("RecyclerView") int position) {
             String langItem = listdata.get(position);
 
-            if (selectedPosition == position) {
-//                holder.language_layout.setBackgroundResource(R.drawable.btn_global_square1);
-                holder.language_layout.setBackgroundResource(R.drawable.permission_detail_allow);
-//                holder.tv_language_item.setTextColor(getColor(R.color.white));
-            } else {
-//                holder.language_layout.setBackgroundResource(R.drawable.btn_global_card);
-                holder.language_layout.setBackgroundResource(R.drawable.permission_detail);
-//                holder.tv_language_item.setTextColor(getColor(R.color.black));
-            }
+//            if (selectedPosition == position) {
+////                holder.language_layout.setBackgroundResource(R.drawable.btn_global_square1);
+//                holder.language_layout.setBackgroundResource(R.drawable.permission_detail_allow);
+////                holder.tv_language_item.setTextColor(getColor(R.color.white));
+//            } else {
+////                holder.language_layout.setBackgroundResource(R.drawable.btn_global_card);
+//                holder.language_layout.setBackgroundResource(R.drawable.permission_detail);
+////                holder.tv_language_item.setTextColor(getColor(R.color.black));
+//            }
 
             holder.tv_language_item.setText(LocaleUtils.name(langItem));
             holder.language_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    selectedPosition = position;
-                    notifyDataSetChanged();
-                    btn_save.setVisibility(View.VISIBLE);
-                    localeCode = langItem;
-                    ComposeLanguageState.INSTANCE.setClickedLanguage(true);
-                    SharedHelper.putInt(getApplicationContext(), "Lastlang_poss", selectedPosition);
-                    SharedHelper.putString(getApplicationContext(), "lang_key", localeCode);
+//                    selectedPosition = position;
+//                    notifyDataSetChanged();
+//                    btn_save.setVisibility(View.VISIBLE);
+//                    localeCode = langItem;
+//                    ComposeLanguageState.INSTANCE.setClickedLanguage(true);
+//                    SharedHelper.putInt(getApplicationContext(), "Lastlang_poss", selectedPosition);
+//                    SharedHelper.putString(getApplicationContext(), "lang_key", localeCode);
                 }
             });
         }

@@ -73,7 +73,7 @@ fun FirstOpenNavigation(modifier: Modifier = Modifier, intent: Intent) {
             popEnterTransition = { fadeIn() },
             popExitTransition = { fadeOut() },
         ) {
-            LanguageScreen(navController)
+            LanguageScreen(navController, true)
         }
 
 //        composableWithTag<Dest.LanguageAlt>(

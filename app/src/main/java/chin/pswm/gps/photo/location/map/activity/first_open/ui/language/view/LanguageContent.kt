@@ -97,7 +97,7 @@ fun LanguageContent(
                 val adsManager: AdsManager = remember {
                     AdsManager.INSTANCE
                 }
-                when (languageType) {
+                /*when (languageType) {
                     LanguageType.Normal -> {
                         NativeView(
                             modifier = Modifier
@@ -129,7 +129,16 @@ fun LanguageContent(
                             position = "banner_position_language"
                         )
                     }
-                }
+                }*/
+                NativeView(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(10.dp),
+                    nativeAdUnit = adsManager.nativeLanguage,
+                    layoutConfig = "layout_native_language" to R.layout.native_media_left_filled,
+                    layoutFaceBookConfig = "layout_native_language_meta" to R.layout.native_media_left_filled,
+                    reloadAd = { adsManager.reloadAdsLanguage }
+                )
             }
         },
     ) {
