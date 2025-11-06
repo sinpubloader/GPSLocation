@@ -25,13 +25,10 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.toRoute
 import chin.pswm.gps.photo.location.map.activity.first_open.common.CommonUtils.openWifiSetting
 import chin.pswm.gps.photo.location.map.activity.first_open.cusom.NoInternetPopup
-import chin.pswm.gps.photo.location.map.activity.first_open.ui.language.LanguageAltScreen
 import chin.pswm.gps.photo.location.map.activity.first_open.ui.language.LanguageScreen
 import chin.pswm.gps.photo.location.map.activity.first_open.ui.onboard.OnboardScreen
-import chin.pswm.gps.photo.location.map.activity.first_open.ui.select.SelectAltScreen
 import chin.pswm.gps.photo.location.map.activity.first_open.ui.select.SelectScreen
 import chin.pswm.gps.photo.location.map.activity.first_open.ui.splash.SplashScreen
 import chin.pswm.gps.photo.location.map.ads.AdsManager
@@ -78,15 +75,15 @@ fun FirstOpenNavigation(modifier: Modifier = Modifier) {
             LanguageScreen(navController)
         }
 
-        composableWithTag<Dest.LanguageAlt>(
-            enterTransition = { fadeIn() },
-            exitTransition = { fadeOut() },
-            popEnterTransition = { fadeIn() },
-            popExitTransition = { fadeOut() },
-        ) {
-            val dest = it.toRoute<Dest.LanguageAlt>()
-            LanguageAltScreen(navController, dest.code)
-        }
+//        composableWithTag<Dest.LanguageAlt>(
+//            enterTransition = { fadeIn() },
+//            exitTransition = { fadeOut() },
+//            popEnterTransition = { fadeIn() },
+//            popExitTransition = { fadeOut() },
+//        ) {
+//            val dest = it.toRoute<Dest.LanguageAlt>()
+//            LanguageAltScreen(navController, dest.code)
+//        }
 
         composableWithTag<Dest.Select>(
             enterTransition = { fadeIn() },
@@ -97,14 +94,14 @@ fun FirstOpenNavigation(modifier: Modifier = Modifier) {
             SelectScreen(navController)
         }
 
-        composableWithTag<Dest.SelectAlt>(
-            enterTransition = { fadeIn() },
-            exitTransition = { fadeOut() },
-            popEnterTransition = { fadeIn() },
-            popExitTransition = { fadeOut() },
-        ) {
-            SelectAltScreen(navController)
-        }
+//        composableWithTag<Dest.SelectAlt>(
+//            enterTransition = { fadeIn() },
+//            exitTransition = { fadeOut() },
+//            popEnterTransition = { fadeIn() },
+//            popExitTransition = { fadeOut() },
+//        ) {
+//            SelectAltScreen(navController)
+//        }
 
         composableWithTag<Dest.OnBoard>(
             enterTransition = { fadeIn() },

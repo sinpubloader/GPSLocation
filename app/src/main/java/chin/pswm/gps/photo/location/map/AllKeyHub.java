@@ -20,27 +20,27 @@ public class AllKeyHub {
 
     public static void initSocketConnection(Activity activity, boolean isreportshow, boolean isshownative) {
 
-        if (AD_ACTIVE) {
-            BIGNATIVE(activity, activity.findViewById(R.id.Ad_Native));
-            SMallNATIVE(activity, activity.findViewById(R.id.Ad_Banner));
-            FULLSCREEN(activity);
-        }
+//        if (AD_ACTIVE) {
+//            BIGNATIVE(activity, activity.findViewById(R.id.Ad_Native));
+//            SMallNATIVE(activity, activity.findViewById(R.id.Ad_Banner));
+//            FULLSCREEN(activity);
+//        }
 
 
     }
 
     public static void showDynamicNativeData(Activity activity, FrameLayout bigNative, FrameLayout smallNative, boolean isshownative) {
-        if (AD_ACTIVE) {
-
-            if (bigNative != null) {
-                BIGNATIVE(activity,bigNative);
-            }
-
-            if (smallNative != null) {
-                SMallNATIVE(activity,smallNative);
-            }
-
-        }
+//        if (AD_ACTIVE) {
+//
+//            if (bigNative != null) {
+//                BIGNATIVE(activity,bigNative);
+//            }
+//
+//            if (smallNative != null) {
+//                SMallNATIVE(activity,smallNative);
+//            }
+//
+//        }
 
     }
 

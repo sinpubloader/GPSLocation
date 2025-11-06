@@ -100,27 +100,27 @@ fun LanguageAltScreen(
         }
     }
 
-    LifecycleResumeEffect(Unit) {
-        if (adsManager.clickedNativeLangAlt) {
-            val action = prefs.getString("action_clicked_native_lang_alt", "next_screen")
-            when (action) {
-                "tooltip" -> if (!showLanguageHelp) {
-                    Tracking.logEvent(TAG + "_clicked_ad")
-                    showLanguageHelp = true
-                }
-
-                "clear_ads" -> adsManager.clearAdsLanguageAlt()
-
-                "next_screen" -> nextScreen()
-
-            }
-            adsManager.clickedNativeLangAlt = false
-        }
-
-        onPauseOrDispose {
-
-        }
-    }
+//    LifecycleResumeEffect(Unit) {
+//        if (adsManager.clickedNativeLangAlt) {
+//            val action = prefs.getString("action_clicked_native_lang_alt", "next_screen")
+//            when (action) {
+//                "tooltip" -> if (!showLanguageHelp) {
+//                    Tracking.logEvent(TAG + "_clicked_ad")
+//                    showLanguageHelp = true
+//                }
+//
+//                "clear_ads" -> adsManager.clearAdsLanguageAlt()
+//
+//                "next_screen" -> nextScreen()
+//
+//            }
+//            adsManager.clickedNativeLangAlt = false
+//        }
+//
+//        onPauseOrDispose {
+//
+//        }
+//    }
 
     HelpSelectLanguageDialog(
         isShow = showLanguageHelp,

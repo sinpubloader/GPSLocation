@@ -116,13 +116,13 @@ class AdsManager(
 
             clickedLanguageTooltip = false
             clickedLanguage = false
-            clickedNativeLangAlt = false
+//            clickedNativeLangAlt = false
             clickedNativeFsn = false
             clickedNativeOb1 = false
             clickedNativeOb4 = false
 
             nativeLanguage.unDisable()
-            nativeLanguageAlt.unDisable()
+//            nativeLanguageAlt.unDisable()
             nativeOnboard1.unDisable()
             nativeOnboard4.unDisable()
             nativeFSN.unDisable()
@@ -150,8 +150,8 @@ class AdsManager(
     }
 
     fun clearAdsLanguageAlt() {
-        nativeLanguageAlt.reset()
-        nativeLanguageAlt.disable()
+//        nativeLanguageAlt.reset()
+//        nativeLanguageAlt.disable()
     }
 
     var clickedLanguage by mutableStateOf(false)
@@ -159,8 +159,8 @@ class AdsManager(
     var countShowLanguage by mutableIntStateOf(0)
     val nativeLanguage by lazy {
         NativeAdUnit(
-            "native_lang_high" to BuildConfig.native_lang_high,
-            "native_lang" to BuildConfig.native_lang,
+            "native_lang_new" to BuildConfig.native_lang_new,
+            /*"native_lang" to BuildConfig.native_lang,*/
             onClicked = {
                 clickedLanguage = true
                 clickedLanguageTooltip = true
@@ -168,7 +168,7 @@ class AdsManager(
         )
     }
 
-    var clickedNativeLangAlt by mutableStateOf(false)
+    /*var clickedNativeLangAlt by mutableStateOf(false)
     val nativeLanguageAlt by lazy {
         NativeAdUnit(
             "native_lang_alt_high" to BuildConfig.native_lang_alt_high,
@@ -177,13 +177,13 @@ class AdsManager(
                 clickedNativeLangAlt = true
             }
         )
-    }
+    }*/
 
     var clickedNativeOb1 by mutableStateOf(false)
     val nativeOnboard1 by lazy {
         NativeAdUnit(
-            "native_ob1_high" to BuildConfig.native_ob1_high,
-            "native_ob1" to BuildConfig.native_ob1,
+            "native_ob1_new" to BuildConfig.native_ob1_new,
+           /* "native_ob1" to BuildConfig.native_ob1,*/
             onClicked = {
                 clickedNativeOb1 = true
             }
@@ -193,8 +193,8 @@ class AdsManager(
     var clickedNativeOb4 by mutableStateOf(false)
     val nativeOnboard4 by lazy {
         NativeAdUnit(
-            "native_ob3_high" to BuildConfig.native_ob3_high,
-            "native_ob3" to BuildConfig.native_ob3,
+            "native_ob4_new" to BuildConfig.native_ob4_new,
+            /*"native_ob3" to BuildConfig.native_ob3,*/
             onClicked = {
                 clickedNativeOb4 = true
             }
@@ -204,8 +204,8 @@ class AdsManager(
     var clickedNativeFsn by mutableStateOf(false)
     val nativeFSN by lazy {
         NativeAdUnit(
-            "native_fsob_high" to BuildConfig.native_fsob_high,
-            "native_fsob" to BuildConfig.native_fsob,
+            "native_fsob_new" to BuildConfig.native_fsob_new,
+            /*"native_fsob" to BuildConfig.native_fsob,*/
             onClicked = {
                 clickedNativeFsn = true
             }
@@ -214,17 +214,17 @@ class AdsManager(
 
     val nativeSelect by lazy {
         NativeAdUnit(
-            "native_select_high" to BuildConfig.native_select_high,
-            "native_select" to BuildConfig.native_select,
+            "native_select_new" to BuildConfig.native_select_new,
+            /*"native_select" to BuildConfig.native_select,*/
         )
     }
 
-    val nativeSelectAlt by lazy {
+    /*val nativeSelectAlt by lazy {
         NativeAdUnit(
             "native_select_alt_high" to BuildConfig.native_select_alt_high,
             "native_select_alt" to BuildConfig.native_select_alt,
         )
-    }
+    }*/
 
     val nativeHome by lazy {
         NativeAdUnit(

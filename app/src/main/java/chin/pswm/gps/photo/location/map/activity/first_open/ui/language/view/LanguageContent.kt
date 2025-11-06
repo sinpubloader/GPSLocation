@@ -70,6 +70,9 @@ fun LanguageContent(
     showPoint: Boolean = false,
 ) {
     val preview = LocalInspectionMode.current
+    var selectedLanguage by remember { mutableStateOf(language) }
+    var showTouchPoint by remember { mutableStateOf(showPoint) }
+
     BaseScreen(
         backgroundColor = colorWhite,
         topBar = {
@@ -101,22 +104,22 @@ fun LanguageContent(
                                 .fillMaxWidth()
                                 .padding(10.dp),
                             nativeAdUnit = adsManager.nativeLanguage,
-                            layoutConfig = "layout_native_language" to R.layout.native_media_ctr_bot_big_filled,
-                            layoutFaceBookConfig = "layout_native_language_meta" to R.layout.native_media_ctr_bot_big_filled,
+                            layoutConfig = "layout_native_language" to R.layout.native_media_left_filled,
+                            layoutFaceBookConfig = "layout_native_language_meta" to R.layout.native_media_left_filled,
                             reloadAd = { adsManager.reloadAdsLanguage }
                         )
                     }
 
                     LanguageType.Alt -> {
-                        NativeView(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(10.dp),
-                            nativeAdUnit = adsManager.nativeLanguageAlt,
-                            layoutConfig = "layout_native_language_alt" to R.layout.native_media_ctr_bot_big_filled,
-                            layoutFaceBookConfig = "layout_native_language_alt_meta" to R.layout.native_media_ctr_bot_big_filled,
-                            reloadAd = { adsManager.reloadAdsLanguageAlt }
-                        )
+//                        NativeView(
+//                            modifier = Modifier
+//                                .fillMaxWidth()
+//                                .padding(10.dp),
+//                            nativeAdUnit = adsManager.nativeLanguageAlt,
+//                            layoutConfig = "layout_native_language_alt" to R.layout.native_media_ctr_bot_big_filled,
+//                            layoutFaceBookConfig = "layout_native_language_alt_meta" to R.layout.native_media_ctr_bot_big_filled,
+//                            reloadAd = { adsManager.reloadAdsLanguageAlt }
+//                        )
                     }
 
                     LanguageType.Setting -> {
@@ -151,26 +154,17 @@ fun LanguageContent(
                             .rounded(16.dp)
                             .background(colorWhite)
                             .onClick("choose_$code") {
+                                selectedLanguage = code
                                 onLanguageChange(code)
+                                showTouchPoint = false
                             }
                             .padding(horizontal = 16.dp)
                     ) {
-                        val isSelected by remember(language) {
-                            derivedStateOf {
-                                code == language
-                            }
-                        }
+                        val isSelected = code == selectedLanguage
 
-                        val name by remember {
-                            derivedStateOf {
-                                Locale.forLanguageTag(code).displayLanguage
-                            }
-                        }
-                        val nameBase by remember {
-                            derivedStateOf {
-                                Locale.forLanguageTag(code).getDisplayLanguage(Locale.forLanguageTag(code))
-                            }
-                        }
+                        val name = Locale.forLanguageTag(code).displayLanguage
+                        val nameBase = Locale.forLanguageTag(code)
+                            .getDisplayLanguage(Locale.forLanguageTag(code))
 
                         CenterRow(Modifier.fillMaxWidth()) {
 
@@ -194,20 +188,13 @@ fun LanguageContent(
                                     .padding(vertical = 18.dp)
                             )
 
-                            if (!isSelected) {
-                                AppImage(
-                                    res = R.drawable.ic_uncheck,
-                                    modifier = Modifier.size(24.dp),
-                                )
-                            } else {
-                                AppImage(
-                                    res = R.drawable.ic_checked,
-                                    modifier = Modifier.size(24.dp),
-                                )
-                            }
+                            AppImage(
+                                res = if (isSelected) R.drawable.ic_checked else R.drawable.ic_uncheck,
+                                modifier = Modifier.size(24.dp),
+                            )
                         }
 
-                        if (index == 0 && showPoint) {
+                        if (index == 0 && showTouchPoint) {
 
                             val infiniteTransition =
                                 rememberInfiniteTransition(label = "infinite transition")

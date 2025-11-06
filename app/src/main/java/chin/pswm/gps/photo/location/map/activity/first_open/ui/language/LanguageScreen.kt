@@ -2,6 +2,7 @@ package chin.pswm.gps.photo.location.map.activity.first_open.ui.language
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -10,16 +11,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.navigation.NavHostController
+import chin.pswm.gps.photo.location.map.activity.first_open.common.CommonUtils
 import chin.pswm.gps.photo.location.map.activity.first_open.common.NavigationUtil.safeNavigate
 import chin.pswm.gps.photo.location.map.activity.first_open.cusom.HelpSelectLanguageDialog
 import chin.pswm.gps.photo.location.map.activity.first_open.data.LanguageType
 import chin.pswm.gps.photo.location.map.activity.first_open.nav.Dest
+import chin.pswm.gps.photo.location.map.activity.first_open.ui.language.view.LanguageContent
 import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.ext.Tracking
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
+import chin.pswm.gps.photo.location.map.languegess.LanguageManager
 import chin.pswm.gps.photo.location.map.languegess.LanguageState
+import chin.pswm.gps.photo.location.map.languegess.SharedHelper
 import chin.pswm.gps.photo.location.map.utils.LocalScreenTAG
-import chin.pswm.gps.photo.location.map.activity.first_open.ui.language.view.LanguageContent
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -38,9 +42,13 @@ fun LanguageScreen(
     }
 
     var showLanguageHelp by remember { mutableStateOf(false) }
+    var language by remember { mutableStateOf("") }
 
     fun onConfirm(code: String) {
-        navController.safeNavigate(Dest.Language, Dest.LanguageAlt(code), Dest.Language)
+        prefs.language = language
+        SharedHelper.putString(context, "lang_key", language)
+        LanguageManager.setLocale(context, language)
+//        navController.safeNavigate(Dest.Language, Dest.LanguageAlt(code), Dest.Language)
     }
 
     LanguageContent(
@@ -52,15 +60,52 @@ fun LanguageScreen(
             // no need
         },
         onConfirm = {
-            if (!showLanguageHelp) {
-                Tracking.logEvent(TAG + "_confirm_pressed")
-                showLanguageHelp = true
+            if (language.isEmpty()) {
+                if (!showLanguageHelp) {
+                    Tracking.logEvent(TAG + "_confirm_pressed")
+                    showLanguageHelp = true
+                }
+            } else {
+                prefs.language = language
+                SharedHelper.putString(context, "lang_key", language)
+                LanguageManager.setLocale(context, language)
+
+                if (adsManager.nextLanguage == Dest.Main) {
+                    prefs.firstOpen = false
+                    CommonUtils.openToMainScreen(context)
+                } else {
+                    navController.safeNavigate(
+                        currentRound = Dest.Language,
+                        destRoute = adsManager.nextLanguage,
+                        popUpTo = Dest.Language
+                    )
+                }
             }
         },
         onLanguageChange = { code ->
+            language = code
             onConfirm(code)
         }
     )
+
+    LaunchedEffect(Unit) {
+        when (adsManager.nextLanguage) {
+            Dest.Select -> {
+                adsManager.nativeSelect.loadAd(context)
+            }
+
+            Dest.OnBoard -> {
+                adsManager.nativeOnboard1.loadAd(context)
+                adsManager.nativeFSN.loadAd(context)
+            }
+
+            Dest.Main -> {
+                adsManager.nativeHome.loadAd(context)
+            }
+
+            else -> Unit
+        }
+    }
 
     val scope = rememberCoroutineScope()
     LifecycleResumeEffect(Unit) {
@@ -106,10 +151,10 @@ fun LanguageScreen(
             adsManager.clickedLanguageTooltip = false
         }
 
-        scope.launch {
-            delay(250)
-            adsManager.nativeLanguageAlt.loadAd(context)
-        }
+//        scope.launch {
+//            delay(250)
+//            adsManager.nativeLanguageAlt.loadAd(context)
+//        }
 
         onPauseOrDispose {
 

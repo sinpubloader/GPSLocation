@@ -133,21 +133,21 @@ fun SelectContent(
                                 .padding(bottom = 10.dp)
                                 .padding(horizontal = 12.dp),
                             nativeAdUnit = adsManager.nativeSelect,
-                            layoutConfig = "layout_native_select" to R.layout.native_none_media_action_small_bottom_stroke,
-                            layoutFaceBookConfig = "layout_native_select_meta" to R.layout.native_none_media_action_small_bottom_stroke,
+                            layoutConfig = "layout_native_select" to R.layout.native_media_ctr_bot_big_filled,
+                            layoutFaceBookConfig = "layout_native_select_meta" to R.layout.native_media_ctr_bot_big_filled,
                             reloadAd = { adsManager.reloadAdsSelect }
                         )
                     } else {
-                        NativeView(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(bottom = 10.dp)
-                                .padding(horizontal = 12.dp),
-                            nativeAdUnit = adsManager.nativeSelectAlt,
-                            layoutConfig = "layout_native_select_alt" to R.layout.native_none_media_action_small_bottom_stroke,
-                            layoutFaceBookConfig = "layout_native_select_alt_meta" to R.layout.native_none_media_action_small_bottom_stroke,
-                            reloadAd = { adsManager.reloadAdsSelect }
-                        )
+//                        NativeView(
+//                            modifier = Modifier
+//                                .fillMaxWidth()
+//                                .padding(bottom = 10.dp)
+//                                .padding(horizontal = 12.dp),
+//                            nativeAdUnit = adsManager.nativeSelectAlt,
+//                            layoutConfig = "layout_native_select_alt" to R.layout.native_none_media_action_small_bottom_stroke,
+//                            layoutFaceBookConfig = "layout_native_select_alt_meta" to R.layout.native_none_media_action_small_bottom_stroke,
+//                            reloadAd = { adsManager.reloadAdsSelect }
+//                        )
                     }
                 }
             }
