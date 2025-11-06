@@ -3,6 +3,7 @@ package chin.pswm.gps.photo.location.map.activity.first_open.ui.splash
 import android.Manifest.permission.POST_NOTIFICATIONS
 import android.app.Activity
 import android.os.Build
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -64,10 +65,12 @@ fun SplashScreen(
     fun goNextScreen() {
         when {
             prefs.firstOpen -> {
+                Log.d("START_ISSUE"," firstOpen → 68 ");
                 navController.safeNavigate(Dest.Splash, adsManager.nextSplash, Dest.Splash)
             }
 
             else -> {
+                Log.d("START_ISSUE"," firstOpen else → 73 ");
                 CommonUtils.openToMainScreen(context)
             }
         }
@@ -142,23 +145,30 @@ fun SplashScreen(
     fun showSplash() {
         adsManager.interSplash.apply {
             onImpression = {
+                Log.d("START_ISSUE"," onImpression → 146 ");
                 AppScreenState.screenCreated = 0
                 if (adsManager.nextSplash != Dest.Main) {
+                    Log.d("START_ISSUE"," onImpression → 149 ");
                     goNextScreen()
                 }
             }
         }.show(
             context as Activity,
             onAdClosed = {
-                goNextScreen()
+                Log.d("START_ISSUE"," onAdClosed → 156 ");
+//                goNextScreen()
             },
             onNextAction = {
+                Log.d("START_ISSUE"," onNextAction → 160 ");
                 if (adsManager.nextSplash != Dest.Main) {
+                    Log.d("START_ISSUE"," onNextAction → 162 ");
                     goNextScreen()
                 }
             },
             onAdFailedToShow = {
+                Log.d("START_ISSUE"," onAdFailedToShow → 167 ");
                 if (it?.code != AdErrorCode.ERROR_CODE_SHOW_IN_BACKGROUND.code) {
+                    Log.d("START_ISSUE"," onAdFailedToShow → 169 ");
                     goNextScreen()
                 }
             },
@@ -180,6 +190,7 @@ fun SplashScreen(
         val noti = flowAds.second
         if (noti) {
             if (splash == AdsStatus.IMPRESSED || splash == AdsStatus.FAIL) {
+                Log.d("START_ISSUE"," LifecycleResume → 193 ");
                 goNextScreen()
             } else if (splash == AdsStatus.SUCCESS) {
                 showSplash()
