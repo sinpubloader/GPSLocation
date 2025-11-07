@@ -188,7 +188,8 @@
         <activity
             android:name="chin.pswm.gps.photo.location.map.activity.first_open.FirstOpenActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.FirstOpen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
