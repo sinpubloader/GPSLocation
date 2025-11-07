@@ -165,25 +165,25 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
 
         int openFrom = extras.getInt(Constants.KEY_OPEN_FROM, Constants.OPEN_FROM_DEFAULT);
         switch (openFrom) {
-            case Constants.OPEN_FROM_EARTH_SHORTCUT:
+            case Constants.OPEN_FROM_EARTH_SHORTCUT, Constants.OPEN_EARTH_VIEW_FROM_NOTIFY_PINNED:
                 Intent intent = new Intent(getApplicationContext(), EarthViewActivity.class);
                 startActivity(intent);
-                Tracking.Companion.logEvent("open_from_earth_shortcut", null);
+                Tracking.Companion.logEvent(openFrom == Constants.OPEN_FROM_EARTH_SHORTCUT ? "open_earth_from_shortcut" : "open_earth_from_notify_pin", null);
                 break;
 
-            case Constants.OPEN_FROM_GPS_SHORTCUT:
+            case Constants.OPEN_FROM_GPS_SHORTCUT, Constants.OPEN_CAMERA_FROM_NOTIFY_PINNED:
                 startActivity(new Intent(this, AdvanceCameraActivity.class).setFlags(536870912));
-                Tracking.Companion.logEvent("open_from_gps_shortcut", null);
+                Tracking.Companion.logEvent(openFrom == Constants.OPEN_FROM_GPS_SHORTCUT ? "open_gps_from_shortcut" : "open_camera_from_notify_pin", null);
                 break;
 
-            case Constants.OPEN_FROM_ROUTE_SHORTCUT:
+            case Constants.OPEN_FROM_ROUTE_SHORTCUT, Constants.OPEN_ROUTE_FROM_NOTIFY_PINNED:
                 startActivity(new Intent(this, RoutePlanerActivity.class).setFlags(536870912));
-                Tracking.Companion.logEvent("open_from_rout_planner_shortcut", null);
+                Tracking.Companion.logEvent(openFrom == Constants.OPEN_FROM_ROUTE_SHORTCUT ? "open_rout_planner_from_shortcut" : "open_route_planner_from_notify_pin", null);
                 break;
 
-            case Constants.OPEN_FROM_GRID_SHORTCUT:
+            case Constants.OPEN_FROM_GRID_SHORTCUT, Constants.OPEN_GRID_FROM_NOTIFY_PINNED:
                 startActivity(new Intent(this, GridCameraActivity.class).setFlags(536870912).putExtra("Type", 0));
-                Tracking.Companion.logEvent("open_from_grid_shortcut", null);
+                Tracking.Companion.logEvent(openFrom == Constants.OPEN_FROM_GRID_SHORTCUT ? "open_grid_from_shortcut" : "open_grid_from_notify_pin", null);
                 break;
         }
     }

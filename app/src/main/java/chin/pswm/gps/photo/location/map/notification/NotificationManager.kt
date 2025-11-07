@@ -185,7 +185,7 @@ class NotificationManager(
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 putExtras(
                     bundleOf(
-                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_EARTH_VIEW_FROM_NOTIFY_PINNED
                     )
                 )
             },
@@ -200,7 +200,7 @@ class NotificationManager(
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 putExtras(
                     bundleOf(
-                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_CAMERA_FROM_NOTIFY_PINNED
                     )
                 )
             },
@@ -215,7 +215,7 @@ class NotificationManager(
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 putExtras(
                     bundleOf(
-                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_GRID_FROM_NOTIFY_PINNED
                     )
                 )
             },
@@ -230,7 +230,7 @@ class NotificationManager(
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 putExtras(
                     bundleOf(
-                        Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_NOTIFY_PINNED
+                        Constants.KEY_OPEN_FROM to Constants.OPEN_ROUTE_FROM_NOTIFY_PINNED
                     )
                 )
             },
