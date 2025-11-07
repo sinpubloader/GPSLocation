@@ -1,6 +1,8 @@
 package chin.pswm.gps.photo.location.map.activity.first_open.ui.language
 
 import android.app.Activity
+import android.os.Build
+import android.view.WindowManager
 import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -97,6 +99,17 @@ fun LanguageScreen(
             onConfirm(code)
         }
     )
+
+    LaunchedEffect(Unit) {
+        val activity = context as? Activity
+        activity?.let {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                activity.window.insetsController?.show(android.view.WindowInsets.Type.statusBars())
+            } else {
+                activity.window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            }
+        }
+    }
 
     LaunchedEffect(Unit) {
         when (adsManager.nextLanguage) {

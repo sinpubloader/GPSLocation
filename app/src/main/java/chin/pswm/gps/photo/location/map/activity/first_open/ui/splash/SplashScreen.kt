@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.util.Log
+import android.view.WindowManager
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -73,6 +74,7 @@ fun SplashScreen(
             prefs.firstOpen -> {
                 navController.safeNavigate(Dest.Splash, adsManager.nextSplash, Dest.Splash)
             }
+
             else -> {
                 if (extras != null) {
                     val openFrom =
@@ -104,6 +106,22 @@ fun SplashScreen(
                 AppScreenState.requestingNotificationPermission.value = true
             })
     } else remember { null }
+
+    LaunchedEffect(Unit) {
+        val activity = context as? Activity
+        activity?.let {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                val windowInsetsController = activity.window.insetsController
+                windowInsetsController?.hide(android.view.WindowInsets.Type.statusBars())
+            } else {
+                activity.window.setFlags(
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN
+                )
+            }
+        }
+    }
+
 
     LaunchedEffect(Unit) {
         combine(
@@ -160,30 +178,30 @@ fun SplashScreen(
     fun showSplash() {
         adsManager.interSplash.apply {
             onImpression = {
-                Log.d("START_ISSUE"," onImpression → 146 ");
+                Log.d("START_ISSUE", " onImpression → 146 ");
                 AppScreenState.screenCreated = 0
                 if (adsManager.nextSplash != Dest.Main) {
-                    Log.d("START_ISSUE"," onImpression → 149 ");
+                    Log.d("START_ISSUE", " onImpression → 149 ");
                     goNextScreen()
                 }
             }
         }.show(
             context as Activity,
             onAdClosed = {
-                Log.d("START_ISSUE"," onAdClosed → 156 ");
+                Log.d("START_ISSUE", " onAdClosed → 156 ");
 //                goNextScreen()
             },
             onNextAction = {
-                Log.d("START_ISSUE"," onNextAction → 160 ");
+                Log.d("START_ISSUE", " onNextAction → 160 ");
                 if (adsManager.nextSplash != Dest.Main) {
-                    Log.d("START_ISSUE"," onNextAction → 162 ");
+                    Log.d("START_ISSUE", " onNextAction → 162 ");
                     goNextScreen()
                 }
             },
             onAdFailedToShow = {
-                Log.d("START_ISSUE"," onAdFailedToShow → 167 ");
+                Log.d("START_ISSUE", " onAdFailedToShow → 167 ");
                 if (it?.code != AdErrorCode.ERROR_CODE_SHOW_IN_BACKGROUND.code) {
-                    Log.d("START_ISSUE"," onAdFailedToShow → 169 ");
+                    Log.d("START_ISSUE", " onAdFailedToShow → 169 ");
                     goNextScreen()
                 }
             },
@@ -205,7 +223,7 @@ fun SplashScreen(
         val noti = flowAds.second
         if (noti) {
             if (splash == AdsStatus.IMPRESSED || splash == AdsStatus.FAIL) {
-                Log.d("START_ISSUE"," LifecycleResume → 193 ");
+                Log.d("START_ISSUE", " LifecycleResume → 193 ");
                 goNextScreen()
             } else if (splash == AdsStatus.SUCCESS) {
                 showSplash()
