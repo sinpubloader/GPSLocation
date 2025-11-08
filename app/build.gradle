@@ -27,9 +27,9 @@ android {
         }
 
         debug {
-            minifyEnabled false
-            debuggable true
-            shrinkResources false
+            minifyEnabled true
+            debuggable false
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

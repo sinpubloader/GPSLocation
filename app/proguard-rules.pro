@@ -22,6 +22,11 @@
 
 # Keep your custom Application class
 -keep class mil.nga.geopackage.srs.SpatialReferenceSystemDao.**{ *; }
+
+-keep class chin.pswm.gps.photo.location.map.activity.first_open.nav.**{ *; }
+-keep class com.google.android.gms.** { *; }
+-keep class com.google.firebase.** { *; }
+
 -keep class mil.nga.geopackage.srs.SpatialReferenceSystemDao
 -keep class chin.pswm.gps.photo.location.map_debug.MyApplication {
     <init>();

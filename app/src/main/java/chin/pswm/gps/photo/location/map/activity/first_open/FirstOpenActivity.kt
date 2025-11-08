@@ -117,7 +117,7 @@ class FirstOpenActivity : AppCompatActivity(), ITag {
     }
 
     // For notification
-    private lateinit var mService: KillAppService
+    private var mService: KillAppService? = null
     private var binded = false
     private val connection = object : ServiceConnection {
         override fun onServiceConnected(className: ComponentName, service: IBinder) {
@@ -129,6 +129,7 @@ class FirstOpenActivity : AppCompatActivity(), ITag {
 
         override fun onServiceDisconnected(arg0: ComponentName) {
             Timber.Forest.tag(TAG).d("onServiceDisconnected: ")
+            mService = null
             binded = false
         }
     }
@@ -137,18 +138,19 @@ class FirstOpenActivity : AppCompatActivity(), ITag {
         if (this.allowNotification && !binded && prefs.firstOpen) {
             Timber.tag(TAG).d("bindService: ")
             tryWithoutCatch {
-                Intent(this@FirstOpenActivity, KillAppService::class.java).also { intent ->
-                    bindService(intent, connection, BIND_AUTO_CREATE)
-                }
+                KillAppService.startService(this)
+                val intent = Intent(this, KillAppService::class.java)
+                bindService(intent, connection, BIND_AUTO_CREATE)
             }
         }
     }
 
     fun unbindService() {
         tryWithoutCatch {
-            if (!binded) return@tryWithoutCatch
-            Timber.Forest.tag(TAG).d("unbindService: ")
-            unbindService(connection)
+            if (binded) {
+                unbindService(connection)
+                binded = false
+            }
         }
     }
 }
