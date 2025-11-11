@@ -13,6 +13,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 
 import com.facebook.FacebookSdk;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
@@ -31,7 +32,7 @@ public class MyApplication extends Application {
     private static MediaProjectionManager mMediaProjectionManager = null;
     public static boolean needToShow = false;
     private static int result;
-//    private static FirebaseAnalytics mFirebaseAnalytics;
+    private static FirebaseAnalytics mFirebaseAnalytics;
 
 
     @Override
@@ -44,8 +45,10 @@ public class MyApplication extends Application {
         Prefs prefs = new Prefs(this);
         AdsManager adsManager = new AdsManager(this, prefs);
         NotificationManager noti = new NotificationManager(this);
-        RemoteConfigManager remoteConfigManager = new RemoteConfigManager(prefs);
-//        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        FirebaseApp.initializeApp(this);
+        RemoteConfigManager remoteConfigManager = new RemoteConfigManager(this, prefs);
+        remoteConfigManager.fetchRemoteConfig();
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 //        AudienceNetworkInitializeHelper.initialize(this);
         FacebookSdk.setApplicationId("1839024150025521");
         FacebookSdk.setClientToken("7e4fe4f80a01570be8f95bcd5da6fa26");
@@ -100,12 +103,11 @@ public class MyApplication extends Application {
 
     public static void sendEvent(String screenName, String eventName) {
         Bundle bundle = new Bundle();
-//        bundle.putString("screenName", screenName);
+        bundle.putString("screenName", screenName);
         bundle.putString("eventName", eventName);
-        Tracking.Companion.logEvent(screenName,bundle);
-//        if (mFirebaseAnalytics == null)
-//            mFirebaseAnalytics = FirebaseAnalytics.getInstance(MyApplication.instance);
-//        mFirebaseAnalytics.setDefaultEventParameters(bundle);
+        if (mFirebaseAnalytics == null)
+            mFirebaseAnalytics = FirebaseAnalytics.getInstance(MyApplication.instance);
+        mFirebaseAnalytics.setDefaultEventParameters(bundle);
     }
 
 }
