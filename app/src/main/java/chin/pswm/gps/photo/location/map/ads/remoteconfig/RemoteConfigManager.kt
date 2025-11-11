@@ -1,8 +1,10 @@
 package chin.pswm.gps.photo.location.map.ads.remoteconfig
 
+import android.content.Context
 import chin.pswm.gps.photo.location.map.ads.ext.ITag
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
 import com.google.firebase.Firebase
+import com.google.firebase.FirebaseApp
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigValue
 import com.google.firebase.remoteconfig.remoteConfig
@@ -15,6 +17,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class RemoteConfigManager(
+    private val context: Context,
     private val cache: Prefs
 ) : ITag {
 
@@ -26,13 +29,17 @@ class RemoteConfigManager(
 
     private val _fetchedFlow = MutableStateFlow(false)
     val fetchedStateFlow = _fetchedFlow.asStateFlow()
-
     init {
         INSTANCE = this
-        fetchRemoteConfig()
     }
 
-    private fun fetchRemoteConfig() {
+    fun fetchRemoteConfig() {
+
+        if (FirebaseApp.getApps(context).isEmpty()) {
+            Timber.tag(TAG).e("Firebase not initialized yet")
+            return
+        }
+
         Timber.tag(TAG).d("fetchRemoteConfig: start fetching")
         val remoteConfig = Firebase.remoteConfig
         val configSettings = remoteConfigSettings {

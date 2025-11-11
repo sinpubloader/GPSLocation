@@ -31,13 +31,13 @@
     <string  translatable="false"   name="bottomsheet_action_expand_halfway">Expand halfway</string>
     <string  translatable="false"   name="bottomsheet_drag_handle_clicked">Drag handle double-tapped</string>
     <string  translatable="false"   name="bottomsheet_drag_handle_content_description">Drag handle</string>
-    <string  translatable="false"   name="fcm_fallback_notification_channel_label">Miscellaneous</string>
-    <string  translatable="false"   name="fullAppId">ca-app-pub-8256624996496649~7451368548</string>
-    <string  translatable="false"   name="gcm_defaultSenderId">275403573128</string>
-    <string  translatable="false"   name="google_api_key">AIzaSyCS7CKTaL01KCG8VNYp5sBHJaizI-dp7cw</string>
-    <string  translatable="false"   name="google_app_id">1:275403573128:android:ca7a368d1e6f4d0064dc3d</string>
-    <string  translatable="false"   name="google_crash_reporting_api_key">AIzaSyCS7CKTaL01KCG8VNYp5sBHJaizI-dp7cw</string>
-    <string  translatable="false"   name="google_storage_bucket">gps-photo-location-with-fc364.appspot.com</string>
+<!--    <string  translatable="false"   name="fcm_fallback_notification_channel_label">Miscellaneous</string>-->
+<!--    <string  translatable="false"   name="fullAppId">ca-app-pub-8256624996496649~7451368548</string>-->
+<!--    <string  translatable="false"   name="gcm_defaultSenderId">275403573128</string>-->
+<!--    <string  translatable="false"   name="google_api_key">AIzaSyCS7CKTaL01KCG8VNYp5sBHJaizI-dp7cw</string>-->
+<!--    <string  translatable="false"   name="google_app_id">1:275403573128:android:ca7a368d1e6f4d0064dc3d</string>-->
+<!--    <string  translatable="false"   name="google_crash_reporting_api_key">AIzaSyCS7CKTaL01KCG8VNYp5sBHJaizI-dp7cw</string>-->
+<!--    <string  translatable="false"   name="google_storage_bucket">gps-photo-location-with-fc364.appspot.com</string>-->
     <string  translatable="false"   name="hide_bottom_view_on_scroll_behavior">com.google.android.material.behavior.HideBottomViewOnScrollBehavior</string>
     <string  translatable="false"   name="preference_tips">com.fom.rapid.assistant.heymoon.tips</string>
     <string  translatable="false"   name="privacy_link">file:///android_res/raw/privacy_policy.html</string>

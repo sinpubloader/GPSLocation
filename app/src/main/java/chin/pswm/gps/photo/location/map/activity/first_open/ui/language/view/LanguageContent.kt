@@ -20,7 +20,6 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -35,11 +34,6 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import chin.pswm.gps.photo.location.map.activity.first_open.data.LanguageType
-import chin.pswm.gps.photo.location.map.ads.AdsManager
-import chin.pswm.gps.photo.location.map.ads.adunit.banner.view.BannerView
-import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
-import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.AppCard
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.AppIcon
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.AppImage
@@ -50,12 +44,15 @@ import chin.pswm.gps.photo.location.map.activity.earthview.custom.onClick
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.onClickNotRipple
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.round
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.rounded
+import chin.pswm.gps.photo.location.map.activity.first_open.data.LanguageType
+import chin.pswm.gps.photo.location.map.ads.AdsManager
+import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
+import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
 import chin.pswm.gps.photo.location.map.languegess.LanguageState
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
 import chin.pswm.gps.photo.location.map.ui.theme.colorBlack
 import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
 import chin.pswm.gps.photo.location.map.ui.theme.primary
-import chin.pswm.gps.photo.location.map_debug.BuildConfig
 import chin.pswm.gps.photo.location.map_debug.R
 import java.util.Locale
 

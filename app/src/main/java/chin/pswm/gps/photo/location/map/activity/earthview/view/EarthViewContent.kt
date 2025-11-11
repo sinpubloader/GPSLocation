@@ -61,6 +61,7 @@ import chin.pswm.gps.photo.location.map.activity.earthview.state.SearchState
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
 import chin.pswm.gps.photo.location.map.ui.theme.brushMain
 import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
+import chin.pswm.gps.photo.location.map.ui.theme.mainBg
 import chin.pswm.gps.photo.location.map.ui.theme.neutral50
 import chin.pswm.gps.photo.location.map.ui.theme.neutral700
 import chin.pswm.gps.photo.location.map.ui.theme.primaryColor
@@ -316,7 +317,7 @@ private fun EarthTopBarView(
     CenterBox(
         modifier = Modifier
             .fillMaxWidth()
-            .background(primaryColor)
+            .background(mainBg)
             .padding(14.dp),
     ) {
         AppIcon(
