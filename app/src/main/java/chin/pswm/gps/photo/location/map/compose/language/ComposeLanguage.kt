@@ -12,9 +12,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import androidx.navigation.compose.rememberNavController
 import chin.pswm.gps.photo.location.map.MyApplication
-import chin.pswm.gps.photo.location.map.activity.first_open.ui.language.LanguageScreen
+import chin.pswm.gps.photo.location.map.activity.first_open.ui.language.LanguageSettingScreen
 import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
 import chin.pswm.gps.photo.location.map_debug.R
@@ -25,7 +24,7 @@ object ComposeLanguageState {
 
 fun setMyContent(composeView: ComposeView) {
     composeView.setContent {
-        LanguageScreen(rememberNavController(), false)
+        LanguageSettingScreen()
 //        ComposeLanguage(composeView)
     }
 }
@@ -60,13 +59,13 @@ fun ComposeLanguage(composeView: ComposeView) {
 //            )
 //            MyApplication.sendEvent("Language_Screen", "language_alt")
 //        } else {
-            NativeView(
-                modifier = Modifier.fillMaxWidth(),
-                nativeAdUnit = AdsManager.INSTANCE.nativeLanguage,
-                layoutConfig = "layout_language" to R.layout.native_media_left_filled,
-                layoutFaceBookConfig = "layout_language_meta" to R.layout.native_media_left_filled,
-            )
-            MyApplication.sendEvent("Language_Screen", "language")
+        NativeView(
+            modifier = Modifier.fillMaxWidth(),
+            nativeAdUnit = AdsManager.INSTANCE.nativeLanguage,
+            layoutConfig = "layout_language" to R.layout.native_media_left_filled,
+            layoutFaceBookConfig = "layout_language_meta" to R.layout.native_media_left_filled,
+        )
+        MyApplication.sendEvent("Language_Screen", "language")
 //        }
 
     }
