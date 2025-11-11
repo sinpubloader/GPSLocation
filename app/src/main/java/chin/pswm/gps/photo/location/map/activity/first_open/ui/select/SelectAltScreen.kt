@@ -77,38 +77,38 @@ fun SelectAltScreen(
         mutableStateOf(false)
     }
 
-//    LifecycleResumeEffect(Unit) {
-//        tryWithoutCatch {
-//            if (adsManager.nativeSelectAlt.isClicked) {
-//                adsManager.nativeSelectAlt.isClicked = false
-//                val type = prefs.getString("click_ad_select_alt_type", "next_screen")
-//                when (type) {
-//                    "next_screen" -> {
-//                        onNext()
-//                    }
-//
-//                    "clear_ads" -> {
-//                        adsManager.nativeSelectAlt.reset()
-//                        if (!showSelect) {
-//                            Tracking.logEvent(TAG + "_clicked_ad")
-//                        }
-//                        showSelect = true
-//                    }
-//
-//                    else -> {
-//                        if (!showSelect) {
-//                            Tracking.logEvent(TAG + "_clicked_ad")
-//                        }
-//                        showSelect = true
-//                    }
-//                }
-//            }
-//        }
-//
-//        onPauseOrDispose {
-//
-//        }
-//    }
+    LifecycleResumeEffect(Unit) {
+        tryWithoutCatch {
+            if (adsManager.nativeSelectAlt.isClicked) {
+                adsManager.nativeSelectAlt.isClicked = false
+                val type = prefs.getString("click_ad_select_alt_type", "next_screen")
+                when (type) {
+                    "next_screen" -> {
+                        onNext()
+                    }
+
+                    "clear_ads" -> {
+                        adsManager.nativeSelectAlt.reset()
+                        if (!showSelect) {
+                            Tracking.logEvent(TAG + "_clicked_ad")
+                        }
+                        showSelect = true
+                    }
+
+                    else -> {
+                        if (!showSelect) {
+                            Tracking.logEvent(TAG + "_clicked_ad")
+                        }
+                        showSelect = true
+                    }
+                }
+            }
+        }
+
+        onPauseOrDispose {
+
+        }
+    }
 
     BackHandler {
         if (!showSelect) {

@@ -10,7 +10,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.navigation.NavHostController
-import chin.pswm.gps.photo.location.map.activity.first_open.common.CommonUtils
 import chin.pswm.gps.photo.location.map.activity.first_open.common.NavigationUtil.safeNavigate
 import chin.pswm.gps.photo.location.map.activity.first_open.cusom.SelectFeaturePopup
 import chin.pswm.gps.photo.location.map.activity.first_open.data.SelectType
@@ -20,8 +19,6 @@ import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.ext.Tracking
 import chin.pswm.gps.photo.location.map.ads.ext.tryWithoutCatch
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
-import chin.pswm.gps.photo.location.map.languegess.LanguageManager
-import chin.pswm.gps.photo.location.map.languegess.SharedHelper
 import chin.pswm.gps.photo.location.map.utils.LocalScreenTAG
 
 @Composable
@@ -37,59 +34,24 @@ fun SelectScreen(
     val prefs: Prefs = remember {
         Prefs.INSTANCE
     }
-    LanguageManager.setLocale(
-        context,
-        SharedHelper.getString(context, "lang_key", "")
-    )
+
     var showSelect by remember { mutableStateOf(false) }
-    var isSelect by remember { mutableStateOf(false) }
 
     fun nextScreen() {
-//        navController.safeNavigate(Dest.Select, Dest.SelectAlt, Dest.Select)
+        navController.safeNavigate(Dest.Select, Dest.SelectAlt, Dest.Select)
     }
 
     SelectContent(
         isAlt = false,
         onContinue = {
-            if (!isSelect) {
+            if (!showSelect) {
                 showSelect = true
-            } else {
-                if (adsManager.nextSelect == Dest.Main) {
-                    prefs.firstOpen = false
-                    CommonUtils.openToMainScreen(context)
-                } else {
-                    navController.safeNavigate(
-                        currentRound = Dest.Select,
-                        destRoute = adsManager.nextSelect,
-                        popUpTo = Dest.Select
-                    )
-                }
             }
         },
         onSelectAnyItem = {
-            isSelect = true
-//            nextScreen()
+            nextScreen()
         }
     )
-
-    LaunchedEffect(Unit) {
-        when (adsManager.nextSelect) {
-            Dest.Language -> {
-                adsManager.nativeLanguage.loadAd(context)
-            }
-
-            Dest.OnBoard -> {
-                adsManager.nativeOnboard1.loadAd(context)
-                adsManager.nativeFSN.loadAd(context)
-            }
-
-            Dest.Main -> {
-                adsManager.nativeHome.loadAd(context)
-            }
-
-            else -> Unit
-        }
-    }
 
     SelectFeaturePopup(
         isShow = showSelect,
@@ -98,7 +60,6 @@ fun SelectScreen(
             showSelect = false
         },
         onSelectSome = {
-            isSelect = true
             showSelect = false
             SelectType.selectedItems.addAll(SelectType.entries)
             nextScreen()
@@ -138,6 +99,9 @@ fun SelectScreen(
         }
     }
 
+    LaunchedEffect(Unit) {
+        adsManager.nativeSelectAlt.loadAd(context)
+    }
 
     BackHandler {
         if (!showSelect) {

@@ -97,7 +97,7 @@ fun LanguageContent(
                 val adsManager: AdsManager = remember {
                     AdsManager.INSTANCE
                 }
-                /*when (languageType) {
+                when (languageType) {
                     LanguageType.Normal -> {
                         NativeView(
                             modifier = Modifier
@@ -111,15 +111,15 @@ fun LanguageContent(
                     }
 
                     LanguageType.Alt -> {
-//                        NativeView(
-//                            modifier = Modifier
-//                                .fillMaxWidth()
-//                                .padding(10.dp),
-//                            nativeAdUnit = adsManager.nativeLanguageAlt,
-//                            layoutConfig = "layout_native_language_alt" to R.layout.native_media_ctr_bot_big_filled,
-//                            layoutFaceBookConfig = "layout_native_language_alt_meta" to R.layout.native_media_ctr_bot_big_filled,
-//                            reloadAd = { adsManager.reloadAdsLanguageAlt }
-//                        )
+                        NativeView(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(10.dp),
+                            nativeAdUnit = adsManager.nativeLanguageAlt,
+                            layoutConfig = "layout_native_language_alt" to R.layout.native_media_ctr_bot_big_filled,
+                            layoutFaceBookConfig = "layout_native_language_alt_meta" to R.layout.native_media_ctr_bot_big_filled,
+                            reloadAd = { adsManager.reloadAdsLanguageAlt }
+                        )
                     }
 
                     LanguageType.Setting -> {
@@ -129,16 +129,7 @@ fun LanguageContent(
                             position = "banner_position_language"
                         )
                     }
-                }*/
-                NativeView(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(10.dp),
-                    nativeAdUnit = adsManager.nativeLanguage,
-                    layoutConfig = "layout_native_language" to R.layout.native_media_left_filled,
-                    layoutFaceBookConfig = "layout_native_language_meta" to R.layout.native_media_left_filled,
-                    reloadAd = { adsManager.reloadAdsLanguage }
-                )
+                }
             }
         },
     ) {
@@ -171,9 +162,12 @@ fun LanguageContent(
                     ) {
                         val isSelected = code == selectedLanguage
 
-                        val name = Locale.forLanguageTag(code).displayLanguage
-                        val nameBase = Locale.forLanguageTag(code)
-                            .getDisplayLanguage(Locale.forLanguageTag(code))
+                        val name = remember {
+                            Locale.forLanguageTag(code).getDisplayLanguage(Locale.getDefault())
+                        }
+                        val nameBase = remember {
+                            Locale.forLanguageTag(code).getDisplayLanguage(Locale.forLanguageTag(code))
+                        }
 
                         CenterRow(Modifier.fillMaxWidth()) {
 

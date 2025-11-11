@@ -1,9 +1,5 @@
 package chin.pswm.gps.photo.location.map.activity;
 
-import static chin.pswm.gps.photo.location.map.AllKeyHub.initSocketConnection;
-import static chin.pswm.gps.photo.location.map.AllKeyHub.showDynamicNativeData;
-import static chin.pswm.gps.photo.location.map.AllKeyHub.showUserInterDataBack;
-
 import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
@@ -16,10 +12,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.location.LocationManager;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.RotateAnimation;
@@ -39,7 +32,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 
-import chin.pswm.gps.photo.location.map.AllKeyHub;
 import chin.pswm.gps.photo.location.map.adapter.ViewPagerAdapter;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
@@ -179,7 +171,6 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
             public void onPageScrollStateChanged(int arg0) {
             }
         });
-
 
 
         if (!hasMagneticFieldSensor()) {
@@ -354,21 +345,25 @@ public class CompassActivity extends AppCompatActivity implements SensorEventLis
     }
 
     private void applySavedCompassStyle() {
-        SharedPreferences sharedPreferences = getSharedPreferences("CompassPrefs", MODE_PRIVATE);
-        int selectedStyle = sharedPreferences.getInt("selected_style", R.drawable.ic_compass_style_1);
-        int selectedBase = sharedPreferences.getInt("selected_base", R.drawable.ic_compass_base_1);
+        try {
+            SharedPreferences sharedPreferences = getSharedPreferences("CompassPrefs", MODE_PRIVATE);
+            int selectedStyle = sharedPreferences.getInt("selected_style", R.drawable.ic_compass_style_1);
+            int selectedBase = sharedPreferences.getInt("selected_base", R.drawable.ic_compass_base_1);
 
-        // Ensure previous images are not causing overlap
-        ivCompass.setImageDrawable(null);
-        ivBaseImg.setImageDrawable(null);
+            // Ensure previous images are not causing overlap
+            ivCompass.setImageDrawable(null);
+            ivBaseImg.setImageDrawable(null);
 
-        // Set new images
-        ivCompass.setImageResource(selectedStyle);
-        ivBaseImg.setImageResource(selectedBase);
+            // Set new images
+            ivCompass.setImageResource(selectedStyle);
+            ivBaseImg.setImageResource(selectedBase);
 
-        // Make sure only one is visible
-        ivCompass.setVisibility(View.VISIBLE);
-        ivBaseImg.setVisibility(View.GONE);
+            // Make sure only one is visible
+            ivCompass.setVisibility(View.VISIBLE);
+            ivBaseImg.setVisibility(View.GONE);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void hideSystemNavigationBar() {

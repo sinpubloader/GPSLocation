@@ -39,6 +39,7 @@ public class MyApplication extends Application {
         super.onCreate();
         instance = this;
         // init some for ads
+        Timber.Forest.plant(new DebugTree());
         AdjustManager adjustManager = new AdjustManager();
         Prefs prefs = new Prefs(this);
         AdsManager adsManager = new AdsManager(this, prefs);
@@ -49,8 +50,6 @@ public class MyApplication extends Application {
         FacebookSdk.setApplicationId("1839024150025521");
         FacebookSdk.setClientToken("7e4fe4f80a01570be8f95bcd5da6fa26");
         FacebookSdk.sdkInitialize(getApplicationContext());
-
-        Timber.Forest.plant(new DebugTree());
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)

@@ -42,14 +42,13 @@ class RemoteConfigManager(
 
         remoteConfig.fetchAndActivate()
             .addOnCompleteListener { task ->
-                Timber.tag(TAG).d("fetchRemoteConfig: addOnCompleteListener")
+                Timber.tag(TAG).d("fetchRemoteConfig: addOnCompleteListener ${task.isSuccessful}")
                 scopeIO.launch {
                     if (task.isSuccessful) {
                         val keys = remoteConfig.getKeysByPrefix("")
                         for (key in keys) {
                             val rawValue = remoteConfig.getValue(key)
                             if (rawValue.source == FirebaseRemoteConfig.VALUE_SOURCE_REMOTE) {
-                                cache.put(key, rawValue)
                                 if (rawValue.isLong()) {
                                     cache.put(key, rawValue.asLong())
                                     Timber.tag(TAG).d("fetchRemoteConfig long: $key: ${rawValue.asLong()}")
