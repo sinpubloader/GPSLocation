@@ -46,6 +46,7 @@ import chin.pswm.gps.photo.location.map.activity.earthview.custom.round
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.rounded
 import chin.pswm.gps.photo.location.map.activity.first_open.data.LanguageType
 import chin.pswm.gps.photo.location.map.ads.AdsManager
+import chin.pswm.gps.photo.location.map.ads.adunit.banner.view.BannerView
 import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
 import chin.pswm.gps.photo.location.map.languegess.LanguageState
@@ -53,6 +54,7 @@ import chin.pswm.gps.photo.location.map.ui.theme.appFont
 import chin.pswm.gps.photo.location.map.ui.theme.colorBlack
 import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
 import chin.pswm.gps.photo.location.map.ui.theme.primary
+import chin.pswm.gps.photo.location.map_debug.BuildConfig
 import chin.pswm.gps.photo.location.map_debug.R
 import java.util.Locale
 
