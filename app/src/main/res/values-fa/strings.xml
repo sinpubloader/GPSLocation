@@ -160,4 +160,26 @@
 <string name="select_language_please">لطفاً حداقل یک زبان را انتخاب کنید!</string>
 <string name="select_select_please">لطفا حداقل یک ویژگی را برای ادامه انتخاب کنید!</string>
 <string name="loading_ads">در حال بارگذاری تبلیغات...</string>
+    <string name="ads_click_reminder">دوربین GPS هنوز در حال راه‌اندازی است.لطفاً برای ادامه راه برگردید.</string>
+    <string name="uninstall">حذف نصب</string>
+    <string name="uninstall_keep_title_prefix">به کاوش با</string>
+    <string name="uninstall_keep_title_highlight">دوربین GPS</string>
+    <string name="uninstall_keep_subtitle">قابلیت‌های شگفت‌انگیز برای ثبت و اشتراک‌گذاری لحظات خود با مکان دقیق</string>
+    <string name="uninstall_go_home">به خانه بروید</string>
+    <string name="uninstall_still_leave">هنوز می‌خواهید ترک کنید؟</string>
+    <string name="uninstall_feature_gps_camera">دوربین GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">عکس‌برداری با برچسب‌گذاری خودکار موقعیت مکانی GPS</string>
+    <string name="uninstall_feature_map_view">نمایش نقشه</string>
+    <string name="uninstall_feature_map_view_desc">همه عکس های خود را روی یک نقشه تعاملی مرور کنید</string>
+    <string name="uninstall_feature_photo_grid">شبکه عکس</string>
+    <string name="uninstall_feature_photo_grid_desc">ایجاد کلاژ عکس های زیبا با برچسب های مکان</string>
+    <string name="i_no_longer_need_it">دیگر به آن نیازی ندارم</string>
+    <string name="i_didn_t_understand_how_to_use_it">نفهمیدم چگونه از آن استفاده کنم</string>
+    <string name="it_wasn_t_working_as_expected">آنطور که انتظار می رفت کار نکرد</string>
+    <string name="i_found_a_better_alternative">جایگزین بهتری پیدا کردم</string>
+    <string name="difficult_to_use">استفاده از</string>
+    <string name="others">سایرها</string>
+    <string name="survey_install">خروج از نظرسنجی</string>
+    <string name="continue_submit">ارسال بازخورد</string>
+    <string name="vote_title">متاسفم که می بینم شما می روید.به ما اطلاع دهید که چرا در حال حذف نصب هستید</string>
 </resources>

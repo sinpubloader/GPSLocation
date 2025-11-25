@@ -161,4 +161,26 @@
     <string name="select_language_please">Iltimos, kamida bitta tilni tanlang!</string>
     <string name="select_select_please">Iltimos, davom etish uchun kamida bitta funksiyani tanlang!</string>
     <string name="loading_ads">Reklamalar yuklanmoqda...</string>
+    <string name="ads_click_reminder">GPS kamerasi hali ham sozlanmoqda.Iltimos, davom etish uchun qaytib keling.</string>
+    <string name="uninstall">O\'chirmoq</string>
+    <string name="uninstall_keep_title_prefix">Ilovani o\'rganishda davom eting</string>
+    <string name="uninstall_keep_title_highlight">GPS kamerasi</string>
+    <string name="uninstall_keep_subtitle">Mas\'uliyatli joylashuvingiz bilan sizning lahzalaringizni ushlash va baham ko\'rish uchun ajoyib xususiyatlarni kashf eting</string>
+    <string name="uninstall_go_home">Uyga boring</string>
+    <string name="uninstall_still_leave">Hali ham ketishni xohlaysizmi?</string>
+    <string name="uninstall_feature_gps_camera">GPS kamerasi</string>
+    <string name="uninstall_feature_gps_camera_desc">Rasmlarni avtomatik GPS manzilini yoritish bilan ushlang</string>
+    <string name="uninstall_feature_map_view">Mapka ko\'rinishlari</string>
+    <string name="uninstall_feature_map_view_desc">Fotosuratlaringizni interfaol xaritada ko\'rib chiqing</string>
+    <string name="uninstall_feature_photo_grid">Fotosurat panjarasi</string>
+    <string name="uninstall_feature_photo_grid_desc">Joylashuv teglari bilan chiroyli fotosurat kollajlarini yarating</string>
+    <string name="i_no_longer_need_it">Men endi unga kerak emas</string>
+    <string name="i_didn_t_understand_how_to_use_it">Men undan qanday foydalanishni tushunmadim</string>
+    <string name="it_wasn_t_working_as_expected">Bu kutilganidek ishlamagan</string>
+    <string name="i_found_a_better_alternative">Men yaxshiroq alternativa topdim</string>
+    <string name="difficult_to_use">Foydalanish qiyin</string>
+    <string name="others">Boshqalar</string>
+    <string name="survey_install">Chiqish so\'rovi</string>
+    <string name="continue_submit">Qayta aloqa</string>
+    <string name="vote_title">sizni ko\'rganingiz uchun uzr so\'rayman.Nega sizni yo\'q qilayotganingizni bizga xabar bering</string>
 </resources>

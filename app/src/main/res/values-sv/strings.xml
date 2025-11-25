@@ -160,4 +160,26 @@
     <string name="select_language_please">Välj minst ett språk!</string>
     <string name="select_select_please">Välj minst en funktion för att fortsätta!</string>
     <string name="loading_ads">Laddar annonser...</string>
+    <string name="ads_click_reminder">GPS-kameran ställs fortfarande in.Vänligen återvänd för att fortsätta.</string>
+    <string name="uninstall">Avinstallera</string>
+    <string name="uninstall_keep_title_prefix">Fortsätt utforska med</string>
+    <string name="uninstall_keep_title_highlight">GPS-kamera</string>
+    <string name="uninstall_keep_subtitle">Upptäck fantastiska funktioner för att fånga och dela dina ögonblick med exakt plats</string>
+    <string name="uninstall_go_home">Gå till Hem</string>
+    <string name="uninstall_still_leave">Vill du fortfarande lämna?</string>
+    <string name="uninstall_feature_gps_camera">GPS-kamera</string>
+    <string name="uninstall_feature_gps_camera_desc">Ta foton med automatisk GPS-taggning</string>
+    <string name="uninstall_feature_map_view">Kartvy</string>
+    <string name="uninstall_feature_map_view_desc">Bläddra bland alla dina foton på en interaktiv karta</string>
+    <string name="uninstall_feature_photo_grid">Fotorutnät</string>
+    <string name="uninstall_feature_photo_grid_desc">Skapa vackra fotokollage med platstaggar</string>
+    <string name="i_no_longer_need_it">Jag behöver det inte längre</string>
+    <string name="i_didn_t_understand_how_to_use_it">Jag förstod inte hur jag skulle använda det</string>
+    <string name="it_wasn_t_working_as_expected">Det fungerade inte som förväntat</string>
+    <string name="i_found_a_better_alternative">Jag hittade ett bättre alternativ</string>
+    <string name="difficult_to_use">Svårt att använda</string>
+    <string name="others">Andra</string>
+    <string name="survey_install">Avsluta enkäten</string>
+    <string name="continue_submit">Skicka feedback</string>
+    <string name="vote_title">Tyvärr att du går.Berätta för oss varför du avinstallerar</string>
 </resources>

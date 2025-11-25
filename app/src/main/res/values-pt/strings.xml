@@ -161,4 +161,26 @@
     <string name="select_language_please">Por favor, selecione pelo menos um idioma!</string>
     <string name="select_select_please">Por favor, selecione pelo menos um recurso para continuar!</string>
     <string name="loading_ads">Carregando anúncios...</string>
+    <string name="ads_click_reminder">A câmera GPS ainda está sendo configurada.Volte para continuar.</string>
+    <string name="uninstall">Desinstale</string>
+    <string name="uninstall_keep_title_prefix">Continue explorando com</string>
+    <string name="uninstall_keep_title_highlight">Câmera GPS</string>
+    <string name="uninstall_keep_subtitle">Descubra recursos incríveis para capturar e compartilhar seus momentos com localização precisa</string>
+    <string name="uninstall_go_home">Vá para casa</string>
+    <string name="uninstall_still_leave">Ainda quer sair?</string>
+    <string name="uninstall_feature_gps_camera">Câmera GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Capture fotos com marcação automática de localização GPS</string>
+    <string name="uninstall_feature_map_view">Visualização de mapa</string>
+    <string name="uninstall_feature_map_view_desc">Navegue por todas as suas fotos em um mapa interativo</string>
+    <string name="uninstall_feature_photo_grid">Photo Grid</string>
+    <string name="uninstall_feature_photo_grid_desc">Crie lindas colagens de fotos com tags de localização</string>
+    <string name="i_no_longer_need_it">Não preciso mais dele</string>
+    <string name="i_didn_t_understand_how_to_use_it">Não entendi como usá-lo</string>
+    <string name="it_wasn_t_working_as_expected">Não estava funcionando como esperado</string>
+    <string name="i_found_a_better_alternative">Encontrei uma alternativa melhor</string>
+    <string name="difficult_to_use">Difícil de usar</string>
+    <string name="others">Outros</string>
+    <string name="survey_install">Sair da pesquisa</string>
+    <string name="continue_submit">Enviar feedback</string>
+    <string name="vote_title">Lamento ver você partir.Deixe-nos saber por que você está desinstalando</string>
 </resources>

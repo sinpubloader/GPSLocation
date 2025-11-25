@@ -161,4 +161,26 @@
     <string name="select_language_please">Selecteer alstublieft ten minste één taal!</string>
     <string name="select_select_please">Selecteer alstublieft ten minste één functie om verder te gaan!</string>
     <string name="loading_ads">Advertenties laden...</string>
+    <string name="ads_click_reminder">GPS-camera is nog aan het instellen.Keer terug om door te gaan.</string>
+    <string name="uninstall">Verwijderen</string>
+    <string name="uninstall_keep_title_prefix">Blijf ontdekken met</string>
+    <string name="uninstall_keep_title_highlight">GPS-camera</string>
+    <string name="uninstall_keep_subtitle">Ontdek geweldige functies om uw momenten vast te leggen en te delen met een nauwkeurige locatie</string>
+    <string name="uninstall_go_home">Ga naar Home</string>
+    <string name="uninstall_still_leave">Wilt u nog steeds weggaan?</string>
+    <string name="uninstall_feature_gps_camera">GPS-camera</string>
+    <string name="uninstall_feature_gps_camera_desc">Maak foto\'s met automatische GPS-locatietagging</string>
+    <string name="uninstall_feature_map_view">Kaartweergave</string>
+    <string name="uninstall_feature_map_view_desc">Blader door al uw foto\'s op een interactieve kaart</string>
+    <string name="uninstall_feature_photo_grid">Fotoraster</string>
+    <string name="uninstall_feature_photo_grid_desc">Maak prachtige fotocollages met locatietags</string>
+    <string name="i_no_longer_need_it">Ik heb het niet langer nodig</string>
+    <string name="i_didn_t_understand_how_to_use_it">Ik begreep niet hoe ik het moest gebruiken</string>
+    <string name="it_wasn_t_working_as_expected">Het werkte niet zoals verwacht</string>
+    <string name="i_found_a_better_alternative">Ik heb een beter alternatief gevonden</string>
+    <string name="difficult_to_use">Moeilijk te gebruiken</string>
+    <string name="others">Anderen</string>
+    <string name="survey_install">Enquête afsluiten</string>
+    <string name="continue_submit">Feedback verzenden</string>
+    <string name="vote_title">Sorry dat je weggaat.Laat ons weten waarom u de installatie ongedaan maakt</string>
 </resources>

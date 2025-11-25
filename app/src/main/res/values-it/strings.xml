@@ -161,4 +161,26 @@
     <string name="select_language_please">Per favore seleziona almeno una lingua!</string>
     <string name="select_select_please">Per favore seleziona almeno una funzionalità per continuare!</string>
     <string name="loading_ads">Caricamento annunci...</string>
+    <string name="ads_click_reminder">La fotocamera GPS è ancora in fase di configurazione.Torna per continuare.</string>
+    <string name="uninstall">Disinstalla</string>
+    <string name="uninstall_keep_title_prefix">Continua a esplorare con</string>
+    <string name="uninstall_keep_title_highlight">Fotocamera GPS</string>
+    <string name="uninstall_keep_subtitle">Scopri fantastiche funzionalità per catturare e condividere i tuoi momenti con la posizione precisa</string>
+    <string name="uninstall_go_home">Vai a Home</string>
+    <string name="uninstall_still_leave">Vuoi ancora partire?</string>
+    <string name="uninstall_feature_gps_camera">Fotocamera GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Cattura foto con il tagging automatico della posizione GPS</string>
+    <string name="uninstall_feature_map_view">Visualizzazione mappa</string>
+    <string name="uninstall_feature_map_view_desc">Sfoglia tutte le tue foto su una mappa interattiva</string>
+    <string name="uninstall_feature_photo_grid">Griglia foto</string>
+    <string name="uninstall_feature_photo_grid_desc">Crea bellissimi collage di foto con tag di posizione</string>
+    <string name="i_no_longer_need_it">Non mi serve più</string>
+    <string name="i_didn_t_understand_how_to_use_it">Non ho capito come si usa</string>
+    <string name="it_wasn_t_working_as_expected">Non funzionava come previsto</string>
+    <string name="i_found_a_better_alternative">Ho trovato un\'alternativa migliore</string>
+    <string name="difficult_to_use">Difficile da usare</string>
+    <string name="others">Altro</string>
+    <string name="survey_install">Esci dal sondaggio</string>
+    <string name="continue_submit">Invia feedback</string>
+    <string name="vote_title">Mi dispiace vederti andare via.Facci sapere perché stai disinstallando</string>
 </resources>

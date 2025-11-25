@@ -160,4 +160,26 @@
 <string name="select_language_please">કૃપા કરીને ઓછામાં ઓછી એક ભાષા પસંદ કરો!</string>
 <string name="select_select_please">કૃપા કરીને ચાલુ રાખવા માટે ઓછામાં ઓછી એક સુવિધા પસંદ કરો!</string>
 <string name="loading_ads">જાહેરાતો લોડ કરી રહ્યું છે...</string>
+    <string name="ads_click_reminder">GPS કૅમેરો હજી સેટ થઈ રહ્યો છે.ચાલુ રાખવા માટે કૃપા કરીને પાછા ફરો.</string>
+    <string name="uninstall">અનઇન્સ્ટોલ કરો</string>
+    <string name="uninstall_keep_title_prefix">સાથે અન્વેષણ કરતા રહો</string>
+    <string name="uninstall_keep_title_highlight">જીપીએસ કેમેરા</string>
+    <string name="uninstall_keep_subtitle">ચોક્કસ સ્થાન સાથે તમારી ક્ષણોને કેપ્ચર કરવા અને શેર કરવા માટે આકર્ષક સુવિધાઓ શોધો</string>
+    <string name="uninstall_go_home">હોમ પર જાઓ</string>
+    <string name="uninstall_still_leave">હજુ પણ છોડવા માંગો છો?</string>
+    <string name="uninstall_feature_gps_camera">જીપીએસ કેમેરા</string>
+    <string name="uninstall_feature_gps_camera_desc">સ્વચાલિત GPS સ્થાન ટેગિંગ સાથે ફોટા કેપ્ચર કરો</string>
+    <string name="uninstall_feature_map_view">નકશો જુઓ</string>
+    <string name="uninstall_feature_map_view_desc">ઇન્ટરેક્ટિવ નકશા પર તમારા બધા ફોટા બ્રાઉઝ કરો</string>
+    <string name="uninstall_feature_photo_grid">ફોટો ગ્રીડ</string>
+    <string name="uninstall_feature_photo_grid_desc">સ્થાન ટૅગ્સ સાથે સુંદર ફોટો કોલાજ બનાવો</string>
+    <string name="i_no_longer_need_it">મને હવે તેની જરૂર નથી</string>
+    <string name="i_didn_t_understand_how_to_use_it">તેનો ઉપયોગ કેવી રીતે કરવો તે મને સમજાયું નહીં</string>
+    <string name="it_wasn_t_working_as_expected">તે અપેક્ષા મુજબ કામ કરતું ન હતું</string>
+    <string name="i_found_a_better_alternative">મને વધુ સારો વિકલ્પ મળ્યો</string>
+    <string name="difficult_to_use">વાપરવા માટે મુશ્કેલ</string>
+    <string name="others">અન્ય</string>
+    <string name="survey_install">સર્વેક્ષણમાંથી બહાર નીકળો</string>
+    <string name="continue_submit">પ્રતિસાદ સબમિટ કરો</string>
+    <string name="vote_title">|તમને જતા જોઈને માફ કરશો.અમને જણાવો કે તમે શા માટે અનઇન્સ્ટોલ કરી રહ્યાં છો</string>
 </resources>

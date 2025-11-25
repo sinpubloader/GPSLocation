@@ -160,4 +160,26 @@
 <string name="select_language_please">Prosim, izberite vsaj en jezik!</string>
 <string name="select_select_please">Prosim, izberite vsaj eno funkcijo za nadaljevanje!</string>
 <string name="loading_ads">Nalaganje oglasov...</string>
+    <string name="ads_click_reminder">GPS kamera se še nastavlja.Vrnite se, če želite nadaljevati.</string>
+    <string name="uninstall">Odstranite</string>
+    <string name="uninstall_keep_title_prefix">Nadaljujte z raziskovanjem s</string>
+    <string name="uninstall_keep_title_highlight">kamero GPS</string>
+    <string name="uninstall_keep_subtitle">Odkrijte neverjetne funkcije za zajemanje in deljenje trenutkov z natančno lokacijo</string>
+    <string name="uninstall_go_home">Pojdite na Domov</string>
+    <string name="uninstall_still_leave">Še vedno želite oditi?</string>
+    <string name="uninstall_feature_gps_camera">Kamera GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Zajemite fotografije s samodejnim označevanjem lokacije GPS</string>
+    <string name="uninstall_feature_map_view">Pogled zemljevida</string>
+    <string name="uninstall_feature_map_view_desc">Brskajte po vseh svojih fotografijah na interaktivnem zemljevidu</string>
+    <string name="uninstall_feature_photo_grid">Mreža fotografij</string>
+    <string name="uninstall_feature_photo_grid_desc">Ustvarite čudovite foto kolaže z oznakami lokacije</string>
+    <string name="i_no_longer_need_it">Ne potrebujem ga več</string>
+    <string name="i_didn_t_understand_how_to_use_it">Nisem razumel, kako ga uporabljati</string>
+    <string name="it_wasn_t_working_as_expected">Ni delovalo po pričakovanjih</string>
+    <string name="i_found_a_better_alternative">Našel sem boljšo alternativo</string>
+    <string name="difficult_to_use">Težko za uporabo</string>
+    <string name="others">Drugo</string>
+    <string name="survey_install">Izhod iz ankete</string>
+    <string name="continue_submit">Pošlji povratne informacije</string>
+    <string name="vote_title">Žal mi je, da odhajaš.Sporočite nam, zakaj odstranjujete</string>
 </resources>

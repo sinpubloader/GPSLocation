@@ -160,4 +160,26 @@
 <string name="select_language_please">Te rugăm să selectezi cel puțin o limbă!</string>
 <string name="select_select_please">Te rugăm să selectezi cel puțin o funcționalitate pentru a continua!</string>
 <string name="loading_ads">Se încarcă reclame...</string>
+    <string name="ads_click_reminder">Camera GPS este încă configurată.Vă rugăm să reveniți pentru a continua.</string>
+    <string name="uninstall">Dezinstalați</string>
+    <string name="uninstall_keep_title_prefix">Continuați să explorați cu</string>
+    <string name="uninstall_keep_title_highlight">Camera GPS</string>
+    <string name="uninstall_keep_subtitle">Descoperiți funcții uimitoare pentru a capta și a vă împărtăși momentele cu o locație precisă</string>
+    <string name="uninstall_go_home">Accesați Acasă</string>
+    <string name="uninstall_still_leave">Încă doriți să plecați?</string>
+    <string name="uninstall_feature_gps_camera">Camera GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Capturați fotografii cu etichetarea automată a locației GPS</string>
+    <string name="uninstall_feature_map_view">Vizualizare hartă</string>
+    <string name="uninstall_feature_map_view_desc">Răsfoiți toate fotografiile dvs. pe o hartă interactivă</string>
+    <string name="uninstall_feature_photo_grid">Grilă foto</string>
+    <string name="uninstall_feature_photo_grid_desc">Creați colaje foto frumoase cu etichete de locație</string>
+    <string name="i_no_longer_need_it">Nu mai am nevoie de el</string>
+    <string name="i_didn_t_understand_how_to_use_it">Nu am înțeles cum să o folosesc</string>
+    <string name="it_wasn_t_working_as_expected">Nu a funcționat așa cum mă așteptam</string>
+    <string name="i_found_a_better_alternative">Am găsit o alternativă mai bună</string>
+    <string name="difficult_to_use">Dificil de utilizat</string>
+    <string name="others">Altele</string>
+    <string name="survey_install">Sondaj de ieșire|</string>
+    <string name="continue_submit">Trimite feedback</string>
+    <string name="vote_title">Ne pare rău că pleci.Spune-ne de ce dezinstalezi</string>
 </resources>

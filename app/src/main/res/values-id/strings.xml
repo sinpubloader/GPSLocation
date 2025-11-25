@@ -160,4 +160,26 @@
 <string name="select_language_please">Mohon pilih setidaknya satu bahasa!</string>
 <string name="select_select_please">Mohon pilih setidaknya satu fitur untuk melanjutkan!</string>
 <string name="loading_ads">Memuat iklan...</string>
+    <string name="ads_click_reminder">Kamera GPS masih disiapkan.Silakan kembali untuk melanjutkan.</string>
+    <string name="uninstall">Copot pemasangan</string>
+    <string name="uninstall_keep_title_prefix">Teruslah menjelajah dengan</string>
+    <string name="uninstall_keep_title_highlight">Kamera GPS</string>
+    <string name="uninstall_keep_subtitle">Temukan fitur luar biasa untuk mengabadikan dan berbagi momen Anda dengan lokasi akurat</string>
+    <string name="uninstall_go_home">Masuk ke Beranda</string>
+    <string name="uninstall_still_leave">Masih ingin berangkat?</string>
+    <string name="uninstall_feature_gps_camera">Kamera GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Ambil foto dengan penandaan lokasi GPS otomatis</string>
+    <string name="uninstall_feature_map_view">Tampilan Peta</string>
+    <string name="uninstall_feature_map_view_desc">Jelajahi semua foto Anda di peta interaktif</string>
+    <string name="uninstall_feature_photo_grid">Kisi Foto</string>
+    <string name="uninstall_feature_photo_grid_desc">Buat kolase foto yang indah dengan tag lokasi</string>
+    <string name="i_no_longer_need_it">Saya tidak membutuhkannya lagi</string>
+    <string name="i_didn_t_understand_how_to_use_it">Saya tidak mengerti cara menggunakannya</string>
+    <string name="it_wasn_t_working_as_expected">Ini tidak berfungsi seperti yang diharapkan</string>
+    <string name="i_found_a_better_alternative">Saya menemukan alternatif yang lebih baik</string>
+    <string name="difficult_to_use">Sulit digunakan</string>
+    <string name="others">Lainnya</string>
+    <string name="survey_install">Survei keluar</string>
+    <string name="continue_submit">Kirim masukan</string>
+    <string name="vote_title">Maaf melihat Anda pergi.Beri tahu kami alasan Anda mencopot pemasangannya</string>
 </resources>

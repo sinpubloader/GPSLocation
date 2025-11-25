@@ -161,4 +161,26 @@
     <string name="select_language_please">कृपया किमान एक भाषा निवडा!</string>
     <string name="select_select_please">कृपया पुढे चालू ठेवण्यासाठी किमान एक वैशिष्ट्य निवडा!</string>
     <string name="loading_ads">जाहिराती लोड होत आहेत...</string>
+    <string name="ads_click_reminder">GPS कॅमेरा अजूनही सेटअप करत आहे.कृपया सुरू ठेवण्यासाठी परत या.</string>
+    <string name="uninstall">विस्थापित करा</string>
+    <string name="uninstall_keep_title_prefix">सोबत एक्सप्लोर करत रहा</string>
+    <string name="uninstall_keep_title_highlight">जीपीएस कॅमेरा</string>
+    <string name="uninstall_keep_subtitle">अचूक स्थानासह तुमचे क्षण कॅप्चर आणि शेअर करण्यासाठी आश्चर्यकारक वैशिष्ट्ये शोधा</string>
+    <string name="uninstall_go_home">होम वर जा</string>
+    <string name="uninstall_still_leave">अद्याप सोडू इच्छिता?</string>
+    <string name="uninstall_feature_gps_camera">जीपीएस कॅमेरा</string>
+    <string name="uninstall_feature_gps_camera_desc">स्वयंचलित GPS स्थान टॅगिंगसह फोटो कॅप्चर करा</string>
+    <string name="uninstall_feature_map_view">नकाशा दृश्य</string>
+    <string name="uninstall_feature_map_view_desc">तुमचे सर्व फोटो परस्परसंवादी नकाशावर ब्राउझ करा</string>
+    <string name="uninstall_feature_photo_grid">फोटो ग्रिड</string>
+    <string name="uninstall_feature_photo_grid_desc">स्थान टॅगसह सुंदर फोटो कोलाज तयार करा</string>
+    <string name="i_no_longer_need_it">मला यापुढे याची गरज नाही</string>
+    <string name="i_didn_t_understand_how_to_use_it">मला ते कसे वापरायचे ते समजले नाही</string>
+    <string name="it_wasn_t_working_as_expected">ते अपेक्षेप्रमाणे काम करत नव्हते</string>
+    <string name="i_found_a_better_alternative">|मला एक चांगला पर्याय सापडला</string>
+    <string name="difficult_to_use">वापरणे कठीण</string>
+    <string name="others">इतर</string>
+    <string name="survey_install">सर्वेक्षणातून बाहेर पडा</string>
+    <string name="continue_submit">अभिप्राय सबमिट करा</string>
+    <string name="vote_title">तुला जाताना पाहून वाईट वाटले.तुम्ही अनइंस्टॉल का करत आहात ते आम्हाला कळवा</string>
 </resources>

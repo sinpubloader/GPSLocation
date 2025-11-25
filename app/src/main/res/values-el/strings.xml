@@ -160,4 +160,26 @@
 <string name="select_language_please">Παρακαλώ επιλέξτε τουλάχιστον μία γλώσσα!</string>
 <string name="select_select_please">Παρακαλώ επιλέξτε τουλάχιστον μία λειτουργία για να συνεχίσετε!</string>
 <string name="loading_ads">Φόρτωση διαφημίσεων...</string>
+    <string name="ads_click_reminder">Η κάμερα GPS εξακολουθεί να ρυθμίζεται.Επιστρέψτε για να συνεχίσετε.</string>
+    <string name="uninstall">Κατάργηση εγκατάστασης</string>
+    <string name="uninstall_keep_title_prefix">Συνεχίστε την εξερεύνηση με</string>
+    <string name="uninstall_keep_title_highlight">Κάμερα GPS</string>
+    <string name="uninstall_keep_subtitle">Ανακαλύψτε εκπληκτικές λειτουργίες για να καταγράψετε και να μοιραστείτε τις στιγμές σας με ακριβή τοποθεσία</string>
+    <string name="uninstall_go_home">Μετάβαση στην Αρχική σελίδα</string>
+    <string name="uninstall_still_leave">Θέλετε ακόμα να φύγετε;</string>
+    <string name="uninstall_feature_gps_camera">Κάμερα GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Λήψη φωτογραφιών με αυτόματη προσθήκη ετικετών τοποθεσίας GPS</string>
+    <string name="uninstall_feature_map_view">Προβολή χάρτη</string>
+    <string name="uninstall_feature_map_view_desc">Περιηγηθείτε σε όλες τις φωτογραφίες σας σε έναν διαδραστικό χάρτη</string>
+    <string name="uninstall_feature_photo_grid">Πλέγμα φωτογραφιών</string>
+    <string name="uninstall_feature_photo_grid_desc">Δημιουργήστε όμορφα κολάζ φωτογραφιών με ετικέτες τοποθεσίας</string>
+    <string name="i_no_longer_need_it">Δεν το χρειάζομαι πλέον</string>
+    <string name="i_didn_t_understand_how_to_use_it">Δεν κατάλαβα πώς να το χρησιμοποιήσω</string>
+    <string name="it_wasn_t_working_as_expected">Δεν λειτούργησε όπως αναμενόταν</string>
+    <string name="i_found_a_better_alternative">Βρήκα μια καλύτερη εναλλακτική λύση</string>
+    <string name="difficult_to_use">Δύσκολη χρήση</string>
+    <string name="others">Άλλα</string>
+    <string name="survey_install">Έξοδος από την έρευνα</string>
+    <string name="continue_submit">Υποβολή σχολίων</string>
+    <string name="vote_title">Συγγνώμη που σας βλέπω να πηγαίνετε.Ενημερώστε μας γιατί κάνετε απεγκατάσταση</string>
 </resources>

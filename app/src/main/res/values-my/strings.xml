@@ -160,4 +160,26 @@
 <string name="select_language_please">ကျေးဇူးပြု၍ ဘာသာစကားတစ်ခုခု ရွေးချယ်ပါ။</string>
 <string name="select_select_please">ဆက်လုပ်ရန်အတွက် ကျေးဇူးပြု၍ အနည်းဆုံး အင်္ဂါရပ်တစ်ခုကို ရွေးချယ်ပါ။</string>
 <string name="loading_ads">ကြော်ငြာများ တင်နေသည်...</string>
+    <string name="ads_click_reminder">GPS ကင်မရာသည်တက်နေတုန်းပဲ။ဆက်လုပ်ရန်ပြန်လာပါ</string>
+    <string name="uninstall">ခဲှခြား</string>
+    <string name="uninstall_keep_title_prefix">နှင့်အတူစူးစမ်းစောင့်ရှောက်လော့</string>
+    <string name="uninstall_keep_title_highlight">GPS ကင်မရာ</string>
+    <string name="uninstall_keep_subtitle">သင့်ရဲ့အချိန်လေးကိုတိကျသောတည်နေရာဖြင့်ဖမ်းယူရန်နှင့်မျှဝေရန်အံ့သွဖွယ်ကောင်းသောအင်္ဂါရပ်များကိုရှာဖွေပါ</string>
+    <string name="uninstall_go_home">အိမ်သို့သွားပါ</string>
+    <string name="uninstall_still_leave">နေချင်နေတုန်းပဲလား</string>
+    <string name="uninstall_feature_gps_camera">GPS ကင်မရာ</string>
+    <string name="uninstall_feature_gps_camera_desc">အလိုအလျောက် GPS တည်နေရာ tagging ဖြင့်ဓာတ်ပုံများကိုဖမ်းယူပါ</string>
+    <string name="uninstall_feature_map_view">မြေပုံကြည့်ရန်</string>
+    <string name="uninstall_feature_map_view_desc">သင်၏ဓါတ်ပုံအားလုံးကိုအပြန်အလှန်အကျိုးသက်ရောက်သောမြေပုံပေါ်တွင်ရှာဖွေပါ</string>
+    <string name="uninstall_feature_photo_grid">ဓာတ်ပုံဇယားကွက်</string>
+    <string name="uninstall_feature_photo_grid_desc">တည်နေရာအမှတ်အသားများနှင့်အတူလှပသောဓာတ်ပုံကော်ပုံများဖန်တီးပါ</string>
+    <string name="i_no_longer_need_it">ငါမလိုအပ်တော့ဘူး</string>
+    <string name="i_didn_t_understand_how_to_use_it">ငါဘယ်လိုအသုံးပြုရမယ်ဆိုတာငါနားမလည်ခဲ့ဘူး</string>
+    <string name="it_wasn_t_working_as_expected">မျှော်လင့်ထားသည့်အတိုင်းအလုပ်မလုပ်ပါ</string>
+    <string name="i_found_a_better_alternative">ငါပိုကောင်းတဲ့အခြားရွေးချယ်စရာတွေ့ရှိခဲ့ပါတယ်</string>
+    <string name="difficult_to_use">အသုံးပြုရန်ခက်ခဲသည်</string>
+    <string name="others">အခြားသူများ</string>
+    <string name="survey_install">ထွက်ပေါက်စစ်တမ်း</string>
+    <string name="continue_submit">တုံ့ပြန်ချက်ကိုတင်ပြရန်</string>
+    <string name="vote_title">သင့်ကိုသွားကြည့်ပါ။ဘာကြောင့် uninstalling နေတာလဲဆိုတာကိုငါတို့ကိုသိပါစေ</string>
 </resources>

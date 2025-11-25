@@ -160,4 +160,26 @@
     <string name="select_language_please">Vælg venligst mindst ét sprog!</string>
     <string name="select_select_please">Vælg venligst mindst én funktion for at fortsætte!</string>
     <string name="loading_ads">Indlæser annoncer...</string>
+    <string name="ads_click_reminder">GPS-kameraet er stadig i gang.Venligst vend tilbage for at fortsætte.</string>
+    <string name="uninstall">Afinstaller</string>
+    <string name="uninstall_keep_title_prefix">Fortsæt med at udforske med</string>
+    <string name="uninstall_keep_title_highlight">GPS-kamera</string>
+    <string name="uninstall_keep_subtitle">Opdag fantastiske funktioner til at fange og dele dine øjeblikke med præcis placering</string>
+    <string name="uninstall_go_home">Gå til Hjem</string>
+    <string name="uninstall_still_leave">Vil du stadig forlade?</string>
+    <string name="uninstall_feature_gps_camera">GPS-kamera</string>
+    <string name="uninstall_feature_gps_camera_desc">Tag billeder med automatisk GPS-placeringsmærkning</string>
+    <string name="uninstall_feature_map_view">Kortvisning</string>
+    <string name="uninstall_feature_map_view_desc">Gennemse alle dine billeder på et interaktivt kort</string>
+    <string name="uninstall_feature_photo_grid">Photo Grid</string>
+    <string name="uninstall_feature_photo_grid_desc">Opret smukke fotocollager med lokationsmærker</string>
+    <string name="i_no_longer_need_it">Jeg har ikke længere brug for det</string>
+    <string name="i_didn_t_understand_how_to_use_it">Jeg forstod ikke, hvordan man brugte det</string>
+    <string name="it_wasn_t_working_as_expected">Det fungerede ikke som forventet</string>
+    <string name="i_found_a_better_alternative">Jeg fandt et bedre alternativ</string>
+    <string name="difficult_to_use">Svært at bruge</string>
+    <string name="others">Andre</string>
+    <string name="survey_install">Afslut undersøgelsen</string>
+    <string name="continue_submit">Send feedback</string>
+    <string name="vote_title">Beklager at se dig gå.Fortæl os, hvorfor du afinstallerer</string>
 </resources>

@@ -160,4 +160,26 @@
 <string name="select_language_please">ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಂದು ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ!</string>
 <string name="select_select_please">ಮುಂದುವರಿಯಲು ದಯವಿಟ್ಟು ಕನಿಷ್ಠ ಒಂದು ವೈಶಿಷ್ಟ್ಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ!</string>
 <string name="loading_ads">ಜಾಹೀರಾತುಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...</string>
+    <string name="ads_click_reminder">GPS ಕ್ಯಾಮರಾವನ್ನು ಇನ್ನೂ ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ.ಮುಂದುವರಿಸಲು ದಯವಿಟ್ಟು ಹಿಂತಿರುಗಿ.</string>
+    <string name="uninstall">ಅನ್‌ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿ</string>
+    <string name="uninstall_keep_title_prefix">ಇದರೊಂದಿಗೆ ಎಕ್ಸ್‌ಪ್ಲೋರ್ ಮಾಡುತ್ತಿರಿ</string>
+    <string name="uninstall_keep_title_highlight">ಜಿಪಿಎಸ್ ಕ್ಯಾಮೆರಾ</string>
+    <string name="uninstall_keep_subtitle">ನಿಖರವಾದ ಸ್ಥಳದೊಂದಿಗೆ ನಿಮ್ಮ ಕ್ಷಣಗಳನ್ನು ಸೆರೆಹಿಡಿಯಲು ಮತ್ತು ಹಂಚಿಕೊಳ್ಳಲು ಅದ್ಭುತ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಅನ್ವೇಷಿಸಿ</string>
+    <string name="uninstall_go_home">ಮನೆಗೆ ಹೋಗಿ</string>
+    <string name="uninstall_still_leave">ಇನ್ನೂ ಬಿಡಲು ಬಯಸುವಿರಾ?</string>
+    <string name="uninstall_feature_gps_camera">ಜಿಪಿಎಸ್ ಕ್ಯಾಮೆರಾ</string>
+    <string name="uninstall_feature_gps_camera_desc">ಸ್ವಯಂಚಾಲಿತ GPS ಸ್ಥಳ ಟ್ಯಾಗಿಂಗ್‌ನೊಂದಿಗೆ ಫೋಟೋಗಳನ್ನು ಸೆರೆಹಿಡಿಯಿರಿ</string>
+    <string name="uninstall_feature_map_view">ನಕ್ಷೆ ವೀಕ್ಷಣೆ</string>
+    <string name="uninstall_feature_map_view_desc">ಸಂವಾದಾತ್ಮಕ ನಕ್ಷೆಯಲ್ಲಿ ನಿಮ್ಮ ಎಲ್ಲಾ ಫೋಟೋಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ</string>
+    <string name="uninstall_feature_photo_grid">ಫೋಟೋ ಗ್ರಿಡ್</string>
+    <string name="uninstall_feature_photo_grid_desc">ಸ್ಥಳ ಟ್ಯಾಗ್‌ಗಳೊಂದಿಗೆ ಸುಂದರವಾದ ಫೋಟೋ ಕೊಲಾಜ್‌ಗಳನ್ನು ರಚಿಸಿ</string>
+    <string name="i_no_longer_need_it">ನನಗೆ ಇನ್ನು ಮುಂದೆ ಅದರ ಅಗತ್ಯವಿಲ್ಲ</string>
+    <string name="i_didn_t_understand_how_to_use_it">ಅದನ್ನು ಹೇಗೆ ಬಳಸಬೇಕೆಂದು ನನಗೆ ಅರ್ಥವಾಗಲಿಲ್ಲ</string>
+    <string name="it_wasn_t_working_as_expected">ನಿರೀಕ್ಷೆಯಂತೆ ಕೆಲಸ ಆಗಲಿಲ್ಲ</string>
+    <string name="i_found_a_better_alternative">ನಾನು ಉತ್ತಮ ಪರ್ಯಾಯವನ್ನು ಕಂಡುಕೊಂಡಿದ್ದೇನೆ</string>
+    <string name="difficult_to_use">ಬಳಸಲು ಕಷ್ಟ</string>
+    <string name="others">ಇತರರು</string>
+    <string name="survey_install">ನಿರ್ಗಮನ ಸಮೀಕ್ಷೆ</string>
+    <string name="continue_submit">ಪ್ರತಿಕ್ರಿಯೆ ಸಲ್ಲಿಸಿ</string>
+    <string name="vote_title">|ನೀವು ಹೋಗುವುದನ್ನು ನೋಡಿ ಕ್ಷಮಿಸಿ.ನೀವು ಏಕೆ ಅನ್‌ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡುತ್ತಿರುವಿರಿ ಎಂದು ನಮಗೆ ತಿಳಿಸಿ</string>
 </resources>

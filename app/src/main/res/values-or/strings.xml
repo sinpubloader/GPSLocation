@@ -160,4 +160,26 @@
 <string name="select_language_please">ଦୟାକରି ଅତି କମରେ ଗୋଟିଏ ଭାଷା ବାଛନ୍ତୁ!</string>
 <string name="select_select_please">ଜାରି ରଖିବା ପାଇଁ ଦୟାକରି ଅତି କମରେ ଗୋଟିଏ ଫିଚର ବାଛନ୍ତୁ!</string>
 <string name="loading_ads">ବିଜ୍ଞାପନ ଲୋଡ୍ ହେଉଛି...</string>
+    <string name="ads_click_reminder">ଜିପିଏସ୍ କ୍ୟାମେରା ଏପର୍ଯ୍ୟନ୍ତ ସେଟ୍ ଅପ୍ କରୁଛି |ଜାରି ରଖିବାକୁ ଦୟାକରି ଫେରିଯାଅ |</string>
+    <string name="uninstall">ସଂସ୍ଥାପନ କରନ୍ତୁ</string>
+    <string name="uninstall_keep_title_prefix">ସହିତ ଅନୁସନ୍ଧାନ ଜାରି ରଖ |</string>
+    <string name="uninstall_keep_title_highlight">ଜିପିଏସ୍ କ୍ୟାମେରା |</string>
+    <string name="uninstall_keep_subtitle">ସଠିକ୍ ଅବସ୍ଥାନ ସହିତ ତୁମର ମୂହୁର୍ତ୍ତଗୁଡ଼ିକୁ କ୍ୟାପଚର ଏବଂ ଅଂଶୀଦାର କରିବାକୁ ଚମତ୍କାର ବ features ଶିଷ୍ଟ୍ୟଗୁଡିକ ଆବିଷ୍କାର କର |</string>
+    <string name="uninstall_go_home">ଘରକୁ ଯାଆନ୍ତୁ</string>
+    <string name="uninstall_still_leave">ତଥାପି ଛାଡିବାକୁ ଚାହୁଁଛନ୍ତି କି?</string>
+    <string name="uninstall_feature_gps_camera">GPS କ୍ୟାମେରା</string>
+    <string name="uninstall_feature_gps_camera_desc">ସ୍ୱୟଂଚାଳିତ GPS ଅବସ୍ଥାନ ଟ୍ୟାଗିଂ ସହିତ ଫଟୋ କ୍ୟାପଚର</string>
+    <string name="uninstall_feature_map_view">ମାନଚିତ୍ର ଦର୍ଶନ</string>
+    <string name="uninstall_feature_map_view_desc">ଏକ ଇଣ୍ଟରାକ୍ଟିଭ୍ ମାନଚିତ୍ରରେ ଆପଣଙ୍କର ସମସ୍ତ ଫଟୋ ବ୍ରାଉଜ୍ କରନ୍ତୁ</string>
+    <string name="uninstall_feature_photo_grid">ଫଟୋ ଗ୍ରୀଡ୍</string>
+    <string name="uninstall_feature_photo_grid_desc">ଲୋକେସନ ଟ୍ୟାଗ୍ ସହିତ ସୁନ୍ଦର ଫଟୋ କୋଲାଜ୍ ସୃଷ୍ଟି କରନ୍ତୁ</string>
+    <string name="i_no_longer_need_it">ମୋର ଆଉ ଦରକାର ନାହିଁ</string>
+    <string name="i_didn_t_understand_how_to_use_it">ମୁଁ ଏହାକୁ କିପରି ବ୍ୟବହାର କରିବି ବୁ understand ିପାରିଲି ନାହିଁ |</string>
+    <string name="it_wasn_t_working_as_expected">ଆଶା କରାଯାଉଥିବା ପରି ଏହା କାମ କରୁନଥିଲା |</string>
+    <string name="i_found_a_better_alternative">ମୁଁ ଏକ ଉତ୍ତମ ବିକଳ୍ପ ପାଇଲି |</string>
+    <string name="difficult_to_use">ବ୍ୟବହାର କରିବା କଷ୍ଟକର |</string>
+    <string name="others">ଅନ୍ୟମାନେ |</string>
+    <string name="survey_install">ସର୍ଭେରୁ ବାହାରନ୍ତୁ |</string>
+    <string name="continue_submit">ମତାମତ ଦାଖଲ କରନ୍ତୁ</string>
+    <string name="vote_title">ଆପଣ ଯିବାକୁ ଦେଖି ଦୁ Sorry ଖିତ |ଆପଣ କାହିଁକି ସଂସ୍ଥାପନ କରୁଛନ୍ତି ତାହା ଆମକୁ ଜଣାନ୍ତୁ |</string>
 </resources>

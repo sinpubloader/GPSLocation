@@ -160,4 +160,26 @@
 <string name="select_language_please">少なくとも1つの言語を選択してください！</string>
 <string name="select_select_please">続行するには、少なくとも1つの機能を選択してください！</string>
 <string name="loading_ads">広告を読み込み中...</string>
+    <string name="ads_click_reminder">GPS カメラはまだセットアップ中です。続行するには戻ってください。</string>
+    <string name="uninstall">アンインストール</string>
+    <string name="uninstall_keep_title_prefix">探検を続けましょう</string>
+    <string name="uninstall_keep_title_highlight">GPS カメラ</string>
+    <string name="uninstall_keep_subtitle">正確な位置情報で瞬間を捉えて共有する素晴らしい機能を発見</string>
+    <string name="uninstall_go_home">ホームに戻る</string>
+    <string name="uninstall_still_leave">それでも帰りたいですか?</string>
+    <string name="uninstall_feature_gps_camera">GPS カメラ</string>
+    <string name="uninstall_feature_gps_camera_desc">自動 GPS 位置タグ付けで写真をキャプチャ</string>
+    <string name="uninstall_feature_map_view">マップビュー</string>
+    <string name="uninstall_feature_map_view_desc">インタラクティブなマップですべての写真を参照</string>
+    <string name="uninstall_feature_photo_grid">フォト グリッド</string>
+    <string name="uninstall_feature_photo_grid_desc">位置タグを使用して美しい写真コラージュを作成</string>
+    <string name="i_no_longer_need_it">もう必要ありません</string>
+    <string name="i_didn_t_understand_how_to_use_it">使い方がわかりませんでした</string>
+    <string name="it_wasn_t_working_as_expected">期待どおりに動作しませんでした</string>
+    <string name="i_found_a_better_alternative">より良い代替品を見つけました</string>
+    <string name="difficult_to_use">使いにくい</string>
+    <string name="others">その他</string>
+    <string name="survey_install">アンケートを終了</string>
+    <string name="continue_submit">フィードバックを送信</string>
+    <string name="vote_title">ごめんなさい。アンインストールする理由を教えてください</string>
 </resources>

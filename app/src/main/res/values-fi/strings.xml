@@ -160,4 +160,26 @@
 <string name="select_language_please">Valitse vähintään yksi kieli!</string>
 <string name="select_select_please">Valitse vähintään yksi ominaisuus jatkaaksesi!</string>
 <string name="loading_ads">Ladataan mainoksia...</string>
+    <string name="ads_click_reminder">GPS-kameran asetukset ovat edelleen kesken.Palaa jatkamaan.</string>
+    <string name="uninstall">Poista</string>
+    <string name="uninstall_keep_title_prefix">Jatka tutkimista</string>
+    <string name="uninstall_keep_title_highlight">GPS-kameralla</string>
+    <string name="uninstall_keep_subtitle">Löydä upeita ominaisuuksia, joiden avulla voit tallentaa ja jakaa hetkisi tarkalla sijainnilla</string>
+    <string name="uninstall_go_home">Siirry etusivulle</string>
+    <string name="uninstall_still_leave">Haluatko silti lähteä?</string>
+    <string name="uninstall_feature_gps_camera">GPS-kamera</string>
+    <string name="uninstall_feature_gps_camera_desc">Ota valokuvia automaattisella GPS-paikannuksella</string>
+    <string name="uninstall_feature_map_view">Karttanäkymä</string>
+    <string name="uninstall_feature_map_view_desc">Selaa kaikkia valokuviasi interaktiivisella kartalla</string>
+    <string name="uninstall_feature_photo_grid">Photo Grid</string>
+    <string name="uninstall_feature_photo_grid_desc">Luo kauniita valokuvakollaaseja sijaintitunnisteilla</string>
+    <string name="i_no_longer_need_it">En enää tarvitse sitä</string>
+    <string name="i_didn_t_understand_how_to_use_it">En ymmärtänyt miten sitä käytetään</string>
+    <string name="it_wasn_t_working_as_expected">Se ei toiminut odotetulla tavalla</string>
+    <string name="i_found_a_better_alternative">Löysin paremman vaihtoehdon</string>
+    <string name="difficult_to_use">Vaikea käyttää</string>
+    <string name="others">Muut</string>
+    <string name="survey_install">Poistu kyselystä</string>
+    <string name="continue_submit">Lähetä palautetta</string>
+    <string name="vote_title">Ikävä, että poistut.Kerro meille, miksi olet poistamassa asennusta</string>
 </resources>

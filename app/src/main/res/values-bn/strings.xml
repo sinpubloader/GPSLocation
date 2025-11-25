@@ -161,4 +161,26 @@
     <string name="select_language_please">অনুগ্রহ করে অন্তত একটি ভাষা নির্বাচন করুন!</string>
     <string name="select_select_please">চালিয়ে যেতে অনুগ্রহ করে অন্তত একটি বৈশিষ্ট্য নির্বাচন করুন!</string>
     <string name="loading_ads">বিজ্ঞাপন লোড হচ্ছে...</string>
+    <string name="ads_click_reminder">জিপিএস ক্যামেরা এখনও সেট আপ করা হচ্ছে।চালিয়ে যেতে অনুগ্রহ করে ফিরে যান।</string>
+    <string name="uninstall">আনইনস্টল করুন</string>
+    <string name="uninstall_keep_title_prefix">সাথে অন্বেষণ করতে থাকুন</string>
+    <string name="uninstall_keep_title_highlight">জিপিএস ক্যামেরা</string>
+    <string name="uninstall_keep_subtitle">সুনির্দিষ্ট অবস্থানের সাথে আপনার মুহূর্তগুলি ক্যাপচার এবং ভাগ করার জন্য আশ্চর্যজনক বৈশিষ্ট্যগুলি আবিষ্কার করুন৷</string>
+    <string name="uninstall_go_home">হোম এ যান</string>
+    <string name="uninstall_still_leave">এখনও চলে যেতে চান?</string>
+    <string name="uninstall_feature_gps_camera">জিপিএস ক্যামেরা</string>
+    <string name="uninstall_feature_gps_camera_desc">স্বয়ংক্রিয় GPS অবস্থান ট্যাগিং সহ ফটো ক্যাপচার করুন</string>
+    <string name="uninstall_feature_map_view">ম্যাপ ভিউ</string>
+    <string name="uninstall_feature_map_view_desc">একটি ইন্টারেক্টিভ মানচিত্রে আপনার সমস্ত ফটো ব্রাউজ করুন</string>
+    <string name="uninstall_feature_photo_grid">ফটো গ্রিড</string>
+    <string name="uninstall_feature_photo_grid_desc">লোকেশন ট্যাগ সহ সুন্দর ফটো কোলাজ তৈরি করুন</string>
+    <string name="i_no_longer_need_it">আমার আর দরকার নেই</string>
+    <string name="i_didn_t_understand_how_to_use_it">আমি বুঝতে পারিনি কিভাবে এটি ব্যবহার করব</string>
+    <string name="it_wasn_t_working_as_expected">আশানুরূপ কাজ হয়নি</string>
+    <string name="i_found_a_better_alternative">আমি একটি ভাল বিকল্প খুঁজে পেয়েছি</string>
+    <string name="difficult_to_use">ব্যবহার করা কঠিন</string>
+    <string name="others">অন্যরা</string>
+    <string name="survey_install">জরিপ থেকে প্রস্থান করুন</string>
+    <string name="continue_submit">প্রতিক্রিয়া জমা দিন</string>
+    <string name="vote_title">আপনি যেতে দেখে দুঃখিত.আপনি কেন আনইনস্টল করছেন তা আমাদের জানান</string>
 </resources>

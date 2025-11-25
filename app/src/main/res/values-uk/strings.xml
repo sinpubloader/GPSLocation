@@ -161,4 +161,26 @@
     <string name="select_language_please">Будь ласка, виберіть принаймні одну мову!</string>
     <string name="select_select_please">Будь ласка, виберіть принаймні одну функцію, щоб продовжити!</string>
     <string name="loading_ads">Завантаження реклами...</string>
+    <string name="ads_click_reminder">GPS-камера все ще налаштовується.Будь ласка, поверніться, щоб продовжити.</string>
+    <string name="uninstall">Видаліть</string>
+    <string name="uninstall_keep_title_prefix">Продовжуйте досліджувати за допомогою</string>
+    <string name="uninstall_keep_title_highlight">GPS-камери</string>
+    <string name="uninstall_keep_subtitle">Відкрийте для себе дивовижні функції, щоб фіксувати та ділитися своїми моментами з точним місцезнаходженням</string>
+    <string name="uninstall_go_home">Перейти на головну</string>
+    <string name="uninstall_still_leave">Все ще хочете піти?</string>
+    <string name="uninstall_feature_gps_camera">GPS-камера</string>
+    <string name="uninstall_feature_gps_camera_desc">Знімайте фотографії за допомогою автоматичного позначення місцезнаходження GPS</string>
+    <string name="uninstall_feature_map_view">Перегляд карти</string>
+    <string name="uninstall_feature_map_view_desc">Переглядайте всі свої фотографії на інтерактивній карті</string>
+    <string name="uninstall_feature_photo_grid">Сітка фотографій</string>
+    <string name="uninstall_feature_photo_grid_desc">Створюйте красиві фотоколажі з тегами розташування</string>
+    <string name="i_no_longer_need_it">Мені це більше не потрібно</string>
+    <string name="i_didn_t_understand_how_to_use_it">Я не розумію, як ним користуватися</string>
+    <string name="it_wasn_t_working_as_expected">Це не працювало, як очікувалося</string>
+    <string name="i_found_a_better_alternative">Я знайшов кращу альтернативу</string>
+    <string name="difficult_to_use">Важко використовувати</string>
+    <string name="others">Інше</string>
+    <string name="survey_install">Вийти з опитування</string>
+    <string name="continue_submit">Надіслати відгук</string>
+    <string name="vote_title">Шкода, що ви йдете.Повідомте нам, чому ви видаляєте</string>
 </resources>

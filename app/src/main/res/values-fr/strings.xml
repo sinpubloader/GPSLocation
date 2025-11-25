@@ -161,4 +161,26 @@
     <string name="select_language_please">Veuillez sélectionner au moins une langue !</string>
     <string name="select_select_please">Veuillez sélectionner au moins une fonctionnalité pour continuer !</string>
     <string name="loading_ads">Chargement des publicités...</string>
+    <string name="ads_click_reminder">La caméra GPS est toujours en cours de configuration.Veuillez revenir pour continuer.</string>
+    <string name="uninstall">Désinstaller</string>
+    <string name="uninstall_keep_title_prefix">Continuez à explorer avec</string>
+    <string name="uninstall_keep_title_highlight">Caméra GPS</string>
+    <string name="uninstall_keep_subtitle">Découvrez des fonctionnalités étonnantes pour capturer et partager vos moments avec une localisation précise</string>
+    <string name="uninstall_go_home">Aller à l\'accueil</string>
+    <string name="uninstall_still_leave">Vous voulez toujours partir ?</string>
+    <string name="uninstall_feature_gps_camera">Caméra GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Capturez des photos avec le marquage automatique de la localisation GPS</string>
+    <string name="uninstall_feature_map_view">Vue sur la carte</string>
+    <string name="uninstall_feature_map_view_desc">Parcourez toutes vos photos sur une carte interactive</string>
+    <string name="uninstall_feature_photo_grid">Grille de photos</string>
+    <string name="uninstall_feature_photo_grid_desc">Créez de superbes collages de photos avec des balises de localisation</string>
+    <string name="i_no_longer_need_it">Je n\'en ai plus besoin</string>
+    <string name="i_didn_t_understand_how_to_use_it">Je n\'ai pas compris comment l\'utiliser</string>
+    <string name="it_wasn_t_working_as_expected">Il ne fonctionnait pas comme prévu</string>
+    <string name="i_found_a_better_alternative">J\'ai trouvé une meilleure alternative</string>
+    <string name="difficult_to_use">Difficile à utiliser</string>
+    <string name="others">Autres</string>
+    <string name="survey_install">Quitter l\'enquête</string>
+    <string name="continue_submit">Soumettre vos commentaires</string>
+    <string name="vote_title">Désolé de vous voir partir.Faites-nous savoir pourquoi vous désinstallez</string>
 </resources>

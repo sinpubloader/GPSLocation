@@ -161,4 +161,26 @@
     <string name="select_language_please">ദയവായി ഒരു ഭാഷയെങ്കിലും തിരഞ്ഞെടുക്കുക!</string>
     <string name="select_select_please">തുടരാൻ ദയവായി ഒരു ഫീച്ചറെങ്കിലും തിരഞ്ഞെടുക്കുക!</string>
     <string name="loading_ads">പരസ്യങ്ങൾ ലോഡ് ചെയ്യുന്നു...</string>
+    <string name="ads_click_reminder">កាមេរ៉ា GPS នៅតែត្រូវបានបង្កើតឡើង។សូមត្រលប់មកបន្តទៅមុខទៀត។</string>
+    <string name="uninstall">លុប</string>
+    <string name="uninstall_keep_title_prefix">បន្តស្វែងយល់ជាមួយ</string>
+    <string name="uninstall_keep_title_highlight">GPS</string>
+    <string name="uninstall_keep_subtitle">ស្វែងយល់ពីលក្ខណៈពិសេសដ៏អស្ចារ្យដើម្បីចាប់យកនិងចែករំលែកពេលវេលារបស់អ្នកដោយមានទីតាំងច្បាស់លាស់</string>
+    <string name="uninstall_go_home">ទៅផ្ទះ</string>
+    <string name="uninstall_still_leave">នៅតែចង់ចាកចេញ?</string>
+    <string name="uninstall_feature_gps_camera">ម៉ាស៊ីនថត GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">ចាប់យករូបថតជាមួយការដាក់ស្លាកទីតាំង GPS ដោយស្វ័យប្រវត្តិ</string>
+    <string name="uninstall_feature_map_view">ទិដ្ឋភាពផែនទី</string>
+    <string name="uninstall_feature_map_view_desc">រកមើលរូបថតរបស់អ្នកទាំងអស់នៅលើផែនទីអន្តរកម្ម</string>
+    <string name="uninstall_feature_photo_grid">បៃតង</string>
+    <string name="uninstall_feature_photo_grid_desc">បង្កើតការដាក់រូបថតដ៏ស្រស់ស្អាតជាមួយស្លាកទីតាំង</string>
+    <string name="i_no_longer_need_it">ខ្ញុំលែងត្រូវការវាទៀតហើយ</string>
+    <string name="i_didn_t_understand_how_to_use_it">ខ្ញុំមិនយល់ពីរបៀបប្រើវាទេ</string>
+    <string name="it_wasn_t_working_as_expected">វាមិនដំណើរការដូចការរំពឹងទុកទេ</string>
+    <string name="i_found_a_better_alternative">ខ្ញុំបានរកឃើញជម្រើសល្អប្រសើរជាងមុន</string>
+    <string name="difficult_to_use">ការលំបាកក្នុងការប្រើប្រាស់</string>
+    <string name="others">អ្នកដទៃ</string>
+    <string name="survey_install">ចេញពីការស្ទង់មតិ</string>
+    <string name="continue_submit">សូមដាក់មតិប្រតិកម្ម</string>
+    <string name="vote_title">សុំទោសដែលបានឃើញអ្នកទៅ។អនុញ្ញាតឱ្យយើងដឹងពីមូលហេតុដែលអ្នកកំពុងលុប</string>
 </resources>

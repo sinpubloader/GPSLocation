@@ -160,4 +160,26 @@
 <string name="select_language_please">Моля, изберете поне един език!</string>
 <string name="select_select_please">Моля, изберете поне една функция, за да продължите!</string>
 <string name="loading_ads">Зареждане на реклами...</string>
+    <string name="ads_click_reminder">GPS камерата все още се настройва.Моля, върнете се, за да продължите.</string>
+    <string name="uninstall">Деинсталирайте</string>
+    <string name="uninstall_keep_title_prefix">Продължавайте да изследвате с</string>
+    <string name="uninstall_keep_title_highlight">GPS камера</string>
+    <string name="uninstall_keep_subtitle">Открийте невероятни функции, за да улавяте и споделяте вашите моменти с точно местоположение</string>
+    <string name="uninstall_go_home">Отидете на началната страница</string>
+    <string name="uninstall_still_leave">Все още искате да си тръгнете?</string>
+    <string name="uninstall_feature_gps_camera">GPS камера</string>
+    <string name="uninstall_feature_gps_camera_desc">Заснемайте снимки с автоматично GPS маркиране на местоположение</string>
+    <string name="uninstall_feature_map_view">Изглед на карта</string>
+    <string name="uninstall_feature_map_view_desc">Преглеждайте всичките си снимки на интерактивна карта</string>
+    <string name="uninstall_feature_photo_grid">Фото мрежа</string>
+    <string name="uninstall_feature_photo_grid_desc">Създавайте красиви фотоколажи с маркери за местоположение</string>
+    <string name="i_no_longer_need_it">Вече не ми трябва</string>
+    <string name="i_didn_t_understand_how_to_use_it">Не разбирах как да го използвам</string>
+    <string name="it_wasn_t_working_as_expected">Не работеше според очакванията</string>
+    <string name="i_found_a_better_alternative">Намерих по-добра алтернатива</string>
+    <string name="difficult_to_use">Труден за използване</string>
+    <string name="others">Други</string>
+    <string name="survey_install">Изход от анкетата</string>
+    <string name="continue_submit">Изпратете обратна връзка</string>
+    <string name="vote_title">Съжалявам, че си отивате.Кажете ни защо деинсталирате</string>
 </resources>

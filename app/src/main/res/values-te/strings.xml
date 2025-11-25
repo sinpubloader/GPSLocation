@@ -160,4 +160,27 @@
 <string name="select_language_please">దయచేసి కనీసం ఒక భాషను ఎంచుకోండి!</string>
 <string name="select_select_please">దయచేసి కొనసాగించడానికి కనీసం ఒక ఫీచర్‌ను ఎంచుకోండి!</string>
 <string name="loading_ads">ప్రకటనలు లోడ్ అవుతున్నాయి...</string>
+
+    <string name="ads_click_reminder">GPS కెమెరా ఇంకా సెటప్ చేయబడుతోంది.దయచేసి కొనసాగించడానికి తిరిగి వెళ్లండి.</string>
+    <string name="uninstall">అన్‌ఇన్‌స్టాల్ చేయండి</string>
+    <string name="uninstall_keep_title_prefix">దీనితో అన్వేషిస్తూ ఉండండి</string>
+    <string name="uninstall_keep_title_highlight">GPS కెమెరా</string>
+    <string name="uninstall_keep_subtitle">ఖచ్చితమైన లొకేషన్‌తో మీ క్షణాలను క్యాప్చర్ చేయడానికి మరియు షేర్ చేయడానికి అద్భుతమైన ఫీచర్‌లను కనుగొనండి</string>
+    <string name="uninstall_go_home">ఇంటికి వెళ్లు</string>
+    <string name="uninstall_still_leave">ఇంకా నిష్క్రమించాలనుకుంటున్నారా?</string>
+    <string name="uninstall_feature_gps_camera">GPS కెమెరా</string>
+    <string name="uninstall_feature_gps_camera_desc">ఆటోమేటిక్ GPS లొకేషన్ ట్యాగింగ్‌తో ఫోటోలను క్యాప్చర్ చేయండి</string>
+    <string name="uninstall_feature_map_view">మ్యాప్ వీక్షణ</string>
+    <string name="uninstall_feature_map_view_desc">ఇంటరాక్టివ్ మ్యాప్‌లో మీ అన్ని ఫోటోలను బ్రౌజ్ చేయండి</string>
+    <string name="uninstall_feature_photo_grid">ఫోటో గ్రిడ్</string>
+    <string name="uninstall_feature_photo_grid_desc">లొకేషన్ ట్యాగ్‌లతో అందమైన ఫోటో కోల్లెజ్‌లను సృష్టించండి</string>
+    <string name="i_no_longer_need_it">నాకు ఇక అవసరం లేదు</string>
+    <string name="i_didn_t_understand_how_to_use_it">ఎలా ఉపయోగించాలో అర్థం కాలేదు</string>
+    <string name="it_wasn_t_working_as_expected">అది ఆశించిన స్థాయిలో పనిచేయలేదు</string>
+    <string name="i_found_a_better_alternative">నేను మంచి ప్రత్యామ్నాయాన్ని కనుగొన్నాను</string>
+    <string name="difficult_to_use">ఉపయోగించడం కష్టం</string>
+    <string name="others">ఇతరులు</string>
+    <string name="survey_install">ఎగ్జిట్ సర్వే</string>
+    <string name="continue_submit">అభిప్రాయాన్ని సమర్పించండి</string>
+    <string name="vote_title">మీరు వెళ్లినందుకు క్షమించండి.మీరు ఎందుకు అన్‌ఇన్‌స్టాల్ చేస్తున్నారో మాకు తెలియజేయండి</string>
 </resources>

@@ -161,4 +161,26 @@
     <string name="select_language_please">Bitte wählen Sie mindestens eine Sprache aus!</string>
     <string name="select_select_please">Bitte wählen Sie mindestens eine Funktion aus, um fortzufahren!</string>
     <string name="loading_ads">Anzeigen werden geladen...</string>
+    <string name="ads_click_reminder">Die GPS-Kamera wird noch eingerichtet.Bitte kehren Sie zurück, um fortzufahren.</string>
+    <string name="uninstall">Deinstallieren</string>
+    <string name="uninstall_keep_title_prefix">Erkunden Sie weiter mit</string>
+    <string name="uninstall_keep_title_highlight">GPS-Kamera</string>
+    <string name="uninstall_keep_subtitle">Entdecken Sie erstaunliche Funktionen, um Ihre Momente mit präzisem Standort festzuhalten und zu teilen</string>
+    <string name="uninstall_go_home">Zur Startseite gehen</string>
+    <string name="uninstall_still_leave">Möchten Sie immer noch gehen?</string>
+    <string name="uninstall_feature_gps_camera">GPS-Kamera</string>
+    <string name="uninstall_feature_gps_camera_desc">Fotos mit automatischer GPS-Standortkennzeichnung aufnehmen</string>
+    <string name="uninstall_feature_map_view">Kartenansicht</string>
+    <string name="uninstall_feature_map_view_desc">Durchsuchen Sie alle Ihre Fotos auf einer interaktiven Karte</string>
+    <string name="uninstall_feature_photo_grid">Fotoraster</string>
+    <string name="uninstall_feature_photo_grid_desc">Erstellen Sie wunderschöne Fotocollagen mit Standort-Tags</string>
+    <string name="i_no_longer_need_it">Ich brauche es nicht mehr</string>
+    <string name="i_didn_t_understand_how_to_use_it">Ich habe nicht verstanden, wie man es benutzt</string>
+    <string name="it_wasn_t_working_as_expected">Es hat nicht wie erwartet funktioniert</string>
+    <string name="i_found_a_better_alternative">Ich habe eine bessere Alternative gefunden</string>
+    <string name="difficult_to_use">Schwierig zu verwenden</string>
+    <string name="others">Andere</string>
+    <string name="survey_install">Umfrage beenden</string>
+    <string name="continue_submit">Feedback abgeben</string>
+    <string name="vote_title">Tut mir leid, dass Sie gehen.Teilen Sie uns mit, warum Sie deinstallieren</string>
 </resources>

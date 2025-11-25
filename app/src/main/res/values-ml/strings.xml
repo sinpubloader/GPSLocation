@@ -160,4 +160,26 @@
 <string name="select_language_please">ദയവായി ഒരു ഭാഷയെങ്കിലും തിരഞ്ഞെടുക്കുക!</string>
 <string name="select_select_please">തുടരാൻ ദയവായി ഒരു ഫീച്ചറെങ്കിലും തിരഞ്ഞെടുക്കുക!</string>
 <string name="loading_ads">പരസ്യങ്ങൾ ലോഡ് ചെയ്യുന്നു...</string>
+    <string name="ads_click_reminder">GPS ക്യാമറ ഇപ്പോഴും സജ്ജീകരിച്ചുകൊണ്ടിരിക്കുകയാണ്.തുടരാൻ ദയവായി മടങ്ങുക.</string>
+    <string name="uninstall">അൺഇൻസ്റ്റാൾ ചെയ്യുക</string>
+    <string name="uninstall_keep_title_prefix">കൂടെ പര്യവേക്ഷണം തുടരുക</string>
+    <string name="uninstall_keep_title_highlight">ജിപിഎസ് ക്യാമറ</string>
+    <string name="uninstall_keep_subtitle">കൃത്യമായ ലൊക്കേഷൻ ഉപയോഗിച്ച് നിങ്ങളുടെ നിമിഷങ്ങൾ പകർത്താനും പങ്കിടാനും അതിശയകരമായ സവിശേഷതകൾ കണ്ടെത്തുക</string>
+    <string name="uninstall_go_home">ഹോമിലേക്ക് പോകുക</string>
+    <string name="uninstall_still_leave">ഇനിയും പോകണോ?</string>
+    <string name="uninstall_feature_gps_camera">ജിപിഎസ് ക്യാമറ</string>
+    <string name="uninstall_feature_gps_camera_desc">ഓട്ടോമാറ്റിക് GPS ലൊക്കേഷൻ ടാഗിംഗ് ഉപയോഗിച്ച് ഫോട്ടോകൾ എടുക്കുക</string>
+    <string name="uninstall_feature_map_view">മാപ്പ് കാഴ്ച</string>
+    <string name="uninstall_feature_map_view_desc">ഒരു ഇൻ്ററാക്ടീവ് മാപ്പിൽ നിങ്ങളുടെ എല്ലാ ഫോട്ടോകളും ബ്രൗസ് ചെയ്യുക</string>
+    <string name="uninstall_feature_photo_grid">ഫോട്ടോ ഗ്രിഡ്</string>
+    <string name="uninstall_feature_photo_grid_desc">ലൊക്കേഷൻ ടാഗുകൾ ഉപയോഗിച്ച് മനോഹരമായ ഫോട്ടോ കൊളാഷുകൾ സൃഷ്ടിക്കുക</string>
+    <string name="i_no_longer_need_it">|എനിക്ക് ഇത് ആവശ്യമില്ല</string>
+    <string name="i_didn_t_understand_how_to_use_it">ഇത് എങ്ങനെ ഉപയോഗിക്കണമെന്ന് എനിക്ക് മനസ്സിലായില്ല</string>
+    <string name="it_wasn_t_working_as_expected">ഇത് പ്രതീക്ഷിച്ച പോലെ പ്രവർത്തിച്ചില്ല</string>
+    <string name="i_found_a_better_alternative">ഒരു മികച്ച ബദൽ ഞാൻ കണ്ടെത്തി</string>
+    <string name="difficult_to_use">ഉപയോഗിക്കാൻ പ്രയാസം</string>
+    <string name="others">|മറ്റുള്ളവ</string>
+    <string name="survey_install">|എക്സിറ്റ് സർവേ</string>
+    <string name="continue_submit">ഫീഡ്‌ബാക്ക് സമർപ്പിക്കുക</string>
+    <string name="vote_title">നിങ്ങൾ പോയതിൽ ഖേദമുണ്ട്.എന്തുകൊണ്ടാണ് നിങ്ങൾ അൺഇൻസ്റ്റാൾ ചെയ്യുന്നതെന്ന് ഞങ്ങളെ അറിയിക്കുക</string>
 </resources>

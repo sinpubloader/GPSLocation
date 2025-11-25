@@ -160,4 +160,26 @@
     <string name="select_language_please">Si us plau, selecciona almenys un idioma!</string>
     <string name="select_select_please">Si us plau, selecciona almenys una característica per continuar!</string>
     <string name="loading_ads">Carregant anuncis...</string>
+    <string name="ads_click_reminder">La càmera GPS encara s\'està configurant.Si us plau, torneu per continuar.</string>
+    <string name="uninstall">Desinstal·la</string>
+    <string name="uninstall_keep_title_prefix">Seguiu explorant amb</string>
+    <string name="uninstall_keep_title_highlight">Càmera GPS</string>
+    <string name="uninstall_keep_subtitle">Descobriu funcions increïbles per capturar i compartir els vostres moments amb una ubicació precisa</string>
+    <string name="uninstall_go_home">Vés a Inici</string>
+    <string name="uninstall_still_leave">Encara vols marxar?</string>
+    <string name="uninstall_feature_gps_camera">Càmera GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Captura fotos amb l\'etiquetatge automàtic d\'ubicació GPS</string>
+    <string name="uninstall_feature_map_view">Vista del mapa</string>
+    <string name="uninstall_feature_map_view_desc">Navega per totes les teves fotos en un mapa interactiu</string>
+    <string name="uninstall_feature_photo_grid">Grilla de fotos</string>
+    <string name="uninstall_feature_photo_grid_desc">Crea collages de fotos preciosos amb etiquetes d\'ubicació</string>
+    <string name="i_no_longer_need_it">Ja no en necessito</string>
+    <string name="i_didn_t_understand_how_to_use_it">No entenia com utilitzar-lo</string>
+    <string name="it_wasn_t_working_as_expected">No funcionava com esperava</string>
+    <string name="i_found_a_better_alternative">He trobat una alternativa millor</string>
+    <string name="difficult_to_use">Dificultat d\'utilitzar</string>
+    <string name="others">Altres</string>
+    <string name="survey_install">Enquesta de sortida</string>
+    <string name="continue_submit">Enviar comentaris</string>
+    <string name="vote_title">Lamento veure\'t anar.Feu-nos saber per què esteu desinstal·lant</string>
 </resources>

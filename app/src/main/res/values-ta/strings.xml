@@ -160,4 +160,26 @@
 <string name="select_language_please">தயவுசெய்து குறைந்தபட்சம் ஒரு மொழியைத் தேர்ந்தெடுக்கவும்!</string>
 <string name="select_select_please">தொடர குறைந்தபட்சம் ஒரு அம்சத்தைத் தேர்ந்தெடுக்கவும்!</string>
 <string name="loading_ads">விளம்பரங்கள் ஏற்றப்படுகிறது...</string>
+    <string name="ads_click_reminder">GPS கேமரா இன்னும் அமைக்கப்படுகிறது.தொடர்ந்து செல்ல தயவுசெய்து திரும்பவும்.</string>
+    <string name="uninstall">நிறுவல் நீக்கவும்</string>
+    <string name="uninstall_keep_title_prefix">உடன் தொடர்ந்து ஆராயுங்கள்</string>
+    <string name="uninstall_keep_title_highlight">ஜிபிஎஸ் கேமரா</string>
+    <string name="uninstall_keep_subtitle">உங்கள் தருணங்களைப் படம்பிடித்து, துல்லியமான இருப்பிடத்துடன் பகிர்ந்து கொள்ள அற்புதமான அம்சங்களைக் கண்டறியவும்</string>
+    <string name="uninstall_go_home">முகப்புக்குச் செல்</string>
+    <string name="uninstall_still_leave">இன்னும் வெளியேற வேண்டுமா?</string>
+    <string name="uninstall_feature_gps_camera">ஜிபிஎஸ் கேமரா</string>
+    <string name="uninstall_feature_gps_camera_desc">தானியங்கி ஜிபிஎஸ் இருப்பிடக் குறியிடல் மூலம் புகைப்படங்களைப் பிடிக்கவும்</string>
+    <string name="uninstall_feature_map_view">வரைபடக் காட்சி</string>
+    <string name="uninstall_feature_map_view_desc">ஊடாடும் வரைபடத்தில் உங்கள் எல்லா புகைப்படங்களையும் உலாவவும்</string>
+    <string name="uninstall_feature_photo_grid">புகைப்பட கட்டம்</string>
+    <string name="uninstall_feature_photo_grid_desc">இருப்பிட குறிச்சொற்களுடன் அழகான புகைப்பட படத்தொகுப்புகளை உருவாக்கவும்</string>
+    <string name="i_no_longer_need_it">இனி எனக்கு அது தேவையில்லை</string>
+    <string name="i_didn_t_understand_how_to_use_it">அதை எப்படி பயன்படுத்துவது என்று புரியவில்லை</string>
+    <string name="it_wasn_t_working_as_expected">எதிர்பார்த்தபடி செயல்படவில்லை</string>
+    <string name="i_found_a_better_alternative">நான் ஒரு சிறந்த மாற்றீட்டைக் கண்டேன்</string>
+    <string name="difficult_to_use">பயன்படுத்த சிரமம்</string>
+    <string name="others">மற்றவை</string>
+    <string name="survey_install">வெளியேறு கணக்கெடுப்பு</string>
+    <string name="continue_submit">கருத்தைச் சமர்ப்பிக்கவும்</string>
+    <string name="vote_title">நீங்கள் செல்வதற்கு வருந்துகிறேன்.நீங்கள் ஏன் நிறுவல் நீக்குகிறீர்கள் என்பதை எங்களுக்குத் தெரியப்படுத்துங்கள்</string>
 </resources>

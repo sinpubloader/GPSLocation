@@ -160,4 +160,26 @@
 <string name="select_language_please">Sila pilih sekurang-kurangnya satu bahasa!</string>
 <string name="select_select_please">Sila pilih sekurang-kurangnya satu ciri untuk meneruskan!</string>
 <string name="loading_ads">Memuatkan iklan...</string>
+    <string name="ads_click_reminder">Kamera GPS masih disediakan.Sila kembali untuk terus berjalan.</string>
+    <string name="uninstall">Uninstall</string>
+    <string name="uninstall_keep_title_prefix">terus meneroka dengan</string>
+    <string name="uninstall_keep_title_highlight">kamera GPS</string>
+    <string name="uninstall_keep_subtitle">cari ciri -ciri yang menakjubkan untuk menangkap dan berkongsi momen anda dengan lokasi yang tepat</string>
+    <string name="uninstall_go_home">Pergi ke rumah</string>
+    <string name="uninstall_still_leave">masih mahu pergi?</string>
+    <string name="uninstall_feature_gps_camera">Kamera GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Tangkap gambar dengan penandaan lokasi GPS automatik</string>
+    <string name="uninstall_feature_map_view">Peta View</string>
+    <string name="uninstall_feature_map_view_desc">Layari semua foto anda di peta interaktif</string>
+    <string name="uninstall_feature_photo_grid">grid foto</string>
+    <string name="uninstall_feature_photo_grid_desc">Buat kolaj foto yang indah dengan tag lokasi</string>
+    <string name="i_no_longer_need_it">saya tidak lagi memerlukannya</string>
+    <string name="i_didn_t_understand_how_to_use_it">saya tidak faham bagaimana menggunakannya</string>
+    <string name="it_wasn_t_working_as_expected">Ia tidak berfungsi seperti yang diharapkan</string>
+    <string name="i_found_a_better_alternative">saya dapati alternatif yang lebih baik</string>
+    <string name="difficult_to_use">sukar untuk digunakan</string>
+    <string name="others">yang lain</string>
+    <string name="survey_install">Kajian keluar</string>
+    <string name="continue_submit">Hantar maklum balas</string>
+    <string name="vote_title">Maaf melihat anda pergi.Beritahu kami mengapa anda menyahpasang</string>
 </resources>

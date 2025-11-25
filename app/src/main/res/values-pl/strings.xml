@@ -160,4 +160,26 @@
 <string name="select_language_please">Wybierz przynajmniej jeden język!</string>
 <string name="select_select_please">Wybierz przynajmniej jedną funkcję, aby kontynuować!</string>
 <string name="loading_ads">Ładowanie reklam...</string>
+    <string name="ads_click_reminder">Kamera GPS jest nadal konfigurowana.Wróć, aby kontynuować.</string>
+    <string name="uninstall">Odinstaluj</string>
+    <string name="uninstall_keep_title_prefix">Kontynuuj odkrywanie z</string>
+    <string name="uninstall_keep_title_highlight">Kamera GPS</string>
+    <string name="uninstall_keep_subtitle">Odkryj niesamowite funkcje umożliwiające rejestrowanie i udostępnianie chwil wraz z dokładną lokalizacją</string>
+    <string name="uninstall_go_home">Przejdź do strony głównej</string>
+    <string name="uninstall_still_leave">Nadal chcesz wyjść?</string>
+    <string name="uninstall_feature_gps_camera">Kamera GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Rób zdjęcia z automatycznym oznaczaniem lokalizacji GPS</string>
+    <string name="uninstall_feature_map_view">Widok mapy</string>
+    <string name="uninstall_feature_map_view_desc">Przeglądaj wszystkie swoje zdjęcia na interaktywnej mapie</string>
+    <string name="uninstall_feature_photo_grid">Siatka zdjęć</string>
+    <string name="uninstall_feature_photo_grid_desc">Twórz piękne kolaże zdjęć ze znacznikami lokalizacji</string>
+    <string name="i_no_longer_need_it">Już tego nie potrzebuję</string>
+    <string name="i_didn_t_understand_how_to_use_it">Nie rozumiem, jak z tego korzystać</string>
+    <string name="it_wasn_t_working_as_expected">To nie działało zgodnie z oczekiwaniami</string>
+    <string name="i_found_a_better_alternative">Znalazłem lepszą alternatywę</string>
+    <string name="difficult_to_use">Trudne w użyciu</string>
+    <string name="others">Inne</string>
+    <string name="survey_install">Zakończ ankietę</string>
+    <string name="continue_submit">Prześlij opinię</string>
+    <string name="vote_title">Przykro nam, że odchodzisz.Daj nam znać, dlaczego odinstalowujesz</string>
 </resources>

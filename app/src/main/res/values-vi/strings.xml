@@ -160,4 +160,26 @@
 <string name="select_language_please">Vui lòng chọn ít nhất một ngôn ngữ!</string>
 <string name="select_select_please">Vui lòng chọn ít nhất một tính năng để tiếp tục!</string>
 <string name="loading_ads">Đang tải quảng cáo...</string>
+    <string name="ads_click_reminder">Camera GPS vẫn đang được thiết lập.Vui lòng quay lại để tiếp tục.</string>
+    <string name="uninstall">Gỡ cài đặt</string>
+    <string name="uninstall_keep_title_prefix">Tiếp tục khám phá với</string>
+    <string name="uninstall_keep_title_highlight">Camera GPS</string>
+    <string name="uninstall_keep_subtitle">Khám phá các tính năng tuyệt vời để ghi lại và chia sẻ khoảnh khắc của bạn với vị trí chính xác</string>
+    <string name="uninstall_go_home">Trở về Trang chủ</string>
+    <string name="uninstall_still_leave">Bạn vẫn muốn rời đi?</string>
+    <string name="uninstall_feature_gps_camera">Camera GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Chụp ảnh bằng tính năng gắn thẻ vị trí GPS tự động</string>
+    <string name="uninstall_feature_map_view">Chế độ xem bản đồ</string>
+    <string name="uninstall_feature_map_view_desc">Duyệt qua tất cả ảnh của bạn trên bản đồ tương tác</string>
+    <string name="uninstall_feature_photo_grid">Lưới ảnh</string>
+    <string name="uninstall_feature_photo_grid_desc">Tạo những bức ảnh ghép đẹp mắt với thẻ vị trí</string>
+    <string name="i_no_longer_need_it">Tôi không cần nó nữa</string>
+    <string name="i_didn_t_understand_how_to_use_it">Tôi không hiểu cách sử dụng nó</string>
+    <string name="it_wasn_t_working_as_expected">Nó không hoạt động như mong đợi</string>
+    <string name="i_found_a_better_alternative">Tôi đã tìm thấy giải pháp thay thế tốt hơn</string>
+    <string name="difficult_to_use">Khó sử dụng</string>
+    <string name="others">Khác</string>
+    <string name="survey_install">Thoát khảo sát</string>
+    <string name="continue_submit">Gửi phản hồi</string>
+    <string name="vote_title">Rất tiếc khi thấy bạn rời đi.Hãy cho chúng tôi biết lý do bạn gỡ cài đặt</string>
 </resources>

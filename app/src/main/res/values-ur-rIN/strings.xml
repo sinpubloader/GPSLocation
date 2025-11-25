@@ -160,4 +160,26 @@
 <string name="select_language_please">براہ کرم کم از کم ایک زبان منتخب کریں!</string>
 <string name="select_select_please">براہ کرم جاری رکھنے کے لیے کم از کم ایک خصوصیت منتخب کریں!</string>
 <string name="loading_ads">اشتہارات لوڈ ہو رہے ہیں...</string>
+    <string name="ads_click_reminder">جی پی ایس کیمرا ابھی بھی ترتیب دے رہا ہے۔براہ کرم چلتے رہیں۔</string>
+    <string name="uninstall">انسٹال</string>
+    <string name="uninstall_keep_title_prefix">کے ساتھ تلاش کرتے رہیں</string>
+    <string name="uninstall_keep_title_highlight">GPS کیمرا</string>
+    <string name="uninstall_keep_subtitle">اپنے لمحات کو عین مطابق مقام کے ساتھ پکڑنے اور بانٹنے کے لئے حیرت انگیز خصوصیات دریافت کریں</string>
+    <string name="uninstall_go_home">گھر جاؤ</string>
+    <string name="uninstall_still_leave">پھر بھی جانا چاہتے ہیں؟</string>
+    <string name="uninstall_feature_gps_camera">GPS کیمرا</string>
+    <string name="uninstall_feature_gps_camera_desc">خودکار GPS لوکیشن ٹیگنگ کے ساتھ تصاویر پر قبضہ کریں</string>
+    <string name="uninstall_feature_map_view">نقشہ کا نظارہ</string>
+    <string name="uninstall_feature_map_view_desc">اپنی تمام تصاویر کو انٹرایکٹو نقشہ پر براؤز کریں</string>
+    <string name="uninstall_feature_photo_grid">فوٹو گرڈ</string>
+    <string name="uninstall_feature_photo_grid_desc">مقام کے ٹیگز کے ساتھ خوبصورت فوٹو کولیج بنائیں</string>
+    <string name="i_no_longer_need_it">مجھے اب اس کی ضرورت نہیں ہے</string>
+    <string name="i_didn_t_understand_how_to_use_it">مجھے سمجھ نہیں آرہی تھی کہ اسے کس طرح استعمال کیا جائے</string>
+    <string name="it_wasn_t_working_as_expected">یہ توقع کے مطابق کام نہیں کررہا تھا</string>
+    <string name="i_found_a_better_alternative">مجھے ایک بہتر متبادل ملا</string>
+    <string name="difficult_to_use">استعمال کرنا مشکل ہے</string>
+    <string name="others">دوسرے</string>
+    <string name="survey_install">ایگزٹ سروے</string>
+    <string name="continue_submit">رائے جمع کروائیں</string>
+    <string name="vote_title">آپ کو جاتے ہوئے دیکھ کر معذرتہمیں بتائیں کہ آپ انسٹال کیوں کررہے ہیں</string>
 </resources>

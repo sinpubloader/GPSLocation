@@ -160,4 +160,26 @@
 <string name="select_language_please">¡Por favor, selecciona al menos un idioma!</string>
 <string name="select_select_please">¡Por favor, selecciona al menos una función para continuar!</string>
 <string name="loading_ads">Cargando anuncios...</string>
+    <string name="ads_click_reminder">La cámara GPS aún se está configurando.Vuelve para continuar.</string>
+    <string name="uninstall">Desinstalar</string>
+    <string name="uninstall_keep_title_prefix">Sigue explorando con</string>
+    <string name="uninstall_keep_title_highlight">Cámara GPS</string>
+    <string name="uninstall_keep_subtitle">Descubre increíbles funciones para capturar y compartir tus momentos con una ubicación precisa</string>
+    <string name="uninstall_go_home">Ir a Inicio</string>
+    <string name="uninstall_still_leave">¿Aún quieres salir?</string>
+    <string name="uninstall_feature_gps_camera">Cámara GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Captura fotos con etiquetado automático de ubicación GPS</string>
+    <string name="uninstall_feature_map_view">Vista de mapa</string>
+    <string name="uninstall_feature_map_view_desc">Explora todas tus fotos en un mapa interactivo</string>
+    <string name="uninstall_feature_photo_grid">Photo Grid</string>
+    <string name="uninstall_feature_photo_grid_desc">Crea hermosos collages de fotos con etiquetas de ubicación</string>
+    <string name="i_no_longer_need_it">Ya no lo necesito</string>
+    <string name="i_didn_t_understand_how_to_use_it">No entendí cómo usarlo</string>
+    <string name="it_wasn_t_working_as_expected">No funcionaba como esperaba</string>
+    <string name="i_found_a_better_alternative">Encontré una alternativa mejor</string>
+    <string name="difficult_to_use">Difícil de usar</string>
+    <string name="others">Otros</string>
+    <string name="survey_install">Salir de la encuesta</string>
+    <string name="continue_submit">Enviar comentarios</string>
+    <string name="vote_title">Lamento verte partir.Háganos saber por qué está desinstalando</string>
 </resources>

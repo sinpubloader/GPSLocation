@@ -160,4 +160,26 @@
 <string name="select_language_please">กรุณาเลือกภาษาอย่างน้อยหนึ่งภาษา!</string>
 <string name="select_select_please">กรุณาเลือกคุณสมบัติอย่างน้อยหนึ่งอย่างเพื่อดำเนินการต่อ!</string>
 <string name="loading_ads">กำลังโหลดโฆษณา...</string>
+    <string name="ads_click_reminder">กล้อง GPS ยังคงตั้งค่าอยู่โปรดกลับมาเพื่อดำเนินการต่อ</string>
+    <string name="uninstall">ถอนการติดตั้ง</string>
+    <string name="uninstall_keep_title_prefix">สำรวจต่อด้วย</string>
+    <string name="uninstall_keep_title_highlight">กล้อง GPS</string>
+    <string name="uninstall_keep_subtitle">ค้นพบคุณสมบัติที่น่าทึ่งเพื่อบันทึกและแบ่งปันช่วงเวลาของคุณด้วยตำแหน่งที่แม่นยำ</string>
+    <string name="uninstall_go_home">ไปที่หน้าแรก</string>
+    <string name="uninstall_still_leave">ยังอยากออกไปไหม</string>
+    <string name="uninstall_feature_gps_camera">กล้อง GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">ถ่ายภาพด้วยการแท็กตำแหน่ง GPS อัตโนมัติ</string>
+    <string name="uninstall_feature_map_view">มุมมองแผนที่</string>
+    <string name="uninstall_feature_map_view_desc">เรียกดูภาพถ่ายทั้งหมดของคุณบนแผนที่แบบโต้ตอบ</string>
+    <string name="uninstall_feature_photo_grid">ตารางรูปภาพ</string>
+    <string name="uninstall_feature_photo_grid_desc">สร้างภาพตัดปะที่สวยงามด้วยแท็กตำแหน่ง</string>
+    <string name="i_no_longer_need_it">ฉันไม่ต้องการมันอีกต่อไป</string>
+    <string name="i_didn_t_understand_how_to_use_it">ฉันไม่เข้าใจว่าจะใช้มันอย่างไร</string>
+    <string name="it_wasn_t_working_as_expected">มันไม่ทำงานตามที่คาดไว้</string>
+    <string name="i_found_a_better_alternative">ฉันพบทางเลือกที่ดีกว่า</string>
+    <string name="difficult_to_use">ใช้งานยาก</string>
+    <string name="others">อื่นๆ</string>
+    <string name="survey_install">ออกจากแบบสำรวจ</string>
+    <string name="continue_submit">ส่งความคิดเห็น</string>
+    <string name="vote_title">ขออภัยที่เห็นคุณจากไปแจ้งให้เราทราบว่าทำไมคุณถึงถอนการติดตั้ง</string>
 </resources>

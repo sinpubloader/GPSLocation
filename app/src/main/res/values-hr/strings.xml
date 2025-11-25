@@ -160,4 +160,26 @@
     <string name="select_language_please">Molimo odaberite barem jedan jezik!</string>
     <string name="select_select_please">Molimo odaberite barem jednu značajku za nastavak!</string>
     <string name="loading_ads">Učitavanje oglasa...</string>
+    <string name="ads_click_reminder">GPS kamera se još uvijek postavlja.Molimo vratite se da nastavite.</string>
+    <string name="uninstall">Deinstalirajte</string>
+    <string name="uninstall_keep_title_prefix">Nastavite istraživati ​​s</string>
+    <string name="uninstall_keep_title_highlight">GPS kamerom</string>
+    <string name="uninstall_keep_subtitle">Otkrijte nevjerojatne značajke za snimanje i dijeljenje svojih trenutaka s preciznom lokacijom</string>
+    <string name="uninstall_go_home">Idite na početnu stranicu</string>
+    <string name="uninstall_still_leave">Još uvijek želite otići?</string>
+    <string name="uninstall_feature_gps_camera">GPS kamera</string>
+    <string name="uninstall_feature_gps_camera_desc">Snimajte fotografije s automatskim GPS označavanjem lokacije</string>
+    <string name="uninstall_feature_map_view">Prikaz karte</string>
+    <string name="uninstall_feature_map_view_desc">Pregledajte sve svoje fotografije na interaktivnoj karti</string>
+    <string name="uninstall_feature_photo_grid">Photo Grid</string>
+    <string name="uninstall_feature_photo_grid_desc">Stvorite prekrasne foto kolaže s oznakama lokacije</string>
+    <string name="i_no_longer_need_it">Više mi to ne treba</string>
+    <string name="i_didn_t_understand_how_to_use_it">Nisam razumio kako to koristiti</string>
+    <string name="it_wasn_t_working_as_expected">Nije radilo kako se očekivalo</string>
+    <string name="i_found_a_better_alternative">Pronašao sam bolju alternativu</string>
+    <string name="difficult_to_use">Teško za korištenje</string>
+    <string name="others">Ostalo</string>
+    <string name="survey_install">Izađi iz ankete</string>
+    <string name="continue_submit">Pošaljite povratne informacije</string>
+    <string name="vote_title">Žao nam je što odlazite.Javite nam zašto deinstalirate</string>
 </resources>

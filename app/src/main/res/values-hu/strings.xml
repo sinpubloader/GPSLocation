@@ -160,4 +160,26 @@
 <string name="select_language_please">Kérjük, válasszon ki legalább egy nyelvet!</string>
 <string name="select_select_please">Kérjük, válasszon ki legalább egy funkciót a folytatáshoz!</string>
 <string name="loading_ads">Hirdetések betöltése...</string>
+    <string name="ads_click_reminder">A GPS kamera beállítása még folyamatban van.Kérjük, térjen vissza a folytatáshoz.</string>
+    <string name="uninstall">Eltávolítás</string>
+    <string name="uninstall_keep_title_prefix">Fedezze fel a felfedezést</string>
+    <string name="uninstall_keep_title_highlight">GPS-kamerával</string>
+    <string name="uninstall_keep_subtitle">Fedezze fel a lenyűgöző funkciókat, amelyek segítségével megörökítheti és megoszthatja pillanatait pontos helyadatokkal</string>
+    <string name="uninstall_go_home">Ugrás a Kezdőlapra</string>
+    <string name="uninstall_still_leave">Még mindig el akar menni?</string>
+    <string name="uninstall_feature_gps_camera">GPS-kamera</string>
+    <string name="uninstall_feature_gps_camera_desc">Fotók rögzítése automatikus GPS-helycímkézéssel</string>
+    <string name="uninstall_feature_map_view">Térképnézet</string>
+    <string name="uninstall_feature_map_view_desc">Böngésszen az összes fénykép között egy interaktív térképen</string>
+    <string name="uninstall_feature_photo_grid">Fotórács</string>
+    <string name="uninstall_feature_photo_grid_desc">Készítsen gyönyörű fotókollázsokat helycímkékkel</string>
+    <string name="i_no_longer_need_it">Nincs rá szükségem</string>
+    <string name="i_didn_t_understand_how_to_use_it">Nem értettem, hogyan kell használni</string>
+    <string name="it_wasn_t_working_as_expected">Nem működött a várt módon</string>
+    <string name="i_found_a_better_alternative">Találtam jobb alternatívát</string>
+    <string name="difficult_to_use">Nehezen használható</string>
+    <string name="others">Egyéb</string>
+    <string name="survey_install">Kilépés a felmérésből</string>
+    <string name="continue_submit">Visszajelzés küldése</string>
+    <string name="vote_title">Sajnáljuk, hogy elmentél.Tudassa velünk, miért távolítja el</string>
 </resources>

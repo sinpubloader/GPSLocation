@@ -161,4 +161,26 @@
     <string name="select_language_please">אנא בחר לפחות שפה אחת!</string>
     <string name="select_select_please">אנא בחר לפחות תכונה אחת כדי להמשיך!</string>
     <string name="loading_ads">טוען פרסומות...</string>
+    <string name="ads_click_reminder">מצלמת GPS עדיין בהגדרה.אנא חזור כדי להמשיך.</string>
+    <string name="uninstall">הסר</string>
+    <string name="uninstall_keep_title_prefix">המשך לחקור עם</string>
+    <string name="uninstall_keep_title_highlight">מצלמת GPS</string>
+    <string name="uninstall_keep_subtitle">גלה תכונות מדהימות כדי ללכוד ולשתף את הרגעים שלך עם מיקום מדויק</string>
+    <string name="uninstall_go_home">עבור לבית</string>
+    <string name="uninstall_still_leave">עדיין רוצה לעזוב?</string>
+    <string name="uninstall_feature_gps_camera">מצלמת GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">צלם תמונות עם תיוג אוטומטי של מיקום GPS</string>
+    <string name="uninstall_feature_map_view">תצוגת מפה</string>
+    <string name="uninstall_feature_map_view_desc">עיין בכל התמונות שלך במפה אינטראקטיבית</string>
+    <string name="uninstall_feature_photo_grid">רשת תמונות</string>
+    <string name="uninstall_feature_photo_grid_desc">צור קולאז\'ים יפים עם תגי מיקום</string>
+    <string name="i_no_longer_need_it">אני כבר לא צריך את זה</string>
+    <string name="i_didn_t_understand_how_to_use_it">לא הבנתי איך להשתמש בו</string>
+    <string name="it_wasn_t_working_as_expected">זה לא עבד כמצופה</string>
+    <string name="i_found_a_better_alternative">מצאתי חלופה טובה יותר</string>
+    <string name="difficult_to_use">קשה להשתמש</string>
+    <string name="others">אחרים</string>
+    <string name="survey_install">צא מהסקר</string>
+    <string name="continue_submit">שלח משוב</string>
+    <string name="vote_title">מצטער לראות אותך הולך.ספר לנו מדוע אתה מסיר את ההתקנה</string>
 </resources>

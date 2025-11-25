@@ -160,4 +160,26 @@
 <string name="select_language_please">Vennligst velg minst ett språk!</string>
 <string name="select_select_please">Vennligst velg minst én funksjon for å fortsette!</string>
 <string name="loading_ads">Laster annonser...</string>
+    <string name="ads_click_reminder">GPS-kameraet konfigureres fortsatt.Gå tilbake for å fortsette.</string>
+    <string name="uninstall">Avinstaller</string>
+    <string name="uninstall_keep_title_prefix">Fortsett å utforske med</string>
+    <string name="uninstall_keep_title_highlight">GPS-kamera</string>
+    <string name="uninstall_keep_subtitle">Oppdag fantastiske funksjoner for å fange og dele øyeblikkene dine med nøyaktig posisjon</string>
+    <string name="uninstall_go_home">Gå til Hjem</string>
+    <string name="uninstall_still_leave">Vil du fortsatt dra?</string>
+    <string name="uninstall_feature_gps_camera">GPS-kamera</string>
+    <string name="uninstall_feature_gps_camera_desc">Ta bilder med automatisk GPS-posisjonsmerking</string>
+    <string name="uninstall_feature_map_view">Kartvisning</string>
+    <string name="uninstall_feature_map_view_desc">Bla gjennom alle bildene dine på et interaktivt kart</string>
+    <string name="uninstall_feature_photo_grid">Fotorutenett</string>
+    <string name="uninstall_feature_photo_grid_desc">Lag vakre bildekollasjer med plasseringsetiketter</string>
+    <string name="i_no_longer_need_it">Jeg trenger det ikke lenger</string>
+    <string name="i_didn_t_understand_how_to_use_it">Jeg forsto ikke hvordan jeg skulle bruke det</string>
+    <string name="it_wasn_t_working_as_expected">Det fungerte ikke som forventet</string>
+    <string name="i_found_a_better_alternative">Jeg fant et bedre alternativ</string>
+    <string name="difficult_to_use">Vanskelig å bruke</string>
+    <string name="others">Andre</string>
+    <string name="survey_install">Avslutt undersøkelsen</string>
+    <string name="continue_submit">Send tilbakemelding</string>
+    <string name="vote_title">Beklager at du går.Fortell oss hvorfor du avinstallerer</string>
 </resources>

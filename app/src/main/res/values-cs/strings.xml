@@ -160,4 +160,26 @@
 <string name="select_language_please">Vyberte prosím alespoň jeden jazyk!</string>
 <string name="select_select_please">Vyberte prosím alespoň jednu funkci pro pokračování!</string>
 <string name="loading_ads">Načítání reklam...</string>
+    <string name="ads_click_reminder">GPS kamera se stále nastavuje.Vraťte se, abyste mohli pokračovat.</string>
+    <string name="uninstall">Odinstalovat</string>
+    <string name="uninstall_keep_title_prefix">Pokračujte v objevování s</string>
+    <string name="uninstall_keep_title_highlight">Fotoaparát GPS</string>
+    <string name="uninstall_keep_subtitle">Objevte úžasné funkce pro zachycení a sdílení vašich okamžiků s přesnou polohou</string>
+    <string name="uninstall_go_home">Přejít na domovskou stránku</string>
+    <string name="uninstall_still_leave">Stále chcete odejít?</string>
+    <string name="uninstall_feature_gps_camera">Fotoaparát GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Pořizování fotografií pomocí automatického označování polohy GPS</string>
+    <string name="uninstall_feature_map_view">Zobrazení mapy</string>
+    <string name="uninstall_feature_map_view_desc">Procházejte všechny své fotografie na interaktivní mapě</string>
+    <string name="uninstall_feature_photo_grid">Mřížka fotografií</string>
+    <string name="uninstall_feature_photo_grid_desc">Vytvářejte krásné koláže z fotografií se značkami umístění</string>
+    <string name="i_no_longer_need_it">Už to nepotřebuji</string>
+    <string name="i_didn_t_understand_how_to_use_it">Nepochopil jsem, jak to používat</string>
+    <string name="it_wasn_t_working_as_expected">Nefungovalo to podle očekávání</string>
+    <string name="i_found_a_better_alternative">Našel jsem lepší alternativu</string>
+    <string name="difficult_to_use">Obtížné použití</string>
+    <string name="others">Jiné</string>
+    <string name="survey_install">Ukončit průzkum</string>
+    <string name="continue_submit">Odeslat zpětnou vazbu</string>
+    <string name="vote_title">Je nám líto, že odcházíte.Dejte nám vědět, proč odinstalujete</string>
 </resources>

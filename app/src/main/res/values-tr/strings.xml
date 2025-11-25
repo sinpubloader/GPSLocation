@@ -161,4 +161,26 @@
     <string name="select_language_please">Lütfen en az bir dil seçin!</string>
     <string name="select_select_please">Devam etmek için lütfen en az bir özellik seçin!</string>
     <string name="loading_ads">Reklamlar yükleniyor...</string>
+    <string name="ads_click_reminder">GPS Kamera hâlâ kuruluyor.Lütfen devam etmek için geri dönün.</string>
+    <string name="uninstall">Kaldır</string>
+    <string name="uninstall_keep_title_prefix">ile keşfetmeye devam edin</string>
+    <string name="uninstall_keep_title_highlight">GPS Kamera</string>
+    <string name="uninstall_keep_subtitle">Anlarınızı kesin konumla yakalamak ve paylaşmak için harika özellikleri keşfedin</string>
+    <string name="uninstall_go_home">Eve Git</string>
+    <string name="uninstall_still_leave">Hala ayrılmak mı istiyorsunuz?</string>
+    <string name="uninstall_feature_gps_camera">GPS Kamera</string>
+    <string name="uninstall_feature_gps_camera_desc">Otomatik GPS konum etiketlemeyle fotoğraf çekin</string>
+    <string name="uninstall_feature_map_view">Harita Görünümü</string>
+    <string name="uninstall_feature_map_view_desc">Tüm fotoğraflarınıza etkileşimli bir haritada göz atın</string>
+    <string name="uninstall_feature_photo_grid">Fotoğraf Izgarası</string>
+    <string name="uninstall_feature_photo_grid_desc">Konum etiketleriyle güzel fotoğraf kolajları oluşturun</string>
+    <string name="i_no_longer_need_it">Artık buna ihtiyacım yok</string>
+    <string name="i_didn_t_understand_how_to_use_it">Nasıl kullanılacağını anlamadım</string>
+    <string name="it_wasn_t_working_as_expected">Beklendiği gibi çalışmıyordu</string>
+    <string name="i_found_a_better_alternative">Daha iyi bir alternatif buldum</string>
+    <string name="difficult_to_use">Kullanımı zor</string>
+    <string name="others">Diğerleri</string>
+    <string name="survey_install">Anketten çık</string>
+    <string name="continue_submit">Geri bildirim gönderin</string>
+    <string name="vote_title">Gittiğinize üzüldüm.Neden yüklemeyi kaldırdığınızı bize bildirin</string>
 </resources>

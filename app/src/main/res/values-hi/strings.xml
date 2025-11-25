@@ -160,4 +160,26 @@
 <string name="select_language_please">कृपया कम से कम एक भाषा का चयन करें!</string>
 <string name="select_select_please">जारी रखने के लिए कृपया कम से कम एक सुविधा का चयन करें!</string>
 <string name="loading_ads">विज्ञापन लोड हो रहे हैं...</string>
+    <string name="ads_click_reminder">जीपीएस कैमरा अभी भी सेट हो रहा है.कृपया चलते रहने के लिए वापस लौटें।</string>
+    <string name="uninstall">अनइंस्टॉल करें</string>
+    <string name="uninstall_keep_title_prefix">साथ अन्वेषण करते रहें</string>
+    <string name="uninstall_keep_title_highlight">जीपीएस कैमरा</string>
+    <string name="uninstall_keep_subtitle">सटीक स्थान के साथ अपने क्षणों को कैद करने और साझा करने के लिए अद्भुत सुविधाओं की खोज करें</string>
+    <string name="uninstall_go_home">घर पर जाएँ</string>
+    <string name="uninstall_still_leave">अभी भी जाना चाहते हैं?</string>
+    <string name="uninstall_feature_gps_camera">जीपीएस कैमरा</string>
+    <string name="uninstall_feature_gps_camera_desc">स्वचालित जीपीएस स्थान टैगिंग के साथ तस्वीरें खींचें</string>
+    <string name="uninstall_feature_map_view">मानचित्र दृश्य</string>
+    <string name="uninstall_feature_map_view_desc">एक इंटरैक्टिव मानचित्र पर अपनी सभी तस्वीरें ब्राउज़ करें</string>
+    <string name="uninstall_feature_photo_grid">फोटो ग्रिड</string>
+    <string name="uninstall_feature_photo_grid_desc">स्थान टैग के साथ सुंदर फोटो कोलाज बनाएं</string>
+    <string name="i_no_longer_need_it">मुझे अब इसकी आवश्यकता नहीं है</string>
+    <string name="i_didn_t_understand_how_to_use_it">मुझे समझ नहीं आ रहा है कि इसका उपयोग कैसे करूं</string>
+    <string name="it_wasn_t_working_as_expected">यह उम्मीद के मुताबिक काम नहीं कर रहा था</string>
+    <string name="i_found_a_better_alternative">मुझे एक बेहतर विकल्प मिला</string>
+    <string name="difficult_to_use">उपयोग करना मुश्किल</string>
+    <string name="others">अन्य</string>
+    <string name="survey_install">बाहर निकलें सर्वेक्षण</string>
+    <string name="continue_submit">प्रतिक्रिया सबमिट करें</string>
+    <string name="vote_title">आपको जाते हुए देखकर दुख हुआ।हमें बताएं कि आप अनइंस्टॉल क्यों कर रहे हैं</string>
 </resources>

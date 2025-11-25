@@ -160,4 +160,26 @@
 <string name="select_language_please">Пожалуйста, выберите хотя бы один язык!</string>
 <string name="select_select_please">Пожалуйста, выберите хотя бы одну функцию, чтобы продолжить!</string>
 <string name="loading_ads">Загрузка рекламы...</string>
+    <string name="ads_click_reminder">GPS-камера все еще настраивается.Пожалуйста, вернитесь, чтобы продолжить.</string>
+    <string name="uninstall">Удалить</string>
+    <string name="uninstall_keep_title_prefix">Продолжайте исследовать с помощью</string>
+    <string name="uninstall_keep_title_highlight">GPS-камеры</string>
+    <string name="uninstall_keep_subtitle">Откройте для себя удивительные функции, позволяющие запечатлеть и поделиться своими моментами с точным местоположением</string>
+    <string name="uninstall_go_home">Перейти на главную</string>
+    <string name="uninstall_still_leave">Все еще хотите уйти?</string>
+    <string name="uninstall_feature_gps_camera">GPS-камера</string>
+    <string name="uninstall_feature_gps_camera_desc">Снимайте фотографии с автоматической маркировкой местоположения GPS</string>
+    <string name="uninstall_feature_map_view">Просмотр карты</string>
+    <string name="uninstall_feature_map_view_desc">Просматривайте все свои фотографии на интерактивной карте</string>
+    <string name="uninstall_feature_photo_grid">Фотосетка</string>
+    <string name="uninstall_feature_photo_grid_desc">Создавайте красивые фотоколлажи с тегами местоположения</string>
+    <string name="i_no_longer_need_it">Мне это больше не нужно</string>
+    <string name="i_didn_t_understand_how_to_use_it">Я не понимала, как это использовать</string>
+    <string name="it_wasn_t_working_as_expected">Оно не работало должным образом</string>
+    <string name="i_found_a_better_alternative">Я нашла лучшую альтернативу</string>
+    <string name="difficult_to_use">Сложно использовать</string>
+    <string name="others">Другое</string>
+    <string name="survey_install">Выйти из опроса</string>
+    <string name="continue_submit">Отправить отзыв</string>
+    <string name="vote_title">Жаль, что вы уходите.Сообщите нам, почему вы удаляете</string>
 </resources>

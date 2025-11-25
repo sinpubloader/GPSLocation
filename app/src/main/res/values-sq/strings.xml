@@ -161,4 +161,26 @@
     <string name="select_language_please">Ju lutemi zgjidhni të paktën një gjuhë!</string>
     <string name="select_select_please">Ju lutemi zgjidhni të paktën një veçori për të vazhduar!</string>
     <string name="loading_ads">Duke ngarkuar reklamat...</string>
+    <string name="ads_click_reminder">Kamera GPS është ende duke u konfiguruar.Ju lutemi kthehuni për të vazhduar.</string>
+    <string name="uninstall">Çinstaloni</string>
+    <string name="uninstall_keep_title_prefix">Vazhdoni të eksploroni me</string>
+    <string name="uninstall_keep_title_highlight">Kamera GPS</string>
+    <string name="uninstall_keep_subtitle">Zbuloni veçori të mahnitshme për të kapur dhe ndarë momentet tuaja me vendndodhjen e saktë</string>
+    <string name="uninstall_go_home">Shko te Faqja kryesore</string>
+    <string name="uninstall_still_leave">Dëshiron ende të largohesh?</string>
+    <string name="uninstall_feature_gps_camera">Kamera GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">Regjistro fotografi me etiketimin automatik të vendndodhjes GPS</string>
+    <string name="uninstall_feature_map_view">Pamja e hartës</string>
+    <string name="uninstall_feature_map_view_desc">Shfletoni të gjitha fotot tuaja në një hartë interaktive</string>
+    <string name="uninstall_feature_photo_grid">Rrjeti fotografik</string>
+    <string name="uninstall_feature_photo_grid_desc">Krijoni kolazhe të bukura fotografish me etiketa vendndodhjesh</string>
+    <string name="i_no_longer_need_it">Nuk më duhen më</string>
+    <string name="i_didn_t_understand_how_to_use_it">Nuk e kuptova se si ta përdorja</string>
+    <string name="it_wasn_t_working_as_expected">Nuk funksionoi siç pritej</string>
+    <string name="i_found_a_better_alternative">Gjeta një alternativë më të mirë</string>
+    <string name="difficult_to_use">Vështirë për t\'u përdorur</string>
+    <string name="others">Të tjerët</string>
+    <string name="survey_install">Dalja nga anketa</string>
+    <string name="continue_submit">Dërgo komente</string>
+    <string name="vote_title">Na vjen keq që po largohesh.Na tregoni pse po çinstaloni</string>
 </resources>

@@ -160,4 +160,32 @@
 <string name="select_language_please">請至少選擇一種語言！</string>
 <string name="select_select_please">請至少選擇一個功能以繼續！</string>
 <string name="loading_ads">正在加載廣告...</string>
+    <string name="ads_click_reminder">GPS Camera is still setting up. Please return to keep going.</string>
+    <string name="uninstall">Uninstall</string>
+
+    <!-- Uninstall screen strings -->
+    <string name="uninstall_keep_title_prefix">Keep exploring with</string>
+    <string name="uninstall_keep_title_highlight">GPS Camera</string>
+    <string name="uninstall_keep_subtitle">Discover amazing features to capture and share your moments with precise location</string>
+    <string name="uninstall_go_home">Go to Home</string>
+    <string name="uninstall_still_leave">Still want to leave?</string>
+
+    <!-- Uninstall feature highlights -->
+    <string name="uninstall_feature_gps_camera">GPS Camera</string>
+    <string name="uninstall_feature_gps_camera_desc">Capture photos with automatic GPS location tagging</string>
+    <string name="uninstall_feature_map_view">Map View</string>
+    <string name="uninstall_feature_map_view_desc">Browse all your photos on an interactive map</string>
+    <string name="uninstall_feature_photo_grid">Photo Grid</string>
+    <string name="uninstall_feature_photo_grid_desc">Create beautiful photo collages with location tags</string>
+
+    <string name="i_no_longer_need_it">I no longer need it</string>
+    <string name="i_didn_t_understand_how_to_use_it">I did not understand how to use it</string>
+    <string name="it_wasn_t_working_as_expected">It was not working as expected</string>
+    <string name="i_found_a_better_alternative">I found a better alternative</string>
+    <string name="difficult_to_use">Difficult to use</string>
+    <string name="others">Others</string>
+    <string name="survey_install">Exit survey</string>
+    <string name="continue_submit">Submit feedback</string>
+    <string name="vote_title">Sorry to see you go. Let us know why you are uninstalling</string>
+
 </resources>

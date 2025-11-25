@@ -160,4 +160,27 @@
 <string name="select_language_please">الرجاء اختيار لغة واحدة على الأقل!</string>
 <string name="select_select_please">الرجاء اختيار ميزة واحدة على الأقل للمتابعة!</string>
 <string name="loading_ads">جاري تحميل الإعلانات...</string>
+
+    <string name="ads_click_reminder">لا تزال كاميرا GPS قيد الإعداد.يرجى العودة للمتابعة.</string>
+    <string name="uninstall">إلغاء التثبيت</string>
+    <string name="uninstall_keep_title_prefix">واصل الاستكشاف باستخدام</string>
+    <string name="uninstall_keep_title_highlight">كاميرا GPS</string>
+    <string name="uninstall_keep_subtitle">اكتشف ميزات مذهلة لالتقاط لحظاتك ومشاركتها مع الموقع الدقيق</string>
+    <string name="uninstall_go_home">انتقل إلى الصفحة الرئيسية</string>
+    <string name="uninstall_still_leave">هل مازلت تريد المغادرة؟</string>
+    <string name="uninstall_feature_gps_camera">كاميرا GPS</string>
+    <string name="uninstall_feature_gps_camera_desc">التقط الصور باستخدام وضع علامات تلقائية على موقع GPS</string>
+    <string name="uninstall_feature_map_view">عرض الخريطة</string>
+    <string name="uninstall_feature_map_view_desc">تصفح جميع صورك على خريطة تفاعلية</string>
+    <string name="uninstall_feature_photo_grid">شبكة الصور</string>
+    <string name="uninstall_feature_photo_grid_desc">إنشاء مجموعات صور جميلة باستخدام علامات الموقع</string>
+    <string name="i_no_longer_need_it">لم أعد بحاجة إليها</string>
+    <string name="i_didn_t_understand_how_to_use_it">لم أفهم كيفية استخدامها</string>
+    <string name="it_wasn_t_working_as_expected">لم تكن تعمل كما هو متوقع</string>
+    <string name="i_found_a_better_alternative">لقد وجدت بديلاً أفضل</string>
+    <string name="difficult_to_use">صعبة الاستخدام</string>
+    <string name="others">أخرى</string>
+    <string name="survey_install">الخروج من الاستبيان</string>
+    <string name="continue_submit">إرسال تعليقات</string>
+    <string name="vote_title">آسف لرؤيتك تذهب.أخبرنا عن سبب إلغاء التثبيت</string>
 </resources>

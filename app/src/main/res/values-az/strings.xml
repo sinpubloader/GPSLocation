@@ -160,4 +160,27 @@
 <string name="select_language_please">Zəhmət olmasa ən azı bir dil seçin!</string>
 <string name="select_select_please">Zəhmət olmasa davam etmək üçün ən azı bir funksiya seçin!</string>
 <string name="loading_ads">Reklamlar yüklənir...</string>
+
+    <string name="ads_click_reminder">GPS kamerası hələ də qurulur.Davam etmək üçün qayıdın.</string>
+    <string name="uninstall">Silin</string>
+    <string name="uninstall_keep_title_prefix">İlə</string>
+    <string name="uninstall_keep_title_highlight">GPS kamerası</string>
+    <string name="uninstall_keep_subtitle">Dəqiq yerlə anları çəkmək və paylaşmaq üçün inanılmaz xüsusiyyətləri kəşf edin</string>
+    <string name="uninstall_go_home">Evə getmək</string>
+    <string name="uninstall_still_leave">Hələ tərk etmək istəyirsən?</string>
+    <string name="uninstall_feature_gps_camera">GPS kamerası</string>
+    <string name="uninstall_feature_gps_camera_desc">Avtomatik GPS yeri etiketi ilə şəkilləri çəkin</string>
+    <string name="uninstall_feature_map_view">Xəritə görünüşü</string>
+    <string name="uninstall_feature_map_view_desc">İnteraktiv xəritədə bütün şəkillərinizi nəzərdən keçirin</string>
+    <string name="uninstall_feature_photo_grid">Şəkil şəbəkəsi</string>
+    <string name="uninstall_feature_photo_grid_desc">Yer etiketləri ilə gözəl foto kolajlar yaradın</string>
+    <string name="i_no_longer_need_it">Artıq buna ehtiyacım yoxdur</string>
+    <string name="i_didn_t_understand_how_to_use_it">Ondan necə istifadə edəcəyimi başa düşmədim</string>
+    <string name="it_wasn_t_working_as_expected">Gözlənildiyi kimi işləmirdi</string>
+    <string name="i_found_a_better_alternative">Daha yaxşı alternativ tapdım</string>
+    <string name="difficult_to_use">İstifadəsi çətin</string>
+    <string name="others">Digərləri</string>
+    <string name="survey_install">Çıxış sorğusu</string>
+    <string name="continue_submit">Əlaqə göndər</string>
+    <string name="vote_title">Getdiyinizi görmək üçün üzr istəyirəm.Niyə silmək olduğunu bizə bildirin</string>
 </resources>

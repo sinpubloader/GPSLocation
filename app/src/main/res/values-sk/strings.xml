@@ -160,4 +160,26 @@
 <string name="select_language_please">Prosím, vyberte aspoň jeden jazyk!</string>
 <string name="select_select_please">Prosím, vyberte aspoň jednu funkciu, aby ste mohli pokračovať!</string>
 <string name="loading_ads">Načítavajú sa reklamy...</string>
+    <string name="ads_click_reminder">Kamera GPS sa stále nastavuje.Prosím, vráťte sa a pokračujte.</string>
+    <string name="uninstall">Odinštalovať</string>
+    <string name="uninstall_keep_title_prefix">Pokračujte v objavovaní s</string>
+    <string name="uninstall_keep_title_highlight">GPS fotoaparátom</string>
+    <string name="uninstall_keep_subtitle">Objavte úžasné funkcie na zachytenie a zdieľanie vašich momentov s presnou polohou</string>
+    <string name="uninstall_go_home">Prejsť na domovskú stránku</string>
+    <string name="uninstall_still_leave">Stále chcete odísť?</string>
+    <string name="uninstall_feature_gps_camera">GPS kamera</string>
+    <string name="uninstall_feature_gps_camera_desc">Snímajte fotografie pomocou automatického označovania polohy GPS</string>
+    <string name="uninstall_feature_map_view">Zobrazenie na mape</string>
+    <string name="uninstall_feature_map_view_desc">Prehliadajte si všetky svoje fotografie na interaktívnej mape</string>
+    <string name="uninstall_feature_photo_grid">Photo Grid</string>
+    <string name="uninstall_feature_photo_grid_desc">Vytvárajte krásne koláže z fotografií so značkami polohy</string>
+    <string name="i_no_longer_need_it">Už to nepotrebujem</string>
+    <string name="i_didn_t_understand_how_to_use_it">Nerozumel som, ako sa to používa</string>
+    <string name="it_wasn_t_working_as_expected">Nefungovalo to podľa očakávania</string>
+    <string name="i_found_a_better_alternative">Našiel som lepšiu alternatívu</string>
+    <string name="difficult_to_use">Ťažko sa používa</string>
+    <string name="others">Iné</string>
+    <string name="survey_install">Ukončiť prieskum</string>
+    <string name="continue_submit">Odoslať spätnú väzbu</string>
+    <string name="vote_title">Je nám ľúto, že odchádzate.Dajte nám vedieť, prečo odinštalujete</string>
 </resources>
