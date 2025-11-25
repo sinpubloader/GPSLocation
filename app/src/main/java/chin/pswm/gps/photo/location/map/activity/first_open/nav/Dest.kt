@@ -27,4 +27,10 @@ sealed class Dest {
 
     @Serializable
     object Main : Dest()
+
+    @Serializable
+    object UninstallExploreFeature : Dest()
+
+    @Serializable
+    object UninstallVote : Dest()
 }

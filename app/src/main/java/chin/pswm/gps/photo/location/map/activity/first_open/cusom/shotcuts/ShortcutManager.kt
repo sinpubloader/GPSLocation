@@ -95,6 +95,21 @@ class ShortcutManager(
                     )
                 },
                 shortcutIcon = R.drawable.icn_route_planner
+            ),
+            buildShortcut(
+                id = "121212",
+                shortLabel = app.getString(R.string.uninstall),
+                longLabel = app.getString(R.string.uninstall),
+                intent = Intent(app, FirstOpenActivity::class.java).apply {
+                    action = Intent.ACTION_VIEW
+                    flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    putExtras(
+                        bundleOf(
+                            Constants.KEY_OPEN_FROM to Constants.OPEN_FROM_UNINSTALL_SHORTCUT
+                        )
+                    )
+                },
+                shortcutIcon = R.drawable.ic_unstall
             )
         )
     }

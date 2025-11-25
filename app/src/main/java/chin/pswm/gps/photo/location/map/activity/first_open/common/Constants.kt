@@ -21,6 +21,7 @@ object Constants {
     const val OPEN_FROM_GPS_SHORTCUT = 8
     const val OPEN_FROM_ROUTE_SHORTCUT = 9
     const val OPEN_FROM_GRID_SHORTCUT = 10
+    const val OPEN_FROM_UNINSTALL_SHORTCUT = 15
 
     const val OPEN_FROM_NOTIFY_PINNED = 4
     const val OPEN_EARTH_VIEW_FROM_NOTIFY_PINNED = 11

@@ -15,6 +15,8 @@ import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.ads.adunit.decodeAdUnit
 import chin.pswm.gps.photo.location.map.ads.ext.AppUtils
 import chin.pswm.gps.photo.location.map.ads.ext.Tracking
+import chin.pswm.gps.photo.location.map.ads.ext.toast
+import chin.pswm.gps.photo.location.map_debug.R
 import chin.pswm.gps.photo.location.map.compose.dialog.LoadingDialog
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdValue
@@ -118,6 +120,7 @@ class InterstitialAdUnit(
                         adsManager.clickedAnyAds = true
                         adsManager.disableAdResumeOneTime = true
                         super.onAdClicked()
+                        activity.toast(R.string.ads_click_reminder)
                         onClicked()
                         if (adData?.name?.isNotEmpty() == true) {
                             Tracking.logEvent("clicked_${adData?.name}")

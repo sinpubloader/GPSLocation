@@ -38,6 +38,8 @@ import chin.pswm.gps.photo.location.map.activity.first_open.ui.splash.SplashScre
 import chin.pswm.gps.photo.location.map.ads.AdsManager
 import chin.pswm.gps.photo.location.map.ads.TrackingScreen
 import chin.pswm.gps.photo.location.map.utils.LocalScreenTAG
+import chin.pswm.gps.photo.location.map.compose.uninstall.UninstallExploreFeatureScreen
+import chin.pswm.gps.photo.location.map.compose.uninstall.UninstallVoteScreen
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.json.Json
 import kotlin.reflect.KClass
@@ -114,6 +116,24 @@ fun FirstOpenNavigation(modifier: Modifier = Modifier, intent: Intent) {
             popExitTransition = { fadeOut() },
         ) {
             OnboardScreen(navController)
+        }
+
+        composableWithTag<Dest.UninstallExploreFeature>(
+            enterTransition = { fadeIn() },
+            exitTransition = { fadeOut() },
+            popEnterTransition = { fadeIn() },
+            popExitTransition = { fadeOut() },
+        ) {
+            UninstallExploreFeatureScreen(navController)
+        }
+
+        composableWithTag<Dest.UninstallVote>(
+            enterTransition = { fadeIn() },
+            exitTransition = { fadeOut() },
+            popEnterTransition = { fadeIn() },
+            popExitTransition = { fadeOut() },
+        ) {
+            UninstallVoteScreen(navController)
         }
     }
 

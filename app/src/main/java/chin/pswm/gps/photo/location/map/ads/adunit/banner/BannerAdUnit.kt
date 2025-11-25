@@ -8,6 +8,8 @@ import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.ads.adunit.decodeAdUnit
 import chin.pswm.gps.photo.location.map.ads.ext.AppUtils
 import chin.pswm.gps.photo.location.map.ads.ext.Tracking
+import chin.pswm.gps.photo.location.map.ads.ext.toast
+import chin.pswm.gps.photo.location.map_debug.R
 import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
@@ -193,6 +195,7 @@ class BannerAdUnit(
                             adsManager.disableAdResumeOneTime = true
                             super.onAdClicked()
                             Timber.tag(TAG).d("onAdClicked: ${displayText(adDataConfig)}")
+                            activity.toast(R.string.ads_click_reminder)
                             onLoadClicked()
 
                             if (adDataConfig.name.isNotEmpty()) {

@@ -10,6 +10,8 @@ import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.ads.adunit.decodeAdUnit
 import chin.pswm.gps.photo.location.map.ads.ext.AppUtils
 import chin.pswm.gps.photo.location.map.ads.ext.Tracking
+import chin.pswm.gps.photo.location.map.ads.ext.toast
+import chin.pswm.gps.photo.location.map_debug.R
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdValue
@@ -71,6 +73,7 @@ class RewardAdUnit(
                 val fullScreenContentCallback = object : FullScreenContentCallback() {
                     override fun onAdClicked() {
                         super.onAdClicked()
+                        activity.toast(R.string.ads_click_reminder)
                         if (adData?.name?.isNotEmpty() == true) {
                             Tracking.logEvent("clicked_${adData?.name}")
                         }

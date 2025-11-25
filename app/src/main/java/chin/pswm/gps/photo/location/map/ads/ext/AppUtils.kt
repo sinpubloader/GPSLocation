@@ -5,6 +5,8 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.view.View
 import android.view.ViewParent
+import android.widget.Toast
+import androidx.annotation.StringRes
 import timber.log.Timber
 
 object AppUtils {
@@ -35,6 +37,15 @@ fun tryWithoutCatch(block: () -> Unit) {
         block.invoke()
     } catch (e: Exception) {
         e.printStackTrace()
+    }
+}
+
+fun Context?.toast(@StringRes res: Int) {
+    if (this == null) return
+    try {
+        Toast.makeText(this, this.getText(res), Toast.LENGTH_SHORT).show()
+    } catch (ex: Exception) {
+        Timber.tag("AppUtils").e("toast: error ${ex.message}")
     }
 }
 

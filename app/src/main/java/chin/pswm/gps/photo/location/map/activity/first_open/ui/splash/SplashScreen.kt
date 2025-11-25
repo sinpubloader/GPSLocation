@@ -82,14 +82,19 @@ fun SplashScreen(
                 if (extras != null) {
                     val openFrom =
                         extras.getInt(Constants.KEY_OPEN_FROM, Constants.OPEN_FROM_DEFAULT)
-                    context.startActivity(
-                        Intent(context, StartActivity::class.java).putExtras(
-                            bundleOf(
-                                Constants.KEY_OPEN_FROM to openFrom
+                    if (openFrom == Constants.OPEN_FROM_UNINSTALL_SHORTCUT) {
+                        Timber.tag("START_ISSUE").d(" Go NEXT SCREEN → navigate to UninstallExploreFeature")
+                        navController.safeNavigate(Dest.Splash, Dest.UninstallExploreFeature, Dest.Splash)
+                    } else {
+                        context.startActivity(
+                            Intent(context, StartActivity::class.java).putExtras(
+                                bundleOf(
+                                    Constants.KEY_OPEN_FROM to openFrom
+                                )
                             )
                         )
-                    )
-                    (context as? Activity)?.finish()
+                        (context as? Activity)?.finish()
+                    }
                 } else {
                     Log.d("START_ISSUE", " Go NEXT SCREEN → in else → elseeeee start Main activity ")
                     CommonUtils.openToMainScreen(context)
