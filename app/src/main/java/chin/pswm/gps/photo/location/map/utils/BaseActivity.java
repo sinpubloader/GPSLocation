@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import chin.pswm.gps.photo.location.map.activity.first_open.common.KillAppNotificationHelper;
 
 public abstract class BaseActivity extends AppCompatActivity {
     @Override
@@ -35,5 +36,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     public boolean isNetworkAvailable() {
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) getSystemService("connectivity")).getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        KillAppNotificationHelper.INSTANCE.postIfNotShowingAds(this);
     }
 }

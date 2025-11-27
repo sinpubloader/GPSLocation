@@ -26,10 +26,11 @@ import chin.pswm.gps.photo.location.map.languegess.SharedHelper
 import chin.pswm.gps.photo.location.map.notification.NotificationManager
 import chin.pswm.gps.photo.location.map.ui.theme.PermissionManager.Companion.allowNotification
 import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
+import chin.pswm.gps.photo.location.map.utils.BaseActivity
 import chin.pswm.gps.photo.location.map_debug.R
 import timber.log.Timber
 
-class FirstOpenActivity : AppCompatActivity(), ITag {
+class FirstOpenActivity : BaseActivity(), ITag {
 
     private val prefs: Prefs
         get() = Prefs.INSTANCE
