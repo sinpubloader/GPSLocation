@@ -3,7 +3,6 @@ package chin.pswm.gps.photo.location.map;
 import static timber.log.Timber.DebugTree;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Intent;
 import android.media.projection.MediaProjectionManager;
 import android.os.Bundle;
@@ -11,10 +10,12 @@ import android.util.Log;
 
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
+import androidx.multidex.MultiDexApplication;
 
 import com.facebook.FacebookSdk;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adjust.AdjustManager;
@@ -25,7 +26,7 @@ import chin.pswm.gps.photo.location.map.ads.ext.Tracking;
 import timber.log.Timber;
 
 
-public class MyApplication extends Application {
+public class MyApplication extends MultiDexApplication {
     public static Activity currentActivity = null;
     public static MyApplication instance = null;
     private static Intent intent = null;
@@ -49,6 +50,7 @@ public class MyApplication extends Application {
         RemoteConfigManager remoteConfigManager = new RemoteConfigManager(this, prefs);
         remoteConfigManager.fetchRemoteConfig();
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        initFcm();
 //        AudienceNetworkInitializeHelper.initialize(this);
         FacebookSdk.setApplicationId("1839024150025521");
         FacebookSdk.setClientToken("7e4fe4f80a01570be8f95bcd5da6fa26");
@@ -110,4 +112,16 @@ public class MyApplication extends Application {
         mFirebaseAnalytics.setDefaultEventParameters(bundle);
     }
 
+    private void initFcm() {
+        FirebaseMessaging.getInstance()
+                .getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Timber.tag("FirebaseFCM").e(task.getException(), "Fetching FCM token failed");
+                        return;
+                    }
+                    String token = task.getResult();
+                    Timber.tag("FirebaseFCM").d("FCM token: %s", token);
+                });
+    }
 }

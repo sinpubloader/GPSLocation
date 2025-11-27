@@ -7,9 +7,14 @@ import android.os.Build
 import android.util.Log
 import android.view.WindowManager
 import androidx.compose.runtime.Composable
+import androidx.activity.BackEventCompat
+import androidx.activity.compose.PredictiveBackHandler
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.os.bundleOf
 import androidx.lifecycle.compose.LifecycleResumeEffect
@@ -41,7 +46,9 @@ import chin.pswm.gps.photo.location.map.ui.theme.PermissionManager.Companion.all
 import chin.pswm.gps.photo.location.map.utils.LocalScreenTAG
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.combine
@@ -324,6 +331,24 @@ fun SplashScreen(
         }
     }
 
+
+    var swipeEdge by remember {
+        mutableIntStateOf(0)
+    }
+
+    PredictiveBackHandler(Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) { progress: Flow<BackEventCompat> ->
+        try {
+            progress.collectLatest { backEvent ->
+                swipeEdge = backEvent.swipeEdge
+            }
+            if (swipeEdge == 0) {
+                // TODO handle predictive back from left edge on splash
+            } else {
+                // TODO handle predictive back from right edge or other gestures on splash
+            }
+        } catch (_: CancellationException) {
+        }
+    }
 
     SplashContent()
 }
