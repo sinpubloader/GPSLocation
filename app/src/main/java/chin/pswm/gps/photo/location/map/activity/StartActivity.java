@@ -2,7 +2,6 @@ package chin.pswm.gps.photo.location.map.activity;
 
 import static chin.pswm.gps.photo.location.map.AllKeyHub.showDynamicNativeData;
 
-import android.Manifest;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.app.Dialog;
@@ -10,7 +9,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -29,8 +27,6 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
@@ -47,7 +43,6 @@ import chin.pswm.gps.photo.location.map.activity.earthview.EarthViewActivity;
 import chin.pswm.gps.photo.location.map.activity.first_open.common.Constants;
 import chin.pswm.gps.photo.location.map.adapter.StartAdapter;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
-import chin.pswm.gps.photo.location.map.ads.AdsVariable;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.ads.ext.Tracking;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
@@ -171,9 +166,11 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
                 Tracking.Companion.logEvent(openFrom == Constants.OPEN_FROM_EARTH_SHORTCUT ? "open_earth_from_shortcut" : "open_earth_from_notify_pin", null);
                 break;
 
-            case Constants.OPEN_FROM_GPS_SHORTCUT, Constants.OPEN_CAMERA_FROM_NOTIFY_PINNED:
+            case Constants.OPEN_FROM_GPS_SHORTCUT, Constants.OPEN_CAMERA_FROM_NOTIFY_PINNED,
+                 Constants.OPEN_FROM_UNINSTALL_GPS_SHORTCUT:
                 startActivity(new Intent(this, AdvanceCameraActivity.class).setFlags(536870912));
-                Tracking.Companion.logEvent(openFrom == Constants.OPEN_FROM_GPS_SHORTCUT ? "open_gps_from_shortcut" : "open_camera_from_notify_pin", null);
+                if (openFrom == Constants.OPEN_FROM_UNINSTALL_GPS_SHORTCUT)
+                    Tracking.Companion.logEvent(openFrom == Constants.OPEN_FROM_GPS_SHORTCUT ? "open_gps_from_shortcut" : "open_camera_from_notify_pin", null);
                 break;
 
             case Constants.OPEN_FROM_ROUTE_SHORTCUT, Constants.OPEN_ROUTE_FROM_NOTIFY_PINNED:
@@ -181,9 +178,15 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
                 Tracking.Companion.logEvent(openFrom == Constants.OPEN_FROM_ROUTE_SHORTCUT ? "open_rout_planner_from_shortcut" : "open_route_planner_from_notify_pin", null);
                 break;
 
-            case Constants.OPEN_FROM_GRID_SHORTCUT, Constants.OPEN_GRID_FROM_NOTIFY_PINNED:
+            case Constants.OPEN_FROM_GRID_SHORTCUT, Constants.OPEN_GRID_FROM_NOTIFY_PINNED,
+                 Constants.OPEN_FROM_UNINSTALL_GRID_SHORTCUT:
                 startActivity(new Intent(this, GridCameraActivity.class).setFlags(536870912).putExtra("Type", 0));
-                Tracking.Companion.logEvent(openFrom == Constants.OPEN_FROM_GRID_SHORTCUT ? "open_grid_from_shortcut" : "open_grid_from_notify_pin", null);
+                if (openFrom == Constants.OPEN_FROM_UNINSTALL_GRID_SHORTCUT)
+                    Tracking.Companion.logEvent(openFrom == Constants.OPEN_FROM_GRID_SHORTCUT ? "open_grid_from_shortcut" : "open_grid_from_notify_pin", null);
+                break;
+
+            case Constants.OPEN_FROM_UNINSTALL_MAP_SHORTCUT:
+                startActivity(new Intent(this, MapViewActivity.class).setFlags(536870912).putExtra("Type", 0));
                 break;
         }
     }
@@ -205,7 +208,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         }
     }
 
-    private void showAlarmPermissionDialog(){
+    private void showAlarmPermissionDialog() {
         BackDialogLayoutBinding binding1 = BackDialogLayoutBinding.inflate(getLayoutInflater());
         Dialog dialog = new Dialog(this);
         dialog.getWindow().requestFeature(1);

@@ -73,7 +73,7 @@ class FirstOpenActivity : AppCompatActivity(), ITag {
         hideSystemNavigationBar()
     }
 
-    private fun initArgs() {
+    /*private fun initArgs() {
         if (intent.data != null) {
             Tracking.logEvent("open_from_gallery")
         }
@@ -99,7 +99,7 @@ class FirstOpenActivity : AppCompatActivity(), ITag {
             Constants.OPEN_FROM_NOTIFY_KILL -> Tracking.logEvent("open_from_notification_kill_app")
             Constants.OPEN_FROM_WIDGET -> Tracking.logEvent("open_from_widget")
         }
-    }
+    }*/
 
     override fun onDestroy() {
         super.onDestroy()

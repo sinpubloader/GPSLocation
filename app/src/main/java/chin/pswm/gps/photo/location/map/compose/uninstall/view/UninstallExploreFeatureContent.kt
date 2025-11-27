@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -68,7 +69,7 @@ fun UninstallExploreFeatureContent(
     )
 
     BaseScreen(
-        topBar = {
+        bottomBar = {
             CenterRow(
                 Modifier
                     .fillMaxWidth()
@@ -80,8 +81,8 @@ fun UninstallExploreFeatureContent(
                     modifier = Modifier
                         .fillMaxWidth(),
                     nativeAdUnit = adsManager.nativeUninstall,
-                    layoutConfig = "native_uninstall" to R.layout.native_none_media_action_small_bottom_stroke,
-                    layoutFaceBookConfig = "native_uninstall_meta" to R.layout.native_none_media_action_small_bottom_stroke,
+                    layoutConfig = "native_uninstall" to R.layout.native_media_ctr_bot_small_filled,
+                    layoutFaceBookConfig = "native_uninstall_meta" to R.layout.native_media_ctr_bot_small_filled,
                 )
 
             }
@@ -89,15 +90,26 @@ fun UninstallExploreFeatureContent(
     ) {
         Box(modifier = Modifier.fillMaxSize()) {
             AppImage(
-                contentScale = ContentScale.FillWidth,
-                alignment = Alignment.TopCenter,
                 modifier = Modifier
-                    .fillMaxSize(),
-                res = R.drawable.intro_4
+                    .fillMaxWidth()
+                    .padding(bottom = 150.dp),
+                res = R.drawable.ic_unistall_guid,
+                contentScale = ContentScale.FillWidth
             )
 
             CenterColumn(modifier = Modifier
                 .fillMaxWidth()
+                /*.background(
+                    brush = Brush.linearGradient(
+                        colors = listOf(
+                            Color(0x32000000),
+                            Color(0xFFFFFFFF)
+                        ),
+                        start = Offset(0f, 0f),
+                        end = Offset(0f, 1000f)
+                    )
+                )*/
+                .background(Color(0xFFF9F9F9))
                 .align(Alignment.BottomCenter))
             {
                 Text(

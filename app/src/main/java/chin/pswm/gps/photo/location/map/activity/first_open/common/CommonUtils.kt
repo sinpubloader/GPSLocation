@@ -6,13 +6,13 @@ import android.content.Intent
 import android.provider.Settings
 import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.core.os.bundleOf
 import chin.pswm.gps.photo.location.map.activity.AdvanceCameraActivity
 import chin.pswm.gps.photo.location.map.activity.GridCameraActivity
 import chin.pswm.gps.photo.location.map.activity.MapViewActivity
 import chin.pswm.gps.photo.location.map.activity.StartActivity
 import chin.pswm.gps.photo.location.map_debug.R
 import timber.log.Timber
-import kotlin.jvm.java
 
 object CommonUtils {
 
@@ -41,8 +41,14 @@ object CommonUtils {
         (context as? Activity)?.finish()
     }
 
-    fun openToGpsCamera(context: Context) {
-        context.startActivity(Intent(context, AdvanceCameraActivity::class.java))
+    fun openToMainScreenFromUninstall(context: Context, shortcutID: Int) {
+        context.startActivity(
+            Intent(context, StartActivity::class.java).putExtras(
+                bundleOf(
+                    Constants.KEY_OPEN_FROM to shortcutID
+                )
+            )
+        )
         (context as? Activity)?.finish()
     }
 

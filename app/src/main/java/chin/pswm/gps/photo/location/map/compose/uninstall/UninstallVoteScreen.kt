@@ -24,7 +24,6 @@ fun UninstallVoteScreen(navController: NavHostController) {
             }
             if (context is android.app.Activity) {
                 context.startActivity(intent)
-                context.finish()
             }
 
         }
