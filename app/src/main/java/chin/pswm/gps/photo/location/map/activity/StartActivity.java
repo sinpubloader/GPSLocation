@@ -45,6 +45,7 @@ import chin.pswm.gps.photo.location.map.adapter.StartAdapter;
 import chin.pswm.gps.photo.location.map.ads.AdsManager;
 import chin.pswm.gps.photo.location.map.ads.adunit.banner.BannerType;
 import chin.pswm.gps.photo.location.map.ads.ext.Tracking;
+import chin.pswm.gps.photo.location.map.ads.prefs.Prefs;
 import chin.pswm.gps.photo.location.map.compose.ComposeBannerKt;
 import chin.pswm.gps.photo.location.map.compose.ComposeNativeKt;
 import chin.pswm.gps.photo.location.map.interfaces.OnClickGallery;
@@ -147,7 +148,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         notificationManager.cancelNotification(NotificationManager.DAILY_NOTIFICATION);
         notificationManager.cancelNotification(23647623);
 
-
+        Prefs.INSTANCE.setOnBoardOpen(false);
         requestExactAlarmPermission();
     }
 

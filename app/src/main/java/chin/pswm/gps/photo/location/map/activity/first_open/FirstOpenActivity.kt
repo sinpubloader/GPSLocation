@@ -53,6 +53,8 @@ class FirstOpenActivity : BaseActivity(), ITag {
                 intent = intent
             )
         }
+        prefs.onBoardOpen = false
+        notificationManager.cancelNotification(23644444)
     }
 
     private fun hideSystemNavigationBar() {
@@ -105,7 +107,13 @@ class FirstOpenActivity : BaseActivity(), ITag {
     override fun onDestroy() {
         super.onDestroy()
         Timber.Forest.tag(TAG).w("onDestroy: ")
-        if (prefs.firstOpen) {
+//        prefs.onBoardScreenCount = 0
+
+        if (prefs.onBoardOpen) {
+            notificationManager.setOnBoardNotification(
+                notificationId = 23644444,
+            )
+        } else if (prefs.firstOpen) {
             notificationManager.setNotification(
                 notificationId = 23647623,
                 type = Constants.OPEN_FROM_NOTIFY_KILL,

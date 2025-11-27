@@ -41,6 +41,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        KillAppNotificationHelper.INSTANCE.postIfNotShowingAds(this);
+//        KillAppNotificationHelper.INSTANCE.postIfNotShowingAds(this);
     }
 }

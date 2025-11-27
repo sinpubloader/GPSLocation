@@ -1,6 +1,7 @@
 package chin.pswm.gps.photo.location.map.activity.first_open.ui.onboard.view
 
 import android.os.Build
+import android.util.Log
 import androidx.activity.BackEventCompat
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.PredictiveBackHandler
@@ -90,7 +91,15 @@ fun OnboardContent(onFinish: () -> Unit) {
     }
 
     LaunchedEffect(Unit) {
+        Log.d("intro_count"," pref count is → ${prefs.onBoardScreenCount} ")
+        if (prefs.onBoardScreenCount > 0) {
+            pageState.animateScrollToPage(prefs.onBoardScreenCount)
+        }
         snapshotFlow { pageState.currentPage }.collectLatest { page ->
+            if (page != 0){
+                Log.d("intro_count"," pagerrrrr count is → ${page} ")
+                prefs.onBoardScreenCount = page
+            }
             when (page) {
                 0 -> {
                     if (adsManager.reloadAdsFSN) adsManager.nativeFSN.loadAd(context)

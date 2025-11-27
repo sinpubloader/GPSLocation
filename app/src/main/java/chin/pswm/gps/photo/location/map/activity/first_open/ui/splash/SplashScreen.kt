@@ -14,11 +14,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.core.os.bundleOf
 import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.navigation.NavHostController
-import chin.pswm.gps.photo.location.map.activity.AdvanceCameraActivity
-import chin.pswm.gps.photo.location.map.activity.GridCameraActivity
-import chin.pswm.gps.photo.location.map.activity.RoutePlanerActivity
 import chin.pswm.gps.photo.location.map.activity.StartActivity
-import chin.pswm.gps.photo.location.map.activity.earthview.EarthViewActivity
 import chin.pswm.gps.photo.location.map.activity.first_open.FirstOpenActivity
 import chin.pswm.gps.photo.location.map.activity.first_open.common.CommonUtils
 import chin.pswm.gps.photo.location.map.activity.first_open.common.Constants
@@ -31,7 +27,6 @@ import chin.pswm.gps.photo.location.map.ads.AppScreenState
 import chin.pswm.gps.photo.location.map.ads.adunit.common.AdErrorCode
 import chin.pswm.gps.photo.location.map.ads.adunit.common.AdsStatus
 import chin.pswm.gps.photo.location.map.ads.ext.Tracking
-import chin.pswm.gps.photo.location.map.ads.ext.Tracking.Companion.logEvent
 import chin.pswm.gps.photo.location.map.ads.ext.tryWithoutCatch
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
 import chin.pswm.gps.photo.location.map.ads.remoteconfig.RemoteConfigManager
@@ -76,56 +71,53 @@ fun SplashScreen(
     fun goNextScreen() {
         val extras = intent.extras
         Log.d("START_ISSUE", " start Go NEXT SCREEN METHOD ")
-        when {
-            prefs.firstOpen -> {
-                Log.d("START_ISSUE", " Go NEXT SCREEN → 1st cond true start language screen ")
-                navController.safeNavigate(Dest.Splash, adsManager.nextSplash, Dest.Splash)
-            }
 
-            else -> {
-                Log.d("START_ISSUE", " Go NEXT SCREEN → in else → extras is null ? → "+(extras != null))
-                if (extras != null) {
-                    val openFrom =
-                        extras.getInt(Constants.KEY_OPEN_FROM, Constants.OPEN_FROM_DEFAULT)
-                    if (openFrom == Constants.OPEN_FROM_UNINSTALL_SHORTCUT) {
-                        Timber.tag("START_ISSUE").d(" Go NEXT SCREEN → navigate to UninstallExploreFeature")
-                        navController.safeNavigate(Dest.Splash, Dest.UninstallExploreFeature, Dest.Splash)
-                    /*} else if (openFrom == Constants.OPEN_FROM_EARTH_SHORTCUT || openFrom == Constants.OPEN_EARTH_VIEW_FROM_NOTIFY_PINNED) {
-                        val intent = Intent(context, EarthViewActivity::class.java)
-                        context.startActivity(intent)
-                        logEvent(if (openFrom == Constants.OPEN_FROM_EARTH_SHORTCUT) "open_earth_from_shortcut" else "open_earth_from_notify_pin", null)
-                        (context as? Activity)?.finish()
-                    } else if (openFrom == Constants.OPEN_FROM_GPS_SHORTCUT || openFrom == Constants.OPEN_CAMERA_FROM_NOTIFY_PINNED) {
-                        val intent = Intent(context, AdvanceCameraActivity::class.java)
-                        context.startActivity(intent)
-                        logEvent(if (openFrom == Constants.OPEN_FROM_GPS_SHORTCUT) "open_gps_from_shortcut" else "open_camera_from_notify_pin", null)
-                        (context as? Activity)?.finish()
-                    } else if (openFrom == Constants.OPEN_FROM_ROUTE_SHORTCUT || openFrom == Constants.OPEN_ROUTE_FROM_NOTIFY_PINNED) {
-                        val intent = Intent(context, RoutePlanerActivity::class.java)
-                        context.startActivity(intent)
-                        logEvent(if (openFrom == Constants.OPEN_FROM_ROUTE_SHORTCUT) "open_rout_planner_from_shortcut" else "open_route_planner_from_notify_pin", null)
-                        (context as? Activity)?.finish()
-                    } else if (openFrom == Constants.OPEN_FROM_GRID_SHORTCUT || openFrom == Constants.OPEN_GRID_FROM_NOTIFY_PINNED) {
-                        val intent = Intent(context, GridCameraActivity::class.java)
-                        context.startActivity(intent)
-                        logEvent(if (openFrom == Constants.OPEN_FROM_GRID_SHORTCUT) "open_grid_from_shortcut" else "open_grid_from_notify_pin", null)
-                        (context as? Activity)?.finish()*/
-                    } else {
-                        context.startActivity(
-                            Intent(context, StartActivity::class.java).putExtras(
-                                bundleOf(
-                                    Constants.KEY_OPEN_FROM to openFrom
-                                )
+        if (extras != null && extras.getInt(
+                Constants.KEY_OPEN_FROM,
+                Constants.OPEN_FROM_DEFAULT
+            ) == Constants.OPEN_FROM_ONBOARD_NOTI
+        ) {
+            Timber.tag("START_ISSUE")
+                .d(" Go NEXT SCREEN → navigate to UninstallExploreFeature")
+            navController.safeNavigate(
+                Dest.Splash,
+                Dest.OnBoard,
+                Dest.Splash
+            )
+        } else if (prefs.firstOpen) {
+            Log.d("START_ISSUE", " Go NEXT SCREEN → 1st cond true start language screen ")
+            navController.safeNavigate(Dest.Splash, adsManager.nextSplash, Dest.Splash)
+        } else {
+            if (extras != null) {
+                val openFrom =
+                    extras.getInt(Constants.KEY_OPEN_FROM, Constants.OPEN_FROM_DEFAULT)
+                if (openFrom == Constants.OPEN_FROM_UNINSTALL_SHORTCUT) {
+                    Timber.tag("START_ISSUE")
+                        .d(" Go NEXT SCREEN → navigate to UninstallExploreFeature")
+                    navController.safeNavigate(
+                        Dest.Splash,
+                        Dest.UninstallExploreFeature,
+                        Dest.Splash
+                    )
+                } else {
+                    context.startActivity(
+                        Intent(context, StartActivity::class.java).putExtras(
+                            bundleOf(
+                                Constants.KEY_OPEN_FROM to openFrom
                             )
                         )
-                        (context as? Activity)?.finish()
-                    }
-                } else {
-                    Log.d("START_ISSUE", " Go NEXT SCREEN → in else → elseeeee start Main activity ")
-                    CommonUtils.openToMainScreen(context)
+                    )
+                    (context as? Activity)?.finish()
                 }
+            } else {
+                Log.d(
+                    "START_ISSUE",
+                    " Go NEXT SCREEN → in else → elseeeee start Main activity "
+                )
+                CommonUtils.openToMainScreen(context)
             }
         }
+
     }
 
     val notificationPermissionState = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

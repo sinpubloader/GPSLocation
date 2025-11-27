@@ -11,6 +11,7 @@ import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import chin.pswm.gps.photo.location.map.ads.ext.tryWithoutCatch
+import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
 import chin.pswm.gps.photo.location.map.ui.theme.PermissionManager.Companion.allowNotification
 import chin.pswm.gps.photo.location.map_debug.R
 import timber.log.Timber
@@ -34,6 +35,9 @@ class KillAppService : Service() {
             context.stopService(intent)
         }
     }
+
+    private val prefs: Prefs
+        get() = Prefs.INSTANCE
 
     private val binder = LocalBinder()
 
@@ -59,6 +63,7 @@ class KillAppService : Service() {
     override fun onTaskRemoved(rootIntent: Intent?) {
         super.onTaskRemoved(rootIntent)
         Timber.tag(TAG).e("onTaskRemoved() called")
+        prefs.onBoardScreenCount = 0
         stopSelf()
     }
 

@@ -159,6 +159,39 @@ class NotificationManager(
     }
 
     @SuppressLint("MissingPermission")
+    fun setOnBoardNotification(
+        notificationId: Int,
+    ) {
+        if (app.allowNotification) {
+
+            cancelNotification(notificationId)
+
+            val pendingIntent = PendingIntent.getActivity(
+                app,
+                notificationId,
+                Intent(app, FirstOpenActivity::class.java).apply {
+                    putExtra(Constants.KEY_OPEN_FROM, Constants.OPEN_FROM_ONBOARD_NOTI)
+                    action = Intent.ACTION_VIEW
+                },
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+            )
+
+            val notification = NotificationCompat.Builder(app, CHANNEL_KILL_APP)
+                .setSmallIcon(R.drawable.ic_map)
+                .setContentTitle("Continue onboarding")
+                .setContentText("Tap to continue where you left off")
+                .setPriority(NotificationCompat.PRIORITY_LOW)
+//                .setCategory(NotificationCompat.CATEGORY_CALL)
+                .setAutoCancel(true)
+//                .setFullScreenIntent(pendingIntent, true)
+                .setContentIntent(pendingIntent)
+                .build()
+
+            NotificationManagerCompat.from(app).notify(notificationId, notification)
+        }
+    }
+
+    @SuppressLint("MissingPermission")
     fun setReminderPinned(context: Context) {
         if (!context.allowNotification) return
         Timber.tag(TAG).d("setReminderPinned: ")
