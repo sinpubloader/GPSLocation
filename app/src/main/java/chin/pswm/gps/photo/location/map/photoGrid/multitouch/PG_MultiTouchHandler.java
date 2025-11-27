@@ -88,8 +88,8 @@ public final class PG_MultiTouchHandler implements Parcelable {
     }
 
     public final void setMatrices(Matrix matrix, Matrix scaleMatrix) {
-        Intrinsics.checkNotNullParameter(matrix, "matrix");
-        Intrinsics.checkNotNullParameter(scaleMatrix, "scaleMatrix");
+//        Intrinsics.checkNotNullParameter(matrix, "matrix");
+//        Intrinsics.checkNotNullParameter(scaleMatrix, "scaleMatrix");
         this.mMatrix.set(matrix);
         this.mSavedMatrix.set(matrix);
         this.scaleMatrix.set(scaleMatrix);

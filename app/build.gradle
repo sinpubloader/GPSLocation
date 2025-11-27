@@ -97,6 +97,7 @@ android {
             buildConfigField("String", "native_select_alt_high", "\"ca-app-pub-4432670726333720/5754424249\"")
             buildConfigField("String", "native_select_alt", "\"ca-app-pub-4432670726333720/2298943701\"")
             buildConfigField("String", "native_exit", "\"ca-app-pub-4432670726333720/2533364538\"")
+            buildConfigField("String", "native_uninstall", "\"ca-app-pub-4432670726333720/2121001537\"")
             buildConfigField("String", "native_home", "\"ca-app-pub-4432670726333720/3854315255\"")
             buildConfigField("String", "banner_home", "\"ca-app-pub-4432670726333720/1735288184\"")
             buildConfigField("String", "banner_inapp", "\"ca-app-pub-4432670726333720/4889394126\"")

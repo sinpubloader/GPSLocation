@@ -18,12 +18,24 @@ fun UninstallExploreFeatureScreen(navController: NavHostController) {
             Tracking.logEvent("uninstall_explore_go_home")
             CommonUtils.openToMainScreen(context)
         },
+        onGpsCamera = {
+            Tracking.logEvent("uninstall_explore_go_gpscamera")
+            CommonUtils.openToGpsCamera(context)
+        },
         onVote = {
             Tracking.logEvent("uninstall_explore_vote")
             navController.safeNavigate(
                 currentRound = Dest.UninstallExploreFeature,
                 destRoute = Dest.UninstallVote
             )
+        },
+        onMapView = {
+            Tracking.logEvent("uninstall_explore_go_mapview")
+            CommonUtils.openToMapView(context)
+        },
+        onPhotoGrid = {
+            Tracking.logEvent("uninstall_explore_go_photogrid")
+            CommonUtils.openToGridCamera(context)
         }
     )
 }

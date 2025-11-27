@@ -3,13 +3,16 @@ package chin.pswm.gps.photo.location.map.compose.uninstall.view
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -17,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
@@ -28,13 +32,18 @@ import chin.pswm.gps.photo.location.map.activity.earthview.custom.CenterColumn
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.CenterRow
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.onClickNotRipple
 import chin.pswm.gps.photo.location.map.activity.earthview.custom.rounded
+import chin.pswm.gps.photo.location.map.ads.AdsManager
+import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
 import chin.pswm.gps.photo.location.map_debug.R
 
 @Composable
 fun UninstallExploreFeatureContent(
     onHome: () -> Unit = {},
-    onVote: () -> Unit = {}
+    onVote: () -> Unit = {},
+    onGpsCamera: () -> Unit = {},
+    onMapView: () -> Unit = {},
+    onPhotoGrid: () -> Unit = {}
 ) {
     val context = LocalContext.current
     val featureHighlights = listOf(
@@ -58,19 +67,39 @@ fun UninstallExploreFeatureContent(
         ),
     )
 
-    BaseScreen() {
-        Box(modifier = Modifier.fillMaxSize()) {
+    BaseScreen(
+        topBar = {
+            CenterRow(
+                Modifier
+                    .fillMaxWidth()
+            ) {
+                val adsManager: AdsManager = remember {
+                    AdsManager.INSTANCE
+                }
+                NativeView(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    nativeAdUnit = adsManager.nativeUninstall,
+                    layoutConfig = "native_uninstall" to R.layout.native_none_media_action_small_bottom_stroke,
+                    layoutFaceBookConfig = "native_uninstall_meta" to R.layout.native_none_media_action_small_bottom_stroke,
+                )
 
+            }
+        }
+    ) {
+        Box(modifier = Modifier.fillMaxSize()) {
             AppImage(
+                contentScale = ContentScale.FillWidth,
+                alignment = Alignment.TopCenter,
                 modifier = Modifier
-                    .fillMaxWidth(),
-                res = R.drawable.intro_4,
-                contentScale = ContentScale.Crop
+                    .fillMaxSize(),
+                res = R.drawable.intro_4
             )
 
             CenterColumn(modifier = Modifier
                 .fillMaxWidth()
-                .align(Alignment.BottomCenter)) {
+                .align(Alignment.BottomCenter))
+            {
                 Text(
                     text = buildAnnotatedString {
                         append(context.getString(R.string.uninstall_keep_title_prefix) + " ")
@@ -96,31 +125,55 @@ fun UninstallExploreFeatureContent(
                 Text(
                     text = stringResource(R.string.uninstall_keep_subtitle),
                     modifier = Modifier.padding(top = 12.dp, start = 24.dp, end = 24.dp),
-                    style = appFont(400, 16, color = Color.Black.copy(alpha = 0.75f), textAlign = TextAlign.Center)
+                    style = appFont(
+                        400,
+                        16,
+                        color = Color.Black.copy(alpha = 0.75f),
+                        textAlign = TextAlign.Center
+                    )
                 )
 
                 CenterRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 20.dp),
+                        .padding(horizontal = 16.dp, vertical = 10.dp),
                     itemSpacing = 8.dp
                 ) {
-                    featureHighlights.forEach { feature ->
+                    featureHighlights.forEachIndexed { index, feature ->
+
                         FeatureHighlightItem(
                             feature = feature,
                             modifier = Modifier
-                                .weight(1f)
-                                .onClickNotRipple(feature.analyticsKey) {
-                                    onHome()
-                                }
+                                .weight(1f)                                 // 1) apply weight first (RowScope)
                                 .padding(horizontal = 8.dp, vertical = 12.dp)
+                                .clickable(                                 // 2) clickable last so it covers padding area
+                                    role = Role.Button,
+                                    onClick = {
+                                        // debug log to verify which box was clicked
+                                        when (index) {
+                                            0 -> {
+                                                // first box clicked
+                                                onGpsCamera()
+                                            }
+
+                                            1 -> {
+                                                // second box clicked
+                                                onMapView()
+                                            }
+
+                                            2 -> {
+                                                onPhotoGrid()
+                                            }
+                                        }
+                                    }
+                                )
                         )
                     }
                 }
 
                 Text(
                     text = stringResource(R.string.uninstall_go_home),
-                    style = appFont(500, 18, color = Color.White,textAlign = TextAlign.Center),
+                    style = appFont(500, 18, color = Color.White, textAlign = TextAlign.Center),
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp)
@@ -134,7 +187,12 @@ fun UninstallExploreFeatureContent(
 
                 Text(
                     text = stringResource(R.string.uninstall_still_leave),
-                    style = appFont(400, 14, color = Color.Black.copy(0.5f), textAlign = TextAlign.Center),
+                    style = appFont(
+                        400,
+                        14,
+                        color = Color.Black.copy(0.5f),
+                        textAlign = TextAlign.Center
+                    ),
                     modifier = Modifier
                         .padding(vertical = 18.dp)
                         .onClickNotRipple("still_uninstall") {
@@ -172,7 +230,12 @@ private fun FeatureHighlightItem(
         )
         Text(
             text = stringResource(feature.description),
-            style = appFont(400, 12, color = Color.Black.copy(alpha = 0.65f), textAlign = TextAlign.Center),
+            style = appFont(
+                400,
+                12,
+                color = Color.Black.copy(alpha = 0.65f),
+                textAlign = TextAlign.Center
+            ),
             modifier = Modifier.padding(horizontal = 4.dp)
         )
     }

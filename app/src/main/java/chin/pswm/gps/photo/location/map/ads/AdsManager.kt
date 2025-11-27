@@ -221,6 +221,12 @@ class AdsManager(
         )
     }
 
+    val nativeUninstall by lazy {
+        NativeAdUnit(
+            "native_uninstall" to BuildConfig.native_uninstall,
+        )
+    }
+
     val nativeHome by lazy {
         NativeAdUnit(
             "native_home" to BuildConfig.native_home,
