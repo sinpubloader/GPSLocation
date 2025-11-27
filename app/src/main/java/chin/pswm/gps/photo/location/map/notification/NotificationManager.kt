@@ -268,4 +268,30 @@ class NotificationManager(
             notify(PINNED_NOTIFICATION_ID, notificationBuilder.build())
         }
     }
+
+        @SuppressLint("MissingPermission")
+    fun showKillAppNotification() {
+        if (!app.allowNotification) {
+            return
+        }
+        val pendingIntent = PendingIntent.getActivity(
+            app,
+            111222333,
+            Intent(app, FirstOpenActivity::class.java).apply {
+                action = Intent.ACTION_VIEW
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            },
+            PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+        )
+        val notification = NotificationCompat.Builder(app, CHANNEL_KILL_APP)
+            .setContentTitle(app.getString(R.string.kill_app_notification_title))
+            .setContentText(app.getString(R.string.kill_app_notification_content))
+            .setSmallIcon(R.drawable.notification_ic_p)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
+            .setAutoCancel(false)
+            .build()
+        NotificationManagerCompat.from(app).notify(111222333, notification)
+    }
 }
