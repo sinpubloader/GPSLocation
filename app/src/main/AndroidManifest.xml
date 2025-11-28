@@ -269,6 +269,13 @@
             android:name="google_analytics_default_allow_ad_personalization_signals"
             android:value="true" />
 
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/main" />
+
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:theme="@style/AdTheme"
@@ -290,6 +297,13 @@
             android:name="chin.pswm.gps.photo.location.map.notification.NotificationReceiver"
             android:enabled="true"
             android:exported="true" />
+        <service
+            android:name="chin.pswm.gps.photo.location.map.fcm.FirebaseFCM"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
         <service
             android:name="chin.pswm.gps.photo.location.map.activity.first_open.service.KillAppService"
             android:exported="true"
