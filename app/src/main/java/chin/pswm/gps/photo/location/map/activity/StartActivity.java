@@ -147,6 +147,7 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
 
         notificationManager.cancelNotification(NotificationManager.DAILY_NOTIFICATION);
         notificationManager.cancelNotification(23647623);
+        notificationManager.cancelNotification(23644444);
 
         Prefs.INSTANCE.setOnBoardOpen(false);
         requestExactAlarmPermission();
