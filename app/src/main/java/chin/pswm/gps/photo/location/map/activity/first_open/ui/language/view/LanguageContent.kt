@@ -50,6 +50,7 @@ import chin.pswm.gps.photo.location.map.ads.adunit.banner.view.BannerView
 import chin.pswm.gps.photo.location.map.ads.adunit.natiive.view.NativeView
 import chin.pswm.gps.photo.location.map.ads.prefs.Prefs
 import chin.pswm.gps.photo.location.map.languegess.LanguageState
+import chin.pswm.gps.photo.location.map.languegess.LanguageState.languages
 import chin.pswm.gps.photo.location.map.ui.theme.appFont
 import chin.pswm.gps.photo.location.map.ui.theme.colorBlack
 import chin.pswm.gps.photo.location.map.ui.theme.colorWhite
@@ -138,6 +139,7 @@ fun LanguageContent(
             verticalArrangement = Arrangement.spacedBy(12.dp),
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 2.dp)
         ) {
+            val languageMap = languages.toMap()
             itemsIndexed(items = LanguageState.codes) { index, code ->
 
                 AppCard(
@@ -161,8 +163,12 @@ fun LanguageContent(
                     ) {
                         val isSelected = code == selectedLanguage
 
-                        val name = remember {
-                            Locale.forLanguageTag(code).getDisplayLanguage(Locale.getDefault())
+//                        val name = remember {
+//                            Locale.forLanguageTag(code).getDisplayLanguage(Locale.getDefault())
+//                        }
+
+                        val name = remember(code) {
+                            languageMap[code]
                         }
                         val nameBase = remember {
                             Locale.forLanguageTag(code).getDisplayLanguage(Locale.forLanguageTag(code))

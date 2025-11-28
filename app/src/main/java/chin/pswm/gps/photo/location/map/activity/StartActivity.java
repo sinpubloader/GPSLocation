@@ -823,45 +823,17 @@ public class StartActivity extends BaseActivity implements OnClickGallery {
         if (i == 0) {
             Toast.makeText(this, getResources().getString(R.string.gps80), 0).show();
             return;
-        } /*else if (i > 1 && i <= 3) {
-            SpManager.setRate_Which(i);
-            Intent intent = new Intent("android.intent.action.SENDTO");
-            intent.setType("text/plain");
-            intent.setData(Uri.parse(MailTo.MAILTO_SCHEME));
-            intent.putExtra("android.intent.extra.EMAIL", new String[]{"abcd@gmail.com"});
-            intent.putExtra("android.intent.extra.SUBJECT", "Response For the Live Football TV - Live Score Application");
-            intent.putExtra("android.intent.extra.TEXT", "Thank you For your Response. If you have Any Suggestion then You may type Here. \n");
-            intent.setPackage("com.google.android.gm");
-            try {
-                startActivity(Intent.createChooser(intent, "Send mail..."));
-            } catch (ActivityNotFoundException unused) {
-                Toast.makeText(this, getResources().getString(R.string.gps81), 0).show();
-            }
-            dialog.dismiss();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public final void run() {
-                    StartActivity.this.m134xa50f52d2();
-                }
-            }, 2000L);
-        }*/ else if (i > 3) {
-            SharedHelper.putBoolean(getApplicationContext(), "is_user_already_rated", true);
+        }
+        SharedHelper.putBoolean(getApplicationContext(), "is_user_already_rated", true);
+        if (i > 3) {
             SpManager.setRate_Which(i);
             try {
                 startActivity(new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + getPackageName())));
             } catch (ActivityNotFoundException unused2) {
                 startActivity(new Intent("android.intent.action.VIEW", Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName())));
             }
-            /*dialog.dismiss();
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public final void run() {
-                    StartActivity.this.m135xcaa35bd3();
-                }
-            }, 2000L);*/
         }
         dialog.dismiss();
-//        StartActivity.this.m135xcaa35bd3();
     }
 
 

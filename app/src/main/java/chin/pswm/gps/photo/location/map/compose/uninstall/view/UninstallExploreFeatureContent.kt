@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
@@ -88,29 +89,21 @@ fun UninstallExploreFeatureContent(
             }
         }
     ) {
-        Box(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier.fillMaxSize()
+        ) {
             AppImage(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 150.dp),
+                    .height(0.dp)
+                    .weight(1f),
                 res = R.drawable.ic_unistall_guid,
-                contentScale = ContentScale.FillWidth
+                contentScale = ContentScale.Crop
             )
 
             CenterColumn(modifier = Modifier
                 .fillMaxWidth()
-                /*.background(
-                    brush = Brush.linearGradient(
-                        colors = listOf(
-                            Color(0x32000000),
-                            Color(0xFFFFFFFF)
-                        ),
-                        start = Offset(0f, 0f),
-                        end = Offset(0f, 1000f)
-                    )
-                )*/
-                .background(Color(0xFFF9F9F9))
-                .align(Alignment.BottomCenter))
+                .padding(top = 10.dp))
             {
                 Text(
                     text = buildAnnotatedString {
