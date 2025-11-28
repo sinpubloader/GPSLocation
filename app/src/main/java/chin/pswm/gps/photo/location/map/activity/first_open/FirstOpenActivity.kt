@@ -53,8 +53,8 @@ class FirstOpenActivity : BaseActivity(), ITag {
                 intent = intent
             )
         }
-        prefs.onBoardOpen = false
-        notificationManager.cancelNotification(23644444)
+//        prefs.onBoardOpen = false
+        notificationManager.cancelNotification(111222333)
     }
 
     private fun hideSystemNavigationBar() {
@@ -76,52 +76,25 @@ class FirstOpenActivity : BaseActivity(), ITag {
         hideSystemNavigationBar()
     }
 
-    /*private fun initArgs() {
-        if (intent.data != null) {
-            Tracking.logEvent("open_from_gallery")
-        }
-
-        val extras = intent.extras ?: return
-
-        val openTo = extras.getInt(Constants.KEY_OPEN_TO, Constants.OPEN_TO_DEFAULT)
-        prefs.openTo = openTo
-
-        Timber.Forest.tag(TAG).d("initArgs: openTo $openTo")
-
-        val openFrom = extras.getInt(Constants.KEY_OPEN_FROM, Constants.OPEN_FROM_DEFAULT)
-        when (openFrom) {
-            Constants.OPEN_FROM_SHORTCUT -> {
-                Tracking.logEvent("open_from_shortcut")
-                if (openTo == Constants.OPEN_TO_UNINSTALL) {
-                    Tracking.logEvent("open_from_shortcut_uninstall")
-                }
-            }
-
-            Constants.OPEN_FROM_NOTIFY -> Tracking.logEvent("open_from_notification")
-            Constants.OPEN_FROM_NOTIFY_PINNED -> Tracking.logEvent("open_from_notification_pinned")
-            Constants.OPEN_FROM_NOTIFY_KILL -> Tracking.logEvent("open_from_notification_kill_app")
-            Constants.OPEN_FROM_WIDGET -> Tracking.logEvent("open_from_widget")
-        }
-    }*/
 
     override fun onDestroy() {
         super.onDestroy()
         Timber.Forest.tag(TAG).w("onDestroy: ")
 //        prefs.onBoardScreenCount = 0
 
-        if (prefs.onBoardOpen) {
-            notificationManager.setOnBoardNotification(
-                notificationId = 23644444,
-            )
-        } else if (prefs.firstOpen) {
-            notificationManager.setNotification(
-                notificationId = 23647623,
-                type = Constants.OPEN_FROM_NOTIFY_KILL,
-                title = this.getString(R.string.onboard_popup_title),
-                content = this.getString(R.string.onboard_popup_content),
-                icon = R.drawable.img_camera,
-            )
-        }
+//        if (prefs.onBoardOpen) {
+//            notificationManager.setOnBoardNotification(
+//                notificationId = 23644444,
+//            )
+//        } else if (prefs.firstOpen) {
+//            notificationManager.setNotification(
+//                notificationId = 23647623,
+//                type = Constants.OPEN_FROM_NOTIFY_KILL,
+//                title = this.getString(R.string.onboard_popup_title),
+//                content = this.getString(R.string.onboard_popup_content),
+//                icon = R.drawable.img_camera,
+//            )
+//        }
         unbindService()
     }
 

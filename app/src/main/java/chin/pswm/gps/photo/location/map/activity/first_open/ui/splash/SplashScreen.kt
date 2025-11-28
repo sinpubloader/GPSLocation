@@ -79,7 +79,7 @@ fun SplashScreen(
         val extras = intent.extras
         Log.d("START_ISSUE", " start Go NEXT SCREEN METHOD ")
 
-        if (extras != null && extras.getInt(
+        /*if (extras != null && extras.getInt(
                 Constants.KEY_OPEN_FROM,
                 Constants.OPEN_FROM_DEFAULT
             ) == Constants.OPEN_FROM_ONBOARD_NOTI
@@ -91,7 +91,7 @@ fun SplashScreen(
                 Dest.OnBoard,
                 Dest.Splash
             )
-        } else if (prefs.firstOpen) {
+        } else*/ if (prefs.firstOpen) {
             Log.d("START_ISSUE", " Go NEXT SCREEN → 1st cond true start language screen ")
             navController.safeNavigate(Dest.Splash, adsManager.nextSplash, Dest.Splash)
         } else {

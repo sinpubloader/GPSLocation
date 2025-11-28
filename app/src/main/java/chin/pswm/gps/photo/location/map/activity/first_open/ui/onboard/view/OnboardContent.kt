@@ -91,15 +91,15 @@ fun OnboardContent(onFinish: () -> Unit) {
     }
 
     LaunchedEffect(Unit) {
-        Log.d("intro_count"," pref count is → ${prefs.onBoardScreenCount} ")
+       /* Log.d("intro_count"," pref count is → ${prefs.onBoardScreenCount} ")
         if (prefs.onBoardScreenCount > 0) {
             pageState.animateScrollToPage(prefs.onBoardScreenCount)
-        }
+        }*/
         snapshotFlow { pageState.currentPage }.collectLatest { page ->
-            if (page != 0){
+            /*if (page != 0){
                 Log.d("intro_count"," pagerrrrr count is → ${page} ")
                 prefs.onBoardScreenCount = page
-            }
+            }*/
             when (page) {
                 0 -> {
                     if (adsManager.reloadAdsFSN) adsManager.nativeFSN.loadAd(context)

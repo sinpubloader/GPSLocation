@@ -27,7 +27,7 @@ fun OnboardScreen(
 
     OnboardContent(
         onFinish = {
-            prefs.onBoardOpen = false
+//            prefs.onBoardOpen = false
             if (adsManager.nextOnBoard == Dest.Main) {
                 prefs.firstOpen = false
                 CommonUtils.openToMainScreen(context)
@@ -42,7 +42,7 @@ fun OnboardScreen(
     )
 
     LaunchedEffect(Unit) {
-        prefs.onBoardOpen = true
+//        prefs.onBoardOpen = true
         when (adsManager.nextOnBoard) {
             Dest.Language -> {
                 adsManager.nativeLanguage.loadAd(context)

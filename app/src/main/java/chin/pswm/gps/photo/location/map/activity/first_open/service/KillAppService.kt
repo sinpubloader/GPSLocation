@@ -36,8 +36,8 @@ class KillAppService : Service() {
         }
     }
 
-    private val prefs: Prefs
-        get() = Prefs.INSTANCE
+//    private val prefs: Prefs
+//        get() = Prefs.INSTANCE
 
     private val binder = LocalBinder()
 
@@ -63,7 +63,7 @@ class KillAppService : Service() {
     override fun onTaskRemoved(rootIntent: Intent?) {
         super.onTaskRemoved(rootIntent)
         Timber.tag(TAG).e("onTaskRemoved() called")
-        prefs.onBoardScreenCount = 0
+//        prefs.onBoardScreenCount = 0
         stopSelf()
     }
 

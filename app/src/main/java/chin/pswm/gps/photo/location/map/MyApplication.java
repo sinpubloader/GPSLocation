@@ -29,7 +29,7 @@ import chin.pswm.gps.photo.location.map.ads.ext.Tracking;
 import timber.log.Timber;
 
 
-public class MyApplication extends MultiDexApplication implements Application.ActivityLifecycleCallbacks, LifecycleObserver {
+public class MyApplication extends MultiDexApplication /*implements Application.ActivityLifecycleCallbacks, LifecycleObserver*/ {
     public static Activity currentActivity = null;
     public static MyApplication instance = null;
     private static Intent intent = null;
@@ -50,7 +50,7 @@ public class MyApplication extends MultiDexApplication implements Application.Ac
         AdjustManager adjustManager = new AdjustManager();
         Prefs prefs = new Prefs(this);
         AdsManager adsManager = new AdsManager(this, prefs);
-        noti = new NotificationManager(this);
+        NotificationManager noti = new NotificationManager(this);
         FirebaseApp.initializeApp(this);
         RemoteConfigManager remoteConfigManager = new RemoteConfigManager(this, prefs);
         remoteConfigManager.fetchRemoteConfig();
@@ -61,44 +61,44 @@ public class MyApplication extends MultiDexApplication implements Application.Ac
         FacebookSdk.setClientToken("7e4fe4f80a01570be8f95bcd5da6fa26");
         FacebookSdk.sdkInitialize(getApplicationContext());
 
-        registerActivityLifecycleCallbacks(this);
-        ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
+//        registerActivityLifecycleCallbacks(this);
+//        ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
     }
 
-    @Override
-    public void onActivityStarted(Activity activity) {
-        started++;
-    }
+//    @Override
+//    public void onActivityStarted(Activity activity) {
+//        started++;
+//    }
+//
+//    @Override
+//    public void onActivityStopped(Activity activity) {
+//        stopped++;
+//
+//        // If started == stopped → app is now in background
+//        if (started == stopped) {
+//
+//            // Show onboarding reminder only if onboarding NOT completed
+//            if (Prefs.INSTANCE.getOnBoardOpen()) {
+//                noti.setOnBoardNotification(23644444);
+//            }
+//        }
+//    }
 
-    @Override
-    public void onActivityStopped(Activity activity) {
-        stopped++;
-
-        // If started == stopped → app is now in background
-        if (started == stopped) {
-
-            // Show onboarding reminder only if onboarding NOT completed
-            if (Prefs.INSTANCE.getOnBoardOpen()) {
-                noti.setOnBoardNotification(23644444);
-            }
-        }
-    }
-
-    // ---------- Unused lifecycle callbacks ----------
-    @Override
-    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {}
-
-    @Override
-    public void onActivityResumed(Activity activity) {}
-
-    @Override
-    public void onActivityPaused(Activity activity) {}
-
-    @Override
-    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {}
-
-    @Override
-    public void onActivityDestroyed(Activity activity) {}
+//    // ---------- Unused lifecycle callbacks ----------
+//    @Override
+//    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {}
+//
+//    @Override
+//    public void onActivityResumed(Activity activity) {}
+//
+//    @Override
+//    public void onActivityPaused(Activity activity) {}
+//
+//    @Override
+//    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {}
+//
+//    @Override
+//    public void onActivityDestroyed(Activity activity) {}
 
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
